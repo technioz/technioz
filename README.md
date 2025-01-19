@@ -45,8 +45,6 @@ To empower businesses through innovative IT solutions, bridging the gap between 
 
 ## 🛠️ Technologies We Use
 
-![Tech Stack](https://via.placeholder.com/800x400 "Technologies")
-
 We work with a diverse range of technologies, including:
 - **Programming Languages:** JavaScript, Python, Java
 - **Frameworks:** React, Angular, Node.js
@@ -55,18 +53,9 @@ We work with a diverse range of technologies, including:
 
 ---
 
-## 📈 Our Projects
-
-Explore our innovative projects that redefine IT excellence:
-1. **[Project One](https://github.com/ReadMD/Project-One)**: E-commerce solution for retail.
-2. **[Project Two](https://github.com/ReadMD/Project-Two)**: AI-powered analytics tool.
-3. **[Project Three](https://github.com/ReadMD/Project-Three)**: Cloud-based CRM software.
-
----
-
 ## 🧑‍💻 Join Us
 
-We are always looking for talented individuals to join our team. Check out our [Careers Page](https://readmdit.com/careers) for more information.
+We are always looking for talented individuals to join our team. Check out our [Careers Page](https://technioz.com/careers) for more information.
 
 ---
 
@@ -74,10 +63,9 @@ We are always looking for talented individuals to join our team. Check out our [
 
 Feel free to reach out to us:
 
-- **Email:** contact@readmdit.com
-- **Phone:** +1-800-123-4567
-- **Website:** [www.readmdit.com](https://www.readmdit.com)
-- **LinkedIn:** [ReadMD IT Solutions](https://linkedin.com/company/readmd-it-solutions)
+- **Email:** technioztech@gmail.com
+- **Website:** [www.readmdit.com](https://www.technioz.com)
+- **LinkedIn:** [ReadMD IT Solutions](https://linkedin.com/company/technioz)
 
 ---
 
