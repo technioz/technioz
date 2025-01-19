@@ -37,8 +37,8 @@ To empower businesses through innovative IT solutions, bridging the gap between 
 |-----------------------------|-------------------------------------------------|
 | **Custom Software**         | Tailored solutions for your unique needs.       |
 | **Cloud Services**          | Scalable cloud architecture and management.     |
-| **Cybersecurity**           | Protect your business from digital threats.     |
-| **AI & Machine Learning**   | Transform data into actionable insights.         |
+| **Digital Marketing**       | Protect your business from digital threats.     |
+| **AI & Machine Learning**   | Transform data into actionable insights.        |
 | **IT Consultancy**          | Expert advice for your IT challenges.           |
 
 ---
@@ -46,10 +46,10 @@ To empower businesses through innovative IT solutions, bridging the gap between 
 ## 🛠️ Technologies We Use
 
 We work with a diverse range of technologies, including:
-- **Programming Languages:** JavaScript, Python, Java
-- **Frameworks:** React, Angular, Node.js
+- **Programming Languages:** JavaScript, Python, Java, PHP, .Net, Kotline, Swift, Flutter
+- **Frameworks:** React, Angular, Node.js, NextJs, NestJs, Android, IOS
 - **Cloud Platforms:** AWS, Azure, Google Cloud
-- **Databases:** MySQL, PostgreSQL, MongoDB
+- **Databases:** MySQL, PostgreSQL, MongoDB, Cloud based databases
 
 ---
 
