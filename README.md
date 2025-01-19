@@ -6,13 +6,13 @@
 
 ## 🌟 About Us
 
-**ReadMD IT Solutions** is your trusted partner for innovative and scalable IT solutions. We specialize in software development, cloud services, and digital transformation to help businesses thrive in a competitive world.
+**Technioz** is your trusted partner for innovative and scalable IT solutions. We specialize in software development, cloud services, and digital transformation to help businesses thrive in a competitive world.
 
 ### What We Do
 - **Custom Software Development**
 - **Cloud Computing Solutions**
 - **Enterprise IT Services**
-- **Cybersecurity**
+- **Digital Marketing**
 - **AI & Machine Learning Solutions**
 
 With a team of experts and cutting-edge technology, we deliver reliable and impactful solutions tailored to your business needs.
@@ -64,8 +64,8 @@ We are always looking for talented individuals to join our team. Check out our [
 Feel free to reach out to us:
 
 - **Email:** technioztech@gmail.com
-- **Website:** [www.readmdit.com](https://www.technioz.com)
-- **LinkedIn:** [ReadMD IT Solutions](https://linkedin.com/company/technioz)
+- **Website:** [www.technioz.com](https://www.technioz.com)
+- **LinkedIn:** [Technioz](https://linkedin.com/company/technioz)
 
 ---
 
