@@ -63,7 +63,7 @@ We are always looking for talented individuals to join our team. Check out our [
 
 Feel free to reach out to us:
 
-- **Email:** technioztech@gmail.com
+- **Email:** info@technioz.com
 - **Website:** [www.technioz.com](https://www.technioz.com)
 - **LinkedIn:** [Technioz](https://linkedin.com/company/technioz)
 
