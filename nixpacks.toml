@@ -1,0 +1,17 @@
+[phases.setup]
+nixpkgsArchive = "ffeebf0acf3ae8b29f8c7049cd911b9636efd7e7"
+
+[variables]
+NODE_VERSION = "22"
+NPM_CONFIG_FUND = "false"
+NPM_CONFIG_AUDIT = "false"
+NEXT_TELEMETRY_DISABLED = "1"
+
+[phases.install]
+cmds = ["npm install"]
+
+[phases.build]
+cmds = ["npm run build"]
+
+[start]
+cmd = "npm run start"
