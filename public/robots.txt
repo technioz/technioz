@@ -1,0 +1,51 @@
+User-agent: *
+Allow: /
+Disallow: /md/
+
+User-agent: GPTBot
+Allow: /
+Allow: /md/
+Disallow: /privacy
+Disallow: /terms
+
+User-agent: ChatGPT-User
+Allow: /
+Allow: /md/
+
+User-agent: Claude-Web
+Allow: /
+Allow: /md/
+
+User-agent: anthropic-ai
+Allow: /
+Allow: /md/
+
+User-agent: Google-Extended
+Allow: /
+Allow: /md/
+
+User-agent: CCBot
+Allow: /
+Allow: /md/
+Crawl-delay: 2
+
+User-agent: Bytespider
+Allow: /
+Allow: /md/
+Crawl-delay: 1
+
+User-agent: Applebot
+Allow: /
+Allow: /md/
+
+User-agent: PerplexityBot
+Allow: /
+Allow: /md/
+
+User-agent: YouBot
+Allow: /
+Allow: /md/
+
+Sitemap: https://technioz.com/sitemap.xml
+
+Host: technioz.com

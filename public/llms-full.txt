@@ -1,0 +1,197 @@
+# Technioz — Full-Cycle Software Development for Growing Businesses
+
+> Complete site content for LLM ingestion. All pages, services, portfolio, and blog content in a single file.
+
+---
+
+## COMPANY OVERVIEW
+
+**Technioz** is a full-cycle software development company serving startups and SMBs worldwide. Founded in March 2025 by Gaurav Bhatia and Pallavi Mishra. HQ in Jalandhar, Punjab, India (144001). Contact: info@technioz.com.
+
+**Core proposition**: One partner for web, mobile, AI, and cloud. Most growing companies juggle three agencies, two freelancers, and a part-time dev. Technioz gives you one team that does everything — so you ship faster, sleep better, and stop paying the integration tax.
+
+**Key stats**: 200+ projects shipped, 50+ engineers, 98% on-time delivery, 10+ years of combined experience.
+
+**Founders**: Gaurav Bhatia, Pallavi Mishra
+
+**Social**: Twitter (@technioz), Instagram (@technioz), LinkedIn (company/technioz), GitHub (technioz)
+
+---
+
+## HOMEPAGE (PRESTO Framework)
+
+### Problem (Hero)
+You have the vision. We handle everything else. For startups and SMBs. Most growing companies juggle three agencies, two freelancers, and a part-time dev who's about to quit. That's not how great software gets built. Technioz gives you one team that does web apps, mobile apps, AI integrations, and cloud infrastructure. CTA: Ship with us / Book a call.
+
+### Relief
+One partner. Zero finger-pointing. Imagine briefing a single team, getting a single timeline, and paying a single invoice — while web, mobile, AI, and cloud all move forward together. Six relief cards: One relationship, One timeline, One invoice, One standard, One backlog, One launch day.
+
+### Evidence (Case Stats)
+Teams like yours already ship with us. Three case stat cards:
+- 85% faster booking processing — Al Khanjry Groups
+- $27M+ in digital ticket sales — Al Khanjry Groups
+- 60% lower ticketing costs — Al Khanjry Groups
+
+### Solution (Services Grid)
+Every layer of your stack. Every stage of your growth. Six service cards:
+1. Web Applications — React, Next.js, Node.js, TypeScript
+2. Mobile Apps — iOS, Android, React Native, Flutter
+3. AI & Machine Learning — Chatbots, Analytics, Vision, NLP
+4. Cloud & DevOps — AWS, Docker, Kubernetes, CI/CD
+5. IT Consulting — Strategy, Architecture, Roadmap, Audit
+6. Team Augmentation — React, Node.js, DevOps, Python
+
+### Process
+Four weeks to first deploy. Zero months of onboarding.
+1. Discover — Requirements, goals, constraints → trusted timeline
+2. Design — Wireframes, architecture, sprint plan → approved before code
+3. Build — Two-week sprints with demos every fourteen days
+4. Launch & Scale — Deploy, monitor, iterate with ongoing support
+
+### Technology Stack
+React, Next.js, TypeScript, Node.js, Python, AWS, Docker, Kubernetes, MongoDB, PostgreSQL, GraphQL, REST API, Redux, Tailwind CSS, Flutter, React Native, Azure, CI/CD, Microservices, Serverless.
+
+### Transformation (Outcomes)
+What your team looks like after working with us:
+- Ship features, not manage vendors — velocity doubles
+- Sleep through launch weekends — everything tested together
+- Scale without hiring chaos — scale team up or down
+- One person who gets the whole picture — no handoffs
+
+### Testimonials
+- Rashid Alkhanjry (Founder/CEO, Al Khanjry Groups): "Technioz took the time to really understand our business and delivered a solution that just works."
+- Ali Salem (Founder/CEO, Hatta Sky): "We needed a partner who could guide us through the tech side of things, and Technioz did exactly that."
+- Abdul Rehman (Founder/CEO, Hatta Food Hub): "From start to finish, the process was straightforward and professional."
+- Shahid Yousef (Founder/CEO, IGL Transport): "We needed a partner who could guide us through the tech side of things, and Technioz did exactly that."
+
+### Industries
+5 industries, 200+ projects deep. We speak your domain, not just your stack.
+
+**Featured**: Transportation & Logistics — booking platforms, fleet dashboards, route optimizers, multi-vendor ticketing systems. Tags: Real-time tracking, Online ticketing, Fleet management, Multi-agent systems, AWS auto-scaling, Payment integration.
+
+**Other industries**:
+- Finance — PCI-DSS, Stripe, Banking APIs, Fraud Detection, RegTech
+- E-commerce — Shopify, Stripe, PIM, Analytics, Headless
+- Healthcare — HIPAA, FHIR, Telehealth, EMR/EHR, BAA-ready
+- Education — LMS, SCORM, Assessments, AI tutoring, Analytics
+
+### Offer (CTA)
+Free roadmap session. Zero sales pitch. 30 minutes — we map your product's next three milestones: what to build, in what order, what it'll take. 100% Free, 30min Live session, $0 No commitment. Typical response time: under 4 hours. CTA: Claim your free roadmap (Calendly) / Or message us first.
+
+---
+
+## ABOUT PAGE
+
+### Mission
+To empower businesses of all sizes with innovative, custom-built software that solves real-world challenges and accelerates growth.
+
+### Vision
+To become a trusted technology partner for businesses worldwide, recognized for our passion, expertise, and ability to deliver impactful solutions across diverse industries.
+
+### Our Story
+Founded in 2024 by passionate technologists with experience across logistics, e-learning, e-commerce, fintech, and custom app development. Driven by curiosity, creativity, and a relentless desire to help clients succeed. Every business deserves access to world-class technology and a partner who truly cares.
+
+### Values
+- **Passion**: Genuine passion for technology and problem-solving
+- **Expertise**: Experts from diverse backgrounds crafting tailored solutions
+- **Quality**: High-quality, reliable, and scalable software
+- **Integrity**: Honest communication, transparency, lasting relationships
+
+### Stats
+- 10+ Projects Delivered
+- 100% Client Focus
+- 10+ Team Members
+
+---
+
+## SERVICES OVERVIEW
+
+Five core service areas plus team augmentation. Delivery process: Discovery → Strategy → Design → Development → Testing → Deployment → Support & Maintenance.
+
+### Web Development
+Custom web applications with React, Next.js, Node.js. Responsive design, PWAs, e-commerce solutions (Shopify, WooCommerce, Stripe, PayPal), CMS (Headless CMS, Strapi, Contentful, WordPress), API development (REST, GraphQL, Express.js, FastAPI), website maintenance. Features: responsive, high performance, security-first, SEO optimized, user-centric, mobile-first.
+
+### Mobile App Development
+Native iOS (Swift, SwiftUI, Core Data, CloudKit), native Android (Kotlin, Jetpack Compose, Room, Firebase), cross-platform (React Native, Expo, Redux, TypeScript), Flutter (Dart, Provider, Firebase), PWAs, App Store Optimization. App types: e-commerce, social media, healthcare (HIPAA), finance, education, on-demand.
+
+### AI & Machine Learning
+NLP (NLTK, spaCy, Transformers, BERT — sentiment analysis, text classification, translation, content generation), Computer Vision (OpenCV, TensorFlow, PyTorch, YOLO — object detection, facial recognition, quality control, medical imaging), Predictive Analytics (Scikit-learn, XGBoost, Prophet — sales forecasting, risk assessment, churn, demand planning), Recommendation Systems, AI Chatbots (Dialogflow, Rasa, OpenAI GPT), RPA (UiPath, Automation Anywhere, Blue Prism). Industry applications across healthcare, finance, retail, manufacturing, transportation, energy.
+
+### Cloud Services
+Multi-cloud (AWS, Azure, Google Cloud). Migration, DevOps & CI/CD (Jenkins, GitLab CI, AWS CodePipeline), serverless (Lambda, Azure Functions, Google Cloud Functions), container orchestration (Kubernetes, Docker, EKS, AKS), cloud security, infrastructure as code (Terraform, CloudFormation, ARM). Migration process: Assessment → Strategy → Design → Migration → Testing → Optimization.
+
+### IT Consulting
+Technology strategy & roadmap (4-8 weeks), digital transformation (3-6 months), architecture review & design (6-12 weeks), vendor selection & management (4-10 weeks), security & compliance (6-8 weeks), performance optimization (4-6 weeks). Process: Discovery → Analysis → Strategy → Planning → Execution → Optimization. Industry expertise: Financial services, Healthcare, Manufacturing, Retail & E-commerce.
+
+---
+
+## PORTFOLIO (5 Projects)
+
+1. **HattaFoodHub — Food Delivery App**: React Native, Laravel, MySQL, Firebase. Scalable platform connecting restaurants, couriers, and customers with real-time tracking. 10,000+ concurrent orders handled, 99.9% uptime, 40% increase in repeat customers. 4-month timeline. Food & Logistics industry.
+
+2. **Al Khanjry Groups — Transport Ticketing System**: React, Next.js, Node.js, PostgreSQL, Redis, AWS. Online bus booking portal connecting the UAE and Oman with real-time seat selection, bilingual support, and payment gateways. $27M+ in ticket sales, 150K+ bookings, 200K+ passengers, 80+ routes. 7-month timeline. Transportation & Logistics industry.
+
+3. **Folio — AI Website Builder**: Next.js, TypeScript, OpenAI, LangChain, Tailwind CSS. AI-powered builder that creates deploy-ready websites from a social-media link, document, or prompt in one click. AI SaaS product.
+
+4. **Sky Growers — Farm-Fresh Produce Platform**: Next.js, TypeScript, Stripe, PostgreSQL. Farm-to-table e-commerce platform for a family-owned regenerative farm in Christchurch, New Zealand. 24/7 online ordering, bulk wholesale pricing, subscription boxes, automated payments. Agriculture & Food industry.
+
+---
+
+## BLOG (5 Articles)
+
+1. **How Technioz Powered Al Khanjry Transport's Digital Transformation in Oman** (Case Study, Aug 9 2025, 6 min)
+   - Replaced manual ticketing with online booking, AWS auto-scaling, real-time availability
+   - 85% reduction in booking time, 60% increase in online bookings, 40% reduction in ops costs
+   - Tech: React, Next.js, Node.js, PostgreSQL, Redis, AWS, Docker, GitHub Actions, DataDog
+
+2. **From Paper Tickets to Digital Success: How We Transformed Integrated Golden Lines** (Case Study, Nov 8 2025, 7 min)
+   - Phased approach: online booking → admin dashboard → mobile experience → analytics
+   - Booking from 15 min to 30 sec, 35% revenue increase, satisfaction from 3.2 to 4.7
+
+3. **Building Scalable Microservices with Node.js and Docker** (Backend, Jan 10 2025, 6 min)
+   - Microservices architecture: independent deployment, fault isolation, team autonomy
+   - Code examples for Express.js service, Dockerfile, Kubernetes deployment
+   - Best practices: service boundaries, API versioning, health checks, logging, circuit breakers
+
+4. **React 19 Features Every Developer Should Know** (Frontend, Apr 8 2025, 5 min)
+   - Concurrent rendering, automatic batching, useOptimistic hook, useFormStatus hook
+   - Server Components and Server Actions now stable
+   - Code examples for all new hooks
+
+5. **Cloud Security Best Practices for Enterprise Applications** (Cloud Security, Jan 5 2025, 7 min)
+   - IAM (least privilege, MFA, RBAC), network security (WAF, DDoS, rate limiting)
+   - Data protection (encryption at rest/in transit, key management)
+   - Monitoring (logging, vulnerability scanning, incident response)
+   - Compliance: SOC 2, HIPAA, PCI-DSS, GDPR
+
+---
+
+## CONTACT PAGE
+
+Form fields: First Name, Last Name, Email, Phone, Company, Service (Web/Mobile/AI/Cloud/Enterprise/IT Consulting/E-commerce/Other), Project Budget (<$10K, $10-25K, $25-50K, $50-100K, >$100K), Project Timeline (ASAP, 1-3mo, 3-6mo, 6-12mo, Flexible), Project Description.
+
+FAQ: 2-6 month typical timeline, ongoing support available, can integrate with existing teams.
+
+---
+
+## PRICING (from md/pricing.md)
+
+- Project-Based: $10,000 – $100,000+
+- Dedicated Team: $8,000 – $30,000/month
+- Team Augmentation: $3,000 – $6,000/month per engineer
+- Web App MVP: $15,000 – $40,000 (2-4 months)
+- Mobile App Single Platform: $20,000 – $50,000 (3-5 months)
+- AI/ML Integration: $15,000 – $60,000 (2-4 months)
+- Cloud Migration: $10,000 – $50,000 (1-3 months)
+- Free 30-minute roadmap session available
+
+---
+
+## SEO/AEO/GEO Metadata
+
+- Primary keywords: software development company, web development, mobile app development, AI solutions, cloud services, IT consulting, custom software development, dedicated development team, India software company, GCC software development, MVP development
+- Geographic target: Worldwide (primary: India, GCC, Middle East, Southeast Asia)
+- Languages: English
+- Site status: Active, regularly updated (blog weekly, service pages monthly)
+- AI crawler access: Allowed for GPTBot, ChatGPT-User, Claude-Web, anthropic-ai, Google-Extended, PerplexityBot
+- Content freshness: Blog updated regularly, service pages current as of 2026

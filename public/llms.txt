@@ -1,0 +1,55 @@
+# Technioz
+
+> Full-cycle software development for growing businesses. One partner for web, mobile, AI, and cloud — so you ship faster without managing multiple vendors.
+
+## Site Index
+
+- [Home](https://technioz.com/): Full PRESTO copy framework with problem, relief, evidence, solution, transformation, and offer sections.
+- [About](https://technioz.com/about): Company story, mission, vision, values, milestones.
+- [Services](https://technioz.com/services): Overview of all five service areas plus development process and technology stack.
+- [Web Development](https://technioz.com/services/web-development): Custom web apps, e-commerce, PWAs, CMS, API development, maintenance.
+- [Mobile App Development](https://technioz.com/services/mobile-development): iOS, Android, React Native, Flutter, app types by industry.
+- [AI & Machine Learning](https://technioz.com/services/ai-solutions): NLP, computer vision, predictive analytics, chatbots, RPA.
+- [Cloud Services](https://technioz.com/services/cloud-services): Migration, DevOps, serverless, Kubernetes, multi-cloud (AWS/Azure/GCP).
+- [IT Consulting](https://technioz.com/services/it-consulting): Strategy, digital transformation, architecture review, vendor selection, security.
+- [Portfolio](https://technioz.com/portfolio): Four case studies — HattaFoodHub food delivery, Al Khanjry Groups transport ticketing, Folio AI website builder, Sky Growers farm-to-table produce platform.
+- [Case Studies](https://technioz.com/case-studies): Featured deep dives into HattaFoodHub and Al Khanjry Groups.
+- [Blog](https://technioz.com/blog): Technical articles and case studies covering microservices, React 19, cloud security, transport digitization.
+- [Contact](https://technioz.com/contact): Project inquiry form with budget, timeline, and service selection.
+
+## Extended Content (LLM-only)
+
+- [Pricing](https://technioz.com/md/pricing.md): Service pricing overview (LLM-optimized markdown).
+- [Services Detail](https://technioz.com/md/services.md): Full services reference (LLM-optimized markdown).
+
+## Key Stats
+
+- **200+** projects shipped
+- **50+** engineers on deck
+- **98%** on-time delivery
+- **10+** years building
+- Founding date: March 2025
+- Founders: Gaurav Bhatia, Pallavi Mishra
+- HQ: Jalandhar, Punjab, India (serving globally)
+- Email: info@technioz.com
+
+## Core Services
+
+1. **Web Applications**: React, Next.js, Node.js, TypeScript
+2. **Mobile Apps**: iOS, Android, React Native, Flutter
+3. **AI & Machine Learning**: NLP, computer vision, predictive analytics, chatbots
+4. **Cloud & DevOps**: AWS, Azure, GCP, Docker, Kubernetes, CI/CD
+5. **IT Consulting**: Strategy, architecture, digital transformation
+6. **Team Augmentation**: On-demand React, Node.js, DevOps, Python engineers
+
+## Industries
+
+- Transportation & Logistics (ticketing platforms, fleet management, real-time tracking)
+- Finance (fintech, payment gateways, compliance, PCI-DSS)
+- E-commerce (storefronts, marketplaces, inventory management)
+- Healthcare (HIPAA-compliant, telemedicine, EHR integration)
+- Education (LMS, assessments, AI tutoring)
+
+## Crawler Notes
+
+These markdown files (`/md/`) are intended for AI/LLM ingestion and are disallowed for general search crawlers via `robots.txt`. They remain accessible to GPTBot, Claude-Web, anthropic-ai, Google-Extended, PerplexityBot, Applebot, CCBot, YouBot, and Bytespider.

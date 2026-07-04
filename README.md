@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Technioz Portfolio Website
+
+A fast, SEO-optimized marketing and portfolio site for **Technioz** — a software development company building custom apps, AI solutions, cloud & DevOps systems, and industry-specific digital products.
+
+**Primary contact:** Gaurav Bhatia — [gaurav.bhatia@technioz.com](mailto:gaurav.bhatia@technioz.com)
+
+---
+
+## Tech Stack
+
+- **Framework:** Next.js 16.2.6 (App Router, React 19, Turbopack)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS v4
+- **Fonts:** AssemblyAI design system — Oceanic Text, UN 11ST, Modern Gothic Mono
+- **Icons & Illustrations:** Custom SVG diagrams, `lucide-react`
+- **SEO:** OpenGraph, Twitter Cards, canonical URLs, JSON-LD (Organization, WebSite, Breadcrumb, BlogPosting, Article, Service, FAQ)
+
+---
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies once:
+
+```bash
+npm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Build & Quality Checks
 
-## Learn More
+```bash
+# Production build
+npm run build
 
-To learn more about Next.js, take a look at the following resources:
+# TypeScript + ESLint
+npm run lint
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Start production server locally
+npm run start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The site is statically generated at build time and exports **65+ pages**.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+src/
+  app/                # Next.js App Router pages
+    page.tsx          # Homepage
+    layout.tsx        # Root layout, metadata, JSON-LD
+    blog/             # Blog listing + article pages
+    case-studies/     # Case-study listing
+    portfolio/        # Portfolio project detail pages
+    services/         # Service hub + sub-service pages
+    solutions/        # Industry solution pages
+    *-company-dubai/  # Dubai location landing pages
+  components/         # Shared UI components
+  lib/                # Data files and utilities
+public/               # Static assets, sitemap, images
+```
+
+---
+
+## Content Architecture
+
+The site follows a topic-cluster SEO model:
+
+- **Pillar hubs** — `/custom-software-development`, `/ai-solutions`, `/cloud-devops`, `/web-mobile-app-development`, `/industry-solutions`
+- **Sub-service pages** — e.g. `/services/reactjs-development`, `/services/aws-consulting`, `/services/ai-chatbot-development`
+- **Location pages** — e.g. `/software-development-company-dubai`
+- **Solutions** — e.g. `/solutions/healthcare`, `/solutions/finance`
+- **Blog / Case Studies / Portfolio** — supporting content and proof points
+
+---
+
+## Contact
+
+For questions, deployment, or content updates, contact:
+
+**Gaurav Bhatia**  
+Email: [gaurav.bhatia@technioz.com](mailto:gaurav.bhatia@technioz.com)
+
+---
+
+## Deploy
+
+Recommended platforms:
+
+- [Vercel](https://vercel.com) (Next.js-native)
+- Any Node.js host supporting `next start`
+
+Set environment variables as needed for analytics, contact forms, or external services.
