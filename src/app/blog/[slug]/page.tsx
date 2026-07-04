@@ -32,6 +32,12 @@ const serviceCta: Record<string, { heading: string; body: string; href: string; 
     href: "/cloud-devops",
     cta: "Read the guide",
   },
+  "AI Solutions": {
+    heading: "Turn AI potential into real business results",
+    body: "Our AI solutions guide covers chatbots, agents, RAG systems, and LLM integration for practical business applications.",
+    href: "/ai-solutions",
+    cta: "Read the guide",
+  },
 };
 
 export async function generateStaticParams() {
@@ -46,10 +52,22 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${post.title} | Technioz Blog`,
     description: post.excerpt,
+    keywords: post.tags.join(", "),
+    robots: { index: true, follow: true },
     openGraph: {
       title: post.title,
       description: post.excerpt,
       url,
+      siteName: "Technioz",
+      type: "article",
+      publishedTime: new Date(post.date).toISOString(),
+      authors: [post.author.name],
+      images: [{ url: "/logo.webp", width: 256, height: 71, alt: post.imageAlt }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
       images: ["/logo.webp"],
     },
     alternates: {
@@ -139,7 +157,17 @@ export default async function BlogDetail({ params }: { params: Promise<{ slug: s
                   </ul>
                 );
               }
-              return <p key={i} className="p3 text-black-400 my-4 leading-relaxed">{block.value}</p>;
+              return (
+                <p key={i} className="p3 text-black-400 my-4 leading-relaxed">
+                  {block.value.split(/(\[[^\]]+\]\([^)]+\))/g).map((part, j) => {
+                    const m = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+                    if (m) {
+                      return <Link key={j} href={m[2]} className="text-cobolt-500 underline hover:no-underline">{m[1]}</Link>;
+                    }
+                    return part;
+                  })}
+                </p>
+              );
             })}
 
             {/* Service CTA for pillar posts */}
