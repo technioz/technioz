@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# helper docs and internal guides
+TARGET_KEYWORDS.md
+TOPIC_CLUSTERS.md
+BLOG_CONTENT_GUIDE.md
