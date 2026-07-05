@@ -8,6 +8,15 @@ import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { BlogPostingJsonLd } from "@/components/blog-posting-jsonld";
 import type { Metadata } from "next";
 
+function slugify(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-")
+    .substring(0, 80);
+}
+
 const serviceCta: Record<string, { heading: string; body: string; href: string; cta: string }> = {
   "Case Study": {
     heading: "See how we deliver results",
@@ -152,10 +161,12 @@ export default async function BlogDetail({ params }: { params: Promise<{ slug: s
             {/* Content blocks */}
             {post.blocks.map((block, i) => {
               if (block.type === "h2") {
-                return <h2 key={i} className="h4 text-black-500 mt-12 mb-4">{block.value}</h2>;
+                const id = slugify(block.value);
+                return <h2 id={id} key={i} className="h4 text-black-500 mt-12 mb-4 scroll-mt-24">{block.value}</h2>;
               }
               if (block.type === "h3") {
-                return <h3 key={i} className="font-display text-[28px] leading-[1.1] tracking-[-1.4px] text-black-500 mt-8 mb-3">{block.value}</h3>;
+                const id = slugify(block.value);
+                return <h3 id={id} key={i} className="font-display text-[28px] leading-[1.1] tracking-[-1.4px] text-black-500 mt-8 mb-3 scroll-mt-24">{block.value}</h3>;
               }
               if (block.type === "code") {
                 return (
@@ -199,7 +210,12 @@ export default async function BlogDetail({ params }: { params: Promise<{ slug: s
                   {block.value.split(/(\[[^\]]+\]\([^)]+\))/g).map((part, j) => {
                     const m = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
                     if (m) {
-                      return <Link key={j} href={m[2]} className="text-cobolt-500 underline hover:no-underline">{m[1]}</Link>;
+                      const isHash = m[2].startsWith("#");
+                      const className = "text-cobolt-500 underline hover:no-underline";
+                      if (isHash) {
+                        return <a key={j} href={m[2]} className={className}>{m[1]}</a>;
+                      }
+                      return <Link key={j} href={m[2]} className={className}>{m[1]}</Link>;
                     }
                     return part;
                   })}
