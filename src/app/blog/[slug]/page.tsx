@@ -17,6 +17,21 @@ function slugify(value: string): string {
     .substring(0, 80);
 }
 
+function renderLinkedText(text: string) {
+  return text.split(/(\[[^\]]+\]\([^)]+\))/g).map((part, j) => {
+    const m = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (m) {
+      const isHash = m[2].startsWith("#");
+      const className = "text-cobolt-500 underline hover:no-underline";
+      if (isHash) {
+        return <a key={j} href={m[2]} className={className}>{m[1]}</a>;
+      }
+      return <Link key={j} href={m[2]} className={className}>{m[1]}</Link>;
+    }
+    return part;
+  });
+}
+
 const serviceCta: Record<string, { heading: string; body: string; href: string; cta: string }> = {
   "Case Study": {
     heading: "See how we deliver results",
@@ -181,7 +196,7 @@ export default async function BlogDetail({ params }: { params: Promise<{ slug: s
                     {block.items.map((item, j) => (
                       <li key={j} className="p3 text-black-400 flex items-start gap-2">
                         <span className="w-1.5 h-1.5 rounded-full bg-cobolt-500 shrink-0 mt-[9px]" />
-                        <span>{item}</span>
+                        <span>{renderLinkedText(item)}</span>
                       </li>
                     ))}
                   </ul>
@@ -207,18 +222,7 @@ export default async function BlogDetail({ params }: { params: Promise<{ slug: s
               }
               return (
                 <p key={i} className="p3 text-black-400 my-4 leading-relaxed">
-                  {block.value.split(/(\[[^\]]+\]\([^)]+\))/g).map((part, j) => {
-                    const m = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
-                    if (m) {
-                      const isHash = m[2].startsWith("#");
-                      const className = "text-cobolt-500 underline hover:no-underline";
-                      if (isHash) {
-                        return <a key={j} href={m[2]} className={className}>{m[1]}</a>;
-                      }
-                      return <Link key={j} href={m[2]} className={className}>{m[1]}</Link>;
-                    }
-                    return part;
-                  })}
+                  {renderLinkedText(block.value)}
                 </p>
               );
             })}
