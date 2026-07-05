@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Case Studies | Technioz Client Results",
@@ -24,6 +25,7 @@ const caseStudies = [
     industry: "Food & Logistics",
     timeline: "4 months",
     techs: ["React Native", "Laravel", "MySQL", "Firebase"],
+    image: "/assets/hatta-food.webp",
     results: [
       { metric: "10,000+", label: "concurrent orders handled" },
       { metric: "99.9%", label: "platform uptime" },
@@ -38,6 +40,7 @@ const caseStudies = [
     industry: "Transportation & Logistics",
     timeline: "7 months",
     techs: ["React", "Next.js", "Node.js", "AWS", "PostgreSQL", "Redis"],
+    image: "/assets/booking.webp",
     results: [
       { metric: "$27M+", label: "ticket sales processed" },
       { metric: "150K+", label: "bookings completed" },
@@ -84,8 +87,14 @@ export default function CaseStudies() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {caseStudies.map((study) => (
               <Link key={study.client} href={study.slug} className="group bg-white-200 rounded-sm overflow-hidden border border-neutral-300 hover:shadow-[0_10px_24px_rgba(29,27,22,0.12)] transition-shadow">
-                <div className="aspect-[16/10] bg-neutral-200 flex items-center justify-center">
-                  <span className="p4 text-black-400">{study.client} case study</span>
+                <div className="relative aspect-[16/10] bg-neutral-200 overflow-hidden">
+                  <Image
+                    src={study.image}
+                    alt={`${study.client} — ${study.title}`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
                 </div>
                 <div className="p-[32px] flex flex-col gap-[20px]">
                   <div className="flex items-center gap-3">
