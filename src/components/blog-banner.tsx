@@ -59,6 +59,7 @@ const bannerConfigs: BlogBannerConfig[] = [
   { slug: "building-scalable-microservices-with-node-js-and-docker", bgColor: "#111827", accentColor: "#6366f1", label: "Backend Development", abstractVisual: "microservices" },
   { slug: "react-19-features-every-developer-should-know", bgColor: "#0c0a1d", accentColor: "#8b5cf6", label: "Frontend Development", abstractVisual: "react" },
   { slug: "cloud-security-best-practices-for-enterprise-applications", bgColor: "#1e1b4b", accentColor: "#a78bfa", label: "Cloud Security", abstractVisual: "security" },
+  { slug: "accessibility-in-web-design-guide-startups-2026", bgColor: "#1a1620", accentColor: "#614fd2", label: "Frontend Development", abstractVisual: "react" },
 ];
 
 interface BlogBannerProps {

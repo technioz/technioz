@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { blogPosts } from "@/lib/blog-data";
 import { BlogBanner } from "@/components/blog-banner";
@@ -173,6 +174,24 @@ export default async function BlogDetail({ params }: { params: Promise<{ slug: s
                       </li>
                     ))}
                   </ul>
+                );
+              }
+              if (block.type === "image") {
+                return (
+                  <figure key={i} className="my-8">
+                    <div className="relative w-full aspect-[16/9] rounded-sm overflow-hidden border border-neutral-300">
+                      <Image
+                        src={block.src}
+                        alt={block.alt}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 800px"
+                        className="object-cover"
+                      />
+                    </div>
+                    {block.caption && (
+                      <figcaption className="mt-2 text-center p5 text-black-400">{block.caption}</figcaption>
+                    )}
+                  </figure>
                 );
               }
               return (
