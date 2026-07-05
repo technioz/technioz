@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import type { Metadata } from "next";
 import { CustomerMarquee } from "@/components/customer-marquee";
 import { TestimonialCarousel } from "@/components/testimonial-carousel";
+import { FadeIn } from "@/components/fade-in";
 import { marqueeCustomers, technologies, testimonials } from "@/lib/homepage-data";
 
 const InfrastructureDiagram = dynamic(() => import("@/components/diagrams/infrastructure-diagram").then((m) => m.InfrastructureDiagram));
@@ -27,6 +28,7 @@ export default function Home() {
   return (
     <>
       {/* P — Problem */}
+      <FadeIn animation="fade-up">
       <section className="bg-white-200">
         <div className="mx-auto max-w-[1440px] px-6 pt-12 pb-8 sm:pb-12 lg:px-[148px] lg:pt-[140px] lg:pb-[80px]">
           <div className="flex flex-col gap-6 lg:gap-[40px] items-start max-w-[800px]">
@@ -40,6 +42,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </FadeIn>
 
       <Stats />
       <ProblemRelief />
@@ -60,6 +63,7 @@ export default function Home() {
 
 function Stats() {
   return (
+    <FadeIn animation="fade-up" delay={100}>
     <section className="border-y border-neutral-300 bg-white-200">
       <div className="max-w-[1440px] mx-auto px-6 lg:px-[148px] py-8 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
         {[
@@ -72,11 +76,13 @@ function Stats() {
         ))}
       </div>
     </section>
+    </FadeIn>
   );
 }
 
 function ProblemRelief() {
   return (
+    <FadeIn animation="fade-up" delay={150}>
     <section className="bg-white-300">
       <div className="max-w-[1440px] mx-auto px-6 py-16 lg:px-[148px] lg:py-[120px] flex flex-col gap-[48px] lg:gap-[80px]">
         <div className="max-w-[640px] flex flex-col gap-[16px]">
@@ -89,11 +95,13 @@ function ProblemRelief() {
         </div>
       </div>
     </section>
+    </FadeIn>
   );
 }
 
 function Evidence() {
   return (
+    <FadeIn animation="fade-up" delay={200}>
     <section className="bg-black-500">
       <div className="max-w-[1440px] mx-auto px-6 py-16 lg:px-[148px] lg:py-[120px] flex flex-col gap-[48px] lg:gap-[80px]">
         <div className="max-w-[640px] flex flex-col gap-[16px]">
@@ -114,11 +122,13 @@ function Evidence() {
         <Link href="/case-studies" className="cta-secondary-dark group w-fit">See all case studies</Link>
       </div>
     </section>
+    </FadeIn>
   );
 }
 
 function ServicesGrid() {
   return (
+    <FadeIn animation="fade-up" delay={100}>
     <section className="bg-white-300">
       <div className="max-w-[1440px] mx-auto px-6 py-16 lg:px-[148px] lg:py-[120px] flex flex-col gap-[48px] lg:gap-[80px]">
         <div className="max-w-[640px] flex flex-col gap-[16px]">
@@ -140,11 +150,13 @@ function ServicesGrid() {
         </div>
       </div>
     </section>
+    </FadeIn>
   );
 }
 
 function InfrastructureSection() {
   return (
+    <FadeIn animation="fade-up" delay={100}>
     <section className="bg-white-200">
       <div className="max-w-[1440px] mx-auto px-6 py-16 lg:px-[148px] lg:py-[120px] flex flex-col gap-[48px] lg:gap-[60px]">
         <div className="max-w-[640px] flex flex-col gap-[16px]">
@@ -157,11 +169,13 @@ function InfrastructureSection() {
         </div>
       </div>
     </section>
+    </FadeIn>
   );
 }
 
 function ShippingVelocitySection() {
   return (
+    <FadeIn animation="fade-up" delay={100}>
     <section className="bg-white-300">
       <div className="max-w-[1440px] mx-auto px-6 py-16 lg:px-[148px] lg:py-[120px] flex flex-col gap-[48px] lg:gap-[60px]">
         <div className="max-w-[640px] flex flex-col gap-[16px]">
@@ -174,11 +188,13 @@ function ShippingVelocitySection() {
         </div>
       </div>
     </section>
+    </FadeIn>
   );
 }
 
 function PricingSection() {
   return (
+    <FadeIn animation="fade-up" delay={100}>
     <section className="bg-white-200">
       <div className="max-w-[1440px] mx-auto px-6 py-16 lg:px-[148px] lg:py-[120px] flex flex-col gap-[48px] lg:gap-[60px]">
         <div className="max-w-[640px] flex flex-col gap-[16px]">
@@ -189,25 +205,31 @@ function PricingSection() {
         <PricingModelDiagram />
       </div>
     </section>
+    </FadeIn>
   );
 }
 
 function TechStack() {
   return (
+    <FadeIn animation="fade-up" delay={100}>
     <section className="bg-white-200"><div className="max-w-[1440px] mx-auto px-6 py-16 lg:px-[148px] lg:py-[120px] flex flex-col gap-[48px] lg:gap-[60px]"><div className="max-w-[640px] flex flex-col gap-[16px]"><span className="e1 inline-flex items-center justify-center border px-[16px] py-[8px] border-black-400 text-black-400 w-fit">Our stack</span><h2 className="h3 text-black-500">Modern tools.<br />No legacy excuses.</h2><p className="p3 text-black-400">We build with the tech your future hires will actually want to work on.</p></div><div className="flex flex-wrap gap-3">{technologies.map((t) => <span key={t} className="inline-flex items-center rounded-sm border border-neutral-300 bg-white-300 px-[16px] py-[12px] p4 text-black-500">{t}</span>)}</div></div></section>
+    </FadeIn>
   );
 }
 
 function Transformation() {
   return (
+    <FadeIn animation="fade-up" delay={100}>
     <section className="bg-white-300">
       <div className="max-w-[1440px] mx-auto px-6 py-16 lg:px-[148px] lg:py-[120px] flex flex-col gap-[48px] lg:gap-[80px]"><div className="max-w-[640px] flex flex-col gap-[16px]"><span className="e1 inline-flex items-center justify-center border px-[16px] py-[8px] border-black-400 text-black-400 w-fit">The outcome</span><h2 className="h3 text-black-500">What your team looks like after working with us.</h2></div><div className="grid grid-cols-1 md:grid-cols-2 gap-6">{outcomeCards.map(([t, d]) => <div key={t} className="bg-white-200 rounded-sm p-[32px] flex flex-col gap-[16px]"><h3 className="font-display text-[24px] leading-none tracking-[-1.2px] text-black-500">{t}</h3><p className="p4 text-black-400">{d}</p></div>)}</div></div>
     </section>
+    </FadeIn>
   );
 }
 
 function Industries() {
   return (
+    <FadeIn animation="fade-up" delay={100}>
     <section className="bg-black-500 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0)", backgroundSize: "48px 48px" }} />
       <div className="max-w-[1440px] mx-auto px-6 py-16 lg:px-[148px] lg:py-[120px] flex flex-col gap-[48px] lg:gap-[80px] relative">
@@ -238,6 +260,7 @@ function Industries() {
         ))}</div>
       </div>
     </section>
+    </FadeIn>
   );
 }
 
@@ -270,6 +293,7 @@ function FeaturedIndustry() {
 
 function Offer() {
   return (
+    <FadeIn animation="fade-up" delay={100}>
     <section className="bg-cobolt-500 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true"><div className="absolute -top-[200px] -right-[200px] w-[600px] h-[600px] rounded-full border border-white/10" /><div className="absolute -top-[120px] -right-[120px] w-[440px] h-[440px] rounded-full border border-white/8" /><div className="absolute -bottom-[300px] -left-[100px] w-[700px] h-[700px] rounded-full border border-white/5" /></div>
       <div className="max-w-[1440px] mx-auto px-6 py-16 lg:px-[148px] lg:py-[120px] relative">
@@ -286,6 +310,7 @@ function Offer() {
         </div>
       </div>
     </section>
+    </FadeIn>
   );
 }
 
