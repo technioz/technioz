@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { blogPosts } from "@/lib/blog-data";

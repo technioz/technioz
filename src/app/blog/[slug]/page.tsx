@@ -80,7 +80,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       type: "article",
       publishedTime: new Date(post.date).toISOString(),
       authors: [post.author.name],
-      images: [{ url: "/logo.webp", width: 256, height: 71, alt: post.imageAlt }],
+      images: [{ url: "/logo.webp", width: 1200, height: 630, alt: post.imageAlt }],
     },
     twitter: {
       card: "summary_large_image",
