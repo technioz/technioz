@@ -44,6 +44,18 @@ const serviceCta: Record<string, { heading: string; body: string; href: string; 
     href: "/web-mobile-app-development",
     cta: "Read the guide",
   },
+  "Cloud & DevOps": {
+    heading: "Scale your infrastructure with confidence",
+    body: "Our cloud and DevOps guide covers migration, CI/CD, cost optimization, and the operating model that keeps systems reliable.",
+    href: "/cloud-devops",
+    cta: "Read the guide",
+  },
+  "Industry Solutions": {
+    heading: "Solutions built for your industry",
+    body: "Our industry solutions page covers transport, logistics, healthcare, finance, and more with custom software built for your sector.",
+    href: "/industry-solutions",
+    cta: "Explore solutions",
+  },
 };
 
 export async function generateStaticParams() {
