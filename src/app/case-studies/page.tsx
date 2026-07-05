@@ -93,7 +93,7 @@ export default function CaseStudies() {
                     alt={`${study.client} — ${study.title}`}
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="object-cover transition-transform duration-500"
                   />
                 </div>
                 <div className="p-[32px] flex flex-col gap-[20px]">

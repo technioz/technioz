@@ -1667,6 +1667,7 @@ export const metadata: Metadata = {
     canonical: "https://technioz.com",
   },
   verification: {
+    google: "e6DVDREsIqIoZ76a5sakPxFSgbwAFzlstG0_yb_2QDs",
     other: {
       "msvalidate.01": "815380119EFE87A1BC1C3A90FA4B6EB6",
     },
