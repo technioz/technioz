@@ -71,6 +71,10 @@ const pillarLinks = [
   { href: "/cloud-devops", label: "Cloud & DevOps Guide" },
   { href: "/web-mobile-app-development", label: "Web & Mobile App Guide" },
   { href: "/industry-solutions", label: "Industry Solutions Guide" },
+  { href: "/digital-transformation", label: "Digital Transformation Guide" },
+  { href: "/data-apis-integrations", label: "Data, APIs & Integrations Guide" },
+  { href: "/security-reliability", label: "Security & Reliability Guide" },
+  { href: "/consulting-strategy", label: "Consulting & Strategy Guide" },
 ];
 
 const resourceLinks = [
@@ -118,7 +122,11 @@ function isActive(pathname: string, href: string): boolean {
       pathname === "/ai-solutions" ||
       pathname === "/cloud-devops" ||
       pathname === "/web-mobile-app-development" ||
-      pathname === "/industry-solutions";
+      pathname === "/industry-solutions" ||
+      pathname === "/digital-transformation" ||
+      pathname === "/data-apis-integrations" ||
+      pathname === "/security-reliability" ||
+      pathname === "/consulting-strategy";
   }
   if (href === "/portfolio") return pathname.startsWith("/portfolio");
   return pathname === href;
