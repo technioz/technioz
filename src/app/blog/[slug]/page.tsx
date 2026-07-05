@@ -38,6 +38,12 @@ const serviceCta: Record<string, { heading: string; body: string; href: string; 
     href: "/ai-solutions",
     cta: "Read the guide",
   },
+  "Web & Mobile": {
+    heading: "Build mobile apps that work across the Gulf",
+    body: "Our web and mobile app development guide covers the process, technology choices, and cost factors for building apps in Dubai, UAE, and Saudi Arabia.",
+    href: "/web-mobile-app-development",
+    cta: "Read the guide",
+  },
 };
 
 export async function generateStaticParams() {
