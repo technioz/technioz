@@ -33,8 +33,8 @@ export default function Home() {
         <div className="mx-auto max-w-[1440px] px-6 pt-12 pb-8 sm:pb-12 lg:px-[148px] lg:pt-[140px] lg:pb-[80px]">
           <div className="flex flex-col gap-6 lg:gap-[40px] items-start max-w-[800px]">
             <span className="e1 inline-flex items-center justify-center border px-[16px] py-[8px] border-black-400 text-black-400">For startups and SMBs</span>
-            <h1 className="h1 text-black-500">You have the vision.<br /><span className="text-cobolt-500">We handle everything else.</span></h1>
-            <p className="p3 text-black-400 max-w-[620px]">Technioz gives you one team that does web apps, mobile apps, AI integrations, and cloud infrastructure — so you ship faster, sleep better, and stop paying the integration tax.</p>
+            <h1 className="h1 text-black-500">We build what you sell.</h1>
+            <p className="p3 text-black-400 max-w-[620px]">Custom software, SaaS, and AI — from first line to launch. One team for web, mobile, AI, and cloud, so you ship faster without the vendor juggling act.</p>
             <div className="flex items-center gap-[8px]">
               <Link href="/contact" className="cta-primary">Ship with us</Link>
               <Link href="https://calendly.com/technioztech/30min" className="cta-secondary">Book a call</Link>
