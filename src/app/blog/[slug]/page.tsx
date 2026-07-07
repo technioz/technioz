@@ -57,6 +57,12 @@ const serviceCta: Record<string, { heading: string; body: string; href: string; 
     href: "/cloud-devops",
     cta: "Read the guide",
   },
+  "Consulting & Strategy": {
+    heading: "Get clear on your technology strategy",
+    body: "Our consulting and strategy guide covers discovery, stack choice, roadmapping, and choosing the right partner.",
+    href: "/consulting-strategy",
+    cta: "Read the guide",
+  },
   "AI Solutions": {
     heading: "Turn AI potential into real business results",
     body: "Our AI solutions guide covers chatbots, agents, RAG systems, and LLM integration for practical business applications.",

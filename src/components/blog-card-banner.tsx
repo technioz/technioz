@@ -60,6 +60,7 @@ const bannerConfigs: BlogCardBannerConfig[] = [
   { slug: "react-19-features-every-developer-should-know", bgColor: "#0c0a1d", accentColor: "#8b5cf6", abstractVisual: "react", keyword: "Frontend" },
   { slug: "cloud-security-best-practices-for-enterprise-applications", bgColor: "#1e1b4b", accentColor: "#a78bfa", abstractVisual: "security", keyword: "Cloud Security" },
   { slug: "accessibility-in-web-design-guide-startups-2026", bgColor: "#1a1620", accentColor: "#614fd2", abstractVisual: "react", keyword: "Frontend" },
+  { slug: "what-is-an-it-consultant-2026-guide", bgColor: "#0c0a1d", accentColor: "#3923c7", abstractVisual: "custom-software", keyword: "Consulting" },
 ];
 
 interface BlogCardBannerProps {
