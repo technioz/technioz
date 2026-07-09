@@ -527,7 +527,7 @@ Audit recommends `LocalBusiness` schema. Previous direction was to skip `LocalBu
 - [x] Build Dubai landing pages: `/software-development-company-dubai`, `/web-app-development-company-dubai`, `/mobile-app-development-company-dubai` — enriched with case-study proof, FAQPage schema, and related guides.
 - [x] Build `/services/mvp-development` startup landing — rewritten for founders, added HattaFoodHub proof, MVP Launch Checklist lead-magnet section, and FAQ schema.
 - [x] Build React Native development company landing — `/services/react-native-app-development` rewritten with PRESTO copy, HattaFoodHub proof, FAQ schema, and calculator CTA.
-- [ ] Build `/hire-dedicated-developers-india` landing.
+- [ ] ~~Build `/hire-dedicated-developers-india` landing.~~ *Removed from current scope — nav, sitemap, and filesystem do not include this page.*
 - [x] Build e-commerce Dubai landing — `/ecommerce-website-development-dubai` rewritten with FAQPage schema and a free e-commerce store audit lead-magnet form.
 - [x] Add transport digitalization roadmap PDF lead magnet — email capture form live on `/industries/transport-logistics` with FAQPage schema.
 - [x] Create remaining lead magnets: MVP checklist, vendor evaluation scorecard, free technical audit — vendor scorecard live on `/software-development-company-dubai`.
