@@ -8,6 +8,15 @@ import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { BlogPostingJsonLd } from "@/components/blog-posting-jsonld";
 import type { Metadata } from "next";
 
+function postCta(slug: string, categoryCta: string): string {
+  if (customEstimateSlugs.includes(slug)) return "Get a custom software estimate";
+  if (aiSlugs.includes(slug)) return "Build your AI solution";
+  if (cloudSlugs.includes(slug)) return "Plan your cloud migration";
+  if (mobileSlugs.includes(slug)) return "Start your app project";
+  if (webSlugs.includes(slug)) return "Start your web project";
+  return categoryCta;
+}
+
 function slugify(value: string): string {
   return value
     .toLowerCase()
@@ -43,51 +52,100 @@ const serviceCta: Record<string, { heading: string; body: string; href: string; 
     heading: "Build software that fits your business",
     body: "Our custom software development guide covers planning, architecture, and choosing the right partner.",
     href: "/custom-software-development",
-    cta: "Read the guide",
+    cta: "Get a custom software estimate",
   },
   "Frontend Development": {
     heading: "Launch web and mobile apps that users love",
     body: "Our app development guide covers the process, technology stack, and team approach for modern apps.",
     href: "/web-mobile-app-development",
-    cta: "Read the guide",
+    cta: "Start your web project",
   },
   "Cloud Security": {
     heading: "Scale your infrastructure with confidence",
     body: "Our cloud and DevOps guide covers migration, CI/CD, and the operating model that keeps systems reliable.",
     href: "/cloud-devops",
-    cta: "Read the guide",
+    cta: "Plan your cloud migration",
   },
   "Consulting & Strategy": {
     heading: "Get clear on your technology strategy",
     body: "Our consulting and strategy guide covers discovery, stack choice, roadmapping, and choosing the right partner.",
     href: "/consulting-strategy",
-    cta: "Read the guide",
+    cta: "Get a custom software estimate",
   },
   "AI Solutions": {
     heading: "Turn AI potential into real business results",
     body: "Our AI solutions guide covers chatbots, agents, RAG systems, and LLM integration for practical business applications.",
     href: "/ai-solutions",
-    cta: "Read the guide",
+    cta: "Build your AI solution",
   },
   "Web & Mobile": {
     heading: "Build mobile apps that work across the Gulf",
     body: "Our web and mobile app development guide covers the process, technology choices, and cost factors for building apps in Dubai, UAE, and Saudi Arabia.",
     href: "/web-mobile-app-development",
-    cta: "Read the guide",
+    cta: "Start your app project",
   },
   "Cloud & DevOps": {
     heading: "Scale your infrastructure with confidence",
     body: "Our cloud and DevOps guide covers migration, CI/CD, cost optimization, and the operating model that keeps systems reliable.",
     href: "/cloud-devops",
-    cta: "Read the guide",
+    cta: "Plan your cloud migration",
   },
   "Industry Solutions": {
     heading: "Solutions built for your industry",
     body: "Our industry solutions page covers transport, logistics, healthcare, finance, and more with custom software built for your sector.",
     href: "/industry-solutions",
-    cta: "Explore solutions",
+    cta: "Get a custom software estimate",
   },
 };
+
+const customEstimateSlugs = [
+  "how-to-choose-software-development-partner-2026",
+  "custom-software-development-cost-2026",
+  "in-house-vs-outsourced-software-development-2026",
+  "how-to-plan-custom-software-project-step-by-step",
+  "common-mistakes-custom-software-development-projects",
+  "custom-software-vs-off-the-shelf-2026",
+  "software-maintenance-support-costs-2026",
+  "api-first-development-modern-software-2026",
+  "mvp-development-for-startups-2026",
+];
+
+const aiSlugs = [
+  "rag-systems-explained",
+  "ai-chatbot-development-types-costs-best-practices-2026",
+  "llm-integration-business-applications-guide-2026",
+  "fine-tuning-vs-prompt-engineering-2026",
+  "building-production-ready-ai-agents-business-2026",
+  "ai-use-cases-different-industries-2026",
+  "ai-cost-optimization-production-2026",
+  "ai-agents-vs-chatbots",
+];
+
+const cloudSlugs = [
+  "cloud-migration-strategy-step-by-step-guide-2026",
+  "cloud-cost-optimization-practical-guide-2026",
+  "ci-cd-pipelines-explained-benefits-implementation-2026",
+  "docker-application-deployment-beginner-to-production-2026",
+  "scaling-applications-cloud-2026",
+  "devops-best-practices-growing-companies-2026",
+  "software-security-compliance-guide-enterprise-2026",
+];
+
+const mobileSlugs = [
+  "mobile-app-development-cost-dubai-uae-saudi-arabia-2026",
+  "mobile-app-development-process-idea-to-launch-2026",
+  "flutter-app-development-company-dubai-2026",
+  "react-native-vs-flutter-2026-comparison",
+  "ios-vs-android-app-development-dubai-2026",
+  "react-native-app-development-company-dubai-2026",
+];
+
+const webSlugs = [
+  "web-app-development-company-dubai-2026",
+  "web-app-development-process-step-by-step-2026",
+  "progressive-web-apps-pwas-when-to-build-2026",
+  "app-performance-optimization-case-study-hattafoodhub",
+];
 
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
@@ -101,8 +159,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${post.title} | Technioz Blog`,
     description: post.excerpt,
-    keywords: post.tags.join(", "),
-    robots: { index: true, follow: true },
+    robots: post.noindex ? { index: false, follow: true } : { index: true, follow: true },
     openGraph: {
       title: post.title,
       description: post.excerpt,
@@ -111,13 +168,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       type: "article",
       publishedTime: new Date(post.date).toISOString(),
       authors: [post.author.name],
-      images: [{ url: "/logo.webp", width: 1200, height: 630, alt: post.imageAlt }],
+      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: post.imageAlt }],
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.excerpt,
-      images: ["/logo.webp"],
+      images: ["/og-image.png"],
     },
     alternates: {
       canonical: url,
@@ -243,7 +300,7 @@ export default async function BlogDetail({ params }: { params: Promise<{ slug: s
                   {serviceCta[post.category].body}
                 </p>
                 <Link href={serviceCta[post.category].href} className="cta-primary">
-                  {serviceCta[post.category].cta}
+                  {postCta(post.slug, serviceCta[post.category].cta)}
                 </Link>
               </div>
             )}
