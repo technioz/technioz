@@ -4,6 +4,7 @@ import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import { JsonLd } from "@/components/json-ld";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import Script from "next/script";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://technioz.com"),
@@ -64,12 +65,17 @@ export default function RootLayout({
     <html lang="en" className="antialiased">
       <head>
         <JsonLd />
-        <SpeedInsights/>
       </head>
       <body>
         <Nav />
         <main>{children}</main>
         <Footer />
+        <Script
+          src="https://umami.technioz.com/script.js"
+          data-website-id="d53eda4e-035b-4d79-ad99-08f80ebb4727"
+          strategy="afterInteractive"
+        />
+        <SpeedInsights />
       </body>
     </html>
   );
