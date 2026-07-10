@@ -3,6 +3,7 @@ import "./globals.css";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import { JsonLd } from "@/components/json-ld";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://technioz.com"),
@@ -63,6 +64,7 @@ export default function RootLayout({
     <html lang="en" className="antialiased">
       <head>
         <JsonLd />
+        <SpeedInsights/>
       </head>
       <body>
         <Nav />
