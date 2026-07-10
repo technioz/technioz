@@ -46,6 +46,8 @@ User-agent: YouBot
 Allow: /
 Allow: /md/
 
+Sitemap: https://technioz.com/sitemap-index.xml
 Sitemap: https://technioz.com/sitemap.xml
+Sitemap: https://technioz.com/sitemap-blog.xml
 
 Host: technioz.com
