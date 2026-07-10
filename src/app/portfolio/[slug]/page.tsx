@@ -114,7 +114,7 @@ const caseStudies: CaseStudy[] = [
   {
     slug: "alkhanjry-transport",
     client: "Al Khanjry Groups",
-    title: "From Manual Counters to $27 Million in Digital Sales",
+    title: "From Manual Counters to $1 Million in Digital Sales",
     subtitle: "How a 25-year-old Omani bus operator moved from counter queues to real-time online ticketing across 80+ cross-border routes.",
     industry: "Transportation & Logistics",
     timeline: "7 months",
@@ -231,7 +231,7 @@ const caseStudies: CaseStudy[] = [
       },
       {
         type: "paragraph",
-        content: "Since launch, alkhanjryonline.com has become the primary booking channel for the company. Over $27 million in ticket sales has been processed digitally. More than 150,000 bookings have been completed, serving over 200,000 passengers across 80+ cross-border routes. Booking time dropped from 15–20 minutes (phone/counter) to under 2 minutes (online). Platform uptime is 99.9% even during peak seasons when traffic spikes 5x normal levels. Customer complaints about booking errors are down approximately 70%. The operations team that once spent hours on manual reconciliation now has a live dashboard that updates in real time.",
+        content: "Since launch, alkhanjryonline.com has become the primary booking channel for the company. Over $1 million in ticket sales has been processed digitally. More than 150,000 bookings have been completed, serving over 200,000 passengers across 80+ cross-border routes. Booking time dropped from 15–20 minutes (phone/counter) to under 2 minutes (online). Platform uptime is 99.9% even during peak seasons when traffic spikes 5x normal levels. Customer complaints about booking errors are down approximately 70%. The operations team that once spent hours on manual reconciliation now has a live dashboard that updates in real time.",
       },
     ],
     results: [
