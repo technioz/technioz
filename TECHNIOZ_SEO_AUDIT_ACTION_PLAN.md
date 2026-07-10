@@ -530,7 +530,7 @@ Audit recommends `LocalBusiness` schema. Previous direction was to skip `LocalBu
 - [ ] ~~Build `/hire-dedicated-developers-india` landing.~~ *Removed from current scope — nav, sitemap, and filesystem do not include this page.*
 - [x] Build e-commerce Dubai landing — `/ecommerce-website-development-dubai` rewritten with FAQPage schema and a free e-commerce store audit lead-magnet form.
 - [x] Add transport digitalization roadmap PDF lead magnet — email capture form live on `/industries/transport-logistics` with FAQPage schema.
-- [x] Create remaining lead magnets: MVP checklist, vendor evaluation scorecard, free technical audit — vendor scorecard live on `/software-development-company-dubai`.
+- [x] Create remaining lead magnets: MVP checklist, vendor evaluation scorecard, free technical audit — vendor scorecard live on `/software-development-company-dubai`; free technical audit live on `/services/it-consulting` with FAQPage schema.
 
 
 
