@@ -105,7 +105,7 @@ export default function About() {
             {[
               { value: "5+", label: "Projects Shipped", sub: "Successfully completed projects in logistics, e-learning, fintech, and more" },
               { value: "98%", label: "On-Time Delivery", sub: "We keep our promises — clear timelines, daily updates, and no surprises" },
-              { value: "5+", label: "Engineers On Deck", sub: "A passionate, multi-disciplinary team ready to take on new challenges" },
+              { value: "5+", label: "Experience", sub: "A passionate, experienced team ready to take on new challenges" },
             ].map((s) => (
               <div key={s.label} className="flex flex-col gap-[16px] p-[32px] border border-black-400 rounded-sm">
                 <span className="font-display text-[56px] leading-none tracking-[-2.8px] text-cobolt-300">{s.value}</span>

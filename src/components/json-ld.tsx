@@ -9,11 +9,10 @@ export function JsonLd() {
         url: "https://technioz.com",
         logo: "https://technioz.com/logo.webp",
         description:
-          "Full-cycle software development company. One partner for web, mobile, AI, and cloud. 5+ projects shipped, 5+ engineers on deck, 98% on-time delivery.",
+          "Full-cycle software development company. One partner for web, mobile, AI, and cloud. 5+ projects shipped, 5+ experience, 98% on-time delivery.",
         foundingDate: "2024",
         founders: [
-          { "@type": "Person", name: "Gaurav Bhatia" },
-          { "@type": "Person", name: "Pallavi Mishra" },
+          { "@type": "Person", name: "Gaurav Bhatia" }
         ],
         contactPoint: [
           {

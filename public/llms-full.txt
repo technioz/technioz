@@ -6,13 +6,13 @@
 
 ## COMPANY OVERVIEW
 
-**Technioz** is a full-cycle software development company serving startups and SMBs worldwide. Founded in March 2025 by Gaurav Bhatia and Pallavi Mishra. HQ in Jalandhar, Punjab, India (144001). Contact: info@technioz.com.
+**Technioz** is a full-cycle software development company serving startups and SMBs worldwide. Founded in March 2024 by Gaurav Bhatia. Contact: info@technioz.com.
 
 **Core proposition**: One partner for web, mobile, AI, and cloud. Most growing companies juggle three agencies, two freelancers, and a part-time dev. Technioz gives you one team that does everything — so you ship faster, sleep better, and stop paying the integration tax.
 
-**Key stats**: 200+ projects shipped, 50+ engineers, 98% on-time delivery, 10+ years of combined experience.
+**Key stats**: 5+ projects shipped, 98% on-time delivery, 5+ years of experience.
 
-**Founders**: Gaurav Bhatia, Pallavi Mishra
+**Founders**: Gaurav Bhatia
 
 **Social**: Twitter (@technioz), Instagram (@technioz), LinkedIn (company/technioz), GitHub (technioz)
 

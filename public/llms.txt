@@ -24,13 +24,12 @@
 
 ## Key Stats
 
-- **200+** projects shipped
-- **50+** engineers on deck
+- **5+** projects shipped
+- **5+** experience
 - **98%** on-time delivery
-- **10+** years building
-- Founding date: March 2025
-- Founders: Gaurav Bhatia, Pallavi Mishra
-- HQ: Jalandhar, Punjab, India (serving globally)
+- **2+** years building
+- Founding date: March 2024
+- Founders: Gaurav Bhatia
 - Email: info@technioz.com
 
 ## Core Services

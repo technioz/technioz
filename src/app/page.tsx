@@ -69,7 +69,7 @@ function Stats() {
       <div className="max-w-[1440px] mx-auto px-6 lg:px-[148px] py-8 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
         {[
           { value: "5+", label: "Projects shipped" },
-          { value: "5+", label: "Engineers on deck" },
+          { value: "5+", label: "Experience" },
           { value: "98%", label: "On-time delivery" },
           { value: "2+", label: "Years building" },
         ].map((s) => (
