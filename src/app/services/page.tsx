@@ -3,14 +3,14 @@ import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Software Development Services | Technioz",
-  description: "End-to-end software development services: web apps, mobile apps, AI solutions, cloud platforms, and IT consulting.",
+  title: "Software Development Services: Web, Mobile, AI & Cloud | Technioz",
+  description: "End-to-end software development — web apps, iOS/Android, AI and cloud. Fixed-price or dedicated teams. See services, process and typical costs.",
   openGraph: {
     title: "Software Development Services - Web, Mobile, AI & Cloud | Technioz",
     description:
       "Technioz provides end-to-end software development services: custom web apps, mobile apps, AI solutions, cloud services, and IT consulting.",
     url: "https://technioz.com/services",
-    images: ["/logo.webp"],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://technioz.com/services",
@@ -31,7 +31,7 @@ export default function Services() {
             </div>
             <h1 className="h2 text-black-500">Comprehensive Software Development Services</h1>
             <p className="p3 text-black-400">From web and mobile applications to AI solutions and cloud services, we provide end-to-end software development services that drive business growth and digital transformation.</p>
-            <Link href="/contact" className="cta-primary mt-4 w-fit">Get Started Today</Link>
+            <Link href="/contact" className="cta-primary mt-4 w-fit">Get a free project quote</Link>
           </div>
         </div>
       </section>
@@ -98,12 +98,11 @@ export default function Services() {
       <section className="bg-cobolt-500">
         <div className="max-w-[1440px] mx-auto px-6 py-16 lg:px-[148px] lg:py-[100px] flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
           <div className="flex flex-col gap-[16px] max-w-[600px]">
-            <h2 className="h3 !text-white-100">Ready to Start Your Project?</h2>
-            <p className="p3 text-white-100/80">Let&apos;s discuss how our comprehensive software development services can help transform your business and achieve your goals.</p>
+            <h2 className="h3 !text-white-100">Not sure which service fits?</h2>
+            <p className="p3 text-white-100/80">Tell us what you are solving. We will recommend the right stack, team shape, and first milestone — no charge, no commitment.</p>
           </div>
           <div className="flex items-center gap-[8px]">
-            <Link href="/contact" className="cta-primary-dark !bg-white-100 !text-cobolt-500 hover:!opacity-90">Get Free Consultation</Link>
-            <Link href="/portfolio" className="cta-secondary-dark !border-white-100 !text-white-100 hover:!bg-white-100 hover:!text-cobolt-500">View Our Work</Link>
+            <Link href="/contact" className="cta-primary-dark !bg-white-100 !text-cobolt-500 hover:!opacity-90">Get a free consultation</Link>
           </div>
         </div>
       </section>

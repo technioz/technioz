@@ -2,36 +2,19 @@ import { PillarPage, type PillarData } from "@/components/pillar-page";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Security & Reliability Services | Technioz",
-  description:
-    "A practical guide to web application security, compliance, and reliability. Learn how to protect APIs, secure data, meet compliance requirements, and maintain uptime.",
-  keywords: [
-    "web application security",
-    "software security services",
-    "cybersecurity consulting",
-    "HIPAA compliant software",
-    "PCI DSS compliance",
-    "secure software development",
-    "API security",
-    "data privacy consulting",
-    "application reliability",
-    "SOC 2 compliance consulting",
-    "secure cloud infrastructure",
-    "penetration testing services",
-  ],
+  title: "Security & Reliability Consulting | Compliance & Uptime | Technioz",
+  description: "Security and reliability consulting. Protect APIs, secure data, meet compliance, and maintain uptime.",
   openGraph: {
-    title: "Security & Reliability Services | Technioz",
-    description:
-      "Protect your software, secure your data, and maintain uptime. A practical guide to security, compliance, and reliability for growing businesses.",
+    title: "Security & Reliability Consulting | Compliance & Uptime | Technioz",
+    description: "Security and reliability consulting. Protect APIs, secure data, meet compliance, and maintain uptime.",
     url: "https://technioz.com/security-reliability",
-    images: [{ url: "/logo.webp", width: 1200, height: 630, alt: "Security and reliability guide" }],
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Security and reliability consulting" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Security & Reliability Services | Technioz",
-    description:
-      "Protect your software, secure your data, and maintain uptime.",
-    images: ["/logo.webp"],
+    title: "Security & Reliability Consulting | Compliance & Uptime | Technioz",
+    description: "Security and reliability consulting. Protect APIs, secure data, meet compliance, and maintain uptime.",
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://technioz.com/security-reliability",
@@ -40,8 +23,7 @@ export const metadata: Metadata = {
 
 const data: PillarData = {
   title: "Security and Reliability: A Practical Guide for Software Teams",
-  description:
-    "Security and reliability are not afterthoughts. They are design decisions that affect architecture, user trust, compliance, and operating cost. This guide covers how to build software that protects data, resists attacks, and stays available under pressure.",
+  description: "A practical guide to web application security, compliance and reliability. Protect APIs, secure data, meet compliance, and maintain uptime.",
   heroLabel: "Security & Reliability",
   heroIcon: "🛡️",
   sections: [

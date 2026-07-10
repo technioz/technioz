@@ -1,11 +1,13 @@
 "use client";
 
 import { useState, useCallback, useEffect } from "react";
+import Link from "next/link";
 
 interface Testimonial {
   quote: string;
   author: string;
   role: string;
+  caseStudyHref?: string;
 }
 
 export function TestimonialCarousel({ testimonials }: { testimonials: Testimonial[] }) {
@@ -90,9 +92,16 @@ function TestimonialCard({ t }: { t: Testimonial }) {
   return (
     <div className="bg-white-300 rounded-sm p-[32px] flex flex-col gap-[24px] h-full max-w-[720px] mx-auto">
       <p className="p3 text-black-400 italic leading-relaxed">&ldquo;{t.quote}&rdquo;</p>
-      <div className="flex flex-col gap-1 mt-auto">
-        <span className="font-display text-[18px] font-medium text-black-500">{t.author}</span>
-        <span className="p5 text-black-400">{t.role}</span>
+      <div className="flex flex-col gap-2 mt-auto">
+        <div className="flex flex-col gap-1">
+          <span className="font-display text-[18px] font-medium text-black-500">{t.author}</span>
+          <span className="p5 text-black-400">{t.role}</span>
+        </div>
+        {t.caseStudyHref && (
+          <Link href={t.caseStudyHref} className="e2 text-cobolt-500 hover:underline underline-offset-4 w-fit">
+            Read case study →
+          </Link>
+        )}
       </div>
     </div>
   );

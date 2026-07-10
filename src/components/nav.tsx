@@ -21,46 +21,64 @@ type ServiceGroup = {
 
 const serviceGroups: ServiceGroup[] = [
   {
-    title: "Development",
+    title: "Web Development",
     href: "/services/web-development",
     links: [
       { href: "/services/web-development", label: "Web Development" },
-      { href: "/services/mobile-development", label: "Mobile App Development" },
       { href: "/services/reactjs-development", label: "React.js Development" },
       { href: "/services/nextjs-development", label: "Next.js Development" },
       { href: "/services/nodejs-development", label: "Node.js Development" },
+      { href: "/web-app-development-company-dubai", label: "Web Development in Dubai" },
+      { href: "/ecommerce-website-development-dubai", label: "E-commerce Dubai" },
+    ],
+  },
+  {
+    title: "Mobile App Development",
+    href: "/services/mobile-development",
+    links: [
+      { href: "/services/mobile-development", label: "Mobile App Development" },
       { href: "/services/ios-app-development", label: "iOS App Development" },
       { href: "/services/android-app-development", label: "Android App Development" },
       { href: "/services/react-native-app-development", label: "React Native App Development" },
       { href: "/services/flutter-app-development", label: "Flutter App Development" },
       { href: "/services/cross-platform-app-development", label: "Cross-Platform App Development" },
+      { href: "/mobile-app-development-company-dubai", label: "Mobile App Development in Dubai" },
     ],
   },
   {
-    title: "AI & Cloud",
-    href: "/services/ai-solutions",
+    title: "Custom Software & AI",
+    href: "/services/custom-software-development",
     links: [
+      { href: "/services/custom-software-development", label: "Custom Software Development" },
+      { href: "/services/enterprise-software-development", label: "Enterprise Software Development" },
+      { href: "/services/mvp-development", label: "MVP Development" },
       { href: "/services/ai-solutions", label: "AI Solutions" },
       { href: "/services/ai-chatbot-development", label: "AI Chatbot Development" },
       { href: "/services/ai-agent-development", label: "AI Agent Development" },
       { href: "/services/rag-system-development", label: "RAG System Development" },
       { href: "/services/llm-integration", label: "LLM Integration" },
       { href: "/services/ai-workflow-automation", label: "AI Workflow Automation" },
+      { href: "/software-development-company-dubai", label: "Software Development in Dubai" },
+    ],
+  },
+  {
+    title: "Cloud & Consulting",
+    href: "/services/cloud-services",
+    links: [
       { href: "/services/cloud-services", label: "Cloud Services" },
       { href: "/services/cloud-migration", label: "Cloud Migration" },
       { href: "/services/devops-services", label: "DevOps Services" },
       { href: "/services/aws-consulting", label: "AWS Consulting" },
+      { href: "/services/it-consulting", label: "IT Consulting" },
+      { href: "/services/digital-transformation-consulting", label: "Digital Transformation Consulting" },
     ],
   },
   {
-    title: "Strategy",
-    href: "/services/it-consulting",
+    title: "Industries",
+    href: "/solutions/ecommerce",
     links: [
-      { href: "/services/it-consulting", label: "IT Consulting" },
-      { href: "/services/custom-software-development", label: "Custom Software Development" },
-      { href: "/services/enterprise-software-development", label: "Enterprise Software Development" },
-      { href: "/services/mvp-development", label: "MVP Development" },
-      { href: "/services/digital-transformation-consulting", label: "Digital Transformation Consulting" },
+      { href: "/solutions/ecommerce", label: "E-commerce" },
+      { href: "/industries/transport-logistics", label: "Transport & Logistics" },
     ],
   },
 ];
@@ -140,8 +158,8 @@ export function Nav() {
   const [activeSubnav, setActiveSubnav] = useState<SubnavKey>(null);
   const [subnavLeft, setSubnavLeft] = useState(0);
   const navRef = useRef<HTMLElement>(null);
-  const servicesRef = useRef<HTMLSpanElement>(null);
-  const resourcesRef = useRef<HTMLSpanElement>(null);
+  const servicesRef = useRef<HTMLAnchorElement>(null);
+  const resourcesRef = useRef<HTMLAnchorElement>(null);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const showSubnav = useCallback((key: SubnavKey) => {
@@ -179,6 +197,7 @@ export function Nav() {
                 alt="Technioz"
                 width={130}
                 height={36}
+                priority
                 className="h-[28px] lg:h-[36px] w-auto nav-logo"
                 unoptimized
               />
@@ -186,23 +205,25 @@ export function Nav() {
             <div className="hidden lg:flex items-center gap-[24px] xl:gap-[35px]">
             {navItems.map((item) =>
               item.subnav === "services" ? (
-                <span
+                <Link
                   key={item.href}
+                  href={item.href}
                   ref={servicesRef}
                   className={`cursor-pointer ${linkClass(item.href)}`}
                   onMouseEnter={() => showSubnav("services")}
                 >
                   {item.label}
-                </span>
+                </Link>
               ) : item.subnav === "resources" ? (
-                <span
+                <Link
                   key={item.href}
+                  href={item.href}
                   ref={resourcesRef}
                   className={`cursor-pointer ${linkClass(item.href)}`}
                   onMouseEnter={() => showSubnav("resources")}
                 >
                   {item.label}
-                </span>
+                </Link>
               ) : (
                 <Link
                   key={item.href}
@@ -270,9 +291,9 @@ function ServicesSubnav({ left, onMouseEnter }: { left: number; onMouseEnter: ()
           </div>
           <p className="p5 text-black-400">End-to-end software development from web and mobile apps to AI, cloud, and consulting.</p>
         </Link>
-        <div className="flex items-start p-[32px] gap-[48px] self-stretch">
+        <div className="flex items-start p-[32px] gap-[32px] self-stretch">
           {serviceGroups.map((group) => (
-            <div key={group.title} className="flex flex-col gap-[16px] min-w-[200px]">
+            <div key={group.title} className="flex flex-col gap-[16px] min-w-[190px]">
               <Link href={group.href} className="e1 text-black-300 hover:text-cobolt-500 transition-colors">
                 {group.title}
               </Link>
@@ -343,6 +364,7 @@ function MobileDrawer({ close, pathname }: { close: () => void; pathname: string
               alt="Technioz"
               width={130}
               height={36}
+              priority
               className="h-[28px] w-auto nav-logo"
               unoptimized
             />

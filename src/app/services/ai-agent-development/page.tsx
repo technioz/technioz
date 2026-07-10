@@ -3,14 +3,14 @@ import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Agent Development Services | Technioz",
-  description: "AI agent development for autonomous workflows that take real actions across APIs, documents, and business tools.",
+  title: "AI Agent Development Company | Autonomous Workflow Bots | Technioz",
+  description: "AI agent development company. Autonomous workflow bots that take real actions across APIs, documents, and business tools.",
   openGraph: {
-    title: "AI Agent Development Services | Autonomous AI Systems | Technioz",
+    title: "AI Agent Development Company | Autonomous Workflow Bots | Technioz",
     description:
       "Technioz designs and builds AI agents that take action across tools, APIs, and workflows.",
     url: "https://technioz.com/services/ai-agent-development",
-    images: ["/logo.webp"],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://technioz.com/services/ai-agent-development",

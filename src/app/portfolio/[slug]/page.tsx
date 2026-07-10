@@ -22,6 +22,7 @@ interface CaseStudy {
   industry: string;
   timeline: string;
   featured: boolean;
+  conceptBuild?: boolean;
   primaryStats: { metric: string; label: string }[];
   sections: CaseStudySection[];
   results: { metric: string; label: string }[];
@@ -114,7 +115,7 @@ const caseStudies: CaseStudy[] = [
     slug: "alkhanjry-transport",
     client: "Al Khanjry Groups",
     title: "From Manual Counters to $27 Million in Digital Sales",
-    subtitle: "How a 25-year-old Omani bus operator replaced counter queues and WhatsApp bookings with an online platform that now processes millions in ticket sales across 80+ cross-border routes.",
+    subtitle: "How a 25-year-old Omani bus operator moved from counter queues to real-time online ticketing across 80+ cross-border routes.",
     industry: "Transportation & Logistics",
     timeline: "7 months",
     featured: true,
@@ -218,6 +219,14 @@ const caseStudies: CaseStudy[] = [
         content: "We launched in phases. Phase 1 went live with the Muscat–Dubai route and a single payment gateway. We monitored for two weeks, fixed edge cases, then expanded to all routes in Phase 2. By Phase 3, branch staff were using the admin dashboard to process walk-in bookings, putting 100% of inventory online. Total rollout: 7 months from first commit to all routes live.",
       },
       {
+        type: "quote",
+        quote: {
+          text: "We went from manual counters and WhatsApp confirmations to a fully digital booking platform that handles thousands of passengers every day. Our customers now book in under two minutes, and my team finally has real-time visibility across every route.",
+          author: "Rashid Alkhanjry",
+          role: "Founder/CEO, Al Khanjry Transport",
+        },
+      },
+      {
         type: "heading", heading: "The Results",
       },
       {
@@ -239,13 +248,14 @@ const caseStudies: CaseStudy[] = [
     slug: "folio-ai-website-builder",
     client: "Folio",
     title: "One-Click AI Website Builder",
-    subtitle: "Turn a social-media link, a document, or a simple prompt into a beautiful, deploy-ready website — in seconds.",
+    subtitle: "Turn a social-media link, a document, or a simple prompt into a beautiful, deploy-ready website — in seconds. (Concept build)",
     industry: "AI SaaS",
     timeline: "5 months",
     featured: false,
+    conceptBuild: true,
     primaryStats: [
       { metric: "60 sec", label: "average site build time" },
-      { metric: "85%", label: "faster than hand-coding" },
+      { metric: "85%", label: "less manual work vs. traditional builders" },
       { metric: "3x", label: "input formats supported" },
     ],
     sections: [
@@ -317,12 +327,54 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: `${project.title} | ${project.client} | Technioz`,
       description: project.subtitle,
       url,
-      images: ["/logo.webp"],
+      images: ["/og-image.png"],
     },
     alternates: {
       canonical: url,
     },
   };
+}
+
+const serviceLinksBySlug: Record<string, { title: string; href: string; desc: string }[]> = {
+  "food-delivery-app": [
+    { title: "Mobile Development", href: "/services/mobile-development", desc: "Native and cross-platform apps built for engagement and scale." },
+    { title: "Web Development", href: "/services/web-development", desc: "Fast, secure web applications with React and Next.js." },
+    { title: "Custom Software Development", href: "/services/custom-software-development", desc: "Software built around your exact workflows and growth goals." },
+  ],
+  "alkhanjry-transport": [
+    { title: "Web Development", href: "/services/web-development", desc: "Customer-facing portals and booking platforms that convert." },
+    { title: "Custom Software Development", href: "/services/custom-software-development", desc: "Bespoke platforms built around complex business rules." },
+    { title: "Cloud Services", href: "/services/cloud-services", desc: "AWS-backed infrastructure that scales with demand." },
+  ],
+  "folio-ai-website-builder": [
+    { title: "AI Solutions", href: "/services/ai-solutions", desc: "LLM integration, RAG systems, and production AI features." },
+    { title: "Web Development", href: "/services/web-development", desc: "Next.js applications with performance and SEO built in." },
+  ],
+  "sky-growers": [
+    { title: "Web Development", href: "/services/web-development", desc: "E-commerce and portal web apps that serve customers 24/7." },
+    { title: "Custom Software Development", href: "/services/custom-software-development", desc: "Tailored platforms for operations, ordering, and reporting." },
+  ],
+};
+
+function ServicesUsed({ slug }: { slug: string }) {
+  const links = serviceLinksBySlug[slug];
+  if (!links) return null;
+  return (
+    <section className="bg-white-200">
+      <div className="max-w-[1440px] mx-auto px-6 py-16 lg:px-[148px] lg:py-[100px]">
+        <h2 className="h4 text-black-500 mb-10">Services used on this project</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {links.map((s) => (
+            <Link key={s.href} href={s.href} className="bg-white-300 rounded-sm p-[32px] flex flex-col gap-[12px] hover:shadow-[0_10px_24px_rgba(29,27,22,0.12)] transition-shadow group">
+              <h3 className="font-display text-[20px] leading-none tracking-[-1px] text-black-500 group-hover:text-cobolt-500 transition-colors">{s.title}</h3>
+              <p className="p4 text-black-400">{s.desc}</p>
+              <span className="e2 text-cobolt-500 mt-2">Learn more →</span>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default async function CaseStudyDetail({ params }: { params: Promise<{ slug: string }> }) {
@@ -358,6 +410,7 @@ export default async function CaseStudyDetail({ params }: { params: Promise<{ sl
           <div className="max-w-[800px] w-full text-start">
             <div className="flex items-center gap-3 mb-5">
               {study.featured && <span className="e1 text-cobolt-500">Case Study</span>}
+              {study.conceptBuild && <span className="e1 text-cobolt-500">Concept build</span>}
               <span className="p5 text-black-400">{study.industry}</span>
               <span className="text-black-200">&middot;</span>
               <span className="p5 text-black-400">{study.timeline}</span>
@@ -468,12 +521,13 @@ export default async function CaseStudyDetail({ params }: { params: Promise<{ sl
                   <span className="p4 text-black-400">{p.client}</span>
                 </div>
                 <div className="p-[24px] flex flex-col gap-[12px]">
-                  <div className="flex items-center gap-2">
-                    <span className="text-[11px] font-mono uppercase tracking-[1px] text-cobolt-500">{p.industry}</span>
+                  <div className="flex items-center gap-2 flex-wrap">
+                    {p.conceptBuild && <span className="text-[11px] font-mono uppercase tracking-[1px] text-cobolt-500 bg-cobolt-500/5 px-2 py-0.5 rounded-sm">Concept build</span>}
+                    <span className="text-[11px] font-mono uppercase tracking-[1px] text-black-300">{p.industry}</span>
                     <span className="text-xs text-black-400">{p.timeline}</span>
                   </div>
                   <h3 className="font-display text-[18px] leading-[1.2] tracking-[-0.9px] text-black-500 group-hover:text-cobolt-500 transition-colors line-clamp-2">{p.title}</h3>
-                  <span className="e2 text-cobolt-500">Read case study</span>
+                  <span className="e2 text-cobolt-500">{p.conceptBuild ? "View concept build" : "Read case study"}</span>
                 </div>
               </Link>
             ))}
@@ -484,6 +538,9 @@ export default async function CaseStudyDetail({ params }: { params: Promise<{ sl
         </div>
       </section>
 
+      {/* Services used */}
+      <ServicesUsed slug={slug} />
+
       {/* CTA */}
       <section className="bg-cobolt-500">
         <div className="max-w-[1440px] mx-auto px-6 py-16 lg:px-[148px] lg:py-[100px] flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
@@ -493,7 +550,7 @@ export default async function CaseStudyDetail({ params }: { params: Promise<{ sl
           </div>
           <div className="flex items-center gap-[8px]">
             <Link href="https://calendly.com/technioztech/30min" className="cta-primary-dark !bg-white-100 !text-cobolt-500 hover:!opacity-90">Book a free roadmap session</Link>
-            <Link href="/contact" className="cta-secondary-dark !border-white-100 !text-white-100 hover:!bg-white-100 hover:!text-cobolt-500">Contact us</Link>
+            <Link href="/contact" className="cta-secondary-dark !border-white-100 !text-white-100 hover:!bg-white-100 hover:!text-cobolt-500">Discuss a similar project</Link>
           </div>
         </div>
       </section>

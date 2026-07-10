@@ -3,14 +3,14 @@ import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Cloud Migration Services | Technioz",
-  description: "Cloud migration services for AWS, Azure, and GCP. Move applications and databases with minimal downtime and risk.",
+  title: "Cloud Migration Company | AWS, Azure, GCP | Technioz",
+  description: "Cloud migration company. Move applications and databases to AWS, Azure, and GCP with minimal downtime and risk.",
   openGraph: {
-    title: "Cloud Migration Services | AWS, Azure, GCP | Technioz",
+    title: "Cloud Migration Company | AWS, Azure, GCP | Technioz",
     description:
       "Technioz migrates applications and infrastructure to AWS, Azure, and Google Cloud with minimal downtime.",
     url: "https://technioz.com/services/cloud-migration",
-    images: ["/logo.webp"],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://technioz.com/services/cloud-migration",

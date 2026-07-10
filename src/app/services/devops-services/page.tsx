@@ -3,14 +3,14 @@ import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "DevOps Services | Technioz",
-  description: "DevOps services including CI/CD, Kubernetes, infrastructure as code, and observability. Ship faster with reliable systems.",
+  title: "DevOps Consulting Company | CI/CD, Kubernetes, IaC | Technioz",
+  description: "DevOps consulting company. CI/CD, Kubernetes, infrastructure as code, and observability. Ship faster with reliable systems.",
   openGraph: {
-    title: "DevOps Services | CI/CD, Kubernetes, IaC | Technioz",
+    title: "DevOps Consulting Company | CI/CD, Kubernetes, IaC | Technioz",
     description:
       "Technioz delivers DevOps services including CI/CD pipelines, infrastructure as code, Kubernetes, and observability.",
     url: "https://technioz.com/services/devops-services",
-    images: ["/logo.webp"],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://technioz.com/services/devops-services",

@@ -133,7 +133,7 @@ export function SolutionPage({ data }: { data: AnySolution }) {
           </div>
           <div className="flex items-center gap-[8px]">
             <Link href="https://calendly.com/technioztech/30min" className="cta-primary-dark !bg-white-100 !text-cobolt-500 hover:!opacity-90">Book a free roadmap session</Link>
-            <Link href="/contact" className="cta-secondary-dark !border-white-100 !text-white-100 hover:!bg-white-100 hover:!text-cobolt-500">Contact us</Link>
+            <Link href="/contact" className="cta-secondary-dark !border-white-100 !text-white-100 hover:!bg-white-100 hover:!text-cobolt-500">Message the team</Link>
           </div>
         </div>
       </section>

@@ -3,14 +3,14 @@ import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Cross-Platform App Development | Technioz",
-  description: "Cross-platform app development with React Native and Flutter. One codebase for iOS and Android without the compromise.",
+  title: "Cross-Platform App Development Company | React Native, Flutter | Technioz",
+  description: "Cross-platform app development company. React Native and Flutter apps for iOS and Android from one codebase.",
   openGraph: {
-    title: "Cross-Platform App Development | React Native & Flutter | Technioz",
+    title: "Cross-Platform App Development Company | React Native, Flutter | Technioz",
     description:
       "Technioz helps you choose and execute the right cross-platform mobile strategy with React Native or Flutter.",
     url: "https://technioz.com/services/cross-platform-app-development",
-    images: ["/logo.webp"],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://technioz.com/services/cross-platform-app-development",

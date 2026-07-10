@@ -3,14 +3,14 @@ import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Workflow Automation Services | Technioz",
-  description: "AI workflow automation that reduces manual work through document processing, classification, routing, and intelligent decisions.",
+  title: "AI Workflow Automation Company | Document & Process Bots | Technioz",
+  description: "AI workflow automation company. Reduce manual work with document processing, classification, routing, and intelligent decisions.",
   openGraph: {
-    title: "AI Workflow Automation Services | Smart Process Automation | Technioz",
+    title: "AI Workflow Automation Company | Document & Process Bots | Technioz",
     description:
       "Technioz uses AI to automate repetitive workflows: document processing, data extraction, approvals, and decision support.",
     url: "https://technioz.com/services/ai-workflow-automation",
-    images: ["/logo.webp"],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://technioz.com/services/ai-workflow-automation",

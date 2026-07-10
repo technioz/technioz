@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 /* ── Colors ── */
 @theme {
@@ -121,28 +122,6 @@
   font-weight: 400;
   font-style: italic;
   font-display: swap;
-}
-@font-face {
-  font-family: "Material Symbols Outlined";
-  src: url("/fonts/MaterialSymbolsOutlined.woff2") format("woff2");
-  font-weight: 100 700;
-  font-style: normal;
-  font-display: swap;
-}
-.material-symbols-outlined {
-  font-family: "Material Symbols Outlined";
-  font-weight: normal;
-  font-style: normal;
-  line-height: 1;
-  letter-spacing: normal;
-  text-transform: none;
-  display: inline-block;
-  white-space: nowrap;
-  word-wrap: normal;
-  direction: ltr;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  font-feature-settings: "liga";
 }
 
 /* ── Base ── */
@@ -409,4 +388,224 @@ h6 {
 .cta-quaternary-dark:hover {
   background-color: var(--color-cobolt-200);
   color: var(--color-black-500);
+}
+
+/* ── Article prose (DB-driven blog posts) ── */
+.prose.article-prose {
+  --tw-prose-body: var(--color-black-400);
+  --tw-prose-headings: var(--color-black-500);
+  --tw-prose-lead: var(--color-black-400);
+  --tw-prose-links: var(--color-cobolt-500);
+  --tw-prose-bold: var(--color-black-500);
+  --tw-prose-counters: var(--color-black-200);
+  --tw-prose-bullets: var(--color-cobolt-500);
+  --tw-prose-hr: var(--color-neutral-200);
+  --tw-prose-quotes: var(--color-black-400);
+  --tw-prose-quote-borders: var(--color-cobolt-500);
+  --tw-prose-captions: var(--color-black-300);
+  --tw-prose-kbd: var(--color-black-500);
+  --tw-prose-kbd-shadows: var(--color-black-100);
+  --tw-prose-code: var(--color-black-500);
+  --tw-prose-pre-code: var(--color-white-200);
+  --tw-prose-pre-bg: var(--color-black-500);
+  --tw-prose-th-borders: var(--color-neutral-300);
+  --tw-prose-td-borders: var(--color-neutral-200);
+}
+.article-prose h2,
+.prose.article-prose h2 {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -2.4px;
+  color: var(--color-black-500);
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  scroll-margin-top: 6rem;
+}
+.article-prose h3,
+.prose.article-prose h3 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -1.4px;
+  color: var(--color-black-500);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  scroll-margin-top: 6rem;
+}
+.article-prose h4,
+.prose.article-prose h4 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.8px;
+  color: var(--color-black-500);
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.article-prose p,
+.prose.article-prose p {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--color-black-400);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.article-prose a,
+.prose.article-prose a {
+  color: var(--color-cobolt-500);
+  text-decoration: none;
+}
+.article-prose a:hover,
+.prose.article-prose a:hover {
+  text-decoration: underline;
+}
+.article-prose strong,
+.prose.article-prose strong {
+  color: var(--color-black-500);
+  font-weight: 500;
+}
+.article-prose ul,
+.prose.article-prose ul,
+.article-prose ol,
+.prose.article-prose ol {
+  list-style: none;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-left: 1.25rem;
+}
+.article-prose ul ul,
+.prose.article-prose ul ul,
+.article-prose ol ol,
+.prose.article-prose ol ol,
+.article-prose ul ol,
+.prose.article-prose ul ol,
+.article-prose ol ul,
+.prose.article-prose ol ul {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding-left: 1.25rem;
+}
+.article-prose li,
+.prose.article-prose li {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--color-black-400);
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  position: relative;
+  padding-left: 0.75rem;
+}
+.article-prose ul > li::before,
+.prose.article-prose ul > li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background-color: var(--color-cobolt-500);
+}
+.article-prose ol > li,
+.prose.article-prose ol > li {
+  list-style: decimal;
+  list-style-position: outside;
+  padding-left: 0.5rem;
+}
+.article-prose ol > li::marker,
+.prose.article-prose ol > li::marker {
+  color: var(--color-cobolt-500);
+  font-weight: 500;
+}
+.article-prose ol > li > p,
+.prose.article-prose ol > li > p,
+.article-prose ul > li > p,
+.prose.article-prose ul > li > p {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.article-prose code,
+.prose.article-prose code {
+  background-color: rgba(29, 27, 22, 0.05);
+  color: var(--color-black-500);
+  padding: 0.125rem 0.375rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+.article-prose pre,
+.prose.article-prose pre {
+  background-color: var(--color-black-500);
+  color: var(--color-white-200);
+  padding: 1.5rem;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.6;
+  overflow-x: auto;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.article-prose pre code,
+.prose.article-prose pre code {
+  background-color: transparent;
+  color: var(--color-white-200);
+  padding: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  white-space: pre;
+}
+.article-prose blockquote,
+.prose.article-prose blockquote {
+  border-left: 3px solid var(--color-cobolt-500);
+  color: var(--color-black-400);
+  font-style: italic;
+  padding-left: 1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.article-prose img,
+.prose.article-prose img {
+  border-radius: 4px;
+  border: 1px solid var(--color-neutral-300);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  max-width: 100%;
+  height: auto;
+}
+.article-prose figure,
+.prose.article-prose figure {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.article-prose figcaption,
+.prose.article-prose figcaption {
+  margin-top: 0.5rem;
+  text-align: center;
+  font-size: 14px;
+  color: var(--color-black-400);
+}
+.article-prose table,
+.prose.article-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.article-prose th,
+.article-prose td,
+.prose.article-prose th,
+.prose.article-prose td {
+  border: 1px solid var(--color-neutral-200);
+  padding: 0.5rem 0.75rem;
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--color-black-400);
 }

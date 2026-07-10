@@ -7,12 +7,11 @@ const data = solutions.find((s) => s.slug === "finance")!;
 export const metadata: Metadata = {
   title: `${data.title} | Technioz`,
   description: data.metaDescription,
-  keywords: data.keywords,
   openGraph: {
     title: `${data.title} | Technioz`,
     description: data.metaDescription,
     url: "https://technioz.com/solutions/finance",
-    images: ["/logo.webp"],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://technioz.com/solutions/finance",

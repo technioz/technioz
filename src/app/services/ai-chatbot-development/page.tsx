@@ -3,14 +3,14 @@ import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Chatbot Development Services | Technioz",
-  description: "AI chatbot development for customer support, lead generation, and internal help desks. Grounded answers with human handoff.",
-  openGraph: {
-    title: "AI Chatbot Development Services | Custom Business Bots | Technioz",
+  title: "AI Chatbot Development Company | Custom Business Bots | Technioz",
+  description: "AI chatbot development company. Custom bots for support, sales, onboarding, and internal help desks with grounded answers and human handoff.",
+    openGraph: {
+    title: "AI Chatbot Development Company | Custom Business Bots | Technioz",
     description:
       "Technioz builds custom AI chatbots for customer support, sales, onboarding, and internal help desks.",
     url: "https://technioz.com/services/ai-chatbot-development",
-    images: ["/logo.webp"],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://technioz.com/services/ai-chatbot-development",

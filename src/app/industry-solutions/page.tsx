@@ -2,14 +2,14 @@ import { PillarPage, type PillarData } from "@/components/pillar-page";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Industry-Specific Software Solutions | Technioz",
-  description: "Custom software solutions for transport, retail, logistics, healthcare, finance, and more. Built around real industry workflows.",
+  title: "Industry-Specific Software Solutions | Transport, Healthcare, Fintech | Technioz",
+  description: "Custom software solutions for transport, logistics, retail, healthcare, finance, and education. Built around real industry workflows.",
   openGraph: {
     title: "Industry-Specific Software Solutions: Transport, Retail & Beyond | Technioz",
     description:
       "How custom software solves industry-specific problems in transport, retail, logistics, healthcare, finance, and more.",
     url: "https://technioz.com/industry-solutions",
-    images: ["/logo.webp"],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://technioz.com/industry-solutions",

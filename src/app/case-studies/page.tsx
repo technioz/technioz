@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 
 export const metadata: Metadata = {
   title: "Case Studies | Technioz Client Results",
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
     title: "Case Studies | Technioz Client Results",
     description: "Explore real client results and transformation stories from Technioz.",
     url: "https://technioz.com/case-studies",
-    images: ["/logo.webp"],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://technioz.com/case-studies",
@@ -54,7 +55,8 @@ const caseStudies = [
 
 export default function CaseStudies() {
   return (
-    <>
+      <>
+        <BreadcrumbJsonLd items={[{ name: "Home", href: "/" }, { name: "Case Studies", href: "/case-studies" }]} />
       <section className="bg-white-200">
         <div className="max-w-[1440px] mx-auto px-6 pt-12 pb-16 lg:px-[148px] lg:pt-[100px] lg:pb-[100px]">
           <div className="flex flex-col gap-[24px] max-w-[700px]">
@@ -68,7 +70,7 @@ export default function CaseStudies() {
             <p className="p3 text-black-400">Take an in-depth look at how we helped two very different businesses replace outdated systems with custom software that transformed their operations.</p>
             <div className="flex items-center gap-6 mt-2">
               {[
-                { value: "200+", label: "Projects shipped" },
+                { value: "5+", label: "Projects shipped" },
                 { value: "98%", label: "On-time delivery" },
                 { value: "5", label: "Industries served" },
               ].map((s) => (
@@ -144,7 +146,10 @@ export default function CaseStudies() {
             <h2 className="h3 !text-white-100 mb-4">Want to be our next case study?</h2>
             <p className="p3 text-white-100/80">Let&apos;s discuss your project and see how we can deliver results for your business.</p>
           </div>
-          <Link href="/contact" className="cta-primary-dark !bg-white-100 !text-cobolt-500 hover:!opacity-90">Start your project</Link>
+          <div className="flex items-center gap-[8px]">
+            <Link href="/contact" className="cta-primary-dark !bg-white-100 !text-cobolt-500 hover:!opacity-90">Tell us about your project</Link>
+            <Link href="/services" className="cta-secondary-dark !border-white-100 !text-white-100 hover:!bg-white-100 hover:!text-cobolt-500">Explore our services</Link>
+          </div>
         </div>
       </section>
     </>

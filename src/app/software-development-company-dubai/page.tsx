@@ -1,25 +1,55 @@
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
+import { FaqJsonLd } from "@/components/faq-jsonld";
+import { ScorecardForm } from "./scorecard-form";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Software Development Company Dubai | Technioz",
-  description: "Custom software development company in Dubai. We build enterprise apps, web apps, mobile apps, and AI solutions for UAE businesses.",
+  title: "Software Development Company in Dubai — Web, Mobile & AI | Technioz",
+  description: "Dubai software development company building web apps, mobile apps, and AI solutions for UAE and GCC businesses. Free vendor scorecard. Book a free scoping call.",
   openGraph: {
-    title: "Software Development Company in Dubai | Custom Software & Enterprise Apps | Technioz",
-    description:
-      "Technioz builds custom software, enterprise apps, and digital platforms for Dubai and GCC businesses.",
+    title: "Software Development Company in Dubai — Web, Mobile & AI | Technioz",
+    description: "Technioz builds custom software, web apps, mobile apps, and AI solutions for Dubai and GCC businesses.",
     url: "https://technioz.com/software-development-company-dubai",
-    images: ["/logo.webp"],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://technioz.com/software-development-company-dubai",
   },
 };
 
+const faqs = [
+  {
+    question: "Do you work with clients in the Middle East?",
+    answer: "Yes. We currently partner with companies in the UAE and Oman, and we work with buyers across Saudi Arabia, Qatar, Bahrain, and Kuwait. We are remote-first, so all discovery, standups, and demos happen over video, WhatsApp, or email.",
+  },
+  {
+    question: "Can you align with UAE business hours?",
+    answer: "Absolutely. Our default working hours overlap with Gulf Standard Time for standups, reviews, and milestone demos. Async updates keep progress visible between calls.",
+  },
+  {
+    question: "Do you have an office in Dubai we can visit?",
+    answer: "We do not operate a physical office in Dubai. We are a remote-first company. If an in-person meeting is essential, we can coordinate a meeting in Dubai when a team member is in the region.",
+  },
+  {
+    question: "How do contracts and payments work for GCC clients?",
+    answer: "We work with standard international contracts and can invoice in USD, AED, or INR. Payments are typically milestone-based, with clear SOWs and acceptance criteria.",
+  },
+  {
+    question: "What technologies do you use?",
+    answer: "We use modern, production-grade technologies including React, Next.js, TypeScript, Node.js, Python, React Native, Flutter, AWS, Azure, GCP, Docker, Kubernetes, PostgreSQL, MongoDB, GraphQL, REST APIs, and more.",
+  },
+  {
+    question: "How much does custom software development cost in Dubai?",
+    answer: "Most custom software projects range from $20,000 to $120,000 depending on scope, design, backend complexity, and integrations. We provide fixed-price quotes after a discovery call.",
+  },
+];
+
 export default function SoftwareDevelopmentCompanyDubai() {
   return (
     <>
+      <BreadcrumbJsonLd items={[{ name: "Home", href: "/" }, { name: "Services", href: "/services" }, { name: "Custom Software Development", href: "/services/custom-software-development" }, { name: "Dubai, UAE" }]} />
+      <FaqJsonLd items={faqs} />
       <section className="bg-white-200">
         <div className="mx-auto max-w-[1440px] px-6 pt-12 pb-16 lg:px-[148px] lg:pt-[100px] lg:pb-[100px]">
           <div className="flex flex-col gap-[24px] max-w-[720px]">
@@ -124,6 +154,12 @@ export default function SoftwareDevelopmentCompanyDubai() {
             <div className="bg-white-300 rounded-sm p-[32px]">
               <h3 className="font-display text-[20px] leading-none tracking-[-1px] text-black-500 mb-4">Local Coverage</h3>
               <p className="p4 text-black-400 mb-4">We support software projects across the UAE and wider GCC region.</p>
+              <Link href="/portfolio/alkhanjry-transport" className="bg-white-200 rounded-sm p-[24px] flex flex-col gap-[12px] hover:shadow-[0_10px_24px_rgba(29,27,22,0.12)] transition-shadow group mb-4">
+                <span className="text-[12px] font-mono uppercase tracking-[1px] text-cobolt-500">GCC client highlight</span>
+                <span className="font-display text-[18px] leading-none tracking-[-0.9px] text-black-500 group-hover:text-cobolt-500 transition-colors">Al Khanjry Transport</span>
+                <p className="p5 text-black-400">Omani bus operator digital transformation — $27M+ in online ticket sales.</p>
+                <span className="e2 text-cobolt-500">Read case study →</span>
+              </Link>
               <div className="flex flex-wrap gap-2">
                 {["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Riyadh", "Jeddah", "Doha", "Kuwait City", "Manama"].map((c) => (
                   <span key={c} className="text-[12px] text-black-300 bg-black-500/5 px-2 py-1 rounded-sm">{c}</span>
@@ -134,7 +170,53 @@ export default function SoftwareDevelopmentCompanyDubai() {
         </div>
       </section>
 
+      <section className="bg-white-200">
+        <div className="max-w-[1440px] mx-auto px-6 py-16 lg:px-[148px] lg:py-[100px]">
+          <div className="max-w-[800px] mx-auto">
+            <h2 className="h4 text-black-500 mb-10">Questions About Working With Us in the Middle East</h2>
+            <div className="flex flex-col gap-4">
+              {faqs.map((faq, i) => (
+                <details key={i} className="group bg-white-300 border border-neutral-300 rounded-sm overflow-hidden">
+                  <summary className="p-[24px] lg:p-[32px] cursor-pointer flex items-start justify-between gap-4 hover:text-cobolt-500 transition-colors list-none">
+                    <h3 className="font-display text-[20px] leading-[1.2] tracking-[-1px] text-black-500 group-hover:text-cobolt-500 transition-colors">{faq.question}</h3>
+                    <svg className="w-6 h-6 text-black-400 group-open:rotate-45 transition-transform duration-[300ms] shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M12 5v14M5 12h14" strokeLinecap="round" />
+                    </svg>
+                  </summary>
+                  <div className="px-[24px] pb-[24px] lg:px-[32px] lg:pb-[32px] -mt-2">
+                    <p className="p3 text-black-400 leading-relaxed">{faq.answer}</p>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-cobolt-500">
+        <div className="max-w-[1440px] mx-auto px-6 py-16 lg:px-[148px] lg:py-[100px]">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="max-w-[640px]">
+              <span className="e1 text-white-100/70">Free tool</span>
+              <h2 className="h4 !text-white-100 mt-2 mb-4">Software Vendor Evaluation Scorecard</h2>
+              <p className="p3 text-white-100/80 mb-6">
+                Comparing development partners? Use the same scorecard we recommend to buyers evaluating custom software teams in Dubai and the GCC.
+              </p>
+              <ul className="flex flex-col gap-2 p4 text-white-100/80">
+                <li className="flex items-start gap-2"><span className="text-white-100 mt-1">→</span><span>30 yes/no questions across 6 evaluation categories</span></li>
+                <li className="flex items-start gap-2"><span className="text-white-100 mt-1">→</span><span>Weighted scoring for technical, process, and fit factors</span></li>
+                <li className="flex items-start gap-2"><span className="text-white-100 mt-1">→</span><span>Side-by-side comparison template for 3 vendors</span></li>
+              </ul>
+            </div>
+            <div className="bg-white-100 rounded-sm p-[32px]">
+              <h3 className="font-display text-[20px] leading-none tracking-[-1px] text-black-500 mb-4">Get the free scorecard</h3>
+              <ScorecardForm />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white-300">
         <div className="max-w-[1440px] mx-auto px-6 py-16 lg:px-[148px] lg:py-[100px] flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
           <div className="max-w-[600px]">
             <h2 className="h3 !text-white-100 mb-4">Build Custom Software in Dubai</h2>

@@ -3,14 +3,14 @@ import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Android App Development Services | Technioz",
-  description: "Android app development with Kotlin and Jetpack. Native apps built for performance, security, and scale on every device.",
+  title: "Android App Development Company | Kotlin & Jetpack | Technioz",
+  description: "Android app development company. Native Kotlin apps with Jetpack — performance, security, and scale on every device.",
   openGraph: {
-    title: "Android App Development Services | Kotlin & Jetpack | Technioz",
+    title: "Android App Development Company | Kotlin & Jetpack | Technioz",
     description:
       "Technioz builds native Android apps with Kotlin and Jetpack Compose.",
     url: "https://technioz.com/services/android-app-development",
-    images: ["/logo.webp"],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://technioz.com/services/android-app-development",

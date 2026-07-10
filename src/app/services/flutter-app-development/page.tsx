@@ -3,14 +3,14 @@ import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Flutter App Development Services | Technioz",
-  description: "Flutter app development services for beautiful, high-performance cross-platform apps on iOS, Android, and web.",
+  title: "Flutter App Development Company | Cross-Platform Apps | Technioz",
+  description: "Flutter app development company. Beautiful, high-performance cross-platform apps on iOS, Android, and web.",
   openGraph: {
-    title: "Flutter App Development Services | Cross-Platform Apps | Technioz",
+    title: "Flutter App Development Company | Cross-Platform Apps | Technioz",
     description:
       "Technioz builds beautiful, fast cross-platform apps with Flutter and Dart for iOS, Android, and web.",
     url: "https://technioz.com/services/flutter-app-development",
-    images: ["/logo.webp"],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://technioz.com/services/flutter-app-development",

@@ -2,14 +2,14 @@ import { PillarPage, type PillarData } from "@/components/pillar-page";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Solutions for Business | Technioz",
-  description: "Practical AI solutions that deliver ROI: chatbots, intelligent agents, RAG systems, LLM integration, and workflow automation.",
+  title: "AI Chatbot Development Company | NLP, Agents & Automation | Technioz",
+  description: "Practical AI solutions for ROI: chatbots, intelligent agents, RAG systems, LLM integration, and workflow automation. Book a free AI consultation.",
   openGraph: {
-    title: "AI Solutions for Business: From Automation to Intelligent Agents | Technioz",
+    title: "AI Chatbot Development Company | NLP, Agents & Automation | Technioz",
     description:
       "A practical guide to AI agents, chatbots, RAG systems, and workflow automation for business.",
     url: "https://technioz.com/ai-solutions",
-    images: ["/logo.webp"],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://technioz.com/ai-solutions",

@@ -44,3 +44,13 @@ next-env.d.ts
 TARGET_KEYWORDS.md
 TOPIC_CLUSTERS.md
 BLOG_CONTENT_GUIDE.md
+
+/src/generated/prisma
+
+# local knowledge graph cache
+/.codebase-memory
+
+# webhook test payload (do not commit sample data)
+/article.json
+/technioz-seo-audit.md.docx
+/technioz-seo-audit-extracted.md

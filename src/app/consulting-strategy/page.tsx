@@ -2,36 +2,19 @@ import { PillarPage, type PillarData } from "@/components/pillar-page";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "IT Consulting & Technology Strategy | Technioz",
-  description:
-    "A practical guide to IT consulting, technology strategy, and solution architecture. Learn how to choose the right tech stack, plan software projects, and build a technology roadmap.",
-  keywords: [
-    "IT consulting services",
-    "technology strategy consulting",
-    "software consulting company",
-    "solution architecture consulting",
-    "CTO as a service",
-    "technical discovery workshop",
-    "technology roadmap planning",
-    "software project estimation",
-    "choose tech stack",
-    "outsourced CTO services",
-    "software architecture consulting Dubai",
-    "digital strategy consulting UAE",
-  ],
+  title: "IT Consulting & Technology Strategy Company | Technioz",
+  description: "IT consulting and technology strategy company. Choose the right tech stack, plan software projects, and build a clear roadmap.",
   openGraph: {
-    title: "IT Consulting & Technology Strategy | Technioz",
-    description:
-      "Choose the right tech stack, plan software projects, and build a technology roadmap. A practical guide for business leaders and product teams.",
+    title: "IT Consulting & Technology Strategy Company | Technioz",
+    description: "IT consulting and technology strategy company. Choose the right tech stack, plan software projects, and build a clear roadmap.",
     url: "https://technioz.com/consulting-strategy",
-    images: [{ url: "/logo.webp", width: 1200, height: 630, alt: "IT consulting and technology strategy guide" }],
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "IT consulting and technology strategy company" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "IT Consulting & Technology Strategy | Technioz",
-    description:
-      "Choose the right tech stack, plan software projects, and build a technology roadmap.",
-    images: ["/logo.webp"],
+    title: "IT Consulting & Technology Strategy Company | Technioz",
+    description: "IT consulting and technology strategy company. Choose the right tech stack, plan software projects, and build a clear roadmap.",
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://technioz.com/consulting-strategy",
@@ -40,8 +23,7 @@ export const metadata: Metadata = {
 
 const data: PillarData = {
   title: "IT Consulting and Technology Strategy: A Guide for Growing Businesses",
-  description:
-    "The right technology decisions can accelerate growth. The wrong ones create debt, delays, and expensive rebuilds. This guide explains how IT consulting helps leaders choose the right stack, plan projects, and build technology roadmaps that match business goals.",
+  description: "A practical guide to IT consulting and technology strategy. Choose the right tech stack, plan software projects, and build a roadmap.",
   heroLabel: "Consulting & Strategy",
   heroIcon: "🧭",
   sections: [

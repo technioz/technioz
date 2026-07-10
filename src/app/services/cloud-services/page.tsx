@@ -4,14 +4,14 @@ import type { Metadata } from "next";
 import { CloudServicesDiagram } from "@/components/diagrams/cloud-services-diagram";
 
 export const metadata: Metadata = {
-  title: "Cloud Services & DevOps | Technioz",
-  description: "Cloud services and DevOps across AWS, Azure, and GCP. Migration, Kubernetes, CI/CD, serverless, and infrastructure as code.",
+  title: "Cloud Services & DevOps Company | AWS, Azure, GCP | Technioz",
+  description: "Cloud services and DevOps company. Migration, Kubernetes, CI/CD, serverless, and infrastructure as code across AWS, Azure, and GCP.",
   openGraph: {
-    title: "Cloud Services & DevOps Solutions | AWS, Azure, GCP | Technioz",
+    title: "Cloud Services & DevOps Company | AWS, Azure, GCP | Technioz",
     description:
       "Technioz delivers cloud migration, DevOps automation, Kubernetes, and infrastructure as code across AWS, Azure, and Google Cloud.",
     url: "https://technioz.com/services/cloud-services",
-    images: ["/logo.webp"],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://technioz.com/services/cloud-services",
@@ -150,6 +150,18 @@ function SubPage({ data }: { data: CloudPageData }) {
             </div>
           ))}
         </div>
+      </Section>
+
+      <Section bg="white-200" pad>
+        <div className="max-w-[700px] mb-12">
+          <h2 className="h4 text-black-500 mb-4">See it in action</h2>
+          <p className="p3 text-black-400">Infrastructure designed for traffic spikes and zero-downtime deployments.</p>
+        </div>
+        <Link href="/portfolio/alkhanjry-transport" className="bg-white-300 rounded-sm p-[32px] flex flex-col gap-[12px] hover:shadow-[0_10px_24px_rgba(29,27,22,0.12)] transition-shadow group max-w-[700px]">
+          <h3 className="font-display text-[20px] leading-none tracking-[-1px] text-black-500 group-hover:text-cobolt-500 transition-colors">Al Khanjry Transport</h3>
+          <p className="p4 text-black-400">AWS-backed ticketing platform handling peak demand with auto-scaling, CI/CD, and full observability.</p>
+          <span className="e2 text-cobolt-500 mt-2">Read case study →</span>
+        </Link>
       </Section>
 
       <Section bg="white-200" pad>

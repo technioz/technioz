@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { solutions, enterpriseData } from "@/lib/solutions-data";
+import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 
 export const metadata: Metadata = {
-  title: "Industry Solutions | Technioz Software Development",
-  description: "Software solutions tailored for startups, healthcare, fintech, e-commerce, education, logistics, and enterprise. Domain expertise plus solid engineering.",
+  title: "Industry Software Solutions — Healthcare, Fintech, Logistics & More | Technioz",
+  description: "Custom software solutions for startups, healthcare, fintech, e-commerce, education, logistics, and enterprise. Domain expertise plus solid engineering.",
   openGraph: {
-    title: "Industry Solutions | Technioz Software Development",
-    description: "Domain-specific software solutions for startups, healthcare, fintech, e-commerce, education, logistics, and enterprise.",
+    title: "Industry Software Solutions — Healthcare, Fintech, Logistics & More | Technioz",
+    description: "Custom software solutions for startups, healthcare, fintech, e-commerce, education, logistics, and enterprise.",
     url: "https://technioz.com/solutions",
-    images: ["/logo.webp"],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://technioz.com/solutions",
@@ -23,7 +24,8 @@ export default function SolutionsIndex() {
   ];
 
   return (
-    <>
+      <>
+        <BreadcrumbJsonLd items={[{ name: "Home", href: "/" }, { name: "Solutions", href: "/solutions" }]} />
       <section className="bg-white-200">
         <div className="max-w-[1440px] mx-auto px-6 lg:px-[148px] pt-6 lg:pt-[40px] pb-10 lg:pb-[60px]">
           <div className="flex items-center gap-2 text-black-400 p5 mb-6">

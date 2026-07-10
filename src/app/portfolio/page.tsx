@@ -1,24 +1,35 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
+import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 
 export const metadata: Metadata = {
-  title: "Portfolio | Technioz Software Projects",
-  description:
-    "Explore Technioz software projects: scalable web apps, mobile apps, AI platforms, and cloud solutions for growing businesses.",
+  title: "Case Studies & Portfolio — Transport, Food Tech, AI & Agriculture | Technioz",
+  description: "Real projects with real numbers: HattaFoodHub (10,000+ concurrent orders), Al Khanjry ticketing ($27M+ in sales), and more. See how we build.",
   openGraph: {
     title: "Portfolio | Technioz Software Projects",
     description:
       "Explore Technioz software projects: scalable web apps, mobile apps, AI platforms, and cloud solutions.",
     url: "https://technioz.com/portfolio",
-    images: ["/logo.webp"],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://technioz.com/portfolio",
   },
 };
 
-const projects = [
+interface Project {
+  slug: string;
+  name: string;
+  title: string;
+  desc: string;
+  techs: string[];
+  featured: boolean;
+  conceptBuild?: boolean;
+  image: string;
+}
+
+const projects: Project[] = [
   {
     slug: "food-delivery-app",
     name: "HattaFoodHub",
@@ -32,9 +43,10 @@ const projects = [
     slug: "folio-ai-website-builder",
     name: "Folio",
     title: "AI Website Builder",
-    desc: "An AI-powered website builder that creates beautiful, deploy-ready sites from a social-media link, a simple document, or a short prompt — in one click.",
+    desc: "An AI-powered website builder that creates beautiful, deploy-ready sites from a social-media link, a simple document, or a short prompt — in one click. (Concept build)",
     techs: ["Next.js", "TypeScript", "OpenAI", "Tailwind CSS"],
     featured: false,
+    conceptBuild: true,
     image: "/assets/folio.webp",
   },
   {
@@ -59,7 +71,8 @@ const projects = [
 
 export default function Portfolio() {
   return (
-    <>
+      <>
+        <BreadcrumbJsonLd items={[{ name: "Home", href: "/" }, { name: "Portfolio", href: "/portfolio" }]} />
       <section className="bg-white-200">
         <div className="max-w-[1440px] mx-auto px-6 pt-12 pb-16 lg:px-[148px] lg:pt-[100px] lg:pb-[100px]">
           <div className="flex flex-col gap-[24px] max-w-[700px]">
@@ -106,11 +119,11 @@ export default function Portfolio() {
       <section className="bg-cobolt-500">
         <div className="max-w-[1440px] mx-auto px-6 py-16 lg:px-[148px] lg:py-[100px] flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
           <div className="max-w-[600px]">
-            <h2 className="h3 !text-white-100 mb-4">Ready to Start Your Project?</h2>
-            <p className="p3 text-white-100/80">Let&apos;s create something amazing together.</p>
+            <h2 className="h3 !text-white-100 mb-4">Ready for a project worth showcasing?</h2>
+            <p className="p3 text-white-100/80">Tell us what you are building — we will map the first three milestones on a free call.</p>
           </div>
           <div className="flex items-center gap-[8px]">
-            <Link href="/contact" className="cta-primary-dark !bg-white-100 !text-cobolt-500 hover:!opacity-90">Start Your Project</Link>
+            <Link href="/contact" className="cta-primary-dark !bg-white-100 !text-cobolt-500 hover:!opacity-90">Plan your build</Link>
             <Link href="/services" className="cta-secondary-dark !border-white-100 !text-white-100 hover:!bg-white-100 hover:!text-cobolt-500">Our Services</Link>
           </div>
         </div>
@@ -132,7 +145,10 @@ function ProjectCard({ project, featured }: { project: (typeof projects)[0]; fea
         />
       </div>
       <div className="p-[24px] lg:p-[32px] flex flex-col gap-[16px]">
-        {featured && <span className="e1 text-cobolt-500">Featured</span>}
+        <div className="flex items-center gap-2">
+          {featured && <span className="e1 text-cobolt-500">Featured</span>}
+          {project.conceptBuild && <span className="e1 text-cobolt-500">Concept build</span>}
+        </div>
         <div>
           <span className="p5 text-black-300">{project.name}</span>
           <h3 className="font-display text-[24px] leading-none tracking-[-1.2px] text-black-500 mt-1">{project.title}</h3>

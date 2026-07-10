@@ -60,6 +60,7 @@ export const testimonials = [
       "Technioz took the time to really understand our business and delivered a solution that just works. Communication was easy and the team was always responsive.",
     author: "Rashid Alkhanjry",
     role: "Founder/CEO, Al Khanjry Transport",
+    caseStudyHref: "/portfolio/alkhanjry-transport",
   },
   {
     quote:
@@ -72,10 +73,11 @@ export const testimonials = [
       "From start to finish, the process was straightforward and professional. Our team and customers love the new platform — thank you, Technioz!",
     author: "Abdul Rehman",
     role: "Founder/CEO, Hatta Food Hub",
+    caseStudyHref: "/portfolio/food-delivery-app",
   },
   {
     quote:
-      "We were looking for a partner who could help us build a scalable and efficient system, and Technioz delivered. The new system has made our daily work so much smoother.",
+      "Moving our ticketing and fleet operations online was a big shift for our team. Technioz made the transition smooth, kept us informed at every stage, and delivered a platform that has cut manual work across our routes.",
     author: "Shahid Yousef",
     role: "Founder/CEO, IGL Transport",
   },
@@ -84,5 +86,6 @@ export const testimonials = [
       "We were looking for a partner who could help us build a scalable and efficient system, and Technioz delivered. The new system has made our daily work so much smoother.",
     author: "Upkar Singh",
     role: "Founder/CEO, Sky Growers",
+    caseStudyHref: "/portfolio/sky-growers",
   }
 ];

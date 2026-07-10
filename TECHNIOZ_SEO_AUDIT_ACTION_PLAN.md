@@ -621,5 +621,23 @@ Re-check monthly after action plan begins.
 
 ---
 
-**Last updated:** July 8, 2026  
+**Last updated:** July 10, 2026  
 **Next blocker:** Waiting for real contact details (phone/WhatsApp, India/UAE address, testimonial permissions, concept-build confirmation).
+
+---
+
+## 14. Article Webhook Pipeline (added July 10, 2026)
+
+- [x] `POST /api/articles` webhook with Bearer token validation (`ARTICLE_WEBHOOK_SECRET`).
+- [x] Prisma 7 + `@prisma/adapter-pg` + `pg` driver-adapter setup, PostgreSQL schema pushed.
+- [x] Articles + Tags tables in `technioz-portfolio` DB on `94.136.190.93:5433`.
+- [x] Webhook auto-downloads image to `public/assets/articles/{slug}.{ext}` and stores local path.
+- [x] Category inferred from tags (Custom Software, AI Solutions, Cloud & DevOps, etc.).
+- [x] `src/lib/db-articles.ts` data layer with `getAllDbArticles`, `getDbArticleBySlug`, `getDbArticleSlugs`.
+- [x] `/blog` listing merges static + DB posts (static priority on slug collision; sorted by date desc).
+- [x] `/blog/[slug]` dynamic route renders static posts via existing `StaticBlogDetail` and DB posts via new `DbBlogDetail` (raw HTML with Tailwind typography + brand-token overrides in `.article-prose`).
+- [x] `BlogPostingJsonLd` component supports both static and DB articles.
+- [x] `/sitemap-blog.xml` dynamic route merges static + DB slugs.
+- [x] `force-dynamic` on all DB routes so new articles appear without rebuild.
+- [x] Webhook tested with `article.json` payload: 200 + saved, idempotent on replay, 401 on bad/missing token, 400 on bad event type, 200 + saved=0 on empty articles array.
+- [x] DB article page renders proper typography: 48px display H2 / 28px display H3 / 18px body P, cobalt bullets, numbered list with cobalt markers, ordered/unordered list indent, code/pre styling, table styling, blockquote with cobalt border.

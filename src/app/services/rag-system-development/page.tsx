@@ -3,14 +3,14 @@ import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "RAG System Development Services | Technioz",
-  description: "RAG system development that grounds LLM answers in your private documents, knowledge bases, and policies.",
+  title: "RAG System Development Company | Knowledge-Based AI | Technioz",
+  description: "RAG system development company. Ground LLM answers in your private documents, knowledge bases, and policies.",
   openGraph: {
-    title: "RAG System Development Services | Enterprise AI Search | Technioz",
+    title: "RAG System Development Company | Knowledge-Based AI | Technioz",
     description:
       "Technioz builds RAG systems that ground LLM answers in your private documents and knowledge bases.",
     url: "https://technioz.com/services/rag-system-development",
-    images: ["/logo.webp"],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://technioz.com/services/rag-system-development",

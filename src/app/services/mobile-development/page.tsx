@@ -4,14 +4,14 @@ import type { Metadata } from "next";
 import { MobileDevDiagram } from "@/components/diagrams/mobile-dev-diagram";
 
 export const metadata: Metadata = {
-  title: "Mobile App Development Services | Technioz",
-  description: "Mobile app development for iOS, Android, React Native, and Flutter. Native and cross-platform apps built to scale.",
+  title: "Mobile App Development Company — iOS & Android | Technioz",
+  description: "Native and cross-platform apps in React Native and Flutter. We ship iOS and Android apps for startups and SMBs. Free app consultation, no commitment.",
   openGraph: {
     title: "Mobile App Development Services | iOS, Android, React Native | Technioz",
     description:
       "Technioz builds native iOS, Android, and cross-platform mobile apps with React Native and Flutter.",
     url: "https://technioz.com/services/mobile-development",
-    images: ["/logo.webp"],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://technioz.com/services/mobile-development",
@@ -25,6 +25,7 @@ export default function MobileDev() {
       <Hero meta={meta} />
       <PainPromise />
       <Services />
+      <CaseStudyLink />
       <AppTypes />
       <Process />
       <RelatedServices />
@@ -161,6 +162,24 @@ function Services() {
             </div>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+function CaseStudyLink() {
+  return (
+    <section className="bg-white-300">
+      <div className="max-w-[1440px] mx-auto px-6 py-16 lg:px-[148px] lg:py-[100px]">
+        <div className="max-w-[700px] mb-12">
+          <h2 className="h4 text-black-500 mb-4">See it in action</h2>
+          <p className="p3 text-black-400">A live mobile product used by thousands of customers every day.</p>
+        </div>
+        <Link href="/portfolio/food-delivery-app" className="bg-white-200 rounded-sm p-[32px] flex flex-col gap-[12px] hover:shadow-[0_10px_24px_rgba(29,27,22,0.12)] transition-shadow group max-w-[700px]">
+          <h3 className="font-display text-[20px] leading-none tracking-[-1px] text-black-500 group-hover:text-cobolt-500 transition-colors">HattaFoodHub</h3>
+          <p className="p4 text-black-400">Food delivery app used by thousands of customers — iOS, Android, and real-time dispatch.</p>
+          <span className="e2 text-cobolt-500 mt-2">Read case study →</span>
+        </Link>
       </div>
     </section>
   );

@@ -5,19 +5,20 @@ import { CustomerMarquee } from "@/components/customer-marquee";
 import { TestimonialCarousel } from "@/components/testimonial-carousel";
 import { FadeIn } from "@/components/fade-in";
 import { marqueeCustomers, technologies, testimonials } from "@/lib/homepage-data";
+import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 
 const InfrastructureDiagram = dynamic(() => import("@/components/diagrams/infrastructure-diagram").then((m) => m.InfrastructureDiagram));
 const PricingModelDiagram = dynamic(() => import("@/components/diagrams/pricing-model-diagram").then((m) => m.PricingModelDiagram));
 const ShippingVelocityDiagram = dynamic(() => import("@/components/diagrams/shipping-velocity-diagram").then((m) => m.ShippingVelocityDiagram));
 
 export const metadata: Metadata = {
-  title: "Technioz | Software Development for Growing Businesses",
-  description: "One partner for web, mobile, AI, and cloud. Technioz builds, launches, and scales software products so you ship faster without managing multiple vendors.",
+  title: "Custom Software Development Company — Web, Mobile \u0026 AI | Technioz",
+  description: "We build web apps, mobile apps and AI solutions for GCC and India businesses. 5+ projects shipped, 98% on-time since 2024. Book a free consultation.",
   openGraph: {
     title: "Technioz | Full-Cycle Software Development for Growing Businesses",
     description: "One partner for web, mobile, AI, and cloud. We build, launch, and scale software products for growing businesses.",
     url: "https://technioz.com",
-    images: ["/logo.webp"],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://technioz.com",
@@ -26,7 +27,8 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <>
+      <>
+        <BreadcrumbJsonLd items={[{ name: "Home", href: "/" }]} />
       {/* P — Problem */}
       <FadeIn animation="fade-up">
       <section className="bg-white-200">
@@ -60,17 +62,16 @@ export default function Home() {
     </>
   );
 }
-
 function Stats() {
   return (
     <FadeIn animation="fade-up" delay={100}>
     <section className="border-y border-neutral-300 bg-white-200">
       <div className="max-w-[1440px] mx-auto px-6 lg:px-[148px] py-8 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
         {[
-          { value: "200+", label: "Projects shipped" },
-          { value: "50+", label: "Engineers on deck" },
+          { value: "5+", label: "Projects shipped" },
+          { value: "5+", label: "Engineers on deck" },
           { value: "98%", label: "On-time delivery" },
-          { value: "10+", label: "Years building" },
+          { value: "2+", label: "Years building" },
         ].map((s) => (
           <div key={s.label} className="flex flex-col gap-1"><span className="font-display text-[40px] leading-none tracking-[-2px] text-cobolt-500">{s.value}</span><span className="p5 text-black-400">{s.label}</span></div>
         ))}
@@ -233,7 +234,7 @@ function Industries() {
     <section className="bg-black-500 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0)", backgroundSize: "48px 48px" }} />
       <div className="max-w-[1440px] mx-auto px-6 py-16 lg:px-[148px] lg:py-[120px] flex flex-col gap-[48px] lg:gap-[80px] relative">
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6"><div className="max-w-[580px] flex flex-col gap-[16px]"><span className="e1 inline-flex items-center justify-center border px-[16px] py-[8px] border-black-400 text-black-200 w-fit">Industries</span><h2 className="h2 !text-white-200">We speak your domain.<br />Not just your stack.</h2><p className="p3 text-black-200 max-w-[480px]">The fastest software comes from teams who understand what the software is for — not just how to write it.</p></div><p className="font-display text-[16px] text-cobolt-200 uppercase tracking-[2px] hidden lg:block">5 industries &middot; 200+ projects deep</p></div>
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6"><div className="max-w-[580px] flex flex-col gap-[16px]"><span className="e1 inline-flex items-center justify-center border px-[16px] py-[8px] border-black-400 text-black-200 w-fit">Industries</span><h2 className="h2 !text-white-200">We speak your domain.<br />Not just your stack.</h2><p className="p3 text-black-200 max-w-[480px]">The fastest software comes from teams who understand what the software is for — not just how to write it.</p></div><p className="font-display text-[16px] text-cobolt-200 uppercase tracking-[2px] hidden lg:block">5 industries &middot; 5+ projects shipped</p></div>
         <FeaturedIndustry />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">{industryCards.map((ind, i) => (
           <Link key={ind.name} href={ind.href} className="group bg-black-500 border border-black-400 hover:border-cobolt-300 rounded-sm p-[36px] lg:p-[44px] flex flex-col gap-[24px] transition-colors duration-300">

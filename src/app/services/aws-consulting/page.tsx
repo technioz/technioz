@@ -3,14 +3,14 @@ import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AWS Consulting Services | Technioz",
-  description: "AWS consulting for architecture design, migration, serverless, cost optimization, and security hardening on Amazon Web Services.",
+  title: "AWS Consulting Company | Architecture, Migration, Serverless | Technioz",
+  description: "AWS consulting company. Architecture design, migration, serverless, cost optimization, and security hardening on Amazon Web Services.",
   openGraph: {
-    title: "AWS Consulting Services | Architecture, Migration & Optimization | Technioz",
+    title: "AWS Consulting Company | Architecture, Migration, Serverless | Technioz",
     description:
       "Technioz provides AWS consulting and implementation services including architecture design, migration, serverless, and cost optimization.",
     url: "https://technioz.com/services/aws-consulting",
-    images: ["/logo.webp"],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://technioz.com/services/aws-consulting",

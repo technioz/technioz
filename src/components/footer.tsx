@@ -40,6 +40,19 @@ const columns = [
     ],
   },
   {
+    label: "Quick Links",
+    links: [
+      { href: "/", label: "Home" },
+      { href: "/about", label: "About" },
+      { href: "/services", label: "Services" },
+      { href: "/portfolio", label: "Portfolio" },
+      { href: "/case-studies", label: "Case Studies" },
+      { href: "/contact", label: "Contact" },
+      { href: "/blog", label: "Blog" },
+      { href: "/faq", label: "FAQ" },
+    ],
+  },
+  {
     label: "Guides & Resources",
     links: [
       { href: "/custom-software-development", label: "Custom Software Guide" },
@@ -51,9 +64,6 @@ const columns = [
       { href: "/data-apis-integrations", label: "Data, APIs & Integrations" },
       { href: "/security-reliability", label: "Security & Reliability" },
       { href: "/consulting-strategy", label: "Consulting & Strategy" },
-      { href: "/case-studies", label: "Case Studies" },
-      { href: "/blog", label: "Blog" },
-      { href: "/faq", label: "FAQ" },
     ],
   },
 ];
@@ -81,13 +91,28 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between text-white-300/60 p4">
-          <span>&copy; {new Date().getFullYear()} Technioz. All rights reserved.</span>
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between text-white-300/80 p4">
+          <div className="flex flex-col gap-2">
+            <span className="text-white-300/60">Contact</span>
+            <a href="mailto:info@technioz.com" className="hover:text-cobolt-300 transition-colors">info@technioz.com</a>
+            <a href="https://wa.me/971569451930" target="_blank" rel="noopener noreferrer" className="hover:text-cobolt-300 transition-colors">UAE/WhatsApp: +971 56 945 1930</a>
+            <a href="tel:+919803683577" className="hover:text-cobolt-300 transition-colors">India: +91 98036 83577</a>
+            <span className="text-white-300/60 text-sm">Remote-first team · Serving UAE, Oman, India & worldwide</span>
+          </div>
           <div className="flex items-center gap-4">
             <Link href="/privacy" className="hover:text-cobolt-300 transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-cobolt-300 transition-colors">Terms of Service</Link>
             <Link href="/sitemap.xml" className="hover:text-cobolt-300 transition-colors">Sitemap</Link>
           </div>
+          <div className="flex items-center gap-4">
+            <a href="https://www.linkedin.com/company/technioz" target="_blank" rel="noopener noreferrer" className="hover:text-cobolt-300 transition-colors">LinkedIn</a>
+            <a href="https://github.com/technioz" target="_blank" rel="noopener noreferrer" className="hover:text-cobolt-300 transition-colors">GitHub</a>
+            <a href="https://x.com/technioz" target="_blank" rel="noopener noreferrer" className="hover:text-cobolt-300 transition-colors">X/Twitter</a>
+            <a href="https://www.instagram.com/technioz" target="_blank" rel="noopener noreferrer" className="hover:text-cobolt-300 transition-colors">Instagram</a>
+          </div>
+        </div>
+        <div className="text-center text-white-300/60 p4">
+          <span>&copy; {new Date().getFullYear()} Technioz. All rights reserved.</span>
         </div>
       </div>
 

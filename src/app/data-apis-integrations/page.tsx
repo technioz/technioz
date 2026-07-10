@@ -2,36 +2,19 @@ import { PillarPage, type PillarData } from "@/components/pillar-page";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Data, API & Integration Services | Technioz",
-  description:
-    "A practical guide to APIs, data integrations, and third-party system connectivity. Learn how to build reliable APIs, sync data between systems, and automate workflows.",
-  keywords: [
-    "API development services",
-    "API integration services",
-    "data integration company",
-    "third party API integration",
-    "REST API development",
-    "GraphQL API development",
-    "database design",
-    "data sync between systems",
-    "CRM ERP integration",
-    "payment gateway integration",
-    "webhook integration",
-    "API development company Dubai",
-  ],
+  title: "API & Data Integration Company | Connect Systems | Technioz",
+  description: "API and data integration company. Build reliable APIs, sync data between systems, and automate workflows.",
   openGraph: {
-    title: "Data, API & Integration Services | Technioz",
-    description:
-      "Build reliable APIs, sync data between systems, and connect third-party services. A practical guide for engineering and product teams.",
+    title: "API & Data Integration Company | Connect Systems | Technioz",
+    description: "API and data integration company. Build reliable APIs, sync data between systems, and automate workflows.",
     url: "https://technioz.com/data-apis-integrations",
-    images: [{ url: "/logo.webp", width: 1200, height: 630, alt: "API and data integration guide" }],
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "API and data integration company" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Data, API & Integration Services | Technioz",
-    description:
-      "Build reliable APIs, sync data between systems, and connect third-party services.",
-    images: ["/logo.webp"],
+    title: "API & Data Integration Company | Connect Systems | Technioz",
+    description: "API and data integration company. Build reliable APIs, sync data between systems, and automate workflows.",
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://technioz.com/data-apis-integrations",
@@ -40,8 +23,7 @@ export const metadata: Metadata = {
 
 const data: PillarData = {
   title: "Data, APIs, and Integrations: A Guide to Connected Software",
-  description:
-    "Modern software rarely stands alone. It connects to payment gateways, CRMs, ERPs, logistics platforms, AI services, and mobile devices. This guide covers how to design APIs, integrate third-party services, and keep data consistent across your stack.",
+  description: "A practical guide to APIs, integrations and third-party connectivity. Build reliable APIs, sync data between systems, and automate workflows.",
   heroLabel: "Data, APIs & Integrations",
   heroIcon: "🔗",
   sections: [

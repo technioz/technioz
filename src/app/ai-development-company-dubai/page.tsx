@@ -3,14 +3,14 @@ import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Development Company Dubai | Technioz",
-  description: "AI development company in Dubai. Chatbots, agents, RAG systems, LLM integration, and workflow automation for UAE businesses.",
+  title: "AI Chatbot Development Company in Dubai | UAE | Technioz",
+  description: "AI chatbot development company in Dubai. Custom bots, agents, RAG, and LLM integrations for UAE businesses. Free AI consultation.",
   openGraph: {
-    title: "AI Development Company in Dubai | Chatbots, Agents, RAG & Automation | Technioz",
+    title: "AI Chatbot Development Company in Dubai | UAE | Technioz",
     description:
       "Technioz builds AI solutions for Dubai businesses including chatbots, agents, RAG systems, and workflow automation.",
     url: "https://technioz.com/ai-development-company-dubai",
-    images: ["/logo.webp"],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://technioz.com/ai-development-company-dubai",

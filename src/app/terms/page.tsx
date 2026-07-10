@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 
 export const metadata: Metadata = {
   title: "Terms and Conditions | Technioz",
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
     title: "Terms and Conditions | Technioz",
     description: "Terms and conditions for using Technioz website and services.",
     url: "https://technioz.com/terms",
-    images: ["/logo.webp"],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://technioz.com/terms",
@@ -80,7 +81,8 @@ const sections = [
 
 export default function Terms() {
   return (
-    <>
+      <>
+        <BreadcrumbJsonLd items={[{ name: "Home", href: "/" }, { name: "Terms of Service", href: "/terms" }]} />
       <section className="bg-white-200">
         <div className="max-w-[1440px] mx-auto px-6 pt-12 pb-16 lg:px-[148px] lg:pt-[100px] lg:pb-[100px]">
           <div className="flex flex-col gap-[24px] max-w-[800px]">

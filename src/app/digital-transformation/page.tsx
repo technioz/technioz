@@ -2,34 +2,19 @@ import { PillarPage, type PillarData } from "@/components/pillar-page";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Digital Transformation Services & Strategy | Technioz",
-  description:
-    "A practical guide to digital transformation for growing businesses. Learn how to modernize legacy systems, automate manual workflows, and build a technology roadmap that delivers ROI.",
-  keywords: [
-    "digital transformation services",
-    "digital transformation consulting",
-    "legacy system modernization",
-    "business process automation",
-    "enterprise digital transformation",
-    "digital transformation strategy",
-    "digital transformation company Dubai",
-    "digital transformation UAE",
-    "modernize legacy software",
-    "digital transformation roadmap",
-  ],
+  title: "Digital Transformation Consulting Company | Modernize Ops | Technioz",
+  description: "Digital transformation consulting company. Modernize legacy systems, automate workflows, and build a roadmap that delivers ROI.",
   openGraph: {
-    title: "Digital Transformation Services & Strategy | Technioz",
-    description:
-      "Modernize operations, automate workflows, and build a technology roadmap that delivers measurable ROI. A practical guide for business leaders.",
+    title: "Digital Transformation Consulting Company | Modernize Ops | Technioz",
+    description: "Digital transformation consulting company. Modernize legacy systems, automate workflows, and build a roadmap that delivers ROI.",
     url: "https://technioz.com/digital-transformation",
-    images: [{ url: "/logo.webp", width: 1200, height: 630, alt: "Digital transformation guide for growing businesses" }],
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Digital transformation consulting company" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Digital Transformation Services & Strategy | Technioz",
-    description:
-      "Modernize operations, automate workflows, and build a technology roadmap that delivers measurable ROI.",
-    images: ["/logo.webp"],
+    title: "Digital Transformation Consulting Company | Modernize Ops | Technioz",
+    description: "Digital transformation consulting company. Modernize legacy systems, automate workflows, and build a roadmap that delivers ROI.",
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://technioz.com/digital-transformation",
@@ -38,8 +23,7 @@ export const metadata: Metadata = {
 
 const data: PillarData = {
   title: "Digital Transformation: A Practical Guide for Growing Businesses",
-  description:
-    "Digital transformation is not about buying more software. It is about replacing manual, slow, and disconnected processes with integrated systems that help your team serve customers faster and make better decisions. This guide explains how to plan, prioritize, and execute transformation without disrupting operations.",
+  description: "A practical guide to digital transformation for growing businesses. Modernize legacy systems, automate workflows, and build a roadmap that delivers ROI.",
   heroLabel: "Digital Transformation",
   heroIcon: "🔄",
   sections: [

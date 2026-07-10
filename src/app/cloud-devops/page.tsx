@@ -2,14 +2,14 @@ import { PillarPage, type PillarData } from "@/components/pillar-page";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Cloud & DevOps Guide | Technioz",
-  description: "A practical guide to cloud migration, DevOps automation, Kubernetes, CI/CD, and infrastructure as code for modern teams.",
+  title: "Cloud & DevOps Consulting Company | AWS, Azure, GCP | Technioz",
+  description: "Cloud and DevOps consulting company. Cloud migration, Kubernetes, CI/CD, and infrastructure as code for modern teams.",
   openGraph: {
-    title: "Cloud and DevOps for Modern Businesses: A Practical Guide | Technioz",
+    title: "Cloud & DevOps Consulting Company | AWS, Azure, GCP | Technioz",
     description:
       "How cloud infrastructure, CI/CD, and DevOps practices help businesses scale reliably and ship faster.",
     url: "https://technioz.com/cloud-devops",
-    images: ["/logo.webp"],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://technioz.com/cloud-devops",

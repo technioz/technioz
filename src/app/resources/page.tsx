@@ -2,15 +2,16 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { blogPosts } from "@/lib/blog-data";
 import { BlogCardBanner } from "@/components/blog-card-banner";
+import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 
 export const metadata: Metadata = {
-  title: "Resources | Technioz Guides, Case Studies & Blog",
-  description: "Explore practical guides, case studies, and engineering notes on custom software, AI, cloud, and mobile app development.",
+  title: "Resources — Guides, Case Studies & Engineering Notes | Technioz",
+  description: "Practical guides, case studies, and engineering notes on custom software, AI, cloud, and mobile app development.",
   openGraph: {
-    title: "Resources | Technioz Guides, Case Studies & Blog",
+    title: "Resources — Guides, Case Studies & Engineering Notes | Technioz",
     description: "Practical guides, case studies, and engineering notes from the Technioz team.",
     url: "https://technioz.com/resources",
-    images: ["/logo.webp"],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://technioz.com/resources",
@@ -48,13 +49,26 @@ const pillars = [
     title: "Industry-Specific Software Solutions",
     desc: "How custom software solves problems in transport, retail, logistics, healthcare, and finance.",
   },
+  {
+    href: "/resources/app-development-cost-calculator",
+    label: "Tool",
+    title: "App Development Cost Calculator",
+    desc: "Estimate iOS, Android, React Native, Flutter, and web app costs in 2 minutes. Get a detailed PDF breakdown.",
+  },
+  {
+    href: "/resources/web-app-development-cost-calculator",
+    label: "Tool",
+    title: "Web App Development Cost Calculator",
+    desc: "Estimate SaaS, dashboard, marketplace, and e-commerce web app costs in 2 minutes. Get a detailed PDF breakdown.",
+  },
 ];
 
 export default function Resources() {
   const latestPosts = blogPosts.slice(0, 3);
 
   return (
-    <>
+      <>
+        <BreadcrumbJsonLd items={[{ name: "Home", href: "/" }, { name: "Resources", href: "/resources" }]} />
       <section className="bg-white-200">
         <div className="max-w-[1440px] mx-auto px-6 pt-12 pb-16 lg:px-[148px] lg:pt-[100px] lg:pb-[100px]">
           <div className="flex flex-col gap-[24px] max-w-[700px]">

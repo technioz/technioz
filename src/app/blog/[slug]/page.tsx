@@ -2,10 +2,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { blogPosts } from "@/lib/blog-data";
+import { getDbArticleBySlug, getDbArticleSlugs, formatDbArticleDate } from "@/lib/db-articles";
 import { BlogBanner } from "@/components/blog-banner";
 import { BlogCardBanner } from "@/components/blog-card-banner";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
-import { BlogPostingJsonLd } from "@/components/blog-posting-jsonld";
+import { StaticBlogPostingJsonLd, DbBlogPostingJsonLd } from "@/components/blog-posting-jsonld";
 import type { Metadata } from "next";
 
 function postCta(slug: string, categoryCta: string): string {
@@ -147,50 +148,94 @@ const webSlugs = [
   "app-performance-optimization-case-study-hattafoodhub",
 ];
 
-export async function generateStaticParams() {
-  return blogPosts.map((post) => ({ slug: post.slug }));
-}
+export const dynamic = "force-dynamic";
+export const dynamicParams = true;
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const post = blogPosts.find((p) => p.slug === slug);
-  if (!post) return {};
-  const url = `https://technioz.com/blog/${post.slug}`;
-  return {
-    title: `${post.title} | Technioz Blog`,
-    description: post.excerpt,
-    robots: post.noindex ? { index: false, follow: true } : { index: true, follow: true },
-    openGraph: {
-      title: post.title,
-      description: post.excerpt,
-      url,
-      siteName: "Technioz",
-      type: "article",
-      publishedTime: new Date(post.date).toISOString(),
-      authors: [post.author.name],
-      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: post.imageAlt }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: post.title,
-      description: post.excerpt,
-      images: ["/og-image.png"],
-    },
-    alternates: {
-      canonical: url,
-    },
-  };
+
+  // Check static posts first
+  const staticPost = blogPosts.find((p) => p.slug === slug);
+  if (staticPost) {
+    const url = `https://technioz.com/blog/${staticPost.slug}`;
+    return {
+      title: `${staticPost.title} | Technioz Blog`,
+      description: staticPost.excerpt,
+      robots: staticPost.noindex ? { index: false, follow: true } : { index: true, follow: true },
+      openGraph: {
+        title: staticPost.title,
+        description: staticPost.excerpt,
+        url,
+        siteName: "Technioz",
+        type: "article",
+        publishedTime: new Date(staticPost.date).toISOString(),
+        authors: [staticPost.author.name],
+        images: [{ url: "/og-image.png", width: 1200, height: 630, alt: staticPost.imageAlt }],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: staticPost.title,
+        description: staticPost.excerpt,
+        images: ["/og-image.png"],
+      },
+      alternates: {
+        canonical: url,
+      },
+    };
+  }
+
+  // Check DB posts
+  const dbPost = await getDbArticleBySlug(slug);
+  if (dbPost) {
+    const url = `https://technioz.com/blog/${dbPost.slug}`;
+    const imageUrl = dbPost.imageLocalPath || dbPost.imageUrl || "/og-image.png";
+    return {
+      title: `${dbPost.title} | Technioz Blog`,
+      description: dbPost.metaDescription || dbPost.excerpt,
+      openGraph: {
+        title: dbPost.title,
+        description: dbPost.metaDescription || dbPost.excerpt,
+        url,
+        siteName: "Technioz",
+        type: "article",
+        publishedTime: dbPost.publishedAt.toISOString(),
+        authors: [dbPost.authorName],
+        images: [{ url: imageUrl, width: 1200, height: 630, alt: dbPost.imageAlt || dbPost.title }],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: dbPost.title,
+        description: dbPost.metaDescription || dbPost.excerpt,
+        images: [imageUrl],
+      },
+      alternates: {
+        canonical: url,
+      },
+    };
+  }
+
+  return {};
 }
 
 export default async function BlogDetail({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const post = blogPosts.find((p) => p.slug === slug);
-  if (!post) notFound();
+  const staticPost = blogPosts.find((p) => p.slug === slug);
 
+  if (staticPost) {
+    return <StaticBlogDetail post={staticPost} />;
+  }
+
+  const dbPost = await getDbArticleBySlug(slug);
+  if (!dbPost) notFound();
+
+  return <DbBlogDetail article={dbPost} />;
+}
+
+function StaticBlogDetail({ post }: { post: typeof blogPosts[number] }) {
   return (
     <>
       <BreadcrumbJsonLd items={[{ name: "Home", href: "/" }, { name: "Blog", href: "/blog" }, { name: post.title }]} />
-      <BlogPostingJsonLd slug={post.slug} />
+      <StaticBlogPostingJsonLd slug={post.slug} />
       <section className="bg-white-200">
         <div className="max-w-[1440px] mx-auto px-6 pt-6 lg:pt-[40px] pb-4">
           <div className="flex items-center gap-2 text-black-400 p5">
@@ -313,6 +358,128 @@ export default async function BlogDetail({ params }: { params: Promise<{ slug: s
           <h2 className="h4 text-black-500 mb-10">More from the blog</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {blogPosts.filter((p) => p.slug !== post.slug).slice(0, 3).map((p) => (
+              <Link key={p.slug} href={`/blog/${p.slug}`} className="bg-white-200 rounded-sm overflow-hidden hover:shadow-[0_10px_24px_rgba(29,27,22,0.12)] transition-shadow group">
+                <div className="aspect-video">
+                  <BlogCardBanner slug={p.slug} category={p.category} title={p.title} readTime={p.readTime} />
+                </div>
+                <div className="p-[24px] flex flex-col gap-[12px]">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[11px] font-mono uppercase tracking-[1px] text-cobolt-500">{p.category}</span>
+                    <span className="text-xs text-black-400">{p.date}</span>
+                  </div>
+                  <h3 className="font-display text-[18px] leading-[1.2] tracking-[-0.9px] text-black-500 group-hover:text-cobolt-500 transition-colors line-clamp-2">{p.title}</h3>
+                  <span className="e2 text-cobolt-500">Read more</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+          <div className="mt-8 text-center">
+            <Link href="/blog" className="cta-secondary">View all articles</Link>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+function DbBlogDetail({ article }: { article: Awaited<ReturnType<typeof getDbArticleBySlug>> & {} }) {
+  const date = formatDbArticleDate(article.publishedAt);
+  const imageSrc = article.imageLocalPath || article.imageUrl || undefined;
+
+  return (
+    <>
+      <BreadcrumbJsonLd items={[{ name: "Home", href: "/" }, { name: "Blog", href: "/blog" }, { name: article.title }]} />
+      <DbBlogPostingJsonLd article={article} />
+      <section className="bg-white-200">
+        <div className="max-w-[1440px] mx-auto px-6 pt-6 lg:pt-[40px] pb-4">
+          <div className="flex items-center gap-2 text-black-400 p5">
+            <Link href="/" className="hover:text-cobolt-500 transition-colors">Home</Link>
+            <span className="text-black-200">/</span>
+            <Link href="/blog" className="hover:text-cobolt-500 transition-colors">Blog</Link>
+            <span className="text-black-200">/</span>
+            <span className="text-black-400">{article.category}</span>
+          </div>
+        </div>
+
+        {/* Editorial banner */}
+        <div className="max-w-[1440px] mx-auto px-6 lg:px-[148px] pb-8 lg:pb-[60px]">
+          <BlogBanner
+            slug={article.slug}
+            title={article.title}
+            category={article.category}
+            date={date}
+            readTime={article.readTime}
+            author={article.authorName}
+          />
+        </div>
+      </section>
+
+      <section className="bg-white-200">
+        <article className="max-w-[1440px] mx-auto px-6 pb-16 lg:px-[148px] lg:pb-[120px]">
+          <div className="max-w-[800px] mx-auto flex flex-col">
+            {/* Author byline */}
+            <div className="flex items-center gap-3 mb-10">
+              <div className="w-10 h-10 rounded-full bg-cobolt-500/10 flex items-center justify-center text-cobolt-500 font-display text-[16px]">
+                {article.authorName.charAt(0)}
+              </div>
+              <div>
+                <p className="p4 font-medium text-black-500">{article.authorName}</p>
+                <p className="p5 text-black-400">{article.authorRole}</p>
+              </div>
+            </div>
+
+            {/* Tags */}
+            <div className="flex flex-wrap gap-2 mb-10">
+              {article.tags.map((tag) => (
+                <span key={tag} className="text-[12px] text-cobolt-500 font-mono bg-cobolt-500/5 px-3 py-1.5 rounded-full">{tag}</span>
+              ))}
+            </div>
+
+            {/* Hero image */}
+            {imageSrc && (
+              <figure className="mb-10">
+                <div className="relative w-full aspect-[16/9] rounded-sm overflow-hidden border border-neutral-300">
+                  <Image
+                    src={imageSrc}
+                    alt={article.imageAlt || article.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 800px"
+                    className="object-cover"
+                    unoptimized={imageSrc.startsWith("http")}
+                  />
+                </div>
+              </figure>
+            )}
+
+            {/* Content HTML */}
+            <div
+              className="prose prose-lg max-w-none article-prose"
+              dangerouslySetInnerHTML={{ __html: article.contentHtml }}
+            />
+
+            {/* Service CTA */}
+            {serviceCta[article.category] && (
+              <div className="mt-16 p-8 bg-cobolt-500/5 border border-cobolt-500/20 rounded-sm">
+                <h3 className="font-display text-[24px] leading-[1.15] tracking-[-1.2px] text-black-500 mb-3">
+                  {serviceCta[article.category].heading}
+                </h3>
+                <p className="p3 text-black-400 mb-6 leading-relaxed">
+                  {serviceCta[article.category].body}
+                </p>
+                <Link href={serviceCta[article.category].href} className="cta-primary">
+                  {serviceCta[article.category].cta}
+                </Link>
+              </div>
+            )}
+          </div>
+        </article>
+      </section>
+
+      <section className="bg-white-300">
+        <div className="max-w-[1440px] mx-auto px-6 py-16 lg:px-[148px] lg:py-[100px]">
+          <h2 className="h4 text-black-500 mb-10">More from the blog</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {blogPosts.filter((p) => p.slug !== article.slug).slice(0, 3).map((p) => (
               <Link key={p.slug} href={`/blog/${p.slug}`} className="bg-white-200 rounded-sm overflow-hidden hover:shadow-[0_10px_24px_rgba(29,27,22,0.12)] transition-shadow group">
                 <div className="aspect-video">
                   <BlogCardBanner slug={p.slug} category={p.category} title={p.title} readTime={p.readTime} />

@@ -3,14 +3,14 @@ import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Next.js Development Services | Technioz",
-  description: "Next.js development services for SEO-friendly, full-stack React applications with server components and API routes.",
+  title: "Next.js Development Company | SEO-Friendly React Apps | Technioz",
+  description: "Next.js development company. SEO-friendly, full-stack React apps with server components, API routes, and edge deployment.",
   openGraph: {
-    title: "Next.js Development Services | Full-Stack React Experts | Technioz",
+    title: "Next.js Development Company | SEO-Friendly React Apps | Technioz",
     description:
       "Technioz builds fast, SEO-friendly Next.js applications with App Router, server components, and edge rendering.",
     url: "https://technioz.com/services/nextjs-development",
-    images: ["/logo.webp"],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://technioz.com/services/nextjs-development",

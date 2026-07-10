@@ -5,7 +5,6 @@ export interface SolutionData {
   label: string;
   icon: string;
   metaDescription: string;
-  keywords: string[];
   challenges: { title: string; desc: string }[];
   solutions: { title: string; desc: string }[];
   techTags: string[];
@@ -16,12 +15,11 @@ export interface SolutionData {
 export const solutions: SolutionData[] = [
   {
     slug: "startups",
-    title: "Startup Software Development",
+    title: "Startup Software Development Company | MVP to Scale | Technioz",
     subtitle: "From pitch deck to production — we help startups launch fast, iterate faster, and scale without rewriting everything. MVPs in 8-12 weeks, not 8-12 months.",
     label: "Startups",
     icon: "\u{1F680}",
-    metaDescription: "Startup software development services. MVP development from $15K, 8-12 week delivery, scalable tech stacks, investor-ready demos. We help startups launch and scale.",
-    keywords: ["startup MVP development", "startup software development company", "MVP development services", "startup app development", "lean startup software", "startup tech partner", "MVP builder", "startup product development", "early stage software development", "startup development agency"],
+    metaDescription: "Startup software development company. MVP builds, scalable architecture, and dedicated teams for pre-seed to Series B startups.",
     challenges: [
       { title: "Limited runway", desc: "You have 6-12 months of runway. Every dollar spent on the wrong feature is a dollar closer to running out of cash. You need an MVP that proves the concept — not a full enterprise build that burns your seed round." },
       { title: "Speed to market", desc: "Every week of delay is a week closer to a competitor launching first. First-mover advantage matters. You need to ship, get user feedback, and iterate — not plan for 6 months before writing code." },
@@ -48,12 +46,11 @@ export const solutions: SolutionData[] = [
   },
   {
     slug: "healthcare",
-    title: "Healthcare Software Development",
-    subtitle: "HIPAA-compliant patient portals, telemedicine platforms, EHR integrations, and clinic management systems that your compliance officer will actually approve of.",
+    title: "Healthcare Software Development | HIPAA & Telemedicine | Technioz",
+    subtitle: "Healthcare software that keeps patient data safe and clinical workflows efficient.",
     label: "Healthcare",
     icon: "\u{1F3E5}",
-    metaDescription: "Healthcare software development. HIPAA-compliant patient portals, telemedicine platforms, EHR integration (FHIR/HL7), clinic management systems. BAA-ready AWS infrastructure.",
-    keywords: ["HIPAA compliant software development", "telemedicine app development", "EHR integration services", "FHIR API development", "healthcare software company", "patient portal development", "medical app development", "HIPAA compliant web application", "telehealth platform development", "healthcare IT solutions", "clinic management software", "medical software development company"],
+    metaDescription: "Healthcare software development with HIPAA portals, telemedicine, EHR integration (FHIR/HL7), and clinic management systems.",
     challenges: [
       { title: "HIPAA compliance is non-negotiable", desc: "One breach can end your business. PHI (Protected Health Information) must be encrypted at rest, in transit, and in backups. Access must be logged. Business Associate Agreements (BAAs) must be signed with every vendor in the chain. Getting this wrong is not an option." },
       { title: "EHR integration is complex", desc: "Every Electronic Health Record system speaks a different dialect of HL7 and FHIR. Epic, Cerner, Athenahealth, Allscripts — each has its own API quirks, rate limits, and authentication requirements. Integration takes months if you don't know the terrain." },
@@ -80,12 +77,11 @@ export const solutions: SolutionData[] = [
   },
   {
     slug: "finance",
-    title: "Fintech Software Development",
-    subtitle: "Secure payment gateways, digital banking applications, trading platforms, and compliance automation that pass PCI-DSS audits the first time.",
+    title: "Fintech Software Development | Payments, Banking & Trading | Technioz",
+    subtitle: "Secure, compliant financial software for digital banking, payments, lending, and trading.",
     label: "Finance",
-    icon: "\u{1F4B0}",
-    metaDescription: "Fintech software development. PCI-DSS compliant payment processing, digital banking apps, fraud detection with ML, KYC/AML automation, trading platforms. 99.99% uptime SLA.",
-    keywords: ["fintech software development", "payment gateway development", "digital banking software", "PCI-DSS compliant development", "fintech app development", "financial software development company", "KYC AML software", "fraud detection software", "trading platform development", "payment processing software", "banking app development", "fintech development services"],
+    icon: "\u{1F4B8}",
+    metaDescription: "Fintech software development — PCI-DSS payments, digital banking, ML fraud detection, KYC/AML automation, and trading platforms.",
     challenges: [
       { title: "PCI-DSS compliance", desc: "Payment Card Industry Data Security Standard compliance is mandatory for any system that processes, stores, or transmits cardholder data. Level 1 (processing 6M+ transactions annually) requires annual on-site audits, quarterly network scans, and rigorous security controls across 12 requirement areas." },
       { title: "Real-time fraud detection", desc: "Payment fraud costs the global economy billions annually. You need ML models that analyze transaction patterns in real time — velocity checks, geolocation anomalies, device fingerprinting, behavioral biometrics — and flag suspicious transactions before they settle." },
@@ -112,12 +108,11 @@ export const solutions: SolutionData[] = [
   },
   {
     slug: "ecommerce",
-    title: "E-Commerce Software Development",
-    subtitle: "Storefronts, marketplaces, and headless commerce platforms that handle flash sales without crumbling. Inventory sync, payment flows, and conversion-optimized checkout.",
+    title: "E-commerce Software Development Company | Custom Stores | Technioz",
+    subtitle: "E-commerce platforms built to convert visitors, manage inventory, and handle scale.",
     label: "E-commerce",
     icon: "\u{1F6D2}",
-    metaDescription: "E-commerce software development. Headless commerce, Shopify development, custom marketplaces, flash sale scaling, inventory sync, payment integration. 200% average revenue increase.",
-    keywords: ["ecommerce software development", "headless commerce development", "Shopify development services", "custom ecommerce platform", "marketplace development", "online store development", "ecommerce app development", "B2B ecommerce software", "inventory management software", "payment gateway integration", "ecommerce website development company", "flash sale infrastructure"],
+    metaDescription: "E-commerce software development company. Headless commerce, Shopify, custom marketplaces, inventory sync, and payment integration.",
     challenges: [
       { title: "Flash sale traffic spikes", desc: "When you run a promotion or flash sale, traffic can spike 100x in seconds. Without auto-scaling infrastructure, your store crashes at the exact moment when revenue potential is highest. Every minute of downtime during a sale is thousands in lost sales." },
       { title: "Inventory synchronization", desc: "Online and in-store inventory must match in real time. Overselling damages reputation and triggers chargebacks. Underselling means lost revenue. Multi-warehouse, multi-channel inventory management requires careful architecture." },
@@ -144,12 +139,11 @@ export const solutions: SolutionData[] = [
   },
   {
     slug: "education",
-    title: "Education Software Development",
-    subtitle: "Learning management systems, AI-powered tutoring platforms, assessment engines, and student engagement tools that learners and educators both enjoy using.",
+    title: "Education Software Development | LMS & AI Tutoring | Technioz",
+    subtitle: "Learning platforms, assessment tools, and school management systems that engage students and administrators.",
     label: "Education",
     icon: "\u{1F393}",
-    metaDescription: "Education software development. LMS development, AI tutoring platforms, online assessment engines, SCORM compliance, video streaming for education. 92% student satisfaction.",
-    keywords: ["education software development", "LMS development services", "e-learning platform development", "AI tutoring software", "online assessment platform", "SCORM compliant LMS", "education app development", "learning management system development", "EdTech software development", "student engagement platform", "course management software", "virtual classroom development"],
+    metaDescription: "Education software development — LMS platforms, AI tutoring, assessment engines, SCORM compliance, and video streaming.",
     challenges: [
       { title: "Student engagement and completion rates", desc: "Online course completion rates average below 15%. Boring interfaces, lack of interactivity, and missing social features kill motivation. You need software that makes learning feel rewarding, not like a chore." },
       { title: "Assessment integrity and proctoring", desc: "Online exams are vulnerable to cheating. You need randomized question banks, browser lockdown, webcam proctoring, plagiarism detection on written responses, and timer enforcement — all without making the exam experience feel hostile to honest students." },
@@ -176,12 +170,11 @@ export const solutions: SolutionData[] = [
   },
   {
     slug: "logistics",
-    title: "Logistics & Transportation Software",
-    subtitle: "Fleet management, real-time GPS tracking, automated dispatching, and cross-border ticketing platforms that move passengers and cargo efficiently across the GCC and beyond.",
+    title: "Logistics & Transportation Software Development | GCC | Technioz",
+    subtitle: "Fleet, warehouse, and transport software that keeps goods moving and customers informed.",
     label: "Logistics",
     icon: "\u{1F69A}",
-    metaDescription: "Logistics and transportation software development. Fleet management, real-time GPS tracking, bus ticketing platforms, route optimization, automated dispatching. $27M+ in ticket sales processed.",
-    keywords: ["logistics software development", "transportation software development", "fleet management software", "bus ticketing system", "real-time GPS tracking", "route optimization software", "dispatch management system", "supply chain software", "freight management platform", "transport technology solutions", "cargo tracking software", "cross-border transport software"],
+    metaDescription: "Logistics and transportation software development for GCC operators. Fleet tracking, bus ticketing, route optimization, and automated dispatching.",
     challenges: [
       { title: "Real-time tracking across borders", desc: "Passengers, dispatchers, and fleet managers need to see exact vehicle locations at all times. Cross-border routes (Oman-UAE, UAE-Saudi) add roaming data costs, GPS accuracy variations, and connectivity gaps in remote areas." },
       { title: "Route optimization and fuel costs", desc: "Fuel is 30-40% of operating costs for transport companies. Inefficient routing wastes fuel, increases wear and tear, and delays deliveries. You need algorithms that factor in traffic, road closures, border wait times, and vehicle capacity." },
@@ -209,12 +202,11 @@ export const solutions: SolutionData[] = [
 ];
 
 export const enterpriseData = {
-  title: "Enterprise Software Development",
+  title: "Enterprise Software Solutions",
   subtitle: "Scalable, secure, and compliant software for organizations that can't afford downtime, data breaches, or missed deadlines. SOC 2, ISO 27001, and enterprise-grade reliability.",
   label: "Enterprise",
   icon: "\u{1F3E2}",
-  metaDescription: "Enterprise software development services. SOC 2 Type 2, ISO 27001, microservices migration, multi-cloud strategy, SLA-backed support. For organizations that can't afford downtime.",
-  keywords: ["enterprise software development", "enterprise application development", "SOC 2 compliant development", "ISO 27001 software development", "microservices migration", "legacy system modernization", "enterprise architecture consulting", "multi-cloud strategy", "enterprise digital transformation", "custom enterprise software", "enterprise API development", "enterprise security solutions"],
+  metaDescription: "Enterprise software development services. SOC 2/ISO 27001-ready, microservices migration, multi-cloud strategy and SLA-backed support.",
   challenges: [
     { title: "Legacy systems that can't integrate", desc: "Your mission-critical systems were built 10-15 years ago. They work, but they can't talk to modern APIs, cloud services, or mobile apps. Replacing them is risky. Integrating them is complex. Doing nothing is not an option." },
     { title: "Compliance and security requirements", desc: "SOC 2 Type 2, ISO 27001, GDPR, HIPAA, PCI-DSS — depending on your industry, you may need all of them. Each has dozens of requirements. Each requires ongoing audits. Each has severe penalties for non-compliance." },

@@ -3,14 +3,14 @@ import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Enterprise Software Development | Technioz",
-  description: "Enterprise software development that is secure, compliant, and scalable. Built for organizations that cannot afford downtime.",
+  title: "Enterprise Software Development Company | Secure & Scalable | Technioz",
+  description: "Enterprise software development company. Secure, compliant, and scalable solutions for organizations that cannot afford downtime.",
   openGraph: {
-  title: "Enterprise Software Development | Secure & Scalable | Technioz",
+  title: "Enterprise Software Development Company | Secure & Scalable | Technioz",
     description:
       "Technioz builds enterprise software with role-based access, audit trails, integrations, and compliance controls.",
     url: "https://technioz.com/services/enterprise-software-development",
-    images: ["/logo.webp"],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://technioz.com/services/enterprise-software-development",

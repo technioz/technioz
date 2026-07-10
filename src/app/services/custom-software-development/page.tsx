@@ -3,14 +3,14 @@ import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Custom Software Development | Technioz",
-  description: "Custom software development for web, mobile, and enterprise. End-to-end solutions built around your exact workflow.",
+  title: "Custom Software Development Company | Web, Mobile, Enterprise | Technioz",
+  description: "Custom software development company. End-to-end web, mobile, and enterprise solutions built around your exact workflow.",
   openGraph: {
-    title: "Custom Software Development Services | Web, Mobile & Enterprise | Technioz",
+    title: "Custom Software Development Company | Web, Mobile, Enterprise | Technioz",
     description:
       "Technioz designs and builds custom software that fits your exact workflows.",
     url: "https://technioz.com/services/custom-software-development",
-    images: ["/logo.webp"],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://technioz.com/services/custom-software-development",
@@ -91,6 +91,20 @@ export default function CustomSoftwareDevelopment() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="bg-white-300">
+        <div className="max-w-[1440px] mx-auto px-6 py-16 lg:px-[148px] lg:py-[100px]">
+          <div className="max-w-[700px] mb-12">
+            <h2 className="h4 text-black-500 mb-4">See it in action</h2>
+            <p className="p3 text-black-400">A custom platform built around a client&apos;s exact workflow — from manual counters to digital sales.</p>
+          </div>
+          <Link href="/portfolio/alkhanjry-transport" className="bg-white-200 rounded-sm p-[32px] flex flex-col gap-[12px] hover:shadow-[0_10px_24px_rgba(29,27,22,0.12)] transition-shadow group max-w-[700px]">
+            <h3 className="font-display text-[20px] leading-none tracking-[-1px] text-black-500 group-hover:text-cobolt-500 transition-colors">Al Khanjry Groups</h3>
+            <p className="p4 text-black-400">Custom ticketing and operations platform that handles $27M+ in digital ticket sales.</p>
+            <span className="e2 text-cobolt-500 mt-2">Read case study →</span>
+          </Link>
         </div>
       </section>
 

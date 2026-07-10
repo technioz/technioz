@@ -3,25 +3,37 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
-import { blogPosts } from "@/lib/blog-data";
+import type { BlogPost } from "@/lib/blog-data";
 import { BlogCardBanner } from "@/components/blog-card-banner";
 
 const POSTS_PER_PAGE = 12;
 
-export function BlogList() {
+export type BlogListItem = {
+  slug: string;
+  title: string;
+  excerpt: string;
+  category: string;
+  date: string;
+  readTime: string;
+  author: { name: string; role: string };
+  tags: string[];
+  fromDb: boolean;
+};
+
+export function BlogList({ posts }: { posts: BlogListItem[] }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
 
   const filteredPosts = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
-    if (!query) return blogPosts;
-    return blogPosts.filter((article) =>
+    if (!query) return posts;
+    return posts.filter((article) =>
       article.title.toLowerCase().includes(query) ||
       article.excerpt.toLowerCase().includes(query) ||
       article.category.toLowerCase().includes(query) ||
       article.tags.some((tag) => tag.toLowerCase().includes(query))
     );
-  }, [searchQuery]);
+  }, [searchQuery, posts]);
 
   const totalPages = useMemo(() => Math.ceil(filteredPosts.length / POSTS_PER_PAGE), [filteredPosts]);
 

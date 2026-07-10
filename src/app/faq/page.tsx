@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 
 export const metadata: Metadata = {
-  title: "FAQ | Technioz Software Development Questions",
-  description: "Answers to common questions about Technioz services, pricing, timelines, engagement models, and how we work with global clients.",
+  title: "Software Development FAQs — Pricing, Process, NDA & Security | Technioz",
+  description: "30 straight answers: what custom software costs, fixed-price vs hourly, timelines, NDAs, GDPR/HIPAA compliance, and how to start.",
   openGraph: {
     title: "FAQ | Technioz Software Development Questions",
     description: "Quick answers about our services, pricing, process, and engagement models.",
     url: "https://technioz.com/faq",
-    images: ["/logo.webp"],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://technioz.com/faq",
@@ -30,7 +31,7 @@ const faqs = [
   },
   {
     q: "Do you work with clients in the Middle East and GCC?",
-    a: "Yes. We have deep experience with clients across the GCC region including Oman, UAE, Saudi Arabia, Kuwait, Qatar, and Bahrain. We understand local payment gateways, regulatory requirements, and cultural expectations. Several of our flagship case studies — Al Khanjry Transport, Integrated Golden Lines, and Al Khanjry Groups — are GCC-based.",
+    a: "Yes. We have deep experience with clients across the GCC region including Oman, UAE, Saudi Arabia, Kuwait, Qatar, and Bahrain. We understand local payment gateways, regulatory requirements, and cultural expectations. Several of our flagship case studies — Integrated Golden Lines and Al Khanjry Groups — are GCC-based.",
   },
   {
     q: "Can I hire dedicated developers from Technioz?",
@@ -65,10 +66,6 @@ const faqs = [
     a: "We offer flexible payment structures including milestone-based payments, monthly retainers for dedicated teams, and per-engineer pricing for team augmentation. Payment terms are detailed in your project agreement. We accept bank transfers and major payment methods.",
   },
   {
-    q: "Where is Technioz located?",
-    a: "We are headquartered in Jalandhar, Punjab, India, and serve clients worldwide. Our team works across time zones to ensure overlapping hours with clients in GCC, Europe, Southeast Asia, and North America.",
-  },
-  {
     q: "Is my project data and IP secure?",
     a: "Yes. All intellectual property developed for your project belongs to you. We sign NDAs by default, follow industry-standard security practices, and can comply with specific regulatory requirements including HIPAA, PCI-DSS, and GDPR as needed.",
   },
@@ -80,7 +77,8 @@ const faqs = [
 
 export default function FAQ() {
   return (
-    <>
+      <>
+        <BreadcrumbJsonLd items={[{ name: "Home", href: "/" }, { name: "FAQ", href: "/faq" }]} />
       <section className="bg-white-200">
         <div className="max-w-[1440px] mx-auto px-6 pt-12 pb-16 lg:px-[148px] lg:pt-[100px] lg:pb-[100px]">
           <div className="flex flex-col gap-[24px] max-w-[700px]">
@@ -102,7 +100,16 @@ export default function FAQ() {
               <details key={i} className="group bg-white-200 border border-neutral-300 rounded-sm overflow-hidden">
                 <summary className="p-[24px] lg:p-[32px] cursor-pointer flex items-start justify-between gap-4 hover:text-cobolt-500 transition-colors list-none">
                   <h3 className="font-display text-[20px] leading-[1.2] tracking-[-1px] text-black-500 group-hover:text-cobolt-500 transition-colors">{faq.q}</h3>
-                  <span className="material-symbols-outlined text-[24px] text-black-400 group-open:rotate-45 transition-transform duration-[300ms] shrink-0 mt-1">add</span>
+                  <svg
+                    className="w-6 h-6 text-black-400 group-open:rotate-45 transition-transform duration-[300ms] shrink-0 mt-1"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    aria-hidden="true"
+                  >
+                    <path d="M12 5v14M5 12h14" strokeLinecap="round" />
+                  </svg>
                 </summary>
                 <div className="px-[24px] pb-[24px] lg:px-[32px] lg:pb-[32px] -mt-2">
                   <p className="p3 text-black-400 leading-relaxed">{faq.a}</p>
@@ -121,7 +128,7 @@ export default function FAQ() {
           </div>
           <div className="flex items-center gap-[8px]">
             <Link href="https://calendly.com/technioztech/30min" className="cta-primary-dark !bg-white-100 !text-cobolt-500 hover:!opacity-90">Book a call</Link>
-            <Link href="/contact" className="cta-secondary-dark !border-white-100 !text-white-100 hover:!bg-white-100 hover:!text-cobolt-500">Contact us</Link>
+            <Link href="/contact" className="cta-secondary-dark !border-white-100 !text-white-100 hover:!bg-white-100 hover:!text-cobolt-500">Message us instead</Link>
           </div>
         </div>
       </section>

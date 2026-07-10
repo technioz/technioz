@@ -3,15 +3,15 @@ import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "iOS App Development Services | Swift & SwiftUI | Technioz",
+  title: "iOS App Development Company | Swift, SwiftUI, App Store | Technioz",
   description:
-    "Technioz builds native iOS apps with Swift and SwiftUI for iPhone and iPad. Fast, secure, App Store-ready apps with Apple ecosystem integration.",
+    "iOS app development company. Native iPhone and iPad apps with Swift and SwiftUI — fast, secure, App Store-ready, with Apple ecosystem integration.",
   openGraph: {
-    title: "iOS App Development Services | Swift & SwiftUI | Technioz",
+    title: "iOS App Development Company | Swift, SwiftUI, App Store | Technioz",
     description:
       "Technioz builds native iOS apps with Swift and SwiftUI for iPhone and iPad.",
     url: "https://technioz.com/services/ios-app-development",
-    images: ["/logo.webp"],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://technioz.com/services/ios-app-development",

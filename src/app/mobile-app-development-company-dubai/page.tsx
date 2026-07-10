@@ -3,14 +3,14 @@ import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Mobile App Development Company Dubai | Technioz",
-  description: "Mobile app development company in Dubai. Native iOS, Android, React Native, and Flutter apps for UAE and GCC businesses.",
-  openGraph: {
+  title: "Mobile App Development Company in Dubai | iOS, Android, React Native | Technioz",
+  description: "Mobile app development company in Dubai. Native iOS, Android, React Native, and Flutter apps for UAE and GCC businesses. Free consultation.",
+    openGraph: {
     title: "Mobile App Development Company in Dubai | iOS, Android, React Native | Technioz",
     description:
-      "Technioz builds native and cross-platform mobile apps for Dubai and GCC businesses.",
+      "Technioz builds native and cross-platform mobile apps for Dubai and GCC businesses. Book a free app consultation.",
     url: "https://technioz.com/mobile-app-development-company-dubai",
-    images: ["/logo.webp"],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://technioz.com/mobile-app-development-company-dubai",
@@ -129,6 +129,26 @@ export default function MobileAppDevelopmentCompanyDubai() {
                   <span key={c} className="text-[12px] text-black-300 bg-black-500/5 px-2 py-1 rounded-sm">{c}</span>
                 ))}
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white-200">
+        <div className="max-w-[1440px] mx-auto px-6 py-16 lg:px-[148px] lg:py-[100px]">
+          <div className="max-w-[800px]">
+            <h2 className="h4 text-black-500 mb-8">Working With Technioz From Dubai</h2>
+            <div className="grid gap-6">
+              {[
+                { q: "Do you work with clients in the Middle East?", a: "Yes. We have active clients in the UAE and Oman and work with startups and enterprises across Saudi Arabia, Qatar, Bahrain, and Kuwait. Delivery is remote, with calls over video, WhatsApp, or email." },
+                { q: "Can you align with UAE business hours?", a: "Yes. We schedule sprint reviews and demos during Gulf Standard Time hours and share async updates daily." },
+                { q: "Do you have a Dubai office?", a: "No — we are a remote-first company. If you need an in-person meeting in Dubai, we can arrange one when a team member is in the region." },
+              ].map((faq) => (
+                <div key={faq.q} className="bg-white-300 rounded-sm p-[24px]">
+                  <p className="p4 font-medium text-black-500 mb-2">{faq.q}</p>
+                  <p className="p5 text-black-400">{faq.a}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>

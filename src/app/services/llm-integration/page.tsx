@@ -3,14 +3,14 @@ import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "LLM Integration Services | Technioz",
-  description: "LLM integration services for OpenAI, Claude, Gemini, and Azure. Secure, cost-controlled AI features in your product.",
+  title: "LLM Integration Company | OpenAI, Claude, Gemini | Technioz",
+  description: "LLM integration company. Secure, cost-controlled OpenAI, Claude, Gemini, and Azure AI features embedded in your product.",
   openGraph: {
-    title: "LLM Integration Services | OpenAI, Claude, Gemini | Technioz",
+    title: "LLM Integration Company | OpenAI, Claude, Gemini | Technioz",
     description:
       "Technioz integrates large language models into your products and workflows.",
     url: "https://technioz.com/services/llm-integration",
-    images: ["/logo.webp"],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://technioz.com/services/llm-integration",

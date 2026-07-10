@@ -3,14 +3,14 @@ import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "React.js Development Services | Technioz",
-  description: "React.js development services for fast, modular, and maintainable frontends. SPAs, dashboards, design systems, and more.",
+  title: "React.js Development Company | SPAs, Dashboards, Design Systems | Technioz",
+  description: "React.js development company. Fast, modular, and maintainable frontends: SPAs, dashboards, design systems, and more.",
   openGraph: {
-    title: "React.js Development Services | Expert Frontend Engineers | Technioz",
+    title: "React.js Development Company | SPAs, Dashboards, Design Systems | Technioz",
     description:
       "Technioz builds fast, modular, and maintainable React.js frontends for web apps, dashboards, and design systems.",
     url: "https://technioz.com/services/reactjs-development",
-    images: ["/logo.webp"],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://technioz.com/services/reactjs-development",

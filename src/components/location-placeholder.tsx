@@ -39,7 +39,7 @@ export function LocationPlaceholder({
             <h1 className="h2 text-black-500">{title}</h1>
             <p className="p2 text-black-400">{description}</p>
             <div className="flex flex-wrap items-center gap-4 mt-2">
-              <Link href="/contact" className="cta-primary">Book a free strategy call</Link>
+              <Link href="/contact" className="cta-primary">Get a {location} quote</Link>
               {guideHref && guideLabel && (
                 <Link href={guideHref} className="e2 text-cobolt-500">
                   {guideLabel} →
