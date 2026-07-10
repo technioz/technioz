@@ -262,9 +262,7 @@ export function JsonLd() {
         text: "Get a free 30-minute consultation and project roadmap. No contracts, no obligations — just a clear plan you can take to any team.",
         datePosted: "2026-01-01",
         spatialCoverage: "Worldwide",
-        price: "0",
-        priceCurrency: "USD",
-        availability: "https://schema.org/InStock",
+        category: "https://www.wikidata.org/wiki/Q81068910",
       },
     ],
   };
