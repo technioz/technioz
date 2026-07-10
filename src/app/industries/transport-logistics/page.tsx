@@ -134,7 +134,7 @@ export default function TransportLogisticsPage() {
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
                 <div className="border border-black-400 rounded-sm p-[20px]">
-                  <span className="font-display text-[24px] leading-none tracking-[-1.2px] text-cobolt-500">$27M+</span>
+                  <span className="font-display text-[24px] leading-none tracking-[-1.2px] text-cobolt-500">$1M+</span>
                   <p className="p5 text-black-200 mt-1">Online ticket sales</p>
                 </div>
                 <div className="border border-black-400 rounded-sm p-[20px]">

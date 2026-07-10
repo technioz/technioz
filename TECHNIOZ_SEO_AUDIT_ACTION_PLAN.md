@@ -45,7 +45,7 @@ The audit also noted the upside: SERPs for the target market are unusually soft.
 | 1   | [x] **Site-wide canonical points to homepage**              | Every page output `canonical: https://technioz.com`           | Tells Google all inner pages are duplicates of the homepage → deindexing | `Fixed in new build` — removed root `alternates.canonical` from `layout.tsx`; `metadataBase: new URL("https://technioz.com")` now auto-generates self-referencing canonicals per route. Verified across all 118 generated HTML files: no inner page canonicalizes to homepage, all use apex host. | Keep monitoring; re-verify after any metadata refactor                                       |
 | 2   | [x] **Canonical host ≠ served host**                        | Canonical used non-www; site 301-redirected to `www`          | Canonical loop; Google ignores unreliable canonicals                     | `Fixed in new build` — `metadataBase: new URL("https://technioz.com")` but sitemap/OG use `https://technioz.com` (apex). **Decision:** we are standardizing on apex `https://technioz.com` (no www). Verify redirect rule and host consistency.                                                   | Confirm apex serves 200, no www redirect conflicts, and all canonicals/og:url use apex       |
 | 3   | [x] **Duplicate blog URLs (numeric IDs)**                   | `/blog/3` served same content as `/blog/react-19-features...` | Duplicate content, split signals                                         | `Not applicable` — new blog uses only `/blog/[slug]` with `generateStaticParams`                                                                                                                                                                                                                  | None                                                                                         |
-| 4   | [x] **Empty robots.txt**                                    | `robots.txt` body was empty                                   | No `Sitemap:` directive, weak crawler control                            | `Action required` — `public/robots.txt` must include `Sitemap: https://technioz.com/sitemap.xml`                                                                                                                                                                                                  | Add `robots.txt` with `User-agent: `*, `Allow: /`, `Disallow: /md/`, `Sitemap:` directive    |
+| 4   | [x] **Empty robots.txt**                                    | `robots.txt` body was empty                                   | No `Sitemap:` directive, weak crawler control                            | `Action required` — `public/robots.txt` must include `Sitemap: https://technioz.com/sitemap.xml`                                                                                                                                                                                                  | Add `robots.txt` with `User-agent:` *, `Allow: /`, `Disallow: /md/`, `Sitemap:` directive    |
 | 5   | [x] **Sitemap unverifiable / malformed**                    | Could not parse `/sitemap.xml`; `/sitemap-0.xml` empty        | Discovery failure for inner pages                                        | `Needs verification` — we generate `public/sitemap.xml` manually. Must validate XML and host consistency.                                                                                                                                                                                         | Validate XML, ensure all URLs are apex, exclude `/md/` and any noindex pages                 |
 | 6   | [x] **Meta keywords tag ~4,000+ words**                     | Homepage, `/store`, `/faq` stuffed with hundreds of phrases   | Wastes ~30KB HTML; leaks keyword map; looks spammy                       | `Fixed in new build` — we use `keywords` metadata field but it is a curated array, not 4,000 words. **However, we must watch length.**                                                                                                                                                            | Cap keywords array to ≤20 highly relevant phrases per page; delete if not used by any engine |
 | 7   | [x] **Empty** `/store` **indexable with homepage metadata** | Old `/store` had no products and duplicate metadata           | Thin-content flag                                                        | `Not applicable` — new build has no `/store` route                                                                                                                                                                                                                                                | None                                                                                         |
@@ -97,15 +97,15 @@ The audit also noted the upside: SERPs for the target market are unusually soft.
 ### 2.1 Title / description / social patterns
 
 
-| #   | Issue                                                | Old Evidence                                                | Status in new build                          | Action if needed                                                                                                                                            |
-| --- | ---------------------------------------------------- | ----------------------------------------------------------- | -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 17  | [x] **Doubled brand suffix**                         | Inner pages rendered "… | Technioz | Technioz"              | Unprofessional; truncates useful title space | `Fixed in new build` — changed root title template from `"%s | Technioz"` to `"%s"` in `layout.tsx`; verified no page has doubled suffix in generated HTML. |
-| 18  | [x] **Twitter-card description is homepage default** | All pages used homepage description                         | Poor social CTR for inner pages              | `Needs verification` — check if `twitter.description` is set per route or inherited                                                                         |
-| 19  | [x] **Homepage description 296 chars**               | Truncated in SERP                                           | CTA buried                                   | `Action required` — current homepage description may be long; shorten to ~155 chars                                                                         |
-| 20  | [x] **Generic homepage title**                       | "Technioz - Innovative Software Development & IT Solutions" | No money keyword up front                    | `Action required` — update homepage title to target buyer intent                                                                                            |
-| 21  | [x] **Generic H1**                                   | "Your Vision, Our Expertise"                                | Zero keywords                                | `Action required` — homepage H1 needs buyer intent                                                                                                          |
-| 22  | [x] **Inner page titles brand-first or generic**     | `/services`, `/web-development`, etc. weak                  | Low relevance                                | `Action required` — apply §5 rewrites to all service, pillar, location, and key blog pages                                                                  |
-| 23  | [x] **Logo alt = "Hero Image"**                      | Old logo alt meaningless                                    | Decorative misuse                            | `Fixed in new build` — verify nav/footer logo alt = `"Technioz — software development company"`                                                             |
+| #   | Issue                                                | Old Evidence                                                | Status in new build             | Action if needed                                                                                |
+| --- | ---------------------------------------------------- | ----------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------- |
+| 17  | [x] **Doubled brand suffix**                         | Inner pages rendered "…                                     | Technioz                        | Technioz"                                                                                       |
+| 18  | [x] **Twitter-card description is homepage default** | All pages used homepage description                         | Poor social CTR for inner pages | `Needs verification` — check if `twitter.description` is set per route or inherited             |
+| 19  | [x] **Homepage description 296 chars**               | Truncated in SERP                                           | CTA buried                      | `Action required` — current homepage description may be long; shorten to ~155 chars             |
+| 20  | [x] **Generic homepage title**                       | "Technioz - Innovative Software Development & IT Solutions" | No money keyword up front       | `Action required` — update homepage title to target buyer intent                                |
+| 21  | [x] **Generic H1**                                   | "Your Vision, Our Expertise"                                | Zero keywords                   | `Action required` — homepage H1 needs buyer intent                                              |
+| 22  | [x] **Inner page titles brand-first or generic**     | `/services`, `/web-development`, etc. weak                  | Low relevance                   | `Action required` — apply §5 rewrites to all service, pillar, location, and key blog pages      |
+| 23  | [x] **Logo alt = "Hero Image"**                      | Old logo alt meaningless                                    | Decorative misuse               | `Fixed in new build` — verify nav/footer logo alt = `"Technioz — software development company"` |
 
 
 ---
@@ -178,7 +178,7 @@ The audit recommends creating these landing pages / content assets. We should ad
 
 
 
-### 4.1 Old rankingscode 
+### 4.1 Old rankingscode
 
 - 0 keywords in top 100
 - 0 organic traffic
@@ -242,17 +242,17 @@ The audit gave exact rewrites for key pages. Apply these to the new build where 
 ### 5.2 Per-page rewrites
 
 
-| Page                                | Current status (new build) | Recommended title                                                             | Recommended description                                                                                                                                       |
-| ----------------------------------- | -------------------------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `/`                                 | Verify                     | `Custom Software Development Company — Web, Mobile & AI | Technioz`           | `We build web apps, mobile apps and AI solutions for businesses in the GCC and India. 10+ projects delivered since 2024. Book a free 30-minute consultation.` |
-| `/services`                         | Verify                     | `Software Development Services: Web, Mobile, AI & Cloud | Technioz`           | `End-to-end software development — web apps, iOS/Android, AI and cloud. Fixed-price or dedicated teams. See services, process and typical costs.`             |
-| `/services/web-development`         | Verify                     | `Custom Web Application Development Company | Technioz`                       | `Custom web apps in React, Next.js and Node — built for scale. See how we digitized GCC transport operators, then get a fixed quote in 48 hours.`             |
-| `/services/mobile-development`      | Verify                     | `Mobile App Development Company — iOS & Android | Technioz`                   | `Native and cross-platform apps in React Native and Flutter. We shipped BusPass UAE to 15,000+ subscribers. Free app consultation, no commitment.`            |
-| `/services/ai-solutions`            | **Rebuild**                | `AI Chatbot Development Company — NLP, ML & Automation | Technioz`            | `We build AI chatbots, predictive analytics and computer-vision systems that pay for themselves. Book a free AI use-case consultation.`                       |
-| `/case-studies` / Al Khanjry detail | Verify                     | `Case Study: Online Bus Ticketing for Al Khanjry Transport (Oman) | Technioz` | `How a 25-year-old GCC bus operator moved to real-time online ticketing on AWS — 40% faster bookings, 99.9% uptime. Full case study + architecture.`          |
-| `/faq`                              | Verify                     | `Software Development FAQs — Pricing, Process, NDA & Security | Technioz`     | `30 straight answers: what custom software costs, fixed-price vs hourly, timelines, NDAs, GDPR/HIPAA compliance, and how to start.`                           |
-| `/portfolio`                        | Verify                     | `Case Studies & Portfolio — Transport, Fintech, E-commerce | Technioz`        | `Real projects with real numbers: BusPass UAE (15,000+ subscribers), Al Khanjry ticketing (99.9% uptime), and more. See how we build.`                        |
-| `/contact`                          | Verify                     | `Contact Technioz — Free 30-Min Consultation & 48h Quote`                     | `Tell us about your project. We reply within 24 hours with next steps and a scoping call — no commitment, NDA on request.`                                    |
+| Page                                | Current status (new build) | Recommended title                                                 | Recommended description                                                                                                    |
+| ----------------------------------- | -------------------------- | ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `/`                                 | Verify                     | `Custom Software Development Company — Web, Mobile & AI           | Technioz`                                                                                                                  |
+| `/services`                         | Verify                     | `Software Development Services: Web, Mobile, AI & Cloud           | Technioz`                                                                                                                  |
+| `/services/web-development`         | Verify                     | `Custom Web Application Development Company                       | Technioz`                                                                                                                  |
+| `/services/mobile-development`      | Verify                     | `Mobile App Development Company — iOS & Android                   | Technioz`                                                                                                                  |
+| `/services/ai-solutions`            | **Rebuild**                | `AI Chatbot Development Company — NLP, ML & Automation            | Technioz`                                                                                                                  |
+| `/case-studies` / Al Khanjry detail | Verify                     | `Case Study: Online Bus Ticketing for Al Khanjry Transport (Oman) | Technioz`                                                                                                                  |
+| `/faq`                              | Verify                     | `Software Development FAQs — Pricing, Process, NDA & Security     | Technioz`                                                                                                                  |
+| `/portfolio`                        | Verify                     | `Case Studies & Portfolio — Transport, Fintech, E-commerce        | Technioz`                                                                                                                  |
+| `/contact`                          | Verify                     | `Contact Technioz — Free 30-Min Consultation & 48h Quote`         | `Tell us about your project. We reply within 24 hours with next steps and a scoping call — no commitment, NDA on request.` |
 
 
 
@@ -260,18 +260,18 @@ The audit gave exact rewrites for key pages. Apply these to the new build where 
 ### 5.3 New pages to create (with metadata)
 
 
-| Route                                            | Title                                                                 | Description                                                                                                                            |
-| ------------------------------------------------ | --------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| `/software-development-company-dubai`            | `Software Development Company in Dubai — Web, Mobile & AI | Technioz` | `Dubai software development company building web apps, mobile apps and AI solutions for UAE/GCC businesses. Book a free scoping call.` |
-| `/web-development-company-dubai`                 | `Web Development Company in Dubai | Technioz`                         | `Custom web application development in Dubai. React, Next.js, Node. Get a fixed quote in 48 hours.`                                    |
-| `/mobile-app-development-company-dubai`          | `Mobile App Development Company in Dubai | Technioz`                  | `iOS, Android and React Native app development in Dubai. See BusPass UAE + HattaFoodHub case studies.`                                 |
-| `/industries/transport-logistics`                | `Transport & Logistics Software Development | Technioz`               | `Bus ticketing, fleet management and transport software for GCC operators. Real case studies. Download the digitalization roadmap.`    |
-| `/blog/bus-ticketing-system-build-vs-buy`        | `Bus Ticketing System: Build vs Buy (2026 Guide) | Technioz`          | `Should you build or buy a bus ticketing system? Cost bands, timelines, and when a custom platform wins.`                              |
-| `/resources/app-development-cost-calculator`     | `App Development Cost Calculator (2026) | Technioz`                   | `Estimate custom app development cost in 2 minutes. Interactive calculator + emailed PDF breakdown.`                                   |
-| `/services/mvp-development`                      | `MVP Development Company for Startups | Technioz`                     | `Scope, design and ship your startup MVP in 12 weeks. Idea to app store with React Native / Next.js.`                                  |
-| `/services/react-native-app-development` landing | `React Native Development Company | Technioz`                         | `Cross-platform apps with React Native. We shipped BusPass UAE and HattaFoodHub. Talk to a React Native lead.`                         |
-| `/hire-dedicated-developers-india`               | `Hire Dedicated Developers in India | Technioz`                       | `Senior React, Node, React Native and AI developers on monthly contracts. Get 3 CVs within 72h.`                                       |
-| `/ecommerce-website-development-dubai`           | `E-commerce Website Development in Dubai | Technioz`                  | `Custom Shopify, WooCommerce and headless e-commerce builds for UAE retailers. Free store audit.`                                      |
+| Route                                            | Title                                                     | Description |
+| ------------------------------------------------ | --------------------------------------------------------- | ----------- |
+| `/software-development-company-dubai`            | `Software Development Company in Dubai — Web, Mobile & AI | Technioz`   |
+| `/web-development-company-dubai`                 | `Web Development Company in Dubai                         | Technioz`   |
+| `/mobile-app-development-company-dubai`          | `Mobile App Development Company in Dubai                  | Technioz`   |
+| `/industries/transport-logistics`                | `Transport & Logistics Software Development               | Technioz`   |
+| `/blog/bus-ticketing-system-build-vs-buy`        | `Bus Ticketing System: Build vs Buy (2026 Guide)          | Technioz`   |
+| `/resources/app-development-cost-calculator`     | `App Development Cost Calculator (2026)                   | Technioz`   |
+| `/services/mvp-development`                      | `MVP Development Company for Startups                     | Technioz`   |
+| `/services/react-native-app-development` landing | `React Native Development Company                         | Technioz`   |
+| `/hire-dedicated-developers-india`               | `Hire Dedicated Developers in India                       | Technioz`   |
+| `/ecommerce-website-development-dubai`           | `E-commerce Website Development in Dubai                  | Technioz`   |
 
 
 ---
@@ -511,7 +511,7 @@ Audit recommends `LocalBusiness` schema. Previous direction was to skip `LocalBu
 - [x] Label any concept/demo portfolio items (e.g., Folio AI if not shipped) as "Concept build" — Folio is labeled on `/portfolio`, `/portfolio/folio-ai-website-builder`, and related-case-study cards.
 - [x] Remove or complete ROI placeholder on `/portfolio/alkhanjry-transport` and add client quote.
 - [x] Add content-matched CTAs per page/funnel stage (not just generic "Start Your Project").
-- [x] ~~Add email-capture footer newsletter (`Get the GCC tech buyer`s briefing — monthly`).~~ *Not needed — we do not send newsletters.*
+- [x] ~~Add email-capture footer newsletter (~~`Get the GCC tech buyer`~~s briefing — monthly`).~~ *Not needed — we do not send newsletters.*
 
 
 
@@ -528,7 +528,7 @@ Audit recommends `LocalBusiness` schema. Previous direction was to skip `LocalBu
 - [x] Build Dubai landing pages: `/software-development-company-dubai`, `/web-app-development-company-dubai`, `/mobile-app-development-company-dubai` — enriched with case-study proof, FAQPage schema, and related guides.
 - [x] Build `/services/mvp-development` startup landing — rewritten for founders, added HattaFoodHub proof, MVP Launch Checklist lead-magnet section, and FAQ schema.
 - [x] Build React Native development company landing — `/services/react-native-app-development` rewritten with PRESTO copy, HattaFoodHub proof, FAQ schema, and calculator CTA.
-- [ ] ~~Build `/hire-dedicated-developers-india` landing.~~ *Removed from current scope — nav, sitemap, and filesystem do not include this page.*
+- [ ] ~~Build~~ `/hire-dedicated-developers-india` ~~landing.~~ *Removed from current scope — nav, sitemap, and filesystem do not include this page.*
 - [x] Build e-commerce Dubai landing — `/ecommerce-website-development-dubai` rewritten with FAQPage schema and a free e-commerce store audit lead-magnet form.
 - [x] Add transport digitalization roadmap PDF lead magnet — email capture form live on `/industries/transport-logistics` with FAQPage schema.
 - [x] Create remaining lead magnets: MVP checklist, vendor evaluation scorecard, free technical audit — vendor scorecard live on `/software-development-company-dubai`; free technical audit live on `/services/it-consulting` with FAQPage schema.
@@ -627,18 +627,3 @@ Re-check monthly after action plan begins.
 
 ---
 
-## 14. Article Webhook Pipeline (added July 10, 2026)
-
-- [x] `POST /api/articles` webhook with Bearer token validation (`ARTICLE_WEBHOOK_SECRET`).
-- [x] Prisma 7 + `@prisma/adapter-pg` + `pg` driver-adapter setup, PostgreSQL schema pushed.
-- [x] Articles + Tags tables in `technioz-portfolio` DB on `94.136.190.93:5433`.
-- [x] Webhook auto-downloads image to `public/assets/articles/{slug}.{ext}` and stores local path.
-- [x] Category inferred from tags (Custom Software, AI Solutions, Cloud & DevOps, etc.).
-- [x] `src/lib/db-articles.ts` data layer with `getAllDbArticles`, `getDbArticleBySlug`, `getDbArticleSlugs`.
-- [x] `/blog` listing merges static + DB posts (static priority on slug collision; sorted by date desc).
-- [x] `/blog/[slug]` dynamic route renders static posts via existing `StaticBlogDetail` and DB posts via new `DbBlogDetail` (raw HTML with Tailwind typography + brand-token overrides in `.article-prose`).
-- [x] `BlogPostingJsonLd` component supports both static and DB articles.
-- [x] `/sitemap-blog.xml` dynamic route merges static + DB slugs.
-- [x] `force-dynamic` on all DB routes so new articles appear without rebuild.
-- [x] Webhook tested with `article.json` payload: 200 + saved, idempotent on replay, 401 on bad/missing token, 400 on bad event type, 200 + saved=0 on empty articles array.
-- [x] DB article page renders proper typography: 48px display H2 / 28px display H3 / 18px body P, cobalt bullets, numbered list with cobalt markers, ordered/unordered list indent, code/pre styling, table styling, blockquote with cobalt border.

@@ -120,7 +120,7 @@ const caseStudies: CaseStudy[] = [
     timeline: "7 months",
     featured: true,
     primaryStats: [
-      { metric: "$27M+", label: "in ticket sales" },
+      { metric: "$1M+", label: "in ticket sales" },
       { metric: "150K+", label: "bookings completed" },
       { metric: "200K+", label: "passengers served" },
     ],
@@ -235,7 +235,7 @@ const caseStudies: CaseStudy[] = [
       },
     ],
     results: [
-      { metric: "$27M+", label: "in ticket sales processed" },
+      { metric: "$1M+", label: "in ticket sales processed" },
       { metric: "150K+", label: "bookings completed" },
       { metric: "200K+", label: "passengers served" },
       { metric: "80+", label: "cross-border routes" },
@@ -485,7 +485,7 @@ export default async function CaseStudyDetail({ params }: { params: Promise<{ sl
       {/* Results */}
       <section className="bg-black-500">
         <div className="max-w-[1440px] mx-auto px-6 py-16 lg:px-[148px] lg:py-[100px] flex flex-col items-center text-center">
-          <h2 className="h3 text-white-200 mb-4">Results at a glance</h2>
+          <h2 className="h3 !text-white-200 mb-4">Results at a glance</h2>
           <p className="p3 text-black-200 mb-10 max-w-[600px]">Measurable outcomes since launch.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-[900px]">
             {study.results.map((r) => (

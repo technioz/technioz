@@ -36,14 +36,14 @@ const caseStudies = [
   {
     slug: "/portfolio/alkhanjry-transport",
     client: "Al Khanjry Groups",
-    title: "From Manual Counters to $27M+ in Digital Ticket Sales",
+    title: "From Manual Counters to $1M+ in Digital Ticket Sales",
     desc: "Replaced phone bookings and counter queues with a modern online ticketing platform. Real-time seat selection, bilingual Arabic/English support, SMS confirmations, and AWS auto-scaling that handles peak demand without breaking.",
     industry: "Transportation & Logistics",
     timeline: "7 months",
     techs: ["React", "Next.js", "Node.js", "AWS", "PostgreSQL", "Redis"],
     image: "/assets/booking.webp",
     results: [
-      { metric: "$27M+", label: "ticket sales processed" },
+      { metric: "$1M+", label: "ticket sales processed" },
       { metric: "150K+", label: "bookings completed" },
       { metric: "200K+", label: "passengers served" },
       { metric: "80+", label: "routes covered" },

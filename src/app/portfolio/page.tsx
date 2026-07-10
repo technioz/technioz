@@ -5,7 +5,7 @@ import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 
 export const metadata: Metadata = {
   title: "Case Studies & Portfolio — Transport, Food Tech, AI & Agriculture | Technioz",
-  description: "Real projects with real numbers: HattaFoodHub (10,000+ concurrent orders), Al Khanjry ticketing ($27M+ in sales), and more. See how we build.",
+  description: "Real projects with real numbers: HattaFoodHub (10,000+ concurrent orders), Al Khanjry ticketing ($1M+ in sales), and more. See how we build.",
   openGraph: {
     title: "Portfolio | Technioz Software Projects",
     description:

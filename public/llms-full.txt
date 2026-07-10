@@ -29,7 +29,7 @@ One partner. Zero finger-pointing. Imagine briefing a single team, getting a sin
 ### Evidence (Case Stats)
 Teams like yours already ship with us. Three case stat cards:
 - 85% faster booking processing — Al Khanjry Groups
-- $27M+ in digital ticket sales — Al Khanjry Groups
+- $1M+ in digital ticket sales — Al Khanjry Groups
 - 60% lower ticketing costs — Al Khanjry Groups
 
 ### Solution (Services Grid)
@@ -129,7 +129,7 @@ Technology strategy & roadmap (4-8 weeks), digital transformation (3-6 months), 
 
 1. **HattaFoodHub — Food Delivery App**: React Native, Laravel, MySQL, Firebase. Scalable platform connecting restaurants, couriers, and customers with real-time tracking. 10,000+ concurrent orders handled, 99.9% uptime, 40% increase in repeat customers. 4-month timeline. Food & Logistics industry.
 
-2. **Al Khanjry Groups — Transport Ticketing System**: React, Next.js, Node.js, PostgreSQL, Redis, AWS. Online bus booking portal connecting the UAE and Oman with real-time seat selection, bilingual support, and payment gateways. $27M+ in ticket sales, 150K+ bookings, 200K+ passengers, 80+ routes. 7-month timeline. Transportation & Logistics industry.
+2. **Al Khanjry Groups — Transport Ticketing System**: React, Next.js, Node.js, PostgreSQL, Redis, AWS. Online bus booking portal connecting the UAE and Oman with real-time seat selection, bilingual support, and payment gateways. $1M+ in ticket sales, 150K+ bookings, 200K+ passengers, 80+ routes. 7-month timeline. Transportation & Logistics industry.
 
 3. **Folio — AI Website Builder**: Next.js, TypeScript, OpenAI, LangChain, Tailwind CSS. AI-powered builder that creates deploy-ready websites from a social-media link, document, or prompt in one click. AI SaaS product.
 

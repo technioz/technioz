@@ -157,7 +157,7 @@ export default function SoftwareDevelopmentCompanyDubai() {
               <Link href="/portfolio/alkhanjry-transport" className="bg-white-200 rounded-sm p-[24px] flex flex-col gap-[12px] hover:shadow-[0_10px_24px_rgba(29,27,22,0.12)] transition-shadow group mb-4">
                 <span className="text-[12px] font-mono uppercase tracking-[1px] text-cobolt-500">GCC client highlight</span>
                 <span className="font-display text-[18px] leading-none tracking-[-0.9px] text-black-500 group-hover:text-cobolt-500 transition-colors">Al Khanjry Transport</span>
-                <p className="p5 text-black-400">Omani bus operator digital transformation — $27M+ in online ticket sales.</p>
+                <p className="p5 text-black-400">Omani bus operator digital transformation — $1M+ in online ticket sales.</p>
                 <span className="e2 text-cobolt-500">Read case study →</span>
               </Link>
               <div className="flex flex-wrap gap-2">

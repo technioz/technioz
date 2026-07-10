@@ -193,7 +193,7 @@ export const solutions: SolutionData[] = [
     ],
     techTags: ["React", "Next.js", "Node.js", "AWS", "WebSocket", "PostgreSQL", "Redis", "Docker", "Stripe"],
     results: [
-      { metric: "$27M+", label: "ticket sales processed" },
+      { metric: "$1M+", label: "ticket sales processed" },
       { metric: "150K+", label: "bookings completed" },
       { metric: "80+", label: "routes covered" },
     ],
