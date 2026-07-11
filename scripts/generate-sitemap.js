@@ -74,9 +74,10 @@ for (const section of sections) {
     <lastmod>${SITEMAP_DATE}</lastmod>
     <changefreq>${section.freq(p)}</changefreq>
     <priority>${section.priority(p)}</priority>
-  </url>
-`;
+    `;
     if (p === '/') body += homepageImage + '\n';
+  body+= `</url>
+`;
   }
 }
 
