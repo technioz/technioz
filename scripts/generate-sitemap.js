@@ -53,7 +53,7 @@ const sections = [
   { title: 'Solution Pages', priority: () => '0.8', freq: () => 'monthly', match: (p) => p.startsWith('/solutions/') },
   { title: 'Industry Pages', priority: () => '0.8', freq: () => 'monthly', match: (p) => p.startsWith('/industries/') },
   { title: 'Resource Pages', priority: () => '0.7', freq: () => 'monthly', match: (p) => p.startsWith('/resources/') },
-  { title: 'Pillar Pages', priority: () => '0.7', freq: () => 'monthly', match: (p) => ['/custom-software-development', '/ai-solutions', '/cloud-devops', '/security-reliability', '/consulting-strategy', '/data-apis-integrations', '/digital-transformation', '/enterprise', '/industry-solutions', '/web-mobile-app-development', '/ai-development-company-dubai'].includes(p) },
+  { title: 'Pillar Pages', priority: () => '0.7', freq: () => 'monthly', match: (p) => ['/custom-software-development', '/ai-solutions', '/cloud-devops', '/security-reliability', '/consulting-strategy', '/data-apis-integrations', '/digital-transformation', '/enterprise', '/industry-solutions', '/web-mobile-app-development'].includes(p) },
   { title: 'Portfolio Items', priority: () => '0.7', freq: () => 'monthly', match: (p) => p.startsWith('/portfolio/') },
   { title: 'Legal', priority: () => '0.3', freq: () => 'yearly', match: (p) => p === '/privacy' || p === '/terms' },
 ];
