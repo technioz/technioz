@@ -176,19 +176,7 @@ const caseStudies: CaseStudy[] = [
         ],
       },
       {
-        type: "heading", heading: "2. Payment Integration",
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "Integrated GCC-compatible payment gateways supporting local cards, bank transfers, and digital wallets",
-          "Multi-currency support — passengers book in AED on the UAE side and in OMR on the Oman side, with automatic conversion",
-          "Webhook-based reconciliation system that matches payments with bookings in real time, eliminating manual finance reconciliation",
-          "Automatic refunds triggered for cancelled or rescheduled buses, with notification to the passenger",
-        ],
-      },
-      {
-        type: "heading", heading: "3. Cloud Infrastructure and DevOps",
+        type: "heading", heading: "2. Cloud Infrastructure and DevOps",
       },
       {
         type: "bullet-list",
@@ -200,7 +188,7 @@ const caseStudies: CaseStudy[] = [
         ],
       },
       {
-        type: "heading", heading: "4. Admin Dashboard",
+        type: "heading", heading: "3. Admin Dashboard",
       },
       {
         type: "bullet-list",
