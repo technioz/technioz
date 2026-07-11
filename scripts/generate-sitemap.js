@@ -60,7 +60,6 @@ const sections = [
 
 const homepageImage = `      <image:image>
       <image:loc>${ROOT}/og-image.png</image:loc>
-      <image:title>Technioz — Software Development Company</image:title>
     </image:image>`;
 
 let body = '';
