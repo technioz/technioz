@@ -81,9 +81,9 @@ const data: PillarData = {
   ctaText: "Explore custom software",
   relatedLinks: [
     { title: "How much does custom software cost in 2026?", href: "/blog/custom-software-development-cost-2026" },
-    { title: "In-house vs outsourced software development", href: "/blog/in-house-vs-outsourced-software-development" },
-    { title: "How to choose a software development partner", href: "/blog/how-to-choose-software-development-partner" },
-    { title: "Offshore vs nearshore vs onshore development", href: "/blog/offshore-vs-nearshore-vs-onshore-development" },
+    { title: "In-house vs outsourced software development", href: "/blog/in-house-vs-outsourced-software-development-2026" },
+    { title: "How to choose a software development partner", href: "/blog/how-to-choose-software-development-partner-2026" },
+    { title: "Offshore vs nearshore vs onshore development", href: "/blog/offshore-vs-nearshore-vs-onshore-development-2026" },
   ],
 };
 

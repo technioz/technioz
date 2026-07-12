@@ -1,378 +1,377 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-        xmlns:video="http://www.google.com/schemas/sitemap-video/0.9">
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <!-- Primary Pages -->
   <url>
     <loc>https://technioz.com/</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-          <image:image>
-      <image:loc>https://technioz.com/og-image.png</image:loc>
-    </image:image>
-</url>
+
+      <image:image>
+        <image:loc>https://technioz.com/og-image.png</image:loc>
+      </image:image>
+    </url>
   <url>
     <loc>https://technioz.com/about</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/case-studies</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/contact</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/faq</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/portfolio</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/resources</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/services</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    </url>
+</url>
 
   <!-- Location Landing Pages -->
   <url>
     <loc>https://technioz.com/ai-development-company-dubai</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/ecommerce-website-development-dubai</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/mobile-app-development-company-dubai</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/software-development-company-dubai</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/web-app-development-company-dubai</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    </url>
+</url>
 
   <!-- Service Pages -->
   <url>
     <loc>https://technioz.com/services/ai-agent-development</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/services/ai-chatbot-development</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/services/ai-solutions</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/services/ai-workflow-automation</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/services/android-app-development</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/services/aws-consulting</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/services/cloud-migration</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/services/cloud-services</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/services/cross-platform-app-development</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/services/custom-software-development</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/services/devops-services</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/services/digital-transformation-consulting</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/services/enterprise-software-development</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/services/flutter-app-development</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/services/ios-app-development</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/services/it-consulting</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/services/llm-integration</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/services/mobile-development</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/services/mvp-development</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/services/nextjs-development</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/services/nodejs-development</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/services/rag-system-development</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/services/react-native-app-development</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/services/reactjs-development</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/services/web-development</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    </url>
+</url>
 
   <!-- Solution Pages -->
   <url>
     <loc>https://technioz.com/solutions/ecommerce</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/solutions/education</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/solutions/finance</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/solutions/healthcare</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/solutions/logistics</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/solutions/startups</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    </url>
+</url>
 
   <!-- Industry Pages -->
   <url>
     <loc>https://technioz.com/industries/transport-logistics</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    </url>
+</url>
 
   <!-- Resource Pages -->
   <url>
     <loc>https://technioz.com/resources/app-development-cost-calculator</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/resources/web-app-development-cost-calculator</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    </url>
+</url>
 
   <!-- Pillar Pages -->
   <url>
     <loc>https://technioz.com/ai-solutions</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/cloud-devops</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/consulting-strategy</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/custom-software-development</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/data-apis-integrations</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/digital-transformation</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/enterprise</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/industry-solutions</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/security-reliability</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/web-mobile-app-development</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    </url>
+</url>
 
   <!-- Legal -->
   <url>
     <loc>https://technioz.com/privacy</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
-    </url>
+</url>
   <url>
     <loc>https://technioz.com/terms</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
-    </url>
+</url>
 </urlset>

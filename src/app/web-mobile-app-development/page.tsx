@@ -68,10 +68,10 @@ const data: PillarData = {
   ctaHref: "/services/web-development",
   ctaText: "Explore app development",
   relatedLinks: [
-    { title: "Mobile app development process step-by-step", href: "/blog/mobile-app-development-process" },
-    { title: "Web app development process explained", href: "/blog/web-app-development-process" },
-    { title: "React Native vs Flutter in 2026", href: "/blog/react-native-vs-flutter-2026" },
-    { title: "How much does it cost to build a mobile app in Dubai?", href: "/blog/cost-to-build-mobile-app-dubai" },
+    { title: "Mobile app development process step-by-step", href: "/blog/mobile-app-development-process-idea-to-launch-2026" },
+    { title: "Web app development process explained", href: "/blog/web-app-development-process-step-by-step-2026" },
+    { title: "React Native vs Flutter in 2026", href: "/blog/react-native-vs-flutter-2026-comparison" },
+    { title: "ios vs android app development in dubai", href: "/blog/ios-vs-android-app-development-dubai-2026" },
   ],
 };
 

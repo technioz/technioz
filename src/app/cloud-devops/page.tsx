@@ -63,10 +63,10 @@ const data: PillarData = {
   ctaHref: "/services/cloud-services",
   ctaText: "Explore cloud services",
   relatedLinks: [
-    { title: "Cloud migration strategy for businesses", href: "/blog/cloud-migration-strategy" },
-    { title: "Cloud cost optimization guide", href: "/blog/cloud-cost-optimization" },
-    { title: "CI/CD pipelines explained", href: "/blog/ci-cd-pipelines-explained" },
-    { title: "DevOps best practices for growing companies", href: "/blog/devops-best-practices" },
+    { title: "Cloud migration strategy for businesses", href: "/blog/cloud-migration-strategy-step-by-step-guide-2026" },
+    { title: "The complete cloud cost optimization guide", href: "/blog/cloud-cost-optimization-practical-guide-2026" },
+    { title: "CI/CD pipelines explained", href: "/blog/ci-cd-pipelines-explained-benefits-implementation-2026" },
+    { title: "DevOps best practices for growing companies", href: "/blog/devops-best-practices-growing-companies-2026" },
   ],
 };
 

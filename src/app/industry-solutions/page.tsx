@@ -62,10 +62,10 @@ const data: PillarData = {
   ctaHref: "/services/mobile-development",
   ctaText: "Explore industry solutions",
   relatedLinks: [
-    { title: "Fleet management software features", href: "/blog/fleet-management-software" },
-    { title: "Transport ticketing and booking systems", href: "/blog/transport-ticketing-system" },
-    { title: "eCommerce app development in Dubai", href: "/blog/ecommerce-app-development-dubai" },
-    { title: "Fintech app development guide", href: "/blog/fintech-app-development" },
+    { title: "Fleet management software features", href: "/blog/fleet-management-software-features-guide-2026" },
+    { title: "Transport ticketing and booking systems", href: "/blog/online-ticketing-booking-systems-transport-companies-2026" },
+    { title: "eCommerce app development in Dubai", href: "/blog/ecommerce-app-development-dubai-costs-features-2026" },
+    { title: "Fintech app development guide", href: "/blog/fintech-app-development-payments-wallets-compliance-2026" },
   ],
 };
 

@@ -116,7 +116,6 @@ const data: PillarData = {
   ctaHref: "/services/it-consulting",
   ctaText: "Explore security services",
   relatedArticles: [
-    { title: "Cloud Security Best Practices for Enterprise Applications", slug: "cloud-security-best-practices-for-enterprise-applications" },
     { title: "HIPAA-Compliant Software Development: A Checklist for 2026", slug: "hipaa-compliant-software-development-checklist-2026" },
     { title: "KYC and AML Compliance in Software Development in 2026", slug: "kyc-aml-compliance-software-development-2026" },
     { title: "Custom ERP Software in Healthcare: A Complete Guide for 2026", slug: "custom-erp-software-healthcare-2026" },

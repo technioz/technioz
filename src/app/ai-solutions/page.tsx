@@ -69,8 +69,8 @@ const data: PillarData = {
   relatedLinks: [
     { title: "AI agents vs chatbots: what's the real difference?", href: "/blog/ai-agents-vs-chatbots" },
     { title: "RAG systems explained for business", href: "/blog/rag-systems-explained" },
-    { title: "LLM integration for business applications", href: "/blog/llm-integration-business" },
-    { title: "AI workflow automation: use cases and ROI", href: "/blog/ai-workflow-automation" },
+    { title: "LLM integration for business applications", href: "/blog/llm-integration-business-applications-guide-2026" },
+    { title: "AI use cases in different industries", href: "/blog/ai-use-cases-different-industries-2026" },
   ],
 };
 

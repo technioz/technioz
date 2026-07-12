@@ -1274,7 +1274,7 @@ const pillarOnePosts: BlogPost[] = [
   },
   {
     slug: "online-ticketing-booking-systems-transport-companies-2026",
-    title: "Online Ticketing Systems for Transport Companies in 2026",
+    title: "Online Ticket Systems for Transport Companies 2026",
     excerpt: "Online ticketing systems for bus and transport companies: features, costs, and build-vs-buy decisions in 2026.",
     category: "Industry Solutions",
     date: "July 5, 2026",

@@ -74,18 +74,23 @@ for (const section of sections) {
     <lastmod>${SITEMAP_DATE}</lastmod>
     <changefreq>${section.freq(p)}</changefreq>
     <priority>${section.priority(p)}</priority>
-    `;
-    if (p === '/') body += homepageImage + '\n';
-  body+= `</url>
 `;
+
+    if (p === '/') {
+      body += `
+      <image:image>
+        <image:loc>${ROOT}/og-image.png</image:loc>
+      </image:image>
+    `;
+    }
+
+    body += `</url>\n`;
   }
 }
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-        xmlns:video="http://www.google.com/schemas/sitemap-video/0.9">${body}</urlset>
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">${body}</urlset>
 `;
 
 const out = path.join(__dirname, '..', 'public', 'sitemap.xml');

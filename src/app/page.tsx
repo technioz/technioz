@@ -267,7 +267,7 @@ function Industries() {
 
 function FeaturedIndustry() {
   return (
-    <Link href="/solutions/transportation" className="group relative overflow-hidden rounded-sm border border-black-400 hover:border-cobolt-300 transition-colors duration-300">
+    <Link href="/solutions/logistics" className="group relative overflow-hidden rounded-sm border border-black-400 hover:border-cobolt-300 transition-colors duration-300">
       <div className="grid lg:grid-cols-[1fr_420px] min-h-[420px]">
         <div className="flex flex-col justify-between p-[40px] lg:p-[56px] gap-[32px]">
           <div className="flex flex-col gap-[24px]"><span className="e1 text-cobolt-300">Featured</span><h3 className="h3 !text-white-200">Transportation &amp; Logistics</h3><p className="p3 text-black-200 max-w-[520px] leading-relaxed">We&apos;ve built booking platforms, fleet dashboards, route optimizers, and multi-vendor ticketing systems used by tens of thousands of passengers across the GCC. Al Khanjry Transport, Integrated Golden Lines, Al Khanjry Groups — they all ship on our infrastructure.</p></div>
