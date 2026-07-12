@@ -2662,7 +2662,7 @@ export const blogPosts: BlogPost[] = [
     featured: false,
     tags: ["Node.js", "Docker", "Microservices", "Kubernetes"],
     imageAlt: "Microservices architecture diagram",
-    noindex: true,
+    noindex: false,
     blocks: [
       { type: "p", value: "Microservices architecture has become the standard for building scalable, maintainable applications. In this guide, we'll walk through the key concepts and practical implementation of microservices using Node.js and Docker." },
       { type: "h2", value: "Why Microservices?" },
@@ -2706,7 +2706,7 @@ export const blogPosts: BlogPost[] = [
     featured: false,
     tags: ["React", "JavaScript", "Frontend", "Performance"],
     imageAlt: "React 19 logo and code illustration",
-    noindex: true,
+    noindex: false,
     blocks: [
       { type: "p", value: "React 19 brings significant improvements to performance, developer experience, and server-side rendering. Here's what you need to know." },
       { type: "h2", value: "Concurrent Rendering" },
