@@ -5,8 +5,9 @@
  * - Reads URLs from /public/sitemap.xml (static) and /sitemap-blog.xml (dynamic).
  * - Dedupes and submits the merged set to the IndexNow API.
  * - Splits into batches of 10,000 (IndexNow limit per request).
- * - Key is read from a {key}.txt file at the project root (proxy-served at
- *   https://technioz.com/{key}.txt). No env var dependency.
+ * - Key is read from a {key}.txt file at /public/ (Next.js-served at
+ *   https://technioz.com/{key}.txt). Falls back to the repo root for
+ *   setups where the file is reverse-proxy-served. No env var dependency.
  *
  * IndexNow pings Bing, Yandex, Naver, Seznam.cz. Google is NOT a member — for
  * Google indexing, use the URL Inspection API (separate setup).
@@ -24,16 +25,19 @@ const https = require("https");
 
 const SITE_HOST = process.env.SITE_HOST || "technioz.com";
 
-function readKeyFromRootFile() {
+function readKeyFile() {
   const root = path.join(__dirname, "..");
+  const candidates = [path.join(root, "public"), root];
   const keyFileName = /^[0-9a-f]{16,}\.txt$/i;
-  if (!fs.existsSync(root)) return null;
-  const found = fs.readdirSync(root).find((f) => keyFileName.test(f));
-  if (!found) return null;
-  return fs.readFileSync(path.join(root, found), "utf8").trim();
+  for (const dir of candidates) {
+    if (!fs.existsSync(dir)) continue;
+    const found = fs.readdirSync(dir).find((f) => keyFileName.test(f));
+    if (found) return fs.readFileSync(path.join(dir, found), "utf8").trim();
+  }
+  return null;
 }
 
-const KEY = readKeyFromRootFile();
+const KEY = readKeyFile();
 
 function extractUrlsFromSitemap(sitemapPath) {
   if (!fs.existsSync(sitemapPath)) return [];
@@ -101,7 +105,7 @@ async function main() {
   }
 
   if (!KEY) {
-    console.log("[indexnow] No key file at project root — skipping (no-op).");
+    console.log("[indexnow] No {key}.txt file at /public/ or project root — skipping (no-op).");
     return;
   }
 
