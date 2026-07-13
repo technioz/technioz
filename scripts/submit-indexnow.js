@@ -14,7 +14,7 @@
  *   node scripts/submit-indexnow.js
  *
  * Required env (production):
- *   INDEXNOW_KEY  8b41b2fa81f81f081d7b34eb0a967497
+ *   INDEXNOW_KEY  0c668c250eac4abe98899f5ea585edf7
  *   SITE_HOST     technioz.com   (optional, defaults to technioz.com)
  */
 const fs = require("fs");
