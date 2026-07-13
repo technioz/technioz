@@ -14,26 +14,33 @@
  *   node scripts/submit-indexnow.js
  *
  * Required env (production):
- *   INDEXNOW_KEY  0c668c250eac4abe98899f5ea585edf7
+ *   INDEXNOW_KEY  (any non-empty value, e.g. "0c668c250eac4abe98899f5ea585edf7")
  *   SITE_HOST     technioz.com   (optional, defaults to technioz.com)
+ *
+ * When INDEXNOW_KEY is not set, the script reads the key from the
+ * {key}.txt file at the project root (or /public for Next.js setups).
+ * The actual key value is determined by the file, not the env var,
+ * because the env is just a toggle to enable submission.
  */
 const fs = require("fs");
 const path = require("path");
 const https = require("https");
 
 const SITE_HOST = process.env.SITE_HOST || "technioz.com";
-const KEY = process.env.INDEXNOW_KEY || readKeyFromPublic();
+const KEY = process.env.INDEXNOW_KEY || readKeyFromFile();
 
-function readKeyFromPublic() {
-  const pub = path.join(__dirname, "..", "public");
-  const files = fs.readdirSync(pub);
-  const keyFile = files.find((f) => /^[0-9a-f]{16,}\.txt$/i.test(f));
-  if (!keyFile) {
-    throw new Error(
-      "IndexNow key not found. Set INDEXNOW_KEY env var or add a {key}.txt file in /public."
-    );
+function readKeyFromFile() {
+  const root = path.join(__dirname, "..");
+  const candidates = [path.join(root), path.join(root, "public")];
+  const keyFileName = /^[0-9a-f]{16,}\.txt$/i;
+  for (const dir of candidates) {
+    if (!fs.existsSync(dir)) continue;
+    const found = fs.readdirSync(dir).find((f) => keyFileName.test(f));
+    if (found) return fs.readFileSync(path.join(dir, found), "utf8").trim();
   }
-  return fs.readFileSync(path.join(pub, keyFile), "utf8").trim();
+  throw new Error(
+    "IndexNow key file not found. Expected a {key}.txt at the project root or /public."
+  );
 }
 
 function extractUrlsFromSitemap(sitemapPath) {
