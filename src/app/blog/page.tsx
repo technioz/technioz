@@ -1,6 +1,8 @@
 import { BlogList, type BlogListItem } from "@/components/blog-list";
 import { blogPosts } from "@/lib/blog-data";
 import { getAllDbArticles, formatDbArticleDate } from "@/lib/db-articles";
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 import type { Metadata } from "next";
 
 const POSTS_PER_PAGE = 12;
@@ -9,12 +11,11 @@ export const metadata: Metadata = {
   title: "Technioz Blog — Software, AI, Cloud & Mobile Insights",
   description:
     "Case studies, engineering notes, and practical guides on custom software, AI solutions, cloud platforms, and mobile app development.",
-  openGraph: {
-    title: "Technioz Blog — Software, AI, Cloud & Mobile Insights",
-    description: "Case studies, engineering notes, and practical guides from the Technioz team.",
-    url: "https://technioz.com/blog",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "Technioz Blog — Software, AI, Cloud & Mobile Insights",
+      description: "Case studies, engineering notes, and practical guides from the Technioz team.",
+      url: "https://technioz.com/blog",
+    }),
   alternates: {
     canonical: "https://technioz.com/blog",
   },

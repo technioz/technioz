@@ -1,21 +1,21 @@
 import { PillarPage, type PillarData } from "@/components/pillar-page";
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Security & Reliability Consulting | Compliance & Uptime | Technioz",
+  title: "Security & Reliability Consulting | Compliance & Uptime",
   description: "Security and reliability consulting. Protect APIs, secure data, meet compliance, and maintain uptime.",
-  openGraph: {
-    title: "Security & Reliability Consulting | Compliance & Uptime | Technioz",
-    description: "Security and reliability consulting. Protect APIs, secure data, meet compliance, and maintain uptime.",
-    url: "https://technioz.com/security-reliability",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Security and reliability consulting" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Security & Reliability Consulting | Compliance & Uptime | Technioz",
-    description: "Security and reliability consulting. Protect APIs, secure data, meet compliance, and maintain uptime.",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "Security & Reliability Consulting | Compliance & Uptime",
+      description: "Security and reliability consulting. Protect APIs, secure data, meet compliance, and maintain uptime.",
+      url: "https://technioz.com/security-reliability",
+    }),
+  twitter: buildTwitterCard({
+      title: "Security & Reliability Consulting | Compliance & Uptime",
+      description: "Security and reliability consulting. Protect APIs, secure data, meet compliance, and maintain uptime.",
+      image: "/og-image.png",
+    }),
   alternates: {
     canonical: "https://technioz.com/security-reliability",
   },

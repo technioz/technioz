@@ -7,6 +7,8 @@ import { BlogBanner } from "@/components/blog-banner";
 import { BlogCardBanner } from "@/components/blog-card-banner";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { StaticBlogPostingJsonLd, DbBlogPostingJsonLd } from "@/components/blog-posting-jsonld";
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 import type { Metadata } from "next";
 
 function postCta(slug: string, categoryCta: string): string {
@@ -159,25 +161,22 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (staticPost) {
     const url = `https://technioz.com/blog/${staticPost.slug}`;
     return {
-      title: `${staticPost.title} | Technioz Blog`,
+      title: `${staticPost.title}`,
       description: staticPost.excerpt,
       robots: staticPost.noindex ? { index: false, follow: true } : { index: true, follow: true },
-      openGraph: {
+      openGraph: buildOpenGraph({
         title: staticPost.title,
         description: staticPost.excerpt,
         url,
-        siteName: "Technioz",
         type: "article",
+        imageAlt: staticPost.imageAlt,
         publishedTime: new Date(staticPost.date).toISOString(),
         authors: [staticPost.author.name],
-        images: [{ url: "/og-image.png", width: 1200, height: 630, alt: staticPost.imageAlt }],
-      },
-      twitter: {
-        card: "summary_large_image",
+      }),
+      twitter: buildTwitterCard({
         title: staticPost.title,
         description: staticPost.excerpt,
-        images: ["/og-image.png"],
-      },
+      }),
       alternates: {
         canonical: url,
       },
@@ -190,24 +189,23 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const url = `https://technioz.com/blog/${dbPost.slug}`;
     const imageUrl = dbPost.imageLocalPath || dbPost.imageUrl || "/og-image.png";
     return {
-      title: `${dbPost.title} | Technioz Blog`,
+      title: `${dbPost.title}`,
       description: dbPost.metaDescription || dbPost.excerpt,
-      openGraph: {
+      openGraph: buildOpenGraph({
         title: dbPost.title,
         description: dbPost.metaDescription || dbPost.excerpt,
         url,
-        siteName: "Technioz",
         type: "article",
+        image: imageUrl,
+        imageAlt: dbPost.imageAlt || dbPost.title,
         publishedTime: dbPost.publishedAt.toISOString(),
         authors: [dbPost.authorName],
-        images: [{ url: imageUrl, width: 1200, height: 630, alt: dbPost.imageAlt || dbPost.title }],
-      },
-      twitter: {
-        card: "summary_large_image",
+      }),
+      twitter: buildTwitterCard({
         title: dbPost.title,
         description: dbPost.metaDescription || dbPost.excerpt,
-        images: [imageUrl],
-      },
+        image: imageUrl,
+      }),
       alternates: {
         canonical: url,
       },

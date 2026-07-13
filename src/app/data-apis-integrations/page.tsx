@@ -1,21 +1,21 @@
 import { PillarPage, type PillarData } from "@/components/pillar-page";
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "API & Data Integration Company | Connect Systems | Technioz",
+  title: "API & Data Integration Company | Connect Systems",
   description: "API and data integration company. Build reliable APIs, sync data between systems, and automate workflows.",
-  openGraph: {
-    title: "API & Data Integration Company | Connect Systems | Technioz",
-    description: "API and data integration company. Build reliable APIs, sync data between systems, and automate workflows.",
-    url: "https://technioz.com/data-apis-integrations",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "API and data integration company" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "API & Data Integration Company | Connect Systems | Technioz",
-    description: "API and data integration company. Build reliable APIs, sync data between systems, and automate workflows.",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "API & Data Integration Company | Connect Systems",
+      description: "API and data integration company. Build reliable APIs, sync data between systems, and automate workflows.",
+      url: "https://technioz.com/data-apis-integrations",
+    }),
+  twitter: buildTwitterCard({
+      title: "API & Data Integration Company | Connect Systems",
+      description: "API and data integration company. Build reliable APIs, sync data between systems, and automate workflows.",
+      image: "/og-image.png",
+    }),
   alternates: {
     canonical: "https://technioz.com/data-apis-integrations",
   },

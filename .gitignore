@@ -54,3 +54,6 @@ BLOG_CONTENT_GUIDE.md
 /article.json
 /technioz-seo-audit.md.docx
 /technioz-seo-audit-extracted.md
+
+# ahrefs site-audit reports (downloaded CSVs, not source code)
+/issues/

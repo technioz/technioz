@@ -1,17 +1,17 @@
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AWS Consulting Company | Architecture, Migration, Serverless | Technioz",
+  title: "AWS Consulting Company",
   description: "AWS consulting company. Architecture design, migration, serverless, cost optimization, and security hardening on Amazon Web Services.",
-  openGraph: {
-    title: "AWS Consulting Company | Architecture, Migration, Serverless | Technioz",
-    description:
-      "Technioz provides AWS consulting and implementation services including architecture design, migration, serverless, and cost optimization.",
-    url: "https://technioz.com/services/aws-consulting",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "AWS Consulting Company",
+      description: "Technioz provides AWS consulting and implementation services including architecture design, migration, serverless, and cost optimization.",
+      url: "https://technioz.com/services/aws-consulting",
+    }),
   alternates: {
     canonical: "https://technioz.com/services/aws-consulting",
   },

@@ -1,21 +1,21 @@
 import { PillarPage, type PillarData } from "@/components/pillar-page";
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Digital Transformation Consulting Company | Modernize Ops | Technioz",
+  title: "Digital Transformation Consulting Company | Modernize Ops",
   description: "Digital transformation consulting company. Modernize legacy systems, automate workflows, and build a roadmap that delivers ROI.",
-  openGraph: {
-    title: "Digital Transformation Consulting Company | Modernize Ops | Technioz",
-    description: "Digital transformation consulting company. Modernize legacy systems, automate workflows, and build a roadmap that delivers ROI.",
-    url: "https://technioz.com/digital-transformation",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Digital transformation consulting company" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Digital Transformation Consulting Company | Modernize Ops | Technioz",
-    description: "Digital transformation consulting company. Modernize legacy systems, automate workflows, and build a roadmap that delivers ROI.",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "Digital Transformation Consulting Company | Modernize Ops",
+      description: "Digital transformation consulting company. Modernize legacy systems, automate workflows, and build a roadmap that delivers ROI.",
+      url: "https://technioz.com/digital-transformation",
+    }),
+  twitter: buildTwitterCard({
+      title: "Digital Transformation Consulting Company | Modernize Ops",
+      description: "Digital transformation consulting company. Modernize legacy systems, automate workflows, and build a roadmap that delivers ROI.",
+      image: "/og-image.png",
+    }),
   alternates: {
     canonical: "https://technioz.com/digital-transformation",
   },

@@ -3,15 +3,16 @@ import Link from "next/link";
 import { solutions, enterpriseData } from "@/lib/solutions-data";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 export const metadata: Metadata = {
-  title: "Industry Software Solutions — Healthcare, Fintech, Logistics & More | Technioz",
+  title: "Industry Software Solutions",
   description: "Custom software solutions for startups, healthcare, fintech, e-commerce, education, logistics, and enterprise. Domain expertise plus solid engineering.",
-  openGraph: {
-    title: "Industry Software Solutions — Healthcare, Fintech, Logistics & More | Technioz",
-    description: "Custom software solutions for startups, healthcare, fintech, e-commerce, education, logistics, and enterprise.",
-    url: "https://technioz.com/solutions",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "Industry Software Solutions",
+      description: "Custom software solutions for startups, healthcare, fintech, e-commerce, education, logistics, and enterprise.",
+      url: "https://technioz.com/solutions",
+    }),
   alternates: {
     canonical: "https://technioz.com/solutions",
   },

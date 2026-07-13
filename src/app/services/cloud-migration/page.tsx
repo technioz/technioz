@@ -1,17 +1,17 @@
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Cloud Migration Company | AWS, Azure, GCP | Technioz",
+  title: "Cloud Migration Company | AWS, Azure, GCP",
   description: "Cloud migration company. Move applications and databases to AWS, Azure, and GCP with minimal downtime and risk.",
-  openGraph: {
-    title: "Cloud Migration Company | AWS, Azure, GCP | Technioz",
-    description:
-      "Technioz migrates applications and infrastructure to AWS, Azure, and Google Cloud with minimal downtime.",
-    url: "https://technioz.com/services/cloud-migration",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "Cloud Migration Company | AWS, Azure, GCP",
+      description: "Technioz migrates applications and infrastructure to AWS, Azure, and Google Cloud with minimal downtime.",
+      url: "https://technioz.com/services/cloud-migration",
+    }),
   alternates: {
     canonical: "https://technioz.com/services/cloud-migration",
   },

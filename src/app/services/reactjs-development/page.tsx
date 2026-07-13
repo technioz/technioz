@@ -1,17 +1,17 @@
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "React.js Development Company | SPAs, Dashboards, Design Systems | Technioz",
+  title: "React.js Development Company",
   description: "React.js development company. Fast, modular, and maintainable frontends: SPAs, dashboards, design systems, and more.",
-  openGraph: {
-    title: "React.js Development Company | SPAs, Dashboards, Design Systems | Technioz",
-    description:
-      "Technioz builds fast, modular, and maintainable React.js frontends for web apps, dashboards, and design systems.",
-    url: "https://technioz.com/services/reactjs-development",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "React.js Development Company",
+      description: "Technioz builds fast, modular, and maintainable React.js frontends for web apps, dashboards, and design systems.",
+      url: "https://technioz.com/services/reactjs-development",
+    }),
   alternates: {
     canonical: "https://technioz.com/services/reactjs-development",
   },

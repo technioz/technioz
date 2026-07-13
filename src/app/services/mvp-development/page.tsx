@@ -1,18 +1,19 @@
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { FaqJsonLd } from "@/components/faq-jsonld";
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 import { ChecklistForm } from "./checklist-form";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "MVP Development Company for Startups | 12 Weeks to Launch | Technioz",
+  title: "MVP Development Company for Startups | 12 Weeks to Launch",
   description: "MVP development company for startups. Validate your idea, scope the smallest useful version, and launch in 8-12 weeks with React Native, Next.js, or Node.js.",
-  openGraph: {
-    title: "MVP Development Company for Startups | 12 Weeks to Launch | Technioz",
-    description: "Validate your startup idea and launch an MVP in 8-12 weeks. Fixed-price scoping, lean scope, and a clear path to product-market fit.",
-    url: "https://technioz.com/services/mvp-development",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "MVP Development Company for Startups | 12 Weeks to Launch",
+      description: "Validate your startup idea and launch an MVP in 8-12 weeks. Fixed-price scoping, lean scope, and a clear path to product-market fit.",
+      url: "https://technioz.com/services/mvp-development",
+    }),
   alternates: {
     canonical: "https://technioz.com/services/mvp-development",
   },

@@ -3,18 +3,18 @@ import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { FaqJsonLd } from "@/components/faq-jsonld";
 import type { Metadata } from "next";
 import { ITConsultingDiagram } from "@/components/diagrams/it-consulting-diagram";
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 import { AuditForm } from "./audit-form";
 
 export const metadata: Metadata = {
-  title: "IT Consulting Company | Strategy & Digital Transformation | Technioz",
+  title: "IT Consulting Company | Strategy & Digital Transformation",
   description: "IT consulting company. Strategic technology planning and digital transformation aligned with business goals and growth.",
-  openGraph: {
-  title: "IT Consulting Company | Strategy & Digital Transformation | Technioz",
-    description:
-      "Technioz provides strategic IT consulting: digital transformation roadmaps, architecture reviews, tech stack selection, and execution support.",
-    url: "https://technioz.com/services/it-consulting",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "IT Consulting Company | Strategy & Digital Transformation",
+      description: "Technioz provides strategic IT consulting: digital transformation roadmaps, architecture reviews, tech stack selection, and execution support.",
+      url: "https://technioz.com/services/it-consulting",
+    }),
   alternates: {
     canonical: "https://technioz.com/services/it-consulting",
   },

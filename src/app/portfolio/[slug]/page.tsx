@@ -2,6 +2,8 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { ArticleJsonLd } from "@/components/article-jsonld";
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 import type { Metadata } from "next";
 
 interface CaseStudySection {
@@ -33,7 +35,7 @@ const caseStudies: CaseStudy[] = [
   {
     slug: "food-delivery-app",
     client: "HattaFoodHub",
-    title: "From MVP Crashes to 10,000+ Concurrent Orders",
+    title: "From MVP Crashes to 10K+ Concurrent Orders",
     subtitle: "How we rebuilt a failing food delivery monolith into a microservices platform that restaurants, couriers, and customers actually trust.",
     industry: "Food & Logistics",
     timeline: "4 months",
@@ -114,7 +116,7 @@ const caseStudies: CaseStudy[] = [
   {
     slug: "alkhanjry-transport",
     client: "Al Khanjry Groups",
-    title: "From Manual Counters to $1 Million in Digital Sales",
+    title: "From Manual Counters to $1M in Digital Sales",
     subtitle: "How a 25-year-old Omani bus operator moved from counter queues to real-time online ticketing across 80+ cross-border routes.",
     industry: "Transportation & Logistics",
     timeline: "7 months",
@@ -309,14 +311,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!project) return {};
   const url = `https://technioz.com/portfolio/${project.slug}`;
   return {
-    title: `${project.title} | ${project.client} | Technioz`,
+    title: `${project.title} | ${project.client}`,
     description: project.subtitle,
-    openGraph: {
-      title: `${project.title} | ${project.client} | Technioz`,
+    openGraph: buildOpenGraph({
+      title: `${project.title} | ${project.client}`,
       description: project.subtitle,
       url,
-      images: ["/og-image.png"],
-    },
+    }),
     alternates: {
       canonical: url,
     },

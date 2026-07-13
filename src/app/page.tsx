@@ -7,19 +7,20 @@ import { FadeIn } from "@/components/fade-in";
 import { marqueeCustomers, technologies, testimonials } from "@/lib/homepage-data";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 const InfrastructureDiagram = dynamic(() => import("@/components/diagrams/infrastructure-diagram").then((m) => m.InfrastructureDiagram));
 const PricingModelDiagram = dynamic(() => import("@/components/diagrams/pricing-model-diagram").then((m) => m.PricingModelDiagram));
 const ShippingVelocityDiagram = dynamic(() => import("@/components/diagrams/shipping-velocity-diagram").then((m) => m.ShippingVelocityDiagram));
 
 export const metadata: Metadata = {
-  title: "Custom Software Development Company — Web, Mobile \u0026 AI | Technioz",
+  title: "Custom Software Development Company — Web, Mobile \u0026 AI",
   description: "We build web apps, mobile apps and AI solutions for GCC and India businesses. 5+ projects shipped, 98% on-time since 2024. Book a free consultation.",
-  openGraph: {
-    title: "Technioz | Full-Cycle Software Development for Growing Businesses",
-    description: "One partner for web, mobile, AI, and cloud. We build, launch, and scale software products for growing businesses.",
-    url: "https://technioz.com",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "Technioz | Full-Cycle Software Development for Growing Businesses",
+      description: "One partner for web, mobile, AI, and cloud. We build, launch, and scale software products for growing businesses.",
+      url: "https://technioz.com",
+    }),
   alternates: {
     canonical: "https://technioz.com",
   },

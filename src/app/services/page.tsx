@@ -1,17 +1,17 @@
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Software Development Services: Web, Mobile, AI & Cloud | Technioz",
+  title: "Software Development Services: Web, Mobile, AI & Cloud",
   description: "End-to-end software development — web apps, iOS/Android, AI and cloud. Fixed-price or dedicated teams. See services, process and typical costs.",
-  openGraph: {
-    title: "Software Development Services - Web, Mobile, AI & Cloud | Technioz",
-    description:
-      "Technioz provides end-to-end software development services: custom web apps, mobile apps, AI solutions, cloud services, and IT consulting.",
-    url: "https://technioz.com/services",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "Software Development Services - Web, Mobile, AI & Cloud",
+      description: "Technioz provides end-to-end software development services: custom web apps, mobile apps, AI solutions, cloud services, and IT consulting.",
+      url: "https://technioz.com/services",
+    }),
   alternates: {
     canonical: "https://technioz.com/services",
   },

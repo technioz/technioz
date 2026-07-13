@@ -1,17 +1,17 @@
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Android App Development Company | Kotlin & Jetpack | Technioz",
+  title: "Android App Development Company | Kotlin & Jetpack",
   description: "Android app development company. Native Kotlin apps with Jetpack — performance, security, and scale on every device.",
-  openGraph: {
-    title: "Android App Development Company | Kotlin & Jetpack | Technioz",
-    description:
-      "Technioz builds native Android apps with Kotlin and Jetpack Compose.",
-    url: "https://technioz.com/services/android-app-development",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "Android App Development Company | Kotlin & Jetpack",
+      description: "Technioz builds native Android apps with Kotlin and Jetpack Compose.",
+      url: "https://technioz.com/services/android-app-development",
+    }),
   alternates: {
     canonical: "https://technioz.com/services/android-app-development",
   },

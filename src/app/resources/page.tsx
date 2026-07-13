@@ -4,15 +4,16 @@ import { blogPosts } from "@/lib/blog-data";
 import { BlogCardBanner } from "@/components/blog-card-banner";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 export const metadata: Metadata = {
-  title: "Resources — Guides, Case Studies & Engineering Notes | Technioz",
+  title: "Resources — Guides, Case Studies & Engineering Notes",
   description: "Practical guides, case studies, and engineering notes on custom software, AI, cloud, and mobile app development.",
-  openGraph: {
-    title: "Resources — Guides, Case Studies & Engineering Notes | Technioz",
-    description: "Practical guides, case studies, and engineering notes from the Technioz team.",
-    url: "https://technioz.com/resources",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "Resources — Guides, Case Studies & Engineering Notes",
+      description: "Practical guides, case studies, and engineering notes from the Technioz team.",
+      url: "https://technioz.com/resources",
+    }),
   alternates: {
     canonical: "https://technioz.com/resources",
   },

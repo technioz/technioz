@@ -1,17 +1,17 @@
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Flutter App Development Company | Cross-Platform Apps | Technioz",
+  title: "Flutter App Development Company | Cross-Platform Apps",
   description: "Flutter app development company. Beautiful, high-performance cross-platform apps on iOS, Android, and web.",
-  openGraph: {
-    title: "Flutter App Development Company | Cross-Platform Apps | Technioz",
-    description:
-      "Technioz builds beautiful, fast cross-platform apps with Flutter and Dart for iOS, Android, and web.",
-    url: "https://technioz.com/services/flutter-app-development",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "Flutter App Development Company | Cross-Platform Apps",
+      description: "Technioz builds beautiful, fast cross-platform apps with Flutter and Dart for iOS, Android, and web.",
+      url: "https://technioz.com/services/flutter-app-development",
+    }),
   alternates: {
     canonical: "https://technioz.com/services/flutter-app-development",
   },

@@ -1,17 +1,17 @@
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Next.js Development Company | SEO-Friendly React Apps | Technioz",
+  title: "Next.js Development Company | SEO-Friendly React Apps",
   description: "Next.js development company. SEO-friendly, full-stack React apps with server components, API routes, and edge deployment.",
-  openGraph: {
-    title: "Next.js Development Company | SEO-Friendly React Apps | Technioz",
-    description:
-      "Technioz builds fast, SEO-friendly Next.js applications with App Router, server components, and edge rendering.",
-    url: "https://technioz.com/services/nextjs-development",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "Next.js Development Company | SEO-Friendly React Apps",
+      description: "Technioz builds fast, SEO-friendly Next.js applications with App Router, server components, and edge rendering.",
+      url: "https://technioz.com/services/nextjs-development",
+    }),
   alternates: {
     canonical: "https://technioz.com/services/nextjs-development",
   },

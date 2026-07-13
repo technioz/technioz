@@ -3,6 +3,8 @@ import "./globals.css";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import { JsonLd } from "@/components/json-ld";
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import Script from "next/script";
 
@@ -10,7 +12,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://technioz.com"),
   title: {
     default: "Technioz - Innovative Software Development & IT Solutions",
-    template: "%s",
+    template: "%s | Technioz",
   },
   description:
     "Technioz builds custom web applications, mobile apps, AI solutions, and cloud software for startups and SMBs. Founded in 2024. Book a free 30-minute consultation call to discuss your project and get a custom roadmap.",
@@ -22,29 +24,17 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: "index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1",
   },
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    siteName: "Technioz",
+  openGraph: buildOpenGraph({
     title: "Technioz - Innovative Software Development & IT Solutions",
     description:
       "Technioz builds custom web applications, mobile apps, AI solutions, and cloud software for startups and SMBs. Founded in 2024. Book a free 30-minute consultation.",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Technioz — Custom software, SaaS, and AI for startups and SMBs",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
+    url: "https://technioz.com",
+  }),
+  twitter: buildTwitterCard({
     title: "Technioz - Innovative Software Development & IT Solutions",
     description:
       "Technioz builds custom web applications, mobile apps, AI solutions, and cloud software for startups and SMBs. Founded in 2024. Book a free 30-minute consultation.",
-    images: ["/og-image.png"],
-  },
+  }),
   // Self-referencing canonicals are auto-generated from metadataBase + route path.
   // Do NOT set a root canonical here — that would make every page canonicalize to the homepage.
   alternates: {},

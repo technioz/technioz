@@ -3,16 +3,16 @@ import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import type { Metadata } from "next";
 import { MobileDevDiagram } from "@/components/diagrams/mobile-dev-diagram";
 
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 export const metadata: Metadata = {
-  title: "Mobile App Development Company — iOS & Android | Technioz",
+  title: "Mobile App Development Company — iOS & Android",
   description: "Native and cross-platform apps in React Native and Flutter. We ship iOS and Android apps for startups and SMBs. Free app consultation, no commitment.",
-  openGraph: {
-    title: "Mobile App Development Services | iOS, Android, React Native | Technioz",
-    description:
-      "Technioz builds native iOS, Android, and cross-platform mobile apps with React Native and Flutter.",
-    url: "https://technioz.com/services/mobile-development",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "Mobile App Development Services | iOS, Android, React Native",
+      description: "Technioz builds native iOS, Android, and cross-platform mobile apps with React Native and Flutter.",
+      url: "https://technioz.com/services/mobile-development",
+    }),
   alternates: {
     canonical: "https://technioz.com/services/mobile-development",
   },

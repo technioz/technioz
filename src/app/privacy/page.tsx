@@ -2,15 +2,16 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 export const metadata: Metadata = {
-  title: "Privacy Policy | Technioz",
+  title: "Privacy Policy",
   description: "Learn how Technioz collects, uses, and protects your personal data when you use our website and services.",
-  openGraph: {
-    title: "Privacy Policy | Technioz",
-    description: "Technioz privacy policy and data protection practices.",
-    url: "https://technioz.com/privacy",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "Privacy Policy",
+      description: "Technioz privacy policy and data protection practices.",
+      url: "https://technioz.com/privacy",
+    }),
   alternates: {
     canonical: "https://technioz.com/privacy",
   },

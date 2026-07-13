@@ -1,16 +1,16 @@
 import { PillarPage, type PillarData } from "@/components/pillar-page";
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Custom Software Development Company | Web, Mobile, Enterprise | Technioz",
+  title: "Custom Software Development Company",
   description: "Custom software development company. When to build custom software, how the process works, and what to look for in a development partner.",
-  openGraph: {
-    title: "Custom Software Development Company | Web, Mobile, Enterprise | Technioz",
-    description:
-      "Learn when custom software beats off-the-shelf tools, what drives cost and timeline, and how to choose a development partner.",
-    url: "https://technioz.com/custom-software-development",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "Custom Software Development Company",
+      description: "Learn when custom software beats off-the-shelf tools, what drives cost and timeline, and how to choose a development partner.",
+      url: "https://technioz.com/custom-software-development",
+    }),
   alternates: {
     canonical: "https://technioz.com/custom-software-development",
   },

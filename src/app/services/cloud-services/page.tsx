@@ -3,16 +3,16 @@ import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import type { Metadata } from "next";
 import { CloudServicesDiagram } from "@/components/diagrams/cloud-services-diagram";
 
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 export const metadata: Metadata = {
-  title: "Cloud Services & DevOps Company | AWS, Azure, GCP | Technioz",
+  title: "Cloud Services & DevOps Company | AWS, Azure, GCP",
   description: "Cloud services and DevOps company. Migration, Kubernetes, CI/CD, serverless, and infrastructure as code across AWS, Azure, and GCP.",
-  openGraph: {
-    title: "Cloud Services & DevOps Company | AWS, Azure, GCP | Technioz",
-    description:
-      "Technioz delivers cloud migration, DevOps automation, Kubernetes, and infrastructure as code across AWS, Azure, and Google Cloud.",
-    url: "https://technioz.com/services/cloud-services",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "Cloud Services & DevOps Company | AWS, Azure, GCP",
+      description: "Technioz delivers cloud migration, DevOps automation, Kubernetes, and infrastructure as code across AWS, Azure, and Google Cloud.",
+      url: "https://technioz.com/services/cloud-services",
+    }),
   alternates: {
     canonical: "https://technioz.com/services/cloud-services",
   },

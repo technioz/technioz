@@ -1,17 +1,17 @@
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Agent Development Company | Autonomous Workflow Bots | Technioz",
+  title: "AI Agent Development Company | Autonomous Workflow Bots",
   description: "AI agent development company. Autonomous workflow bots that take real actions across APIs, documents, and business tools.",
-  openGraph: {
-    title: "AI Agent Development Company | Autonomous Workflow Bots | Technioz",
-    description:
-      "Technioz designs and builds AI agents that take action across tools, APIs, and workflows.",
-    url: "https://technioz.com/services/ai-agent-development",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "AI Agent Development Company | Autonomous Workflow Bots",
+      description: "Technioz designs and builds AI agents that take action across tools, APIs, and workflows.",
+      url: "https://technioz.com/services/ai-agent-development",
+    }),
   alternates: {
     canonical: "https://technioz.com/services/ai-agent-development",
   },

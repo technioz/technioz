@@ -2,16 +2,16 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 export const metadata: Metadata = {
   title: "Contact Technioz — Free 30-Min Consultation & 48h Quote",
   description: "Tell us about your project. We reply within 24 hours with next steps and a scoping call — no commitment, NDA on request.",
-  openGraph: {
-    title: "Contact Us | Technioz",
-    description:
-      "Get in touch with Technioz for a free 30-minute consultation. Discuss your project and receive a custom roadmap and quote.",
-    url: "https://technioz.com/contact",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "Contact Us",
+      description: "Get in touch with Technioz for a free 30-minute consultation. Discuss your project and receive a custom roadmap and quote.",
+      url: "https://technioz.com/contact",
+    }),
   alternates: {
     canonical: "https://technioz.com/contact",
   },

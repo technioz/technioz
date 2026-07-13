@@ -1,17 +1,17 @@
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Custom Software Development Company | Web, Mobile, Enterprise | Technioz",
+  title: "Custom Software Development Company",
   description: "Custom software development company. End-to-end web, mobile, and enterprise solutions built around your exact workflow.",
-  openGraph: {
-    title: "Custom Software Development Company | Web, Mobile, Enterprise | Technioz",
-    description:
-      "Technioz designs and builds custom software that fits your exact workflows.",
-    url: "https://technioz.com/services/custom-software-development",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "Custom Software Development Company",
+      description: "Technioz designs and builds custom software that fits your exact workflows.",
+      url: "https://technioz.com/services/custom-software-development",
+    }),
   alternates: {
     canonical: "https://technioz.com/services/custom-software-development",
   },

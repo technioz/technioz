@@ -1,18 +1,19 @@
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { FaqJsonLd } from "@/components/faq-jsonld";
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 import { StoreAuditForm } from "./store-audit-form";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "E-commerce Website Development in Dubai | Shopify, WooCommerce | Technioz",
+  title: "E-commerce Development in Dubai",
   description: "E-commerce website development in Dubai for Shopify, WooCommerce and custom stores. Arabic RTL, UAE payments, BNPL, COD, VAT. Get a free store audit.",
-  openGraph: {
-    title: "E-commerce Website Development in Dubai | Shopify, WooCommerce | Technioz",
-    description: "Dubai e-commerce development for Shopify, WooCommerce and custom stores. Arabic-ready, UAE payment gateways, BNPL, COD, VAT.",
-    url: "https://technioz.com/ecommerce-website-development-dubai",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "E-commerce Development in Dubai",
+      description: "Dubai e-commerce development for Shopify, WooCommerce and custom stores. Arabic-ready, UAE payment gateways, BNPL, COD, VAT.",
+      url: "https://technioz.com/ecommerce-website-development-dubai",
+    }),
   alternates: {
     canonical: "https://technioz.com/ecommerce-website-development-dubai",
   },

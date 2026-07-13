@@ -1,17 +1,17 @@
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "LLM Integration Company | OpenAI, Claude, Gemini | Technioz",
+  title: "LLM Integration Company | OpenAI, Claude, Gemini",
   description: "LLM integration company. Secure, cost-controlled OpenAI, Claude, Gemini, and Azure AI features embedded in your product.",
-  openGraph: {
-    title: "LLM Integration Company | OpenAI, Claude, Gemini | Technioz",
-    description:
-      "Technioz integrates large language models into your products and workflows.",
-    url: "https://technioz.com/services/llm-integration",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "LLM Integration Company | OpenAI, Claude, Gemini",
+      description: "Technioz integrates large language models into your products and workflows.",
+      url: "https://technioz.com/services/llm-integration",
+    }),
   alternates: {
     canonical: "https://technioz.com/services/llm-integration",
   },

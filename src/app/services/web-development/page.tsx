@@ -3,16 +3,16 @@ import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import type { Metadata } from "next";
 import { WebDevDiagram } from "@/components/diagrams/web-dev-diagram";
 
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 export const metadata: Metadata = {
-  title: "Custom Web Application Development Company | Technioz",
+  title: "Custom Web Application Development Company",
   description: "Custom web apps in React, Next.js and Node — built for scale. See how we digitized GCC transport operators, then get a fixed quote in 48 hours.",
-  openGraph: {
-    title: "Custom Web Development Services | React, Next.js & Node.js | Technioz",
-    description:
-      "Technioz builds fast, secure, SEO-friendly web applications with React, Next.js, Node.js, and TypeScript.",
-    url: "https://technioz.com/services/web-development",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "Custom Web Development Services | React, Next.js & Node.js",
+      description: "Technioz builds fast, secure, SEO-friendly web applications with React, Next.js, Node.js, and TypeScript.",
+      url: "https://technioz.com/services/web-development",
+    }),
   alternates: {
     canonical: "https://technioz.com/services/web-development",
   },

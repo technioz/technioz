@@ -1,17 +1,17 @@
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Chatbot Development Company in Dubai | UAE | Technioz",
+  title: "AI Chatbot Development Company in Dubai | UAE",
   description: "AI chatbot development company in Dubai. Custom bots, agents, RAG, and LLM integrations for UAE businesses. Free AI consultation.",
-  openGraph: {
-    title: "AI Chatbot Development Company in Dubai | UAE | Technioz",
-    description:
-      "Technioz builds AI solutions for Dubai businesses including chatbots, agents, RAG systems, and workflow automation.",
-    url: "https://technioz.com/ai-development-company-dubai",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "AI Chatbot Development Company in Dubai | UAE",
+      description: "Technioz builds AI solutions for Dubai businesses including chatbots, agents, RAG systems, and workflow automation.",
+      url: "https://technioz.com/ai-development-company-dubai",
+    }),
   alternates: {
     canonical: "https://technioz.com/ai-development-company-dubai",
   },

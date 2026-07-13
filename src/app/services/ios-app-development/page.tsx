@@ -1,18 +1,18 @@
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "iOS App Development Company | Swift, SwiftUI, App Store | Technioz",
+  title: "iOS App Development Company | Swift, SwiftUI, App Store",
   description:
     "iOS app development company. Native iPhone and iPad apps with Swift and SwiftUI — fast, secure, App Store-ready, with Apple ecosystem integration.",
-  openGraph: {
-    title: "iOS App Development Company | Swift, SwiftUI, App Store | Technioz",
-    description:
-      "Technioz builds native iOS apps with Swift and SwiftUI for iPhone and iPad.",
-    url: "https://technioz.com/services/ios-app-development",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "iOS App Development Company | Swift, SwiftUI, App Store",
+      description: "Technioz builds native iOS apps with Swift and SwiftUI for iPhone and iPad.",
+      url: "https://technioz.com/services/ios-app-development",
+    }),
   alternates: {
     canonical: "https://technioz.com/services/ios-app-development",
   },

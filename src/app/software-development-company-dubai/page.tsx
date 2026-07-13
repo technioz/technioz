@@ -1,18 +1,19 @@
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { FaqJsonLd } from "@/components/faq-jsonld";
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 import { ScorecardForm } from "./scorecard-form";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Software Development Company in Dubai — Web, Mobile & AI | Technioz",
+  title: "Software Development Company in Dubai — Web, Mobile & AI",
   description: "Dubai software development company building web apps, mobile apps, and AI solutions for UAE and GCC businesses. Free vendor scorecard. Book a free scoping call.",
-  openGraph: {
-    title: "Software Development Company in Dubai — Web, Mobile & AI | Technioz",
-    description: "Technioz builds custom software, web apps, mobile apps, and AI solutions for Dubai and GCC businesses.",
-    url: "https://technioz.com/software-development-company-dubai",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "Software Development Company in Dubai — Web, Mobile & AI",
+      description: "Technioz builds custom software, web apps, mobile apps, and AI solutions for Dubai and GCC businesses.",
+      url: "https://technioz.com/software-development-company-dubai",
+    }),
   alternates: {
     canonical: "https://technioz.com/software-development-company-dubai",
   },

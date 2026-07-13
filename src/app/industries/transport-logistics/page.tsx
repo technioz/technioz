@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { FaqJsonLd } from "@/components/faq-jsonld";
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 import { RoadmapForm } from "./roadmap-form";
 import type { Metadata } from "next";
 
@@ -32,15 +34,13 @@ const faqs = [
 ];
 
 export const metadata: Metadata = {
-  title: "Transport & Logistics Software Development | Technioz",
+  title: "Transport & Logistics Software Development",
   description: "Custom transport and logistics software for GCC operators. Ticketing, fleet tracking, route optimization, and warehouse systems. See the Al Khanjry case study.",
-  openGraph: {
-    title: "Transport & Logistics Software Development | Technioz",
-    description:
-      "Custom transport and logistics software for GCC operators. Ticketing, fleet tracking, route optimization, and warehouse systems. See the Al Khanjry case study.",
-    url: "https://technioz.com/industries/transport-logistics",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "Transport & Logistics Software Development",
+      description: "Custom transport and logistics software for GCC operators. Ticketing, fleet tracking, route optimization, and warehouse systems. See the Al Khanjry case study.",
+      url: "https://technioz.com/industries/transport-logistics",
+    }),
   alternates: {
     canonical: "https://technioz.com/industries/transport-logistics",
   },

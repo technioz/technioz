@@ -1,17 +1,17 @@
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Chatbot Development Company — NLP, ML & Automation | Technioz",
+  title: "AI Chatbot Development Company — NLP, ML & Automation",
   description: "We build AI chatbots, agents, RAG systems, and LLM integrations that automate support, sales, and operations. Book a free AI use-case consultation.",
-  openGraph: {
-    title: "AI Chatbot Development Company — NLP, ML & Automation | Technioz",
-    description:
-      "Technioz builds practical AI chatbots, agents, RAG systems, LLM integrations, and workflow automation.",
-    url: "https://technioz.com/services/ai-solutions",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "AI Chatbot Development Company — NLP, ML & Automation",
+      description: "Technioz builds practical AI chatbots, agents, RAG systems, LLM integrations, and workflow automation.",
+      url: "https://technioz.com/services/ai-solutions",
+    }),
   alternates: {
     canonical: "https://technioz.com/services/ai-solutions",
   },

@@ -1,17 +1,17 @@
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "DevOps Consulting Company | CI/CD, Kubernetes, IaC | Technioz",
+  title: "DevOps Consulting Company | CI/CD, Kubernetes, IaC",
   description: "DevOps consulting company. CI/CD, Kubernetes, infrastructure as code, and observability. Ship faster with reliable systems.",
-  openGraph: {
-    title: "DevOps Consulting Company | CI/CD, Kubernetes, IaC | Technioz",
-    description:
-      "Technioz delivers DevOps services including CI/CD pipelines, infrastructure as code, Kubernetes, and observability.",
-    url: "https://technioz.com/services/devops-services",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "DevOps Consulting Company | CI/CD, Kubernetes, IaC",
+      description: "Technioz delivers DevOps services including CI/CD pipelines, infrastructure as code, Kubernetes, and observability.",
+      url: "https://technioz.com/services/devops-services",
+    }),
   alternates: {
     canonical: "https://technioz.com/services/devops-services",
   },

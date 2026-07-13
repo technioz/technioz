@@ -1,17 +1,17 @@
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Digital Transformation Consulting Company | Modernize Ops | Technioz",
+  title: "Digital Transformation Consulting Company | Modernize Ops",
   description: "Digital transformation consulting company. Modernize processes, systems, and customer experiences without disrupting operations.",
-  openGraph: {
-    title: "Digital Transformation Consulting Company | Modernize Ops | Technioz",
-    description:
-      "Technioz helps organizations modernize operations, migrate legacy systems, and adopt cloud, AI, and automation.",
-    url: "https://technioz.com/services/digital-transformation-consulting",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "Digital Transformation Consulting Company | Modernize Ops",
+      description: "Technioz helps organizations modernize operations, migrate legacy systems, and adopt cloud, AI, and automation.",
+      url: "https://technioz.com/services/digital-transformation-consulting",
+    }),
   alternates: {
     canonical: "https://technioz.com/services/digital-transformation-consulting",
   },

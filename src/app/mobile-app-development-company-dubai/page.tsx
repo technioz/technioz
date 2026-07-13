@@ -1,17 +1,17 @@
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Mobile App Development Company in Dubai | iOS, Android, React Native | Technioz",
+  title: "Mobile App Development in Dubai",
   description: "Mobile app development company in Dubai. Native iOS, Android, React Native, and Flutter apps for UAE and GCC businesses. Free consultation.",
-    openGraph: {
-    title: "Mobile App Development Company in Dubai | iOS, Android, React Native | Technioz",
-    description:
-      "Technioz builds native and cross-platform mobile apps for Dubai and GCC businesses. Book a free app consultation.",
-    url: "https://technioz.com/mobile-app-development-company-dubai",
-    images: ["/og-image.png"],
-  },
+    openGraph: buildOpenGraph({
+      title: "Mobile App Development in Dubai",
+      description: "Technioz builds native and cross-platform mobile apps for Dubai and GCC businesses. Book a free app consultation.",
+      url: "https://technioz.com/mobile-app-development-company-dubai",
+    }),
   alternates: {
     canonical: "https://technioz.com/mobile-app-development-company-dubai",
   },

@@ -1,23 +1,23 @@
 import { PillarPage, type PillarData } from "@/components/pillar-page";
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Industry-Specific Software Solutions | Transport, Healthcare, Fintech | Technioz",
+  title: "Industry Software Solutions",
   description: "Custom software solutions for transport, logistics, retail, healthcare, finance, and education. Built around real industry workflows.",
-  openGraph: {
-    title: "Industry-Specific Software Solutions: Transport, Retail & Beyond | Technioz",
-    description:
-      "How custom software solves industry-specific problems in transport, retail, logistics, healthcare, finance, and more.",
-    url: "https://technioz.com/industry-solutions",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "Industry Software Solutions",
+      description: "How custom software solves industry-specific problems in transport, retail, logistics, healthcare, finance, and more.",
+      url: "https://technioz.com/industry-solutions",
+    }),
   alternates: {
     canonical: "https://technioz.com/industry-solutions",
   },
 };
 
 const data: PillarData = {
-  title: "Industry-Specific Software Solutions: Transport, Retail & Beyond",
+  title: "Industry Software Solutions",
   description:
     "How custom software creates value in transport, retail, logistics, healthcare, and finance. Learn what industry-specific solutions look like and why domain expertise matters.",
   heroLabel: "Industry Solutions",

@@ -24,7 +24,7 @@ export type BlogPost = {
 const pillarOnePosts: BlogPost[] = [
   {
     slug: "how-to-choose-software-development-partner-2026",
-    title: "How to Choose a Reliable Software Development Partne...",
+    title: "How to Choose a Software Development Partner",
     excerpt: "Choosing the wrong software development partner can cost you time, money, and your product.",
     category: "Custom Software",
     date: "July 5, 2026",
@@ -107,7 +107,7 @@ const pillarOnePosts: BlogPost[] = [
   },
   {
     slug: "offshore-vs-nearshore-vs-onshore-development-2026",
-    title: "Offshore vs Nearshore vs Onshore Software Developmen...",
+    title: "Offshore vs Nearshore vs Onshore Development",
     excerpt: "Offshore, nearshore, or onshore — which delivery model fits your software project?",
     category: "Custom Software",
     date: "July 5, 2026",
@@ -254,7 +254,7 @@ const pillarOnePosts: BlogPost[] = [
   },
   {
     slug: "custom-software-development-cost-2026",
-    title: "Custom Software Development Cost in 2026: Complete Breakdown",
+    title: "Custom Software Development Cost (2026)",
     excerpt: "Custom software development cost in 2026: pricing by complexity, region, and team model with real budget ranges.",
     category: "Custom Software",
     date: "July 5, 2026",
@@ -316,7 +316,7 @@ const pillarOnePosts: BlogPost[] = [
   },
   {
     slug: "rag-systems-explained",
-    title: "RAG Systems Explained: Build Knowledge-Based AI in 2026",
+    title: "RAG Systems Explained (2026 Guide)",
     excerpt: "RAG systems explained: how retrieval-augmented generation grounds LLMs in your documents and reduces hallucinations.",
     category: "AI Solutions",
     date: "July 5, 2026",
@@ -387,7 +387,7 @@ const pillarOnePosts: BlogPost[] = [
   },
   {
     slug: "mobile-app-development-cost-dubai-uae-saudi-arabia-2026",
-    title: "Mobile App Development Cost in Dubai, UAE & Saudi Arabia 2026",
+    title: "Mobile App Development Cost: Dubai & GCC (2026)",
     excerpt: "Mobile app development cost in Dubai, UAE, and Saudi Arabia for 2026. Pricing by platform, complexity, and features.",
     category: "Web & Mobile",
     date: "July 5, 2026",
@@ -454,7 +454,7 @@ const pillarOnePosts: BlogPost[] = [
   },
   {
     slug: "web-app-development-company-dubai-2026",
-    title: "Web App Development Company in Dubai: How to Choose 2026",
+    title: "Web App Development in Dubai (2026)",
     excerpt: "How to choose a web app development company in Dubai: criteria, costs, process, and red flags for 2026.",
     category: "Web & Mobile",
     date: "July 5, 2026",
@@ -589,7 +589,7 @@ const pillarOnePosts: BlogPost[] = [
   },
   {
     slug: "mvp-development-for-startups-2026",
-    title: "MVP Development for Startups: From Idea to Launch in 2026",
+    title: "MVP Development for Startups (2026)",
     excerpt: "MVP development for startups in 2026: how to scope, build, and launch a minimum viable product in 8-12 weeks.",
     category: "Custom Software",
     date: "July 5, 2026",
@@ -645,7 +645,7 @@ const pillarOnePosts: BlogPost[] = [
   },
   {
     slug: "common-mistakes-custom-software-development-projects",
-    title: "Common Mistakes in Custom Software Development Proje...",
+    title: "Common Custom Software Mistakes",
     excerpt: "40% of custom software projects fail. Here are the most common mistakes — from unclear requirements to poor communication — and how to avoid them so you...",
     category: "Custom Software",
     date: "July 5, 2026",
@@ -809,7 +809,7 @@ const pillarOnePosts: BlogPost[] = [
   },
   {
     slug: "ai-chatbot-development-types-costs-best-practices-2026",
-    title: "AI Chatbot Development: Types, Costs & Best Practices 2026",
+    title: "AI Chatbot Development: Types & Costs (2026)",
     excerpt: "Complete guide to AI chatbot development in 2026: types, costs, use cases, and best practices for support, sales, and operations.",
     category: "AI Solutions",
     date: "July 5, 2026",
@@ -874,7 +874,7 @@ const pillarOnePosts: BlogPost[] = [
   },
   {
     slug: "llm-integration-business-applications-guide-2026",
-    title: "LLM Integration for Business Applications: A 2026 Guide",
+    title: "LLM Integration for Business (2026)",
     excerpt: "How to integrate LLMs into business applications safely: use cases, costs, architecture, and best practices for 2026.",
     category: "AI Solutions",
     date: "July 5, 2026",
@@ -1232,7 +1232,7 @@ const pillarOnePosts: BlogPost[] = [
   },
   {
     slug: "fleet-management-software-features-guide-2026",
-    title: "Fleet Management Software: Features, Costs & Best Practices 2026",
+    title: "Fleet Management Software (2026)",
     excerpt: "Fleet management software features, costs, and best practices for 2026. GPS tracking, maintenance, compliance, and dispatch.",
     category: "Industry Solutions",
     date: "July 5, 2026",
@@ -1616,7 +1616,7 @@ const pillarOnePosts: BlogPost[] = [
   },
   {
     slug: "building-production-ready-ai-agents-business-2026",
-    title: "Building Production-Ready AI Agents for Business in 2026",
+    title: "Production-Ready AI Agents for Business (2026)",
     excerpt: "How to build production-ready AI agents that take real actions across APIs, documents, and business systems.",
     category: "AI Solutions",
     date: "July 5, 2026",
@@ -1702,7 +1702,7 @@ const pillarOnePosts: BlogPost[] = [
   },
   {
     slug: "ai-cost-optimization-production-2026",
-    title: "How to Reduce Costs of AI Systems in Production in 2026",
+    title: "Cut AI Production Costs (2026 Guide)",
     excerpt: "AI systems in production can be expensive to run. Here are practical strategies to reduce AI costs by 40-60% without sacrificing quality or performance.",
     category: "AI Solutions",
     date: "July 5, 2026",
@@ -1940,7 +1940,7 @@ const pillarOnePosts: BlogPost[] = [
   },
   {
     slug: "app-performance-optimization-case-study-hattafoodhub",
-    title: "App Performance Optimization: How HattaFoodHub Cut Order Time to Under 1 Second",
+    title: "HattaFoodHub: Order Time Under 1 Second",
     excerpt: "A real case study on mobile app performance optimization. How we reduced HattaFoodHub order confirmation time from 8-12 seconds to under 800ms and improved repeat customers by 40%.",
     category: "Web & Mobile",
     date: "July 10, 2026",
@@ -2049,7 +2049,7 @@ const pillarOnePosts: BlogPost[] = [
   },
   {
     slug: "react-native-app-development-company-dubai-2026",
-    title: "React Native App Development Company in Dubai: 2026 Guide",
+    title: "React Native Development in Dubai (2026)",
     excerpt: "React Native app development company in Dubai: costs, process, and how to choose the right team in 2026.",
     category: "Web & Mobile",
     date: "July 5, 2026",
@@ -2093,7 +2093,7 @@ const pillarOnePosts: BlogPost[] = [
   },
   {
     slug: "ecommerce-app-development-dubai-costs-features-2026",
-    title: "E-commerce App Development in Dubai: Costs & Features 2026",
+    title: "E-commerce App Development in Dubai (2026)",
     excerpt: "E-commerce app development in Dubai: costs, must-have features, payment gateways, and launch strategy for 2026.",
     category: "Industry Solutions",
     date: "July 5, 2026",
@@ -2509,7 +2509,7 @@ export const blogPosts: BlogPost[] = [
   ...pillarOnePosts,
   {
     slug: "bus-subscription-ticketing-platform-uae",
-    title: "How We Built a Scalable Bus Subscription and Ticketi...",
+    title: "Bus Subscription Ticketing (UAE)",
     excerpt: "A deep dive into how we designed and built a scalable bus subscription and ticketing platform for a UAE transport company — from requirements to archite...",
     category: "Case Study",
     date: "July 5, 2026",
@@ -2735,7 +2735,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "software-security-compliance-guide-enterprise-2026",
-    title: "Software Security & Compliance Guide for Enterprise Applications (2026)",
+    title: "Enterprise Software Security & Compliance (2026)",
     excerpt: "A practical guide to building secure, compliant software for enterprises, healthcare, fintech, and GCC companies. Covers HIPAA, PCI-DSS, GDPR, and UAE data protection.",
     category: "Consulting & Strategy",
     date: "July 10, 2026",
@@ -2797,7 +2797,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "accessibility-in-web-design-guide-startups-2026",
-    title: "Accessibility in Web Design: A Guide for Startups in 2026",
+    title: "Web Accessibility for Startups (2026)",
     excerpt: "A practical startup guide to web accessibility in 2026 — why it matters, what the law requires, and how to build inclusive products from day one without slowing your roadmap.",
     category: "Frontend Development",
     date: "July 5, 2026",
@@ -3131,7 +3131,7 @@ export const blogPosts: BlogPost[] = [
 
   {
     slug: "bus-ticketing-system-build-vs-buy-2026",
-    title: "Bus Ticketing System: Build vs Buy (2026 Guide) | Technioz",
+    title: "Bus Ticketing: Build vs Buy (2026)",
     excerpt: "Should you build or buy a bus ticketing system? Compare costs, timelines, control, and risks for 2026, plus when a custom platform wins.",
     category: "Industry Solutions",
     date: "July 9, 2026",

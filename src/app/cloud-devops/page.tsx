@@ -1,16 +1,16 @@
 import { PillarPage, type PillarData } from "@/components/pillar-page";
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Cloud & DevOps Consulting Company | AWS, Azure, GCP | Technioz",
+  title: "Cloud & DevOps Consulting Company | AWS, Azure, GCP",
   description: "Cloud and DevOps consulting company. Cloud migration, Kubernetes, CI/CD, and infrastructure as code for modern teams.",
-  openGraph: {
-    title: "Cloud & DevOps Consulting Company | AWS, Azure, GCP | Technioz",
-    description:
-      "How cloud infrastructure, CI/CD, and DevOps practices help businesses scale reliably and ship faster.",
-    url: "https://technioz.com/cloud-devops",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "Cloud & DevOps Consulting Company | AWS, Azure, GCP",
+      description: "How cloud infrastructure, CI/CD, and DevOps practices help businesses scale reliably and ship faster.",
+      url: "https://technioz.com/cloud-devops",
+    }),
   alternates: {
     canonical: "https://technioz.com/cloud-devops",
   },

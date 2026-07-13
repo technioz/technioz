@@ -2,15 +2,16 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 export const metadata: Metadata = {
   title: "About Technioz | Software Development Company",
   description: "Founded in 2024, Technioz is a new-age software company building web, mobile, AI, and cloud solutions for startups and enterprises worldwide.",
-  openGraph: {
-    title: "About Technioz | Software Development Company",
-    description: "Meet the team behind Technioz and learn how we help businesses build scalable software.",
-    url: "https://technioz.com/about",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "About Technioz | Software Development Company",
+      description: "Meet the team behind Technioz and learn how we help businesses build scalable software.",
+      url: "https://technioz.com/about",
+    }),
   alternates: {
     canonical: "https://technioz.com/about",
   },

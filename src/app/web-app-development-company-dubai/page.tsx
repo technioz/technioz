@@ -1,17 +1,18 @@
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { FaqJsonLd } from "@/components/faq-jsonld";
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Web App Development Company in Dubai | React, Next.js, Node | Technioz",
+  title: "Web App Development Company in Dubai | React, Next.js, Node",
   description: "Custom web application development company in Dubai. React, Next.js, and Node.js web apps for UAE and GCC businesses. See Al Khanjry case study. Get a 48-hour quote.",
-  openGraph: {
-    title: "Web App Development Company in Dubai | React, Next.js, Node | Technioz",
-    description: "Technioz builds custom web applications for Dubai and GCC businesses with React, Next.js, and Node.js.",
-    url: "https://technioz.com/web-app-development-company-dubai",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "Web App Development Company in Dubai | React, Next.js, Node",
+      description: "Technioz builds custom web applications for Dubai and GCC businesses with React, Next.js, and Node.js.",
+      url: "https://technioz.com/web-app-development-company-dubai",
+    }),
   alternates: {
     canonical: "https://technioz.com/web-app-development-company-dubai",
   },

@@ -13,6 +13,21 @@ const blogSlugs = Array.from(
   )
 );
 
+// Pull case-study slug list from src/app/portfolio/[slug]/page.tsx.
+// Each case study is a static entry in an inline array; the slug field is
+// the source of truth.
+const caseStudyPagePath = path.join(__dirname, '..', 'src', 'app', 'portfolio', '[slug]', 'page.tsx');
+const caseStudyPageSrc = fs.readFileSync(caseStudyPagePath, 'utf-8');
+const caseStudySlugs = Array.from(
+  new Set(
+    [...caseStudyPageSrc.matchAll(/slug:\s*"([^"]+)"/g)]
+      .map((m) => m[1])
+      // Filter to portfolio slugs only (defensive — the file currently only
+      // contains case-study entries, but future additions shouldn't bleed in).
+      .filter((s) => !blogSlugs.includes(s))
+  )
+);
+
 // Discover static pages from src/app
 const appDir = path.join(__dirname, '..', 'src', 'app');
 function walk(dir, prefix = '') {
@@ -32,14 +47,18 @@ function walk(dir, prefix = '') {
 }
 const staticPages = walk(appDir);
 
-const excluded = new Set([
-  '/blog', // blog index lives in dynamic sitemap-blog.xml
-  '/not-found',
-  '/sitemap-blog.xml', // own route
-]);
+// /blog is a static page that should be in the sitemap (it serves as the
+// index for the dynamic blog list). The dynamic blog-post URLs themselves
+// live in /sitemap-blog.xml.
+const includedDynamic = [
+  ...caseStudySlugs.map((s) => `/portfolio/${s}`),
+];
 
-const allPages = staticPages
-  .filter((p) => !excluded.has(p))
+const allPages = [
+  ...staticPages,
+  ...includedDynamic,
+]
+  .filter((p) => p !== '/not-found' && p !== '/sitemap-blog.xml')
   .map((p) => p.replace(/\/+/g, '/').replace(/\/$/, '') || '/')
   .filter((p, i, arr) => arr.indexOf(p) === i)
   .sort();
@@ -47,7 +66,7 @@ const allPages = staticPages
 const escape = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
 const sections = [
-  { title: 'Primary Pages', priority: (p) => (p === '/' ? '1.0' : '0.8'), freq: (p) => (p === '/' ? 'weekly' : 'monthly'), match: (p) => ['/', '/about', '/services', '/portfolio', '/case-studies', '/resources', '/contact', '/faq'].includes(p) },
+  { title: 'Primary Pages', priority: (p) => (p === '/' ? '1.0' : '0.8'), freq: (p) => (p === '/' ? 'weekly' : 'monthly'), match: (p) => ['/', '/about', '/services', '/portfolio', '/case-studies', '/resources', '/contact', '/faq', '/blog', '/solutions'].includes(p) },
   { title: 'Location Landing Pages', priority: () => '0.9', freq: () => 'monthly', match: (p) => p.includes('dubai') || p.includes('uae') },
   { title: 'Service Pages', priority: () => '0.9', freq: () => 'monthly', match: (p) => p.startsWith('/services/') },
   { title: 'Solution Pages', priority: () => '0.8', freq: () => 'monthly', match: (p) => p.startsWith('/solutions/') },

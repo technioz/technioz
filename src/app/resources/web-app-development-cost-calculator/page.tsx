@@ -2,17 +2,18 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { FaqJsonLd } from "@/components/faq-jsonld";
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 import { CostCalculator } from "./cost-calculator";
 
 export const metadata: Metadata = {
-  title: "Web App Development Cost Calculator (2026) | SaaS, Dashboards, Portals | Technioz",
+  title: "Web App Development Cost Calculator",
   description: "Estimate custom web app development cost in 2 minutes. SaaS, dashboards, marketplaces, and e-commerce. Get a detailed PDF breakdown.",
-  openGraph: {
-    title: "Web App Development Cost Calculator (2026) | SaaS, Dashboards, Portals | Technioz",
-    description: "Estimate custom web app development cost in 2 minutes. SaaS, dashboards, marketplaces, and e-commerce.",
-    url: "https://technioz.com/resources/web-app-development-cost-calculator",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "Web App Development Cost Calculator",
+      description: "Estimate custom web app development cost in 2 minutes. SaaS, dashboards, marketplaces, and e-commerce.",
+      url: "https://technioz.com/resources/web-app-development-cost-calculator",
+    }),
   alternates: {
     canonical: "https://technioz.com/resources/web-app-development-cost-calculator",
   },

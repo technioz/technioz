@@ -1,17 +1,17 @@
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "RAG System Development Company | Knowledge-Based AI | Technioz",
+  title: "RAG System Development Company | Knowledge-Based AI",
   description: "RAG system development company. Ground LLM answers in your private documents, knowledge bases, and policies.",
-  openGraph: {
-    title: "RAG System Development Company | Knowledge-Based AI | Technioz",
-    description:
-      "Technioz builds RAG systems that ground LLM answers in your private documents and knowledge bases.",
-    url: "https://technioz.com/services/rag-system-development",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "RAG System Development Company | Knowledge-Based AI",
+      description: "Technioz builds RAG systems that ground LLM answers in your private documents and knowledge bases.",
+      url: "https://technioz.com/services/rag-system-development",
+    }),
   alternates: {
     canonical: "https://technioz.com/services/rag-system-development",
   },

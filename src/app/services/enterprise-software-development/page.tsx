@@ -1,17 +1,17 @@
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Enterprise Software Development Company | Secure & Scalable | Technioz",
+  title: "Enterprise Software Development Company | Secure & Scalable",
   description: "Enterprise software development company. Secure, compliant, and scalable solutions for organizations that cannot afford downtime.",
-  openGraph: {
-  title: "Enterprise Software Development Company | Secure & Scalable | Technioz",
-    description:
-      "Technioz builds enterprise software with role-based access, audit trails, integrations, and compliance controls.",
-    url: "https://technioz.com/services/enterprise-software-development",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "Enterprise Software Development Company | Secure & Scalable",
+      description: "Technioz builds enterprise software with role-based access, audit trails, integrations, and compliance controls.",
+      url: "https://technioz.com/services/enterprise-software-development",
+    }),
   alternates: {
     canonical: "https://technioz.com/services/enterprise-software-development",
   },

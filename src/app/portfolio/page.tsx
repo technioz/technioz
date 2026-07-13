@@ -3,16 +3,16 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 export const metadata: Metadata = {
-  title: "Case Studies & Portfolio — Transport, Food Tech, AI & Agriculture | Technioz",
+  title: "Case Studies & Portfolio",
   description: "Real projects with real numbers: HattaFoodHub (10,000+ concurrent orders), Al Khanjry ticketing ($1M+ in sales), and more. See how we build.",
-  openGraph: {
-    title: "Portfolio | Technioz Software Projects",
-    description:
-      "Explore Technioz software projects: scalable web apps, mobile apps, AI platforms, and cloud solutions.",
-    url: "https://technioz.com/portfolio",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "Portfolio | Technioz Software Projects",
+      description: "Explore Technioz software projects: scalable web apps, mobile apps, AI platforms, and cloud solutions.",
+      url: "https://technioz.com/portfolio",
+    }),
   alternates: {
     canonical: "https://technioz.com/portfolio",
   },

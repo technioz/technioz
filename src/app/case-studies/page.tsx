@@ -3,15 +3,16 @@ import Link from "next/link";
 import Image from "next/image";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 export const metadata: Metadata = {
   title: "Case Studies | Technioz Client Results",
   description: "See how Technioz delivered scalable software, mobile apps, and cloud platforms for clients across transport, food tech, and logistics.",
-  openGraph: {
-    title: "Case Studies | Technioz Client Results",
-    description: "Explore real client results and transformation stories from Technioz.",
-    url: "https://technioz.com/case-studies",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "Case Studies | Technioz Client Results",
+      description: "Explore real client results and transformation stories from Technioz.",
+      url: "https://technioz.com/case-studies",
+    }),
   alternates: {
     canonical: "https://technioz.com/case-studies",
   },

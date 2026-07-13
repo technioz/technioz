@@ -1,17 +1,18 @@
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { FaqJsonLd } from "@/components/faq-jsonld";
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "React Native Development Company | Cross-Platform Apps | Technioz",
+  title: "React Native Development Company | Cross-Platform Apps",
   description: "React Native development company building cross-platform iOS and Android apps. We shipped BusPass UAE and HattaFoodHub. Book a free React Native scoping call.",
-  openGraph: {
-    title: "React Native Development Company | Cross-Platform Apps | Technioz",
-    description: "React Native development company building cross-platform iOS and Android apps. Book a free scoping call.",
-    url: "https://technioz.com/services/react-native-app-development",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "React Native Development Company | Cross-Platform Apps",
+      description: "React Native development company building cross-platform iOS and Android apps. Book a free scoping call.",
+      url: "https://technioz.com/services/react-native-app-development",
+    }),
   alternates: {
     canonical: "https://technioz.com/services/react-native-app-development",
   },

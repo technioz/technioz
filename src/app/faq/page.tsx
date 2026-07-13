@@ -2,15 +2,16 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 export const metadata: Metadata = {
-  title: "Software Development FAQs — Pricing, Process, NDA & Security | Technioz",
+  title: "Software Development FAQs",
   description: "30 straight answers: what custom software costs, fixed-price vs hourly, timelines, NDAs, GDPR/HIPAA compliance, and how to start.",
-  openGraph: {
-    title: "FAQ | Technioz Software Development Questions",
-    description: "Quick answers about our services, pricing, process, and engagement models.",
-    url: "https://technioz.com/faq",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "FAQ | Technioz Software Development Questions",
+      description: "Quick answers about our services, pricing, process, and engagement models.",
+      url: "https://technioz.com/faq",
+    }),
   alternates: {
     canonical: "https://technioz.com/faq",
   },

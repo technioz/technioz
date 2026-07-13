@@ -1,21 +1,21 @@
 import { PillarPage, type PillarData } from "@/components/pillar-page";
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "IT Consulting & Technology Strategy Company | Technioz",
+  title: "IT Consulting & Technology Strategy Company",
   description: "IT consulting and technology strategy company. Choose the right tech stack, plan software projects, and build a clear roadmap.",
-  openGraph: {
-    title: "IT Consulting & Technology Strategy Company | Technioz",
-    description: "IT consulting and technology strategy company. Choose the right tech stack, plan software projects, and build a clear roadmap.",
-    url: "https://technioz.com/consulting-strategy",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "IT consulting and technology strategy company" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "IT Consulting & Technology Strategy Company | Technioz",
-    description: "IT consulting and technology strategy company. Choose the right tech stack, plan software projects, and build a clear roadmap.",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "IT Consulting & Technology Strategy Company",
+      description: "IT consulting and technology strategy company. Choose the right tech stack, plan software projects, and build a clear roadmap.",
+      url: "https://technioz.com/consulting-strategy",
+    }),
+  twitter: buildTwitterCard({
+      title: "IT Consulting & Technology Strategy Company",
+      description: "IT consulting and technology strategy company. Choose the right tech stack, plan software projects, and build a clear roadmap.",
+      image: "/og-image.png",
+    }),
   alternates: {
     canonical: "https://technioz.com/consulting-strategy",
   },

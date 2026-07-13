@@ -2,15 +2,16 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 export const metadata: Metadata = {
-  title: "Terms and Conditions | Technioz",
+  title: "Terms and Conditions",
   description: "Read the terms and conditions governing the use of the Technioz website and software development services.",
-  openGraph: {
-    title: "Terms and Conditions | Technioz",
-    description: "Terms and conditions for using Technioz website and services.",
-    url: "https://technioz.com/terms",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "Terms and Conditions",
+      description: "Terms and conditions for using Technioz website and services.",
+      url: "https://technioz.com/terms",
+    }),
   alternates: {
     canonical: "https://technioz.com/terms",
   },

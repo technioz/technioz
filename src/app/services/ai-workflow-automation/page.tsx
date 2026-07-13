@@ -1,17 +1,17 @@
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
+import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Workflow Automation Company | Document & Process Bots | Technioz",
+  title: "AI Workflow Automation Company | Document & Process Bots",
   description: "AI workflow automation company. Reduce manual work with document processing, classification, routing, and intelligent decisions.",
-  openGraph: {
-    title: "AI Workflow Automation Company | Document & Process Bots | Technioz",
-    description:
-      "Technioz uses AI to automate repetitive workflows: document processing, data extraction, approvals, and decision support.",
-    url: "https://technioz.com/services/ai-workflow-automation",
-    images: ["/og-image.png"],
-  },
+  openGraph: buildOpenGraph({
+      title: "AI Workflow Automation Company | Document & Process Bots",
+      description: "Technioz uses AI to automate repetitive workflows: document processing, data extraction, approvals, and decision support.",
+      url: "https://technioz.com/services/ai-workflow-automation",
+    }),
   alternates: {
     canonical: "https://technioz.com/services/ai-workflow-automation",
   },
