@@ -311,10 +311,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!project) return {};
   const url = `https://technioz.com/portfolio/${project.slug}`;
   return {
-    title: `${project.title} | ${project.client}`,
+    title: project.title,
     description: project.subtitle,
     openGraph: buildOpenGraph({
-      title: `${project.title} | ${project.client}`,
+      title: project.title,
       description: project.subtitle,
       url,
     }),
