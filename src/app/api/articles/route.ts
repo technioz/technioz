@@ -140,6 +140,14 @@ export async function POST(request: NextRequest) {
       await prisma.$disconnect();
     }
 
+    // Fire-and-forget IndexNow submission so newly published articles get pinged
+    // to Bing/Yandex/Naver/Seznam immediately. Failure here does not break the webhook.
+    if (results.length > 0) {
+      submitToIndexNow(results.map((r) => `https://technioz.com/blog/${r.slug}`)).catch(
+        (err) => console.warn("[indexnow] webhook submission failed:", err)
+      );
+    }
+
     return NextResponse.json(
       {
         success: true,
@@ -257,4 +265,28 @@ function stripMarkdown(markdown: string): string {
 function truncate(text: string, maxLength: number): string {
   if (text.length <= maxLength) return text;
   return text.slice(0, maxLength).replace(/\s+\S*$/, "").trim() + "...";
+}
+
+async function submitToIndexNow(urls: string[]): Promise<void> {
+  const key = process.env.INDEXNOW_KEY;
+  if (!key) {
+    console.warn("[indexnow] INDEXNOW_KEY not set — skipping (expected for local dev).");
+    return;
+  }
+  if (urls.length === 0) return;
+
+  const body = JSON.stringify({
+    host: "technioz.com",
+    key,
+    keyLocation: `https://technioz.com/${key}.txt`,
+    urlList: urls,
+  });
+
+  const res = await fetch("https://api.indexnow.org/indexnow", {
+    method: "POST",
+    headers: { "Content-Type": "application/json; charset=utf-8" },
+    body,
+  });
+
+  console.log(`[indexnow] submitted ${urls.length} URL(s) — status ${res.status}`);
 }

@@ -1,0 +1,132 @@
+#!/usr/bin/env node
+/**
+ * IndexNow submitter for technioz.com.
+ *
+ * - Reads URLs from /public/sitemap.xml (static) and /sitemap-blog.xml (dynamic).
+ * - Dedupes and submits the merged set to the IndexNow API.
+ * - Splits into batches of 10,000 (IndexNow limit per request).
+ * - Key is read from INDEXNOW_KEY env var; falls back to the public key file content.
+ *
+ * IndexNow pings Bing, Yandex, Naver, Seznam.cz. Google is NOT a member — for
+ * Google indexing, use the URL Inspection API (separate setup).
+ *
+ * Run after build/prebuild:
+ *   node scripts/submit-indexnow.js
+ *
+ * Required env (production):
+ *   INDEXNOW_KEY  8b41b2fa81f81f081d7b34eb0a967497
+ *   SITE_HOST     technioz.com   (optional, defaults to technioz.com)
+ */
+const fs = require("fs");
+const path = require("path");
+const https = require("https");
+
+const SITE_HOST = process.env.SITE_HOST || "technioz.com";
+const KEY = process.env.INDEXNOW_KEY || readKeyFromPublic();
+
+function readKeyFromPublic() {
+  const pub = path.join(__dirname, "..", "public");
+  const files = fs.readdirSync(pub);
+  const keyFile = files.find((f) => /^[0-9a-f]{16,}\.txt$/i.test(f));
+  if (!keyFile) {
+    throw new Error(
+      "IndexNow key not found. Set INDEXNOW_KEY env var or add a {key}.txt file in /public."
+    );
+  }
+  return fs.readFileSync(path.join(pub, keyFile), "utf8").trim();
+}
+
+function extractUrlsFromSitemap(sitemapPath) {
+  if (!fs.existsSync(sitemapPath)) return [];
+  const xml = fs.readFileSync(sitemapPath, "utf8");
+  const matches = xml.matchAll(/<loc>([^<]+)<\/loc>/g);
+  return [...matches].map((m) => m[1].trim());
+}
+
+async function submitBatch(urls) {
+  const body = JSON.stringify({
+    host: SITE_HOST,
+    key: KEY,
+    keyLocation: `https://${SITE_HOST}/${KEY}.txt`,
+    urlList: urls,
+  });
+
+  return new Promise((resolve, reject) => {
+    const req = https.request(
+      {
+        method: "POST",
+        hostname: "api.indexnow.org",
+        path: "/indexnow",
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+          "Content-Length": Buffer.byteLength(body),
+        },
+      },
+      (res) => {
+        let data = "";
+        res.on("data", (c) => (data += c));
+        res.on("end", () =>
+          resolve({ status: res.statusCode, body: data, count: urls.length })
+        );
+      }
+    );
+    req.on("error", reject);
+    req.write(body);
+    req.end();
+  });
+}
+
+async function main() {
+  const staticSitemap = path.join(__dirname, "..", "public", "sitemap.xml");
+  const blogSitemap = path.join(__dirname, "..", "public", "sitemap-blog.xml");
+  const dynamicBlogSitemap = path.join(__dirname, "..", ".next", "server", "app", "sitemap-blog.xml.body");
+
+  let urls = [
+    ...extractUrlsFromSitemap(staticSitemap),
+    ...extractUrlsFromSitemap(blogSitemap),
+  ];
+  // Fallback: if the dynamic blog sitemap hasn't been built yet (e.g. local dev), use the static fallback
+  if (urls.length === 0 && fs.existsSync(dynamicBlogSitemap)) {
+    urls = extractUrlsFromSitemap(dynamicBlogSitemap);
+  }
+
+  // Dedupe + ensure host consistency
+  const seen = new Set();
+  const filtered = [];
+  for (const u of urls) {
+    let normalized = u.replace(/^http:\/\//, "https://").replace(/\/+$/, "") || u;
+    if (!seen.has(normalized)) {
+      seen.add(normalized);
+      filtered.push(normalized);
+    }
+  }
+
+  if (filtered.length === 0) {
+    console.log("[indexnow] No URLs found in sitemaps. Skipping.");
+    return;
+  }
+
+  console.log(`[indexnow] Submitting ${filtered.length} URLs for ${SITE_HOST}`);
+  const batches = [];
+  for (let i = 0; i < filtered.length; i += 10000) {
+    batches.push(filtered.slice(i, i + 10000));
+  }
+
+  for (let i = 0; i < batches.length; i++) {
+    const batch = batches[i];
+    try {
+      const result = await submitBatch(batch);
+      console.log(
+        `[indexnow] Batch ${i + 1}/${batches.length}: ${result.status} (${result.count} URLs) — ${result.body.slice(0, 200)}`
+      );
+      if (result.status !== 200 && result.status !== 202) {
+        process.exitCode = 1;
+      }
+    } catch (err) {
+      console.error(`[indexnow] Batch ${i + 1} failed:`, err.message);
+      process.exitCode = 1;
+    }
+  }
+}
+
+main();

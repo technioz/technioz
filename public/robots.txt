@@ -50,4 +50,7 @@ Sitemap: https://technioz.com/sitemap-index.xml
 Sitemap: https://technioz.com/sitemap.xml
 Sitemap: https://technioz.com/sitemap-blog.xml
 
+# IndexNow: instant submission to Bing, Yandex, Naver, Seznam.cz (Google is not a member).
+# Key file is served at https://technioz.com/{INDEXNOW_KEY}.txt and verified by the IndexNow API.
+
 Host: technioz.com
