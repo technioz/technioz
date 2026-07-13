@@ -9,7 +9,7 @@
     "dev": "next dev",
     "prebuild": "node scripts/generate-sitemap.js",
     "build": "prisma generate && next build",
-    
+    "postbuild": "node scripts/submit-indexnow.js",
     "start": "next start",
     "lint": "eslint",
     "postinstall": "prisma generate"
