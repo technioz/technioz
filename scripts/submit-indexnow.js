@@ -5,7 +5,8 @@
  * - Reads URLs from /public/sitemap.xml (static) and /sitemap-blog.xml (dynamic).
  * - Dedupes and submits the merged set to the IndexNow API.
  * - Splits into batches of 10,000 (IndexNow limit per request).
- * - Key is read from INDEXNOW_KEY env var; falls back to the public key file content.
+ * - Key is read from a {key}.txt file at the project root (proxy-served at
+ *   https://technioz.com/{key}.txt). No env var dependency.
  *
  * IndexNow pings Bing, Yandex, Naver, Seznam.cz. Google is NOT a member — for
  * Google indexing, use the URL Inspection API (separate setup).
@@ -13,35 +14,26 @@
  * Run after build/prebuild:
  *   node scripts/submit-indexnow.js
  *
- * Required env (production):
- *   INDEXNOW_KEY  (any non-empty value, e.g. "0c668c250eac4abe98899f5ea585edf7")
- *   SITE_HOST     technioz.com   (optional, defaults to technioz.com)
- *
- * When INDEXNOW_KEY is not set, the script reads the key from the
- * {key}.txt file at the project root (or /public for Next.js setups).
- * The actual key value is determined by the file, not the env var,
- * because the env is just a toggle to enable submission.
+ * If the key file is missing, the script logs and exits 0 (no-op) so it
+ * can be safely wired into the build pipeline without breaking local
+ * development.
  */
 const fs = require("fs");
 const path = require("path");
 const https = require("https");
 
 const SITE_HOST = process.env.SITE_HOST || "technioz.com";
-const KEY = process.env.INDEXNOW_KEY || readKeyFromFile();
 
-function readKeyFromFile() {
+function readKeyFromRootFile() {
   const root = path.join(__dirname, "..");
-  const candidates = [path.join(root), path.join(root, "public")];
   const keyFileName = /^[0-9a-f]{16,}\.txt$/i;
-  for (const dir of candidates) {
-    if (!fs.existsSync(dir)) continue;
-    const found = fs.readdirSync(dir).find((f) => keyFileName.test(f));
-    if (found) return fs.readFileSync(path.join(dir, found), "utf8").trim();
-  }
-  throw new Error(
-    "IndexNow key file not found. Expected a {key}.txt at the project root or /public."
-  );
+  if (!fs.existsSync(root)) return null;
+  const found = fs.readdirSync(root).find((f) => keyFileName.test(f));
+  if (!found) return null;
+  return fs.readFileSync(path.join(root, found), "utf8").trim();
 }
+
+const KEY = readKeyFromRootFile();
 
 function extractUrlsFromSitemap(sitemapPath) {
   if (!fs.existsSync(sitemapPath)) return [];
@@ -106,6 +98,11 @@ async function main() {
       seen.add(normalized);
       filtered.push(normalized);
     }
+  }
+
+  if (!KEY) {
+    console.log("[indexnow] No key file at project root — skipping (no-op).");
+    return;
   }
 
   if (filtered.length === 0) {
