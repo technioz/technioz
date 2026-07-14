@@ -48,17 +48,14 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
   }
 
-  // Honeypot: a hidden field named "company_url" must be empty. Bots fill all
-  // inputs. Humans never see it.
+  // Honeypot: a hidden field named "company_url" must be empty. Bots fill
+  // all inputs. Humans never type into it, so it always submits as "".
+  // The form is off-screen and aria-hidden, so assistive tech also leaves
+  // it alone.
   const b = (body ?? {}) as Record<string, unknown>;
   if (typeof b.company_url === "string" && b.company_url.trim().length > 0) {
     // Silently accept (return 200) so the bot doesn't retry, but skip
     // DB write + notification.
-    return NextResponse.json({ ok: true, status: "accepted" }, { status: 200 });
-  }
-
-  // Reject if honeypot field is present at all (humans never see it).
-  if ("company_url" in b) {
     return NextResponse.json({ ok: true, status: "accepted" }, { status: 200 });
   }
 

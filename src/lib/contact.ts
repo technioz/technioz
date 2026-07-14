@@ -54,7 +54,7 @@ export function validateContactInput(body: unknown): {
   if (email.length > 254) return { ok: false, error: "Email is too long" };
 
   if (!message) return { ok: false, error: "Message is required" };
-  if (message.length < 10) return { ok: false, error: "Message is too short" };
+  if (message.length < 3) return { ok: false, error: "Message is too short" };
   if (message.length > MAX_MESSAGE) return { ok: false, error: "Message is too long" };
 
   const phone = b.phone != null ? String(b.phone).trim() : "";

@@ -140,7 +140,7 @@ export function ContactForm() {
           name="message"
           rows={5}
           required
-          minLength={10}
+          minLength={3}
           maxLength={5000}
           className="w-full border border-neutral-300 rounded-sm p-3 p4 text-black-500 bg-white-200 focus:outline-none focus:border-cobolt-500 resize-none"
         />
