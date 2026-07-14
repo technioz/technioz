@@ -9,8 +9,55 @@ type Status =
   | { kind: "success"; id: string }
   | { kind: "error"; message: string };
 
+type FieldErrors = Partial<
+  Record<"fullName" | "email" | "phone" | "companyName" | "projectType" | "message", string>
+>;
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function validateLocally(payload: Record<string, string>): FieldErrors {
+  const errors: FieldErrors = {};
+
+  if (!payload.fullName.trim()) {
+    errors.fullName = "Please enter your name";
+  } else if (payload.fullName.length > 200) {
+    errors.fullName = "Name is too long";
+  }
+
+  if (!payload.email.trim()) {
+    errors.email = "Please enter your email";
+  } else if (!EMAIL_RE.test(payload.email.trim())) {
+    errors.email = "That doesn't look like a valid email";
+  } else if (payload.email.length > 254) {
+    errors.email = "Email is too long";
+  }
+
+  if (payload.phone && payload.phone.length > 5000) {
+    errors.phone = "Phone is too long";
+  }
+
+  if (payload.companyName && payload.companyName.length > 5000) {
+    errors.companyName = "Company name is too long";
+  }
+
+  if (!payload.projectType) {
+    errors.projectType = "Please pick a project type";
+  }
+
+  if (!payload.message.trim()) {
+    errors.message = "Please add a short message";
+  } else if (payload.message.trim().length < 3) {
+    errors.message = "Message is too short (min 3 characters)";
+  } else if (payload.message.length > 5000) {
+    errors.message = "Message is too long";
+  }
+
+  return errors;
+}
+
 export function ContactForm() {
   const [status, setStatus] = useState<Status>({ kind: "idle" });
+  const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -30,6 +77,22 @@ export function ContactForm() {
       company_url: String(fd.get("company_url") ?? ""),
     };
 
+    // Client-side validation first — fail fast without a network round-trip
+    const errors = validateLocally(payload);
+    if (Object.keys(errors).length > 0) {
+      setFieldErrors(errors);
+      setStatus({
+        kind: "error",
+        message: "Please fix the highlighted fields and try again.",
+      });
+      // Focus the first invalid field for accessibility
+      const firstKey = Object.keys(errors)[0];
+      const firstEl = form.querySelector<HTMLElement>(`[name="${firstKey}"]`);
+      firstEl?.focus();
+      return;
+    }
+
+    setFieldErrors({});
     setStatus({ kind: "submitting" });
     try {
       const res = await fetch("/api/contact", {
@@ -62,6 +125,17 @@ export function ContactForm() {
     }
   }
 
+  // Clear a field's error as the user types in it
+  function clearFieldError(name: keyof FieldErrors) {
+    if (fieldErrors[name]) {
+      setFieldErrors((prev) => {
+        const next = { ...prev };
+        delete next[name];
+        return next;
+      });
+    }
+  }
+
   if (status.kind === "success") {
     return (
       <div
@@ -85,7 +159,10 @@ export function ContactForm() {
         </p>
         <button
           type="button"
-          onClick={() => setStatus({ kind: "idle" })}
+          onClick={() => {
+            setStatus({ kind: "idle" });
+            setFieldErrors({});
+          }}
           className="cta-secondary self-start mt-2"
         >
           Send another message
@@ -95,18 +172,32 @@ export function ContactForm() {
   }
 
   const submitting = status.kind === "submitting";
-  const errorMsg = status.kind === "error" ? status.message : null;
+  // Only show the banner for server-side errors (not local validation)
+  const showBanner =
+    status.kind === "error" && Object.keys(fieldErrors).length === 0;
+  const showFieldErrorBanner =
+    status.kind === "error" && Object.keys(fieldErrors).length > 0;
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-5" noValidate>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-        <Field label="Full Name *" name="fullName" type="text" required autoComplete="name" />
+        <Field
+          label="Full Name *"
+          name="fullName"
+          type="text"
+          required
+          autoComplete="name"
+          error={fieldErrors.fullName}
+          onChange={() => clearFieldError("fullName")}
+        />
         <Field
           label="Email Address *"
           name="email"
           type="email"
           required
           autoComplete="email"
+          error={fieldErrors.email}
+          onChange={() => clearFieldError("email")}
         />
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -115,12 +206,16 @@ export function ContactForm() {
           name="phone"
           type="tel"
           autoComplete="tel"
+          error={fieldErrors.phone}
+          onChange={() => clearFieldError("phone")}
         />
         <Field
           label="Company Name"
           name="companyName"
           type="text"
           autoComplete="organization"
+          error={fieldErrors.companyName}
+          onChange={() => clearFieldError("companyName")}
         />
       </div>
 
@@ -129,6 +224,8 @@ export function ContactForm() {
         name="projectType"
         required
         options={PROJECT_TYPE_OPTIONS.map((o) => ({ value: o.value, label: o.label }))}
+        error={fieldErrors.projectType}
+        onChange={() => clearFieldError("projectType")}
       />
 
       <div className="flex flex-col gap-2">
@@ -142,8 +239,18 @@ export function ContactForm() {
           required
           minLength={3}
           maxLength={5000}
-          className="w-full border border-neutral-300 rounded-sm p-3 p4 text-black-500 bg-white-200 focus:outline-none focus:border-cobolt-500 resize-none"
+          aria-invalid={Boolean(fieldErrors.message)}
+          aria-describedby={fieldErrors.message ? "contact-message-error" : undefined}
+          onChange={() => clearFieldError("message")}
+          className={`w-full border rounded-sm p-3 p4 text-black-500 bg-white-200 focus:outline-none resize-none ${
+            fieldErrors.message ? "border-red-500 focus:border-red-500" : "border-neutral-300 focus:border-cobolt-500"
+          }`}
         />
+        {fieldErrors.message && (
+          <p id="contact-message-error" className="text-red-600 p5" role="alert">
+            {fieldErrors.message}
+          </p>
+        )}
       </div>
 
       {/* Honeypot — hidden from humans, visible to bots. Must remain empty. */}
@@ -158,12 +265,21 @@ export function ContactForm() {
         />
       </div>
 
-      {errorMsg && (
+      {showFieldErrorBanner && (
         <div
           role="alert"
           className="bg-red-50 border border-red-300 text-red-900 p-3 rounded-sm p5"
         >
-          {errorMsg}
+          {status.kind === "error" ? status.message : null}
+        </div>
+      )}
+
+      {showBanner && status.kind === "error" && (
+        <div
+          role="alert"
+          className="bg-red-50 border border-red-300 text-red-900 p-3 rounded-sm p5"
+        >
+          {status.message}
         </div>
       )}
 
@@ -184,12 +300,16 @@ function Field({
   type,
   required,
   autoComplete,
+  error,
+  onChange,
 }: {
   label: string;
   name: string;
   type: string;
   required?: boolean;
   autoComplete?: string;
+  error?: string;
+  onChange?: () => void;
 }) {
   return (
     <div className="flex flex-col gap-2">
@@ -203,8 +323,18 @@ function Field({
         required={required}
         autoComplete={autoComplete}
         maxLength={5000}
-        className="w-full border border-neutral-300 rounded-sm px-3 py-2.5 p4 text-black-500 bg-white-200 focus:outline-none focus:border-cobolt-500"
+        aria-invalid={Boolean(error)}
+        aria-describedby={error ? `contact-${name}-error` : undefined}
+        onChange={onChange}
+        className={`w-full border rounded-sm px-3 py-2.5 p4 text-black-500 bg-white-200 focus:outline-none ${
+          error ? "border-red-500 focus:border-red-500" : "border-neutral-300 focus:border-cobolt-500"
+        }`}
       />
+      {error && (
+        <p id={`contact-${name}-error`} className="text-red-600 p5" role="alert">
+          {error}
+        </p>
+      )}
     </div>
   );
 }
@@ -214,11 +344,15 @@ function SelectField({
   name,
   required,
   options,
+  error,
+  onChange,
 }: {
   label: string;
   name: string;
   required?: boolean;
   options: { value: string; label: string }[];
+  error?: string;
+  onChange?: () => void;
 }) {
   return (
     <div className="flex flex-col gap-2">
@@ -230,7 +364,12 @@ function SelectField({
         name={name}
         required={required}
         defaultValue=""
-        className="w-full border border-neutral-300 rounded-sm px-3 py-2.5 p4 text-black-500 bg-white-200 focus:outline-none focus:border-cobolt-500"
+        aria-invalid={Boolean(error)}
+        aria-describedby={error ? `contact-${name}-error` : undefined}
+        onChange={onChange}
+        className={`w-full border rounded-sm px-3 py-2.5 p4 text-black-500 bg-white-200 focus:outline-none ${
+          error ? "border-red-500 focus:border-red-500" : "border-neutral-300 focus:border-cobolt-500"
+        }`}
       >
         <option value="" disabled>
           Select a project type...
@@ -241,6 +380,11 @@ function SelectField({
           </option>
         ))}
       </select>
+      {error && (
+        <p id={`contact-${name}-error`} className="text-red-600 p5" role="alert">
+          {error}
+        </p>
+      )}
     </div>
   );
 }

@@ -85,6 +85,7 @@ export async function POST(request: NextRequest) {
   sendContactNtfy({
     fullName: data.fullName,
     email: data.email,
+    phone: data.phone,
     companyName: data.companyName,
     projectType: data.projectType,
     message: data.message,

@@ -108,6 +108,7 @@ const NTFY_DEFAULT_SERVER = "https://ntfy.sh";
 export async function sendContactNtfy(input: {
   fullName: string;
   email: string;
+  phone?: string | null;
   companyName?: string | null;
   projectType?: string | null;
   message: string;
@@ -124,6 +125,7 @@ export async function sendContactNtfy(input: {
   const title = `New contact: ${input.fullName}${input.companyName ? ` (${input.companyName})` : ""}`;
   const body = [
     `Email: ${input.email}`,
+    input.phone ? `Phone: ${input.phone}` : null,
     input.projectType ? `Project: ${input.projectType}` : null,
     input.source ? `Source: ${input.source}` : null,
     "",
