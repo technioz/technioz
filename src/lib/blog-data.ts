@@ -1941,7 +1941,7 @@ const pillarOnePosts: BlogPost[] = [
   {
     slug: "app-performance-optimization-case-study-hattafoodhub",
     title: "HattaFoodHub: Order Time Under 1 Second",
-    excerpt: "A real case study on mobile app performance optimization. How we reduced HattaFoodHub order confirmation time from 8-12 seconds to under 800ms and improved repeat customers by 40%.",
+    excerpt: "Case study: we cut HattaFoodHub's order confirmation from 8-12s to under 800ms with concrete mobile performance techniques.",
     category: "Web & Mobile",
     date: "July 10, 2026",
     readTime: "8 min read",
@@ -2736,7 +2736,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "software-security-compliance-guide-enterprise-2026",
     title: "Enterprise Software Security & Compliance (2026)",
-    excerpt: "A practical guide to building secure, compliant software for enterprises, healthcare, fintech, and GCC companies. Covers HIPAA, PCI-DSS, GDPR, and UAE data protection.",
+    excerpt: "Build secure, compliant enterprise software. Covers HIPAA, PCI-DSS, GDPR, and UAE data protection.",
     category: "Consulting & Strategy",
     date: "July 10, 2026",
     readTime: "10 min read",
@@ -2798,7 +2798,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "accessibility-in-web-design-guide-startups-2026",
     title: "Web Accessibility for Startups (2026)",
-    excerpt: "A practical startup guide to web accessibility in 2026 — why it matters, what the law requires, and how to build inclusive products from day one without slowing your roadmap.",
+    excerpt: "Practical 2026 web accessibility guide for startups. Build inclusive products without slowing your roadmap.",
     category: "Frontend Development",
     date: "July 5, 2026",
     readTime: "10 min read",
@@ -2939,7 +2939,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "what-is-an-it-consultant-2026-guide",
     title: "What Is an IT Consultant? Your 2026 Guide",
-    excerpt: "A practical guide to IT consulting for business owners. Learn what consultants do, when to hire one, how engagement models work, and how to choose the right partner.",
+    excerpt: "What IT consultants do, when to hire one, and how to choose the right partner for your business.",
     category: "Consulting & Strategy",
     date: "July 7, 2026",
     readTime: "11 min read",

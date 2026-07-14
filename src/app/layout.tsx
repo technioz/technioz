@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     template: "%s | Technioz",
   },
   description:
-    "Technioz builds custom web applications, mobile apps, AI solutions, and cloud software for startups and SMBs. Founded in 2024. Book a free 30-minute consultation call to discuss your project and get a custom roadmap.",
+    "Technioz builds custom web apps, mobile apps, AI solutions, and cloud software for startups and SMBs. Founded 2024. Book a free 30-minute consultation.",
   authors: [{ name: "Technioz Team", url: "https://technioz.com" }],
   creator: "Technioz",
   publisher: "Technioz",
