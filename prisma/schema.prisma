@@ -42,3 +42,21 @@ model Tag {
 
   @@map("tags")
 }
+
+model ContactSubmission {
+  id           String   @id @default(uuid())
+  fullName     String   @map("full_name")
+  email        String
+  phone        String?
+  companyName  String?  @map("company_name")
+  projectType  String?  @map("project_type")
+  message      String   @db.Text
+  source       String?  // e.g. "contact-page", utm_source, referrer host
+  ip           String?
+  userAgent    String?  @map("user_agent") @db.Text
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  @@index([createdAt])
+  @@index([email])
+  @@map("contact_submissions")
+}

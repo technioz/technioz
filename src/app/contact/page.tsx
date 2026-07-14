@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
+import { ContactForm } from "@/components/contact-form";
 
 import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
 
@@ -11,6 +12,10 @@ export const metadata: Metadata = {
       title: "Contact Us",
       description: "Get in touch with Technioz for a free 30-minute consultation. Discuss your project and receive a custom roadmap and quote.",
       url: "https://technioz.com/contact",
+    }),
+  twitter: buildTwitterCard({
+      title: "Contact Us",
+      description: "Tell us about your project. We reply within 24 hours with next steps and a scoping call — no commitment, NDA on request.",
     }),
   alternates: {
     canonical: "https://technioz.com/contact",
@@ -41,22 +46,7 @@ export default function Contact() {
             <div>
               <h2 className="h4 text-black-500 mb-8">Send Us a Message</h2>
               <p className="p4 text-black-400 mb-6">Fill out the form below and we&apos;ll respond within 24 hours.</p>
-              <form className="flex flex-col gap-5">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <Field label="Full Name *" type="text" />
-                  <Field label="Email Address *" type="email" />
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <Field label="Phone Number" type="tel" />
-                  <Field label="Company Name" type="text" />
-                </div>
-                <div className="flex flex-col gap-2">
-                  <label className="p4 text-black-500">What can we help you with? *</label>
-                  <textarea rows={5} className="w-full border border-neutral-300 rounded-sm p-3 p4 text-black-500 bg-white-200 focus:outline-none focus:border-cobolt-500 resize-none" />
-                </div>
-                <button type="submit" className="cta-primary !px-8">Send Message</button>
-                <p className="p5 text-black-300">We reply within 24 hours. Your information is confidential and an NDA is available on request.</p>
-              </form>
+              <ContactForm />
             </div>
 
             {/* Sidebar */}
@@ -92,15 +82,6 @@ export default function Contact() {
         </div>
       </section>
     </>
-  );
-}
-
-function Field({ label, type }: { label: string; type: string }) {
-  return (
-    <div className="flex flex-col gap-2">
-      <label className="p4 text-black-500">{label}</label>
-      <input type={type} className="w-full border border-neutral-300 rounded-sm px-3 py-2.5 p4 text-black-500 bg-white-200 focus:outline-none focus:border-cobolt-500" />
-    </div>
   );
 }
 
