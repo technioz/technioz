@@ -79,7 +79,7 @@ export default function SolutionsIndex() {
       <section className="bg-cobolt-500">
         <div className="max-w-[1440px] mx-auto px-6 py-16 lg:px-[148px] lg:py-[100px] flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
           <div className="max-w-[600px]">
-            <h2 className="h3 text-white-100 mb-4">Don&apos;t see your industry?</h2>
+            <h2 className="h3 !text-white-100 mb-4">Don&apos;t see your industry?</h2>
             <p className="p3 text-white-100/80">We work across many more sectors. Tell us what you&apos;re building and we&apos;ll tell you if we can help.</p>
           </div>
           <Link href="/contact" className="cta-primary-dark !bg-white-100 !text-cobolt-500 hover:!opacity-90">Talk to us</Link>
