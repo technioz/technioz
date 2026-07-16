@@ -5,8 +5,6 @@ Disallow: /md/
 User-agent: GPTBot
 Allow: /
 Allow: /md/
-Disallow: /privacy
-Disallow: /terms
 
 User-agent: ChatGPT-User
 Allow: /
