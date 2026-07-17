@@ -202,13 +202,13 @@ export function ChatWidget() {
           {/* The cobalt triangle */}
           <span className="absolute inset-0 bg-cobolt-500 transition-colors duration-200 group-hover:bg-cobolt-400" />
 
-          {/* Favicon fills the fold */}
-          <span className="absolute bottom-5 right-5 w-10 h-10 flex items-center justify-center">
+          {/* Favicon centered in the fold */}
+          <span className="absolute flex items-center justify-center" style={{ bottom: "16px", right: "16px", width: "32px", height: "32px" }}>
             <Image
               src="/favicon.ico"
               alt="Technioz chat"
-              width={40}
-              height={40}
+              width={32}
+              height={32}
               className="rounded-sm transition-transform duration-200 group-hover:scale-110"
               unoptimized
             />
@@ -231,7 +231,7 @@ export function ChatWidget() {
             className="pointer-events-auto absolute bottom-5 right-5 w-[400px] max-w-[calc(100vw-2.5rem)] h-[560px] max-h-[calc(100vh-3rem)] bg-white-200 rounded-sm shadow-[0_8px_48px_rgba(29,27,22,0.18)] flex flex-col overflow-hidden border border-neutral-200"
             style={{
               transformOrigin: "100% 100%",
-              animation: "chat-unfold 400ms cubic-bezier(0.16, 1, 0.3, 1) forwards",
+              animation: "chat-unfold 300ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
             }}
           >
             {/* Header — cobalt with favicon */}
@@ -374,21 +374,15 @@ export function ChatWidget() {
         </>
       )}
 
-      {/* Keyframes for the unfold animation — page corner opening up */}
+      {/* Keyframes — simple bounce-in from the corner */}
       <style>{`
         @keyframes chat-unfold {
           0% {
-            transform: perspective(800px) rotateY(55deg) scale(0.1);
+            transform: scale(0.1);
             opacity: 0;
           }
-          40% {
-            opacity: 1;
-          }
-          60% {
-            transform: perspective(800px) rotateY(15deg) scale(0.5);
-          }
           100% {
-            transform: perspective(800px) rotateY(0deg) scale(1);
+            transform: scale(1);
             opacity: 1;
           }
         }
