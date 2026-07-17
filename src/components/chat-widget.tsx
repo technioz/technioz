@@ -39,7 +39,7 @@ function saveMessages(msgs: Message[]) {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(msgs.slice(-100)));
   } catch {
-    // localStorage full or unavailable — silently ignore
+    // localStorage full or unavailable
   }
 }
 
@@ -47,11 +47,6 @@ function clearMessages() {
   localStorage.removeItem(STORAGE_KEY);
 }
 
-/**
- * Lightweight markdown-to-HTML for chat messages.
- * Handles: **bold**, *italic*, - bullet lists, 1. numbered lists,
- * blank-line paragraph breaks, and inline line breaks.
- */
 function renderMarkdown(text: string): string {
   let html = text
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
@@ -63,18 +58,25 @@ function renderMarkdown(text: string): string {
   for (const block of blocks) {
     const lines = block.split("\n");
     const trimmed = lines.map((l) => l.trim()).filter(Boolean);
-
     if (trimmed.length === 0) continue;
 
     const isBulletList = trimmed.every((l) => /^[-*]\s/.test(l));
     const isNumberedList = trimmed.every((l) => /^\d+\.\s/.test(l));
 
     if (isBulletList) {
-      const items = trimmed.map((l) => `<li>${l.replace(/^[-*]\s+/, "")}</li>`).join("");
-      rendered.push(`<ul class="flex flex-col gap-1 my-2 ml-1">${items}</ul>`);
+      const items = trimmed
+        .map((l) => `<li>${l.replace(/^[-*]\s+/, "")}</li>`)
+        .join("");
+      rendered.push(
+        `<ul class="flex flex-col gap-1 my-2 ml-4 list-disc">${items}</ul>`
+      );
     } else if (isNumberedList) {
-      const items = trimmed.map((l) => `<li>${l.replace(/^\d+\.\s+/, "")}</li>`).join("");
-      rendered.push(`<ol class="flex flex-col gap-1 my-2 ml-1">${items}</ol>`);
+      const items = trimmed
+        .map((l) => `<li>${l.replace(/^\d+\.\s+/, "")}</li>`)
+        .join("");
+      rendered.push(
+        `<ol class="flex flex-col gap-1 my-2 ml-4 list-decimal">${items}</ol>`
+      );
     } else {
       const para = trimmed.join("<br>");
       rendered.push(`<p class="my-1.5">${para}</p>`);
@@ -95,45 +97,23 @@ export function ChatWidget() {
   const inputRef = useRef<HTMLInputElement>(null);
   const abortRef = useRef<AbortController | null>(null);
 
-  // Load messages from localStorage on mount
   useEffect(() => {
     getSessionId();
     const saved = loadMessages();
-    if (saved.length > 0) {
-      setMessages(saved);
-    }
+    if (saved.length > 0) setMessages(saved);
     setInitialized(true);
   }, []);
 
-  // Save messages to localStorage on change
   useEffect(() => {
-    if (initialized && messages.length > 0) {
-      saveMessages(messages);
-    }
+    if (initialized && messages.length > 0) saveMessages(messages);
   }, [messages, initialized]);
 
-  // Scroll to bottom when messages change
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  // Focus input when panel opens
   useEffect(() => {
-    if (open) {
-      setTimeout(() => inputRef.current?.focus(), 400);
-    }
-  }, [open]);
-
-  // Lock body scroll when panel is open
-  useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
+    if (open) setTimeout(() => inputRef.current?.focus(), 300);
   }, [open]);
 
   const addMessage = useCallback((role: Role, content: string) => {
@@ -153,14 +133,16 @@ export function ChatWidget() {
 
     setInput("");
     addMessage("user", text);
-
     setStreaming(true);
 
     const controller = new AbortController();
     abortRef.current = controller;
 
     try {
-      const allMessages = [...messages, { id: "", role: "user" as const, content: text, timestamp: Date.now() }];
+      const allMessages = [
+        ...messages,
+        { id: "", role: "user" as const, content: text, timestamp: Date.now() },
+      ];
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -179,13 +161,10 @@ export function ChatWidget() {
         throw new Error(data.error ?? `Server error (${res.status})`);
       }
 
-      const content = data.content ?? "";
-      if (content) {
-        addMessage("assistant", content);
-      }
+      if (data.content) addMessage("assistant", data.content);
     } catch (err) {
       if ((err as Error).name === "AbortError") return;
-      const msg = (err as Error).message || "Something went wrong. Please try again.";
+      const msg = (err as Error).message || "Something went wrong.";
       addMessage("assistant", `Sorry, ${msg.toLowerCase()}`);
     } finally {
       setStreaming(false);
@@ -207,81 +186,55 @@ export function ChatWidget() {
     clearMessages();
   };
 
-  const handleStop = () => {
-    abortRef.current?.abort();
-  };
-
   return (
-    <>
-      {/* Backdrop */}
-      {open && (
-        <div
-          className="fixed inset-0 z-40 bg-black-500/30 backdrop-blur-sm transition-opacity duration-300"
-          onClick={() => setOpen(false)}
-          aria-hidden="true"
-        />
-      )}
-
-      {/* Bottom bar (closed state) */}
-      <div
-        className={`fixed bottom-0 left-0 right-0 z-50 transition-transform duration-400 ease-out ${
-          open ? "translate-y-full" : "translate-y-0"
-        }`}
-      >
+    <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3">
+      {/* Collapsed trigger — corner card, not a circle */}
+      {!open && (
         <button
           onClick={() => setOpen(true)}
-          className="w-full h-12 bg-cobolt-500 hover:bg-cobolt-400 text-white-100 flex items-center justify-between px-6 lg:px-[148px] transition-colors duration-200 cursor-pointer border-0"
           aria-label="Open chat"
+          className="flex items-center gap-2.5 pl-3.5 pr-5 h-12 bg-cobolt-500 hover:bg-cobolt-400 text-white-100 rounded-sm shadow-[0_4px_24px_rgba(57,35,199,0.25)] transition-all duration-200 hover:shadow-[0_6px_32px_rgba(57,35,199,0.35)] hover:-translate-y-0.5"
         >
-          <span className="e1 text-white-100">Ask Technioz</span>
-          <span className="flex items-center gap-2 text-white-100/70">
-            <span className="p5 hidden sm:inline">We&apos;re here to help</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M7 14l5-5 5 5" />
-            </svg>
-          </span>
+          {/* Chat icon */}
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+          </svg>
+          <span className="e1 text-white-100 whitespace-nowrap">Ask us anything</span>
         </button>
-      </div>
+      )}
 
-      {/* Chat panel (open state) */}
-      <div
-        className={`fixed bottom-0 left-0 right-0 z-50 transition-transform duration-400 ease-out ${
-          open ? "translate-y-0" : "translate-y-full"
-        }`}
-        style={{ height: "min(600px, 65vh)" }}
-      >
-        <div className="h-full flex flex-col bg-white-200 shadow-[0_-8px_40px_rgba(29,27,22,0.15)]">
+      {/* Open panel — fixed 400px, anchored bottom-right */}
+      {open && (
+        <div className="w-[400px] max-w-[calc(100vw-2.5rem)] h-[560px] max-h-[calc(100vh-3rem)] bg-white-200 rounded-sm shadow-[0_8px_48px_rgba(29,27,22,0.18)] flex flex-col overflow-hidden border border-neutral-200">
           {/* Header */}
-          <div className="bg-cobolt-500 shrink-0 flex items-center justify-between px-6 py-4">
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-sm bg-white-100/15 flex items-center justify-center">
-                <span className="font-display text-[18px] text-white-100 leading-none">T</span>
+          <div className="bg-cobolt-500 px-5 py-3.5 flex items-center justify-between shrink-0">
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-sm bg-white-100/15 flex items-center justify-center">
+                <span className="font-display text-[16px] text-white-100 leading-none">T</span>
               </div>
               <div>
-                <p className="font-display text-[18px] leading-none tracking-[-0.9px] text-white-100">
-                  Technioz
-                </p>
-                <p className="text-[11px] text-white-100/60 font-mono uppercase tracking-[1px]">
+                <p className="font-display text-[16px] leading-none tracking-[-0.8px] text-white-100">Technioz</p>
+                <p className="text-[10px] text-white-100/50 font-mono uppercase tracking-[1px] mt-0.5">
                   Online &middot; replies instantly
                 </p>
               </div>
             </div>
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-0.5">
               <button
                 onClick={handleClear}
                 aria-label="Clear chat"
-                className="text-white-100/50 hover:text-white-100 p-2 rounded-sm hover:bg-white-100/10 transition-colors"
+                className="text-white-100/40 hover:text-white-100 p-2 rounded-sm hover:bg-white-100/10 transition-colors"
               >
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                   <path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6h14" />
                 </svg>
               </button>
               <button
                 onClick={() => setOpen(false)}
                 aria-label="Close chat"
-                className="text-white-100/50 hover:text-white-100 p-2 rounded-sm hover:bg-white-100/10 transition-colors"
+                className="text-white-100/40 hover:text-white-100 p-2 rounded-sm hover:bg-white-100/10 transition-colors"
               >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                   <path d="M18 6L6 18M6 6l12 12" />
                 </svg>
               </button>
@@ -289,18 +242,18 @@ export function ChatWidget() {
           </div>
 
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto px-6 py-5 flex flex-col gap-4 bg-white-200">
+          <div className="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-3 bg-white-200">
             {messages.length === 0 && !streaming && (
-              <div className="flex flex-col items-center justify-center h-full text-center gap-4 px-4">
-                <div className="w-14 h-14 rounded-sm bg-cobolt-500/8 flex items-center justify-center">
-                  <span className="font-display text-[28px] text-cobolt-500 leading-none">T</span>
+              <div className="flex flex-col items-center justify-center h-full text-center gap-3 px-4">
+                <div className="w-12 h-12 rounded-sm bg-cobolt-500/8 flex items-center justify-center">
+                  <span className="font-display text-[24px] text-cobolt-500 leading-none">T</span>
                 </div>
                 <div>
-                  <p className="font-display text-[20px] leading-[1.15] tracking-[-1px] text-black-500 mb-2">
+                  <p className="font-display text-[18px] leading-[1.15] tracking-[-0.9px] text-black-500 mb-1.5">
                     Hi, we&apos;re Technioz
                   </p>
-                  <p className="p4 text-black-400 max-w-[320px]">
-                    Ask us anything about our services, pricing, or how we work. We build custom software, mobile apps, and AI solutions.
+                  <p className="p5 text-black-400 max-w-[300px] leading-relaxed">
+                    Ask us about our services, pricing, or how we work. We build custom software, mobile apps, and AI solutions.
                   </p>
                 </div>
               </div>
@@ -312,17 +265,17 @@ export function ChatWidget() {
                 className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
               >
                 <div
-                  className={`max-w-[82%] rounded-sm px-4 py-3 ${
+                  className={`max-w-[85%] rounded-sm px-3.5 py-2.5 ${
                     msg.role === "user"
                       ? "bg-cobolt-500 text-white-100"
                       : "bg-white-300 text-black-500 border border-neutral-200"
                   }`}
                 >
                   {msg.role === "user" ? (
-                    <p className="p4 leading-relaxed">{msg.content}</p>
+                    <p className="text-[14px] leading-relaxed">{msg.content}</p>
                   ) : (
                     <div
-                      className="p4 leading-relaxed chat-message"
+                      className="text-[14px] leading-relaxed chat-message"
                       dangerouslySetInnerHTML={{ __html: renderMarkdown(msg.content) }}
                     />
                   )}
@@ -330,14 +283,13 @@ export function ChatWidget() {
               </div>
             ))}
 
-            {/* Streaming indicator */}
             {streaming && (
               <div className="flex justify-start">
-                <div className="max-w-[82%] rounded-sm px-4 py-3 bg-white-300 text-black-500 border border-neutral-200">
+                <div className="max-w-[85%] rounded-sm px-3.5 py-2.5 bg-white-300 text-black-500 border border-neutral-200">
                   <span className="flex gap-1.5 items-center h-5">
-                    <span className="w-2 h-2 rounded-full bg-cobolt-400 animate-bounce" style={{ animationDelay: "0ms" }} />
-                    <span className="w-2 h-2 rounded-full bg-cobolt-400 animate-bounce" style={{ animationDelay: "150ms" }} />
-                    <span className="w-2 h-2 rounded-full bg-cobolt-400 animate-bounce" style={{ animationDelay: "300ms" }} />
+                    <span className="w-1.5 h-1.5 rounded-full bg-cobolt-400 animate-bounce" style={{ animationDelay: "0ms" }} />
+                    <span className="w-1.5 h-1.5 rounded-full bg-cobolt-400 animate-bounce" style={{ animationDelay: "150ms" }} />
+                    <span className="w-1.5 h-1.5 rounded-full bg-cobolt-400 animate-bounce" style={{ animationDelay: "300ms" }} />
                   </span>
                 </div>
               </div>
@@ -347,24 +299,24 @@ export function ChatWidget() {
           </div>
 
           {/* Input */}
-          <div className="border-t border-neutral-200 px-6 py-4 bg-white-200 shrink-0">
-            <div className="flex items-center gap-3">
+          <div className="border-t border-neutral-200 px-4 py-3 bg-white-200 shrink-0">
+            <div className="flex items-center gap-2">
               <input
                 ref={inputRef}
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder={streaming ? "Waiting for response..." : "Type your message..."}
+                placeholder={streaming ? "Waiting..." : "Type your message..."}
                 disabled={streaming}
                 maxLength={2000}
-                className="flex-1 border border-neutral-300 rounded-sm px-4 py-2.5 p4 text-black-500 bg-white-200 placeholder:text-black-200 focus:outline-none focus:border-cobolt-500 disabled:opacity-50"
+                className="flex-1 border border-neutral-300 rounded-sm px-3 py-2 text-[14px] text-black-500 bg-white-200 placeholder:text-black-200 focus:outline-none focus:border-cobolt-500 disabled:opacity-50"
               />
               {streaming ? (
                 <button
-                  onClick={handleStop}
-                  className="h-10 px-4 rounded-sm bg-red-500 hover:bg-red-600 text-white-100 font-mono text-[12px] uppercase tracking-[1.2px] shrink-0 transition-colors"
-                  aria-label="Stop generating"
+                  onClick={() => abortRef.current?.abort()}
+                  className="h-9 px-3 rounded-sm bg-red-500 hover:bg-red-600 text-white-100 text-[11px] font-mono uppercase tracking-[1px] shrink-0 transition-colors"
+                  aria-label="Stop"
                 >
                   Stop
                 </button>
@@ -372,16 +324,18 @@ export function ChatWidget() {
                 <button
                   onClick={handleSend}
                   disabled={!input.trim()}
-                  className="h-10 px-5 rounded-sm bg-cobolt-500 hover:bg-cobolt-400 disabled:bg-cobolt-300 text-white-100 font-mono text-[12px] uppercase tracking-[1.2px] shrink-0 transition-colors"
-                  aria-label="Send message"
+                  className="h-9 w-9 rounded-sm bg-cobolt-500 hover:bg-cobolt-400 disabled:bg-cobolt-300 text-white-100 flex items-center justify-center shrink-0 transition-colors"
+                  aria-label="Send"
                 >
-                  Send
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                  </svg>
                 </button>
               )}
             </div>
           </div>
         </div>
-      </div>
-    </>
+      )}
+    </div>
   );
 }
