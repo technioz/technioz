@@ -33,7 +33,7 @@ export async function POST(request: Request) {
 
   try {
     const completion = await client.chat.completions.create({
-      model: "qwen3.5",
+      model: "gemma4:31b-cloud",
       stream: false,
       temperature: 0.7,
       max_tokens: 1024,
