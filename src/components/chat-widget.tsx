@@ -194,7 +194,7 @@ export function ChatWidget() {
         <button
           onClick={() => setOpen(true)}
           aria-label="Open chat"
-          className="pointer-events-auto group absolute bottom-0 right-0 w-20 h-20 focus:outline-none"
+          className="pointer-events-auto group absolute bottom-0 right-0 w-24 h-24 focus:outline-none"
           style={{
             clipPath: "polygon(100% 0, 100% 100%, 0 100%)",
           }}
@@ -202,23 +202,16 @@ export function ChatWidget() {
           {/* The cobalt triangle */}
           <span className="absolute inset-0 bg-cobolt-500 transition-colors duration-200 group-hover:bg-cobolt-400" />
 
-          {/* Favicon centered in the fold */}
-          <span className="absolute bottom-4 right-4 w-8 h-8 flex items-center justify-center">
+          {/* Favicon fills the fold */}
+          <span className="absolute bottom-5 right-5 w-10 h-10 flex items-center justify-center">
             <Image
               src="/favicon.ico"
               alt="Technioz chat"
-              width={32}
-              height={32}
-              className="rounded-sm opacity-90 group-hover:opacity-100 transition-opacity"
+              width={40}
+              height={40}
+              className="rounded-sm transition-transform duration-200 group-hover:scale-110"
               unoptimized
             />
-          </span>
-
-          {/* Subtle chat icon below the favicon */}
-          <span className="absolute bottom-1.5 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-            </svg>
           </span>
         </button>
       )}
@@ -237,8 +230,8 @@ export function ChatWidget() {
           <div
             className="pointer-events-auto absolute bottom-5 right-5 w-[400px] max-w-[calc(100vw-2.5rem)] h-[560px] max-h-[calc(100vh-3rem)] bg-white-200 rounded-sm shadow-[0_8px_48px_rgba(29,27,22,0.18)] flex flex-col overflow-hidden border border-neutral-200"
             style={{
-              transformOrigin: "bottom right",
-              animation: "chat-unfold 300ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
+              transformOrigin: "100% 100%",
+              animation: "chat-unfold 400ms cubic-bezier(0.16, 1, 0.3, 1) forwards",
             }}
           >
             {/* Header — cobalt with favicon */}
@@ -381,15 +374,21 @@ export function ChatWidget() {
         </>
       )}
 
-      {/* Keyframes for the unfold animation */}
+      {/* Keyframes for the unfold animation — page corner opening up */}
       <style>{`
         @keyframes chat-unfold {
           0% {
-            transform: scale(0.15) translateY(30%);
+            transform: perspective(800px) rotateY(55deg) scale(0.1);
             opacity: 0;
           }
+          40% {
+            opacity: 1;
+          }
+          60% {
+            transform: perspective(800px) rotateY(15deg) scale(0.5);
+          }
           100% {
-            transform: scale(1) translateY(0);
+            transform: perspective(800px) rotateY(0deg) scale(1);
             opacity: 1;
           }
         }
