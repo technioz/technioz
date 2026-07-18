@@ -49,9 +49,21 @@ function clearMessages() {
 }
 
 function renderMarkdown(text: string): string {
+  // First, escape any existing HTML to prevent XSS
   let html = text
-    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-    .replace(/\*(.+?)\*/g, "<em>$1</em>");
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+
+  // Bold
+  html = html.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+  // Italic
+  html = html.replace(/\*(.+?)\*/g, "<em>$1</em>");
+  // Auto-linkify URLs — render as clickable <a> tags, open in new tab
+  html = html.replace(
+    /(https?:\/\/[^\s<]+)/g,
+    '<a href="$1" target="_blank" rel="noopener noreferrer" style="color: #3923c7; text-decoration: underline;">$1</a>'
+  );
 
   const blocks = html.split(/\n\n+/);
   const rendered: string[] = [];
