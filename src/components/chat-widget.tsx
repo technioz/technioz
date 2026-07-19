@@ -206,9 +206,12 @@ export function ChatWidget() {
         <button
           onClick={() => setOpen(true)}
           aria-label="Open chat"
-          className="pointer-events-auto group absolute bottom-0 right-0 w-24 h-24 focus:outline-none"
+          className="pointer-events-auto group absolute bottom-0 right-0 w-24 h-24 bg-transparent border-0 outline-none p-0 appearance-none"
           style={{
             clipPath: "polygon(100% 0, 100% 100%, 0 100%)",
+            WebkitClipPath: "polygon(100% 0, 100% 100%, 0 100%)",
+            background: "transparent",
+            WebkitTapHighlightColor: "transparent",
           }}
         >
           {/* The cobalt triangle */}
