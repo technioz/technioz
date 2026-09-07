@@ -8,6 +8,7 @@ import { BlogCardBanner } from "@/components/blog-card-banner";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { StaticBlogPostingJsonLd, DbBlogPostingJsonLd } from "@/components/blog-posting-jsonld";
 import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
+import { getRelatedServiceLinks, type ServiceLink } from "@/lib/blog-service-links";
 
 import type { Metadata } from "next";
 
@@ -229,7 +230,24 @@ export default async function BlogDetail({ params }: { params: Promise<{ slug: s
   return <DbBlogDetail article={dbPost} />;
 }
 
+function RelatedServices({ links }: { links: ServiceLink[] }) {
+  if (links.length === 0) return null;
+  return (
+    <div className="mt-10 p-6 bg-white-300 border border-neutral-300 rounded-sm">
+      <p className="e2 text-black-500 mb-3">Technioz services related to this article</p>
+      <div className="flex flex-wrap gap-x-6 gap-y-2">
+        {links.map((link) => (
+          <Link key={link.href} href={link.href} className="e2 text-cobolt-500 hover:text-cobolt-400 transition-colors">
+            {link.label} →
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function StaticBlogDetail({ post }: { post: typeof blogPosts[number] }) {
+  const relatedServiceLinks = getRelatedServiceLinks(`${post.title} ${post.tags.join(" ")}`);
   return (
     <>
       <BreadcrumbJsonLd items={[{ name: "Home", href: "/" }, { name: "Blog", href: "/blog" }, { name: post.title }]} />
@@ -347,6 +365,8 @@ function StaticBlogDetail({ post }: { post: typeof blogPosts[number] }) {
                 </Link>
               </div>
             )}
+
+            <RelatedServices links={relatedServiceLinks} />
           </div>
         </article>
       </section>
@@ -383,6 +403,7 @@ function StaticBlogDetail({ post }: { post: typeof blogPosts[number] }) {
 function DbBlogDetail({ article }: { article: Awaited<ReturnType<typeof getDbArticleBySlug>> & {} }) {
   const date = formatDbArticleDate(article.publishedAt);
   const imageSrc = article.imageLocalPath || article.imageUrl || undefined;
+  const relatedServiceLinks = getRelatedServiceLinks(`${article.title} ${article.tags.join(" ")}`);
 
   return (
     <>
@@ -469,6 +490,8 @@ function DbBlogDetail({ article }: { article: Awaited<ReturnType<typeof getDbArt
                 </Link>
               </div>
             )}
+
+            <RelatedServices links={relatedServiceLinks} />
           </div>
         </article>
       </section>
