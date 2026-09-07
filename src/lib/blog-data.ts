@@ -25,7 +25,7 @@ const pillarOnePosts: BlogPost[] = [
   {
     slug: "how-to-choose-software-development-partner-2026",
     title: "How to Choose a Software Development Partner",
-    excerpt: "Choosing the wrong software development partner can cost you time, money, and your product.",
+    excerpt: "Learn how to choose a software development partner in 2026: red flags to avoid, questions to ask, and how to pick a custom software company you can trust.",
     category: "Custom Software",
     date: "July 5, 2026",
     readTime: "11 min read",
@@ -1083,7 +1083,7 @@ const pillarOnePosts: BlogPost[] = [
   {
     slug: "mobile-app-development-process-idea-to-launch-2026",
     title: "Mobile App Development Process: From Idea to Launch",
-    excerpt: "Building a mobile app involves discovery, design, development, testing, and launch.",
+    excerpt: "Learn the mobile app development process step by step, from idea to App Store launch: discovery, design, development, testing, and release for growing teams.",
     category: "Web & Mobile",
     date: "July 5, 2026",
     readTime: "9 min read",
@@ -1176,7 +1176,7 @@ const pillarOnePosts: BlogPost[] = [
   {
     slug: "react-native-vs-flutter-2026-comparison",
     title: "React Native vs Flutter in 2026",
-    excerpt: "React Native and Flutter are the two dominant cross-platform mobile development frameworks.",
+    excerpt: "React Native vs Flutter in 2026: compare performance, cost, and hiring to pick the right cross-platform mobile framework for your business app.",
     category: "Web & Mobile",
     date: "July 5, 2026",
     readTime: "9 min read",
@@ -2336,7 +2336,7 @@ const pillarOnePosts: BlogPost[] = [
   {
     slug: "hipaa-compliant-software-development-checklist-2026",
     title: "HIPAA-Compliant Software Development",
-    excerpt: "HIPAA compliance is essential for any software that handles protected health information.",
+    excerpt: "Use this HIPAA compliance checklist to build HIPAA compliant healthcare software that protects patient data, passes audits, and keeps clinical workflows safe.",
     category: "Industry Solutions",
     date: "July 5, 2026",
     readTime: "8 min read",
@@ -2736,7 +2736,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "software-security-compliance-guide-enterprise-2026",
     title: "Enterprise Software Security & Compliance (2026)",
-    excerpt: "Build secure, compliant enterprise software. Covers HIPAA, PCI-DSS, GDPR, and UAE data protection.",
+    excerpt: "A practical guide to building secure, compliant enterprise software in 2026, covering HIPAA, PCI-DSS, GDPR, and UAE data protection for growing teams.",
     category: "Consulting & Strategy",
     date: "July 10, 2026",
     readTime: "10 min read",
