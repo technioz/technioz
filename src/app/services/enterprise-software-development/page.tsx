@@ -5,10 +5,10 @@ import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Enterprise Software Development Company | Secure & Scalable",
+  title: "Enterprise Software Development Company",
   description: "Enterprise software development company. Secure, compliant, and scalable solutions for organizations that cannot afford downtime.",
   openGraph: buildOpenGraph({
-      title: "Enterprise Software Development Company | Secure & Scalable",
+      title: "Enterprise Software Development Company",
       description: "Technioz builds enterprise software with role-based access, audit trails, integrations, and compliance controls.",
       url: "https://technioz.com/services/enterprise-software-development",
     }),

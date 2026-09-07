@@ -5,10 +5,10 @@ import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "DevOps Consulting Company | CI/CD, Kubernetes, IaC",
+  title: "DevOps Consulting Company | CI/CD & K8s",
   description: "DevOps consulting company. CI/CD, Kubernetes, infrastructure as code, and observability. Ship faster with reliable systems.",
   openGraph: buildOpenGraph({
-      title: "DevOps Consulting Company | CI/CD, Kubernetes, IaC",
+      title: "DevOps Consulting Company | CI/CD & K8s",
       description: "Technioz delivers DevOps services including CI/CD pipelines, infrastructure as code, Kubernetes, and observability.",
       url: "https://technioz.com/services/devops-services",
     }),

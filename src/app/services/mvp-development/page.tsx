@@ -7,10 +7,10 @@ import { ChecklistForm } from "./checklist-form";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "MVP Development Company for Startups | 12 Weeks to Launch",
+  title: "MVP Development Company for Startups",
   description: "MVP development company for startups. Validate your idea, scope the smallest useful version, and launch in 8-12 weeks with React Native, Next.js, or Node.js.",
   openGraph: buildOpenGraph({
-      title: "MVP Development Company for Startups | 12 Weeks to Launch",
+      title: "MVP Development Company for Startups",
       description: "Validate your startup idea and launch an MVP in 8-12 weeks. Fixed-price scoping, lean scope, and a clear path to product-market fit.",
       url: "https://technioz.com/services/mvp-development",
     }),

@@ -5,10 +5,10 @@ import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "RAG System Development Company | Knowledge-Based AI",
+  title: "RAG System Development Company",
   description: "RAG system development company. Ground LLM answers in your private documents, knowledge bases, and policies.",
   openGraph: buildOpenGraph({
-      title: "RAG System Development Company | Knowledge-Based AI",
+      title: "RAG System Development Company",
       description: "Technioz builds RAG systems that ground LLM answers in your private documents and knowledge bases.",
       url: "https://technioz.com/services/rag-system-development",
     }),

@@ -4,10 +4,10 @@ import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Custom Software Development Company",
-  description: "Custom software development company. When to build custom software, how the process works, and what to look for in a development partner.",
+  title: "Custom Software Development: Complete Guide",
+  description: "When to build custom software instead of buying off-the-shelf, how the process works, what it costs, and how to choose a development partner.",
   openGraph: buildOpenGraph({
-      title: "Custom Software Development Company",
+      title: "Custom Software Development: Complete Guide",
       description: "Learn when custom software beats off-the-shelf tools, what drives cost and timeline, and how to choose a development partner.",
       url: "https://technioz.com/custom-software-development",
     }),

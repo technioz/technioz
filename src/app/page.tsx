@@ -14,7 +14,7 @@ const PricingModelDiagram = dynamic(() => import("@/components/diagrams/pricing-
 const ShippingVelocityDiagram = dynamic(() => import("@/components/diagrams/shipping-velocity-diagram").then((m) => m.ShippingVelocityDiagram));
 
 export const metadata: Metadata = {
-  title: "Custom Software Development Company — Web, Mobile \u0026 AI",
+  title: "Custom Software Development Company | Web & AI",
   description: "We build web apps, mobile apps and AI solutions for GCC and India businesses. 5+ projects shipped, 98% on-time since 2024. Book a free consultation.",
   openGraph: buildOpenGraph({
       title: "Technioz | Full-Cycle Software Development for Growing Businesses",

@@ -5,10 +5,10 @@ import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Chatbot Development Company — NLP, ML & Automation",
+  title: "AI Solutions & Machine Learning Company",
   description: "We build AI chatbots, agents, RAG systems, and LLM integrations that automate support, sales, and operations. Book a free AI use-case consultation.",
   openGraph: buildOpenGraph({
-      title: "AI Chatbot Development Company — NLP, ML & Automation",
+      title: "AI Solutions & Machine Learning Company",
       description: "Technioz builds practical AI chatbots, agents, RAG systems, LLM integrations, and workflow automation.",
       url: "https://technioz.com/services/ai-solutions",
     }),

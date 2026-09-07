@@ -15,7 +15,7 @@ export interface SolutionData {
 export const solutions: SolutionData[] = [
   {
     slug: "startups",
-    title: "Startup Software Development Company | MVP to Scale",
+    title: "Startup Software Development Company",
     subtitle: "From pitch deck to production — we help startups launch fast, iterate faster, and scale without rewriting everything. MVPs in 8-12 weeks, not 8-12 months.",
     label: "Startups",
     icon: "\u{1F680}",
@@ -46,7 +46,7 @@ export const solutions: SolutionData[] = [
   },
   {
     slug: "healthcare",
-    title: "Healthcare Software Development | HIPAA & Telemedicine",
+    title: "Healthcare Software Development Company",
     subtitle: "Healthcare software that keeps patient data safe and clinical workflows efficient.",
     label: "Healthcare",
     icon: "\u{1F3E5}",
@@ -77,7 +77,7 @@ export const solutions: SolutionData[] = [
   },
   {
     slug: "finance",
-    title: "Fintech Software Development | Payments, Banking & Trading",
+    title: "Fintech Software Development Company",
     subtitle: "Secure, compliant financial software for digital banking, payments, lending, and trading.",
     label: "Finance",
     icon: "\u{1F4B8}",
@@ -108,7 +108,7 @@ export const solutions: SolutionData[] = [
   },
   {
     slug: "ecommerce",
-    title: "E-commerce Software Development Company | Custom Stores",
+    title: "E-commerce Software Development Company",
     subtitle: "E-commerce platforms built to convert visitors, manage inventory, and handle scale.",
     label: "E-commerce",
     icon: "\u{1F6D2}",
@@ -139,7 +139,7 @@ export const solutions: SolutionData[] = [
   },
   {
     slug: "education",
-    title: "Education Software Development | LMS & AI Tutoring",
+    title: "Education Software Development Company",
     subtitle: "Learning platforms, assessment tools, and school management systems that engage students and administrators.",
     label: "Education",
     icon: "\u{1F393}",
@@ -170,7 +170,7 @@ export const solutions: SolutionData[] = [
   },
   {
     slug: "logistics",
-    title: "Logistics & Transportation Software Development | GCC",
+    title: "Logistics Software Development Company | GCC",
     subtitle: "Fleet, warehouse, and transport software that keeps goods moving and customers informed.",
     label: "Logistics",
     icon: "\u{1F69A}",

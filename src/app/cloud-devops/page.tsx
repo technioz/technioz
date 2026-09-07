@@ -4,10 +4,10 @@ import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Cloud & DevOps Consulting Company | AWS, Azure, GCP",
+  title: "Cloud & DevOps Consulting Company | AWS, Azure",
   description: "Cloud and DevOps consulting company. Cloud migration, Kubernetes, CI/CD, and infrastructure as code for modern teams.",
   openGraph: buildOpenGraph({
-      title: "Cloud & DevOps Consulting Company | AWS, Azure, GCP",
+      title: "Cloud & DevOps Consulting Company | AWS, Azure",
       description: "How cloud infrastructure, CI/CD, and DevOps practices help businesses scale reliably and ship faster.",
       url: "https://technioz.com/cloud-devops",
     }),

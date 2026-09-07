@@ -6,10 +6,10 @@ import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Web App Development Company in Dubai | React, Next.js, Node",
-  description: "Custom web application development company in Dubai. React, Next.js, and Node.js web apps for UAE and GCC businesses. See Al Khanjry case study. Get a 48-hour quote.",
+  title: "Web App Development Company in Dubai",
+  description: "Custom web application development company in Dubai. React, Next.js and Node.js apps for UAE businesses. See the Al Khanjry case study. 48-hour quote.",
   openGraph: buildOpenGraph({
-      title: "Web App Development Company in Dubai | React, Next.js, Node",
+      title: "Web App Development Company in Dubai",
       description: "Technioz builds custom web applications for Dubai and GCC businesses with React, Next.js, and Node.js.",
       url: "https://technioz.com/web-app-development-company-dubai",
     }),

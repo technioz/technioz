@@ -152,9 +152,9 @@ export function BlogList({
                         </span>
                         <span className="text-xs text-black-400">{article.readTime}</span>
                       </div>
-                      <h3 className="font-display text-[20px] leading-[1.2] tracking-[-1px] text-black-500 group-hover:text-cobolt-500 transition-colors">
+                      <h2 className="font-display text-[20px] leading-[1.2] tracking-[-1px] text-black-500 group-hover:text-cobolt-500 transition-colors">
                         {article.title}
-                      </h3>
+                      </h2>
                       <p className="p5 text-black-400 line-clamp-2">{article.excerpt}</p>
                       <div className="flex items-center gap-4 mt-2">
                         <span className="text-xs font-medium text-black-500">{article.author.name}</span>

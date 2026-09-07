@@ -6,7 +6,7 @@ import { ContactForm } from "@/components/contact-form";
 import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
 
 export const metadata: Metadata = {
-  title: "Contact Technioz — Free 30-Min Consultation & 48h Quote",
+  title: "Contact Technioz | Free Consultation & Quote",
   description: "Tell us about your project. We reply within 24 hours with next steps and a scoping call — no commitment, NDA on request.",
   openGraph: buildOpenGraph({
       title: "Contact Us",

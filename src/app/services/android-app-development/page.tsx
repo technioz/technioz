@@ -5,10 +5,10 @@ import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Android App Development Company | Kotlin & Jetpack",
+  title: "Android App Development Company | Kotlin",
   description: "Android app development company. Native Kotlin apps with Jetpack — performance, security, and scale on every device.",
   openGraph: buildOpenGraph({
-      title: "Android App Development Company | Kotlin & Jetpack",
+      title: "Android App Development Company | Kotlin",
       description: "Technioz builds native Android apps with Kotlin and Jetpack Compose.",
       url: "https://technioz.com/services/android-app-development",
     }),

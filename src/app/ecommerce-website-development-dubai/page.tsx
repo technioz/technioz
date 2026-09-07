@@ -152,7 +152,7 @@ export default function EcommerceWebsiteDevelopmentDubai() {
               { title: "Trade Licence Guidance", desc: "We can align technical setup with common e-commerce licence needs; formal legal advice should come from your licencing partner." },
             ].map((c, i) => (
               <div key={i} className="border border-black-400 rounded-sm p-[32px]">
-                <h3 className="font-display text-[18px] font-medium text-white-200 mb-2">{c.title}</h3>
+                <h3 className="font-display text-[18px] font-medium !text-white-200 mb-2">{c.title}</h3>
                 <p className="p4 text-black-200">{c.desc}</p>
               </div>
             ))}

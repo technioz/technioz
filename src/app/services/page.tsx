@@ -5,7 +5,7 @@ import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Software Development Services: Web, Mobile, AI & Cloud",
+  title: "Software Development Services | Web, AI & Cloud",
   description: "End-to-end software development — web apps, iOS/Android, AI and cloud. Fixed-price or dedicated teams. See services, process and typical costs.",
   openGraph: buildOpenGraph({
       title: "Software Development Services - Web, Mobile, AI & Cloud",
@@ -43,7 +43,7 @@ export default function Services() {
               <Link key={s.href} href={s.href} className="bg-white-200 rounded-sm p-[32px] flex flex-col gap-[24px] hover:shadow-[0_10px_24px_rgba(29,27,22,0.12)] transition-shadow group">
                 <div className="flex flex-col gap-[12px]">
                   <span className="text-[32px]">{s.icon}</span>
-                  <h3 className="font-display text-[32px] leading-none tracking-[-1.6px] text-black-500">{s.title}</h3>
+                  <h2 className="font-display text-[32px] leading-none tracking-[-1.6px] text-black-500">{s.title}</h2>
                   <p className="p4 text-black-400">{s.desc}</p>
                 </div>
                 <ul className="flex flex-col gap-[8px]">

@@ -7,10 +7,10 @@ import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
 
 export const metadata: Metadata = {
-  title: "Resources — Guides, Case Studies & Engineering Notes",
+  title: "Resources | Guides, Case Studies & Notes",
   description: "Practical guides, case studies, and engineering notes on custom software, AI, cloud, and mobile app development.",
   openGraph: buildOpenGraph({
-      title: "Resources — Guides, Case Studies & Engineering Notes",
+      title: "Resources | Guides, Case Studies & Notes",
       description: "Practical guides, case studies, and engineering notes from the Technioz team.",
       url: "https://technioz.com/resources",
     }),

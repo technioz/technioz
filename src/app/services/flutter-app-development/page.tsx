@@ -5,10 +5,10 @@ import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Flutter App Development Company | Cross-Platform Apps",
+  title: "Flutter App Development Company",
   description: "Flutter app development company. Beautiful, high-performance cross-platform apps on iOS, Android, and web.",
   openGraph: buildOpenGraph({
-      title: "Flutter App Development Company | Cross-Platform Apps",
+      title: "Flutter App Development Company",
       description: "Technioz builds beautiful, fast cross-platform apps with Flutter and Dart for iOS, Android, and web.",
       url: "https://technioz.com/services/flutter-app-development",
     }),

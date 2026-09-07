@@ -5,10 +5,10 @@ import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Digital Transformation Consulting Company | Modernize Ops",
+  title: "Digital Transformation Consulting Company",
   description: "Digital transformation consulting company. Modernize processes, systems, and customer experiences without disrupting operations.",
   openGraph: buildOpenGraph({
-      title: "Digital Transformation Consulting Company | Modernize Ops",
+      title: "Digital Transformation Consulting Company",
       description: "Technioz helps organizations modernize operations, migrate legacy systems, and adopt cloud, AI, and automation.",
       url: "https://technioz.com/services/digital-transformation-consulting",
     }),

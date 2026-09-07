@@ -8,10 +8,10 @@ import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
 import { AuditForm } from "./audit-form";
 
 export const metadata: Metadata = {
-  title: "IT Consulting Company | Strategy & Digital Transformation",
+  title: "IT Consulting Company | Tech Strategy",
   description: "IT consulting company. Strategic technology planning and digital transformation aligned with business goals and growth.",
   openGraph: buildOpenGraph({
-      title: "IT Consulting Company | Strategy & Digital Transformation",
+      title: "IT Consulting Company | Tech Strategy",
       description: "Technioz provides strategic IT consulting: digital transformation roadmaps, architecture reviews, tech stack selection, and execution support.",
       url: "https://technioz.com/services/it-consulting",
     }),

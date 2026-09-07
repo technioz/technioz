@@ -4,15 +4,15 @@ import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Security & Reliability Consulting | Compliance & Uptime",
+  title: "Security & Reliability Consulting | Compliance",
   description: "Security and reliability consulting. Protect APIs, secure data, meet compliance, and maintain uptime.",
   openGraph: buildOpenGraph({
-      title: "Security & Reliability Consulting | Compliance & Uptime",
+      title: "Security & Reliability Consulting | Compliance",
       description: "Security and reliability consulting. Protect APIs, secure data, meet compliance, and maintain uptime.",
       url: "https://technioz.com/security-reliability",
     }),
   twitter: buildTwitterCard({
-      title: "Security & Reliability Consulting | Compliance & Uptime",
+      title: "Security & Reliability Consulting | Compliance",
       description: "Security and reliability consulting. Protect APIs, secure data, meet compliance, and maintain uptime.",
       image: "/og-image.png",
     }),

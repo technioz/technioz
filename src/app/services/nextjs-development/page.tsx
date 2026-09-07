@@ -5,10 +5,10 @@ import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Next.js Development Company | SEO-Friendly React Apps",
+  title: "Next.js Development Company",
   description: "Next.js development company. SEO-friendly, full-stack React apps with server components, API routes, and edge deployment.",
   openGraph: buildOpenGraph({
-      title: "Next.js Development Company | SEO-Friendly React Apps",
+      title: "Next.js Development Company",
       description: "Technioz builds fast, SEO-friendly Next.js applications with App Router, server components, and edge rendering.",
       url: "https://technioz.com/services/nextjs-development",
     }),

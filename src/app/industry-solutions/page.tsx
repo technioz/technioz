@@ -4,10 +4,10 @@ import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Industry Software Solutions",
+  title: "Software Solutions by Industry",
   description: "Custom software solutions for transport, logistics, retail, healthcare, finance, and education. Built around real industry workflows.",
   openGraph: buildOpenGraph({
-      title: "Industry Software Solutions",
+      title: "Software Solutions by Industry",
       description: "How custom software solves industry-specific problems in transport, retail, logistics, healthcare, finance, and more.",
       url: "https://technioz.com/industry-solutions",
     }),

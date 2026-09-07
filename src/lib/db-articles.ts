@@ -84,7 +84,16 @@ function mapArticle(raw: {
   };
 }
 
+// ponytail: in-process 5-min TTL cache (long-running container deploy);
+// swap for Next's data cache if this ever moves to serverless
+const ARTICLE_LIST_TTL_MS = 5 * 60 * 1000;
+let articleListCache: { at: number; data: DbArticle[] } | undefined;
+
 export async function getAllDbArticles(): Promise<DbArticle[]> {
+  if (articleListCache && Date.now() - articleListCache.at < ARTICLE_LIST_TTL_MS) {
+    return articleListCache.data;
+  }
+
   const prisma = getPrisma();
 
   const articles = await prisma.article.findMany({
@@ -92,7 +101,9 @@ export async function getAllDbArticles(): Promise<DbArticle[]> {
     include: { tags: { select: { name: true } } },
   });
 
-  return articles.map(mapArticle);
+  const data = articles.map(mapArticle);
+  articleListCache = { at: Date.now(), data };
+  return data;
 }
 
 //to be used when all the blogs are from DB

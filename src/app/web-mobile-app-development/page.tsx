@@ -4,10 +4,10 @@ import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Web & Mobile App Development Company | Custom Apps",
+  title: "Web & Mobile App Development Company",
   description: "Web and mobile app development company. Custom iOS, Android, React Native, Flutter, React, and Next.js apps built for growth.",
   openGraph: buildOpenGraph({
-      title: "Web & Mobile App Development Company | Custom Apps",
+      title: "Web & Mobile App Development Company",
       description: "What founders and marketing managers should know about building web and mobile apps in 2026.",
       url: "https://technioz.com/web-mobile-app-development",
     }),

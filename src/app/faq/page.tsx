@@ -100,7 +100,7 @@ export default function FAQ() {
             {faqs.map((faq, i) => (
               <details key={i} className="group bg-white-200 border border-neutral-300 rounded-sm overflow-hidden">
                 <summary className="p-[24px] lg:p-[32px] cursor-pointer flex items-start justify-between gap-4 hover:text-cobolt-500 transition-colors list-none">
-                  <h3 className="font-display text-[20px] leading-[1.2] tracking-[-1px] text-black-500 group-hover:text-cobolt-500 transition-colors">{faq.q}</h3>
+                  <h2 className="font-display text-[20px] leading-[1.2] tracking-[-1px] text-black-500 group-hover:text-cobolt-500 transition-colors">{faq.q}</h2>
                   <svg
                     className="w-6 h-6 text-black-400 group-open:rotate-45 transition-transform duration-[300ms] shrink-0 mt-1"
                     viewBox="0 0 24 24"

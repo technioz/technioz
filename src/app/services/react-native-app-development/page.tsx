@@ -6,10 +6,10 @@ import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "React Native Development Company | Cross-Platform Apps",
+  title: "React Native Development Company",
   description: "React Native development company building cross-platform iOS and Android apps. We shipped BusPass UAE and HattaFoodHub. Book a free React Native scoping call.",
   openGraph: buildOpenGraph({
-      title: "React Native Development Company | Cross-Platform Apps",
+      title: "React Native Development Company",
       description: "React Native development company building cross-platform iOS and Android apps. Book a free scoping call.",
       url: "https://technioz.com/services/react-native-app-development",
     }),

@@ -7,10 +7,10 @@ import { ScorecardForm } from "./scorecard-form";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Software Development Company in Dubai — Web, Mobile & AI",
+  title: "Software Development Company in Dubai",
   description: "Dubai software development company building web apps, mobile apps, and AI solutions for UAE and GCC businesses. Free vendor scorecard. Book a free scoping call.",
   openGraph: buildOpenGraph({
-      title: "Software Development Company in Dubai — Web, Mobile & AI",
+      title: "Software Development Company in Dubai",
       description: "Technioz builds custom software, web apps, mobile apps, and AI solutions for Dubai and GCC businesses.",
       url: "https://technioz.com/software-development-company-dubai",
     }),

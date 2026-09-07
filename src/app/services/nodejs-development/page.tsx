@@ -5,10 +5,10 @@ import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Node.js Development Company | Scalable APIs & Backends",
+  title: "Node.js Development Company",
   description: "Node.js development company. Scalable APIs, real-time systems, microservices, and cloud-native backends.",
   openGraph: buildOpenGraph({
-      title: "Node.js Development Company | Scalable APIs & Backends",
+      title: "Node.js Development Company",
       description: "Technioz builds high-performance Node.js backends, REST/GraphQL APIs, real-time systems, and microservices.",
       url: "https://technioz.com/services/nodejs-development",
     }),

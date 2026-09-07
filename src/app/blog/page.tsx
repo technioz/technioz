@@ -8,11 +8,11 @@ import type { Metadata } from "next";
 const POSTS_PER_PAGE = 12;
 
 export const metadata: Metadata = {
-  title: "Technioz Blog — Software, AI, Cloud & Mobile Insights",
+  title: "Technioz Blog | Software & AI Insights",
   description:
     "Case studies, engineering notes, and practical guides on custom software, AI solutions, cloud platforms, and mobile app development.",
   openGraph: buildOpenGraph({
-      title: "Technioz Blog — Software, AI, Cloud & Mobile Insights",
+      title: "Technioz Blog | Software & AI Insights",
       description: "Case studies, engineering notes, and practical guides from the Technioz team.",
       url: "https://technioz.com/blog",
     }),
