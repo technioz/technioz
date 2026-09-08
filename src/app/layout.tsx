@@ -67,6 +67,18 @@ export default function RootLayout({
           data-website-id="d53eda4e-035b-4d79-ad99-08f80ebb4727"
           strategy="afterInteractive"
         />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-QYDE8LRP78"
+          strategy="afterInteractive"
+        />
+        <Script id="ga4" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-QYDE8LRP78');
+          `}
+        </Script>
         <SpeedInsights />
       </body>
     </html>
