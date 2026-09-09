@@ -28,6 +28,15 @@ const caseStudySlugs = Array.from(
   )
 );
 
+// Pull tool slug list from src/lib/tools-data.ts (single source of truth)
+const toolsDataPath = path.join(__dirname, '..', 'src', 'lib', 'tools-data.ts');
+const toolsDataSrc = fs.readFileSync(toolsDataPath, 'utf-8');
+const toolSlugs = Array.from(
+  new Set(
+    [...toolsDataSrc.matchAll(/slug:\s*"([^"]+)"/g)].map((m) => m[1])
+  )
+);
+
 // Discover static pages from src/app
 const appDir = path.join(__dirname, '..', 'src', 'app');
 function walk(dir, prefix = '') {
@@ -52,6 +61,7 @@ const staticPages = walk(appDir);
 // live in /sitemap-blog.xml.
 const includedDynamic = [
   ...caseStudySlugs.map((s) => `/portfolio/${s}`),
+  ...toolSlugs.map((s) => `/tools/${s}`),
 ];
 
 const allPages = [
@@ -74,6 +84,7 @@ const sections = [
   { title: 'Resource Pages', priority: () => '0.7', freq: () => 'monthly', match: (p) => p.startsWith('/resources/') },
   { title: 'Pillar Pages', priority: () => '0.7', freq: () => 'monthly', match: (p) => ['/custom-software-development', '/ai-solutions', '/cloud-devops', '/security-reliability', '/consulting-strategy', '/data-apis-integrations', '/digital-transformation', '/enterprise', '/industry-solutions', '/web-mobile-app-development'].includes(p) },
   { title: 'Portfolio Items', priority: () => '0.7', freq: () => 'monthly', match: (p) => p.startsWith('/portfolio/') },
+  { title: 'Tools', priority: () => '0.7', freq: () => 'monthly', match: (p) => p.startsWith('/tools') },
   { title: 'Legal', priority: () => '0.3', freq: () => 'yearly', match: (p) => p === '/privacy' || p === '/terms' },
 ];
 
