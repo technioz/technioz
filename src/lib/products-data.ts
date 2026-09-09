@@ -1,4 +1,4 @@
-export type Tool = {
+export type Product = {
   slug: string;
   name: string;
   tagline: string;
@@ -15,7 +15,7 @@ export type Tool = {
   moneyPage: { label: string; href: string; blurb: string };
 };
 
-export const tools: Tool[] = [
+export const products: Product[] = [
   {
     slug: "uplink",
     name: "Uplink",
@@ -141,6 +141,6 @@ export const tools: Tool[] = [
   },
 ];
 
-export function getToolBySlug(slug: string): Tool | undefined {
-  return tools.find((t) => t.slug === slug);
+export function getProductBySlug(slug: string): Product | undefined {
+  return products.find((t) => t.slug === slug);
 }

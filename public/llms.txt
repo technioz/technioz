@@ -13,6 +13,9 @@
 - [Cloud Services](https://technioz.com/services/cloud-services): Migration, DevOps, serverless, Kubernetes, multi-cloud (AWS/Azure/GCP).
 - [IT Consulting](https://technioz.com/services/it-consulting): Strategy, digital transformation, architecture review, vendor selection, security.
 - [Portfolio](https://technioz.com/portfolio): Four case studies — HattaFoodHub food delivery, Al Khanjry Groups transport ticketing, Folio AI website builder, Sky Growers farm-to-table produce platform.
+- [Products](https://technioz.com/products): Products Technioz built and operates itself.
+- [Uplink](https://technioz.com/products/uplink): Self-hosted video calling platform with a native Rust terminal client — live at meet.heygauravbhatia.com.
+- [The Neural Journal](https://technioz.com/products/neural-journal): Autonomous AI news engine that discovers, clusters, and synthesizes multi-source articles hourly with no human editor — live at news.technioz.com.
 - [Case Studies](https://technioz.com/case-studies): Featured deep dives into HattaFoodHub and Al Khanjry Groups.
 - [Blog](https://technioz.com/blog): Technical articles and case studies covering microservices, React 19, cloud security, transport digitization.
 - [Contact](https://technioz.com/contact): Project inquiry form with budget, timeline, and service selection.

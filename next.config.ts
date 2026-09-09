@@ -57,6 +57,18 @@ const nextConfig: NextConfig = {
         destination: "https://technioz.com/:path*",
         permanent: true,
       },
+      // /tools was renamed to /products before search engines indexed it;
+      // redirect in case the short-lived URLs were submitted or shared
+      {
+        source: "/tools",
+        destination: "/products",
+        permanent: true,
+      },
+      {
+        source: "/tools/:slug",
+        destination: "/products/:slug",
+        permanent: true,
+      },
     ];
   },
 };

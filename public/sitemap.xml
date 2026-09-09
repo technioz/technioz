@@ -399,21 +399,21 @@
     <priority>0.7</priority>
 </url>
 
-  <!-- Tools -->
+  <!-- Products -->
   <url>
-    <loc>https://technioz.com/tools</loc>
+    <loc>https://technioz.com/products</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
 </url>
   <url>
-    <loc>https://technioz.com/tools/neural-journal</loc>
+    <loc>https://technioz.com/products/neural-journal</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
 </url>
   <url>
-    <loc>https://technioz.com/tools/uplink</loc>
+    <loc>https://technioz.com/products/uplink</loc>
     <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

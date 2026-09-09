@@ -1,13 +1,13 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { tools, getToolBySlug } from "@/lib/tools-data";
+import { products, getProductBySlug } from "@/lib/products-data";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
 
 import type { Metadata } from "next";
 
 export function generateStaticParams() {
-  return tools.map((tool) => ({ slug: tool.slug }));
+  return products.map((tool) => ({ slug: tool.slug }));
 }
 
 export async function generateMetadata({
@@ -16,7 +16,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const tool = getToolBySlug(slug);
+  const tool = getProductBySlug(slug);
   if (!tool) return {};
   return {
     title: tool.title,
@@ -24,10 +24,10 @@ export async function generateMetadata({
     openGraph: buildOpenGraph({
       title: tool.title,
       description: tool.tagline,
-      url: `https://technioz.com/tools/${tool.slug}`,
+      url: `https://technioz.com/products/${tool.slug}`,
     }),
     alternates: {
-      canonical: `https://technioz.com/tools/${tool.slug}`,
+      canonical: `https://technioz.com/products/${tool.slug}`,
     },
   };
 }
@@ -35,7 +35,7 @@ export async function generateMetadata({
 function SoftwareAppJsonLd({
   tool,
 }: {
-  tool: NonNullable<ReturnType<typeof getToolBySlug>>;
+  tool: NonNullable<ReturnType<typeof getProductBySlug>>;
 }) {
   const data = {
     "@context": "https://schema.org",
@@ -84,7 +84,7 @@ export default async function ToolDetail({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const tool = getToolBySlug(slug);
+  const tool = getProductBySlug(slug);
   if (!tool) notFound();
 
   return (
@@ -92,8 +92,8 @@ export default async function ToolDetail({
       <BreadcrumbJsonLd
         items={[
           { name: "Home", href: "/" },
-          { name: "Tools", href: "/tools" },
-          { name: tool.name, href: `/tools/${tool.slug}` },
+          { name: "Products", href: "/products" },
+          { name: tool.name, href: `/products/${tool.slug}` },
         ]}
       />
       <SoftwareAppJsonLd tool={tool} />
@@ -102,7 +102,7 @@ export default async function ToolDetail({
       <section className="bg-white-200">
         <div className="max-w-[1440px] mx-auto px-6 pt-12 pb-16 lg:px-[148px] lg:pt-[100px] lg:pb-[100px]">
           <div className="flex flex-col gap-[24px] max-w-[760px]">
-            <span className="e1 text-cobolt-500">Technioz Tools</span>
+            <span className="e1 text-cobolt-500">Technioz Products</span>
             <h1 className="h2 text-black-500">{tool.name}: {tool.tagline}</h1>
             <p className="p3 text-black-400">{tool.intro}</p>
             <div className="flex flex-wrap items-center gap-4">
@@ -184,14 +184,14 @@ export default async function ToolDetail({
 
       <section className="bg-white-300">
         <div className="max-w-[1440px] mx-auto px-6 py-16 lg:px-[148px] lg:py-[100px]">
-          <h2 className="h4 text-black-500 mb-10">More Technioz tools</h2>
+          <h2 className="h4 text-black-500 mb-10">More Technioz products</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {tools
+            {products
               .filter((t) => t.slug !== tool.slug)
               .map((t) => (
                 <Link
                   key={t.slug}
-                  href={`/tools/${t.slug}`}
+                  href={`/products/${t.slug}`}
                   className="bg-white-200 rounded-sm p-[32px] flex flex-col gap-[12px] hover:shadow-[0_10px_24px_rgba(29,27,22,0.12)] transition-shadow group"
                 >
                   <span className="e2 text-cobolt-500">{t.tagline}</span>

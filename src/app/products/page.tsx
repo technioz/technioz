@@ -1,33 +1,33 @@
 import Link from "next/link";
-import { tools } from "@/lib/tools-data";
+import { products } from "@/lib/products-data";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
 
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Tools & Products We Built",
+  title: "Products We Built",
   description:
     "Live products we built and run ourselves: Uplink self-hosted video calls and The Neural Journal, an autonomous AI news engine. What we build when nobody is paying us.",
   openGraph: buildOpenGraph({
-    title: "Tools & Products We Built",
+    title: "Products We Built",
     description:
       "Live products built and operated by Technioz — real-time video from the terminal, an AI newspaper that writes itself.",
-    url: "https://technioz.com/tools",
+    url: "https://technioz.com/products",
   }),
   alternates: {
-    canonical: "https://technioz.com/tools",
+    canonical: "https://technioz.com/products",
   },
 };
 
-export default function ToolsIndex() {
+export default function ProductsIndex() {
   return (
     <>
-      <BreadcrumbJsonLd items={[{ name: "Home", href: "/" }, { name: "Tools", href: "/tools" }]} />
+      <BreadcrumbJsonLd items={[{ name: "Home", href: "/" }, { name: "Products", href: "/products" }]} />
       <section className="bg-white-200">
         <div className="max-w-[1440px] mx-auto px-6 pt-12 pb-16 lg:px-[148px] lg:pt-[100px] lg:pb-[100px]">
           <div className="flex flex-col gap-[24px] max-w-[720px]">
-            <span className="e1 text-cobolt-500">Technioz Tools</span>
+            <span className="e1 text-cobolt-500">Technioz Products</span>
             <h1 className="h2 text-black-500">Products we built and run ourselves</h1>
             <p className="p3 text-black-400 max-w-[600px]">
               Client work proves we deliver to a spec. These prove what happens
@@ -42,10 +42,10 @@ export default function ToolsIndex() {
       <section className="bg-white-200">
         <div className="max-w-[1440px] mx-auto px-6 pb-16 lg:px-[148px] lg:pb-[120px]">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {tools.map((tool) => (
+            {products.map((tool) => (
               <Link
                 key={tool.slug}
-                href={`/tools/${tool.slug}`}
+                href={`/products/${tool.slug}`}
                 className="bg-white-300 border border-neutral-300 rounded-sm p-[32px] flex flex-col gap-[16px] hover:shadow-[0_10px_24px_rgba(29,27,22,0.12)] transition-shadow group"
               >
                 <div className="flex flex-col gap-[12px]">

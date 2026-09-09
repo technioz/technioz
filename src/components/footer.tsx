@@ -46,6 +46,7 @@ const columns = [
       { href: "/about", label: "About" },
       { href: "/services", label: "Services" },
       { href: "/portfolio", label: "Portfolio" },
+      { href: "/products", label: "Products" },
       { href: "/case-studies", label: "Case Studies" },
       { href: "/contact", label: "Contact" },
       { href: "/blog", label: "Blog" },
