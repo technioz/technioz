@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     question: "Do you work with clients in Dubai and the GCC?",
-    answer: "Yes. We partner with companies in the UAE and Oman, and we work with buyers across Saudi Arabia, Qatar, Bahrain, and Kuwait. We are a remote-first team and collaborate over video, WhatsApp, and email with schedules that overlap Gulf Standard Time.",
+    answer: "Yes. We partner with companies in the UAE and Oman, and we work with buyers across Saudi Arabia, Qatar, Bahrain, and Kuwait. We are a founder-led, remote-first agency and collaborate over video, WhatsApp, and email with schedules that overlap Gulf Standard Time.",
   },
   {
     question: "Can you align with UAE business hours?",

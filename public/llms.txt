@@ -5,7 +5,7 @@
 ## Site Index
 
 - [Home](https://technioz.com/): Full PRESTO copy framework with problem, relief, evidence, solution, transformation, and offer sections.
-- [About](https://technioz.com/about): Company story, mission, vision, values, milestones.
+- [About](https://technioz.com/about): Founder story, mission, vision, values, milestones.
 - [Services](https://technioz.com/services): Overview of all five service areas plus development process and technology stack.
 - [Web Development](https://technioz.com/services/web-development): Custom web apps, e-commerce, PWAs, CMS, API development, maintenance.
 - [Mobile App Development](https://technioz.com/services/mobile-development): iOS, Android, React Native, Flutter, app types by industry.
@@ -28,11 +28,10 @@
 ## Key Stats
 
 - **5+** projects shipped
-- **5+** experience
+- **5+** years founder experience
 - **98%** on-time delivery
-- **2+** years building
 - Founding date: March 2024
-- Founders: Gaurav Bhatia
+- Founder: Gaurav Bhatia
 - Email: info@technioz.com
 
 ## Core Services

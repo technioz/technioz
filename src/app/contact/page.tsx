@@ -34,7 +34,7 @@ export default function Contact() {
             </div>
             <span className="e1 text-black-300">Contact Us</span>
             <h1 className="h2 text-black-500">Let&apos;s Build Something Amazing Together</h1>
-            <p className="p3 text-black-400">Ready to transform your business with innovative software solutions? Get in touch with our team for a free consultation and project quote.</p>
+            <p className="p3 text-black-400">Ready to transform your business with innovative software solutions? Get in touch for a free consultation and project quote — you&apos;ll talk directly with the founder.</p>
           </div>
         </div>
       </section>

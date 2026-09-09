@@ -39,13 +39,13 @@ export const products: Product[] = [
       {
         heading: "The terminal client",
         paragraphs: [
-          "The part nobody else ships: uplink-terminal is a native Rust app that renders live video inside your terminal — real H.264 decoding, 48 kHz Opus audio, and a keyboard-driven interface. Join a call from the same window you run tmux in, which is exactly where most of our team already lives.",
+          "The part nobody else ships: uplink-terminal is a native Rust app that renders live video inside your terminal — real H.264 decoding, 48 kHz Opus audio, and a keyboard-driven interface. Join a call from the same window you run tmux in, which is exactly where we already live.",
         ],
       },
       {
         heading: "Built the hard way, on purpose",
         paragraphs: [
-          "Uplink exists because real-time media is one of the hardest classes of software to build — NAT traversal, codec negotiation, mobile browser quirks — and we wanted the scar tissue. It's also our proof: when we build real-time features for your product, this is the depth of the team behind it.",
+          "Uplink exists because real-time media is one of the hardest classes of software to build — NAT traversal, codec negotiation, mobile browser quirks — and we wanted the scar tissue. It's also our proof: when we build real-time features for your product, this is the depth of engineering behind it.",
         ],
       },
     ],

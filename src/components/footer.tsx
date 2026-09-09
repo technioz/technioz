@@ -98,7 +98,7 @@ export function Footer() {
             <a href="mailto:info@technioz.com" className="hover:text-cobolt-300 transition-colors">info@technioz.com</a>
             <a href="https://wa.me/971569451930" target="_blank" rel="noopener noreferrer" className="hover:text-cobolt-300 transition-colors">UAE/WhatsApp: +971 56 945 1930</a>
             <a href="tel:+919803683577" className="hover:text-cobolt-300 transition-colors">India: +91 98036 83577</a>
-            <span className="text-white-300/60 text-sm">Remote-first team · Serving UAE, Oman, India & worldwide</span>
+            <span className="text-white-300/60 text-sm">Founder-led · Remote-first · Serving UAE, Oman, India & worldwide</span>
           </div>
           <div className="flex items-center gap-4">
             <Link href="/privacy" className="hover:text-cobolt-300 transition-colors">Privacy Policy</Link>

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: "Founded in 2024, Technioz is a new-age software company building web, mobile, AI, and cloud solutions for startups and enterprises worldwide.",
   openGraph: buildOpenGraph({
       title: "About Technioz | Software Development Company",
-      description: "Meet the team behind Technioz and learn how we help businesses build scalable software.",
+      description: "Meet the founder-led software agency behind Technioz — how we design, build, and ship scalable web, mobile, and AI products for GCC and India businesses.",
       url: "https://technioz.com/about",
     }),
   alternates: {
@@ -29,7 +29,7 @@ export default function About() {
               <span className="e1 text-black-300">About Technioz</span>
               <h1 className="h2 text-black-500">Building the Future with Passion & Expertise</h1>
               <p className="p3 text-black-400 max-w-[600px]">
-                Founded in 2024, Technioz is a remote-first software development company with a passionate team of engineers across logistics, e-learning, e-commerce, fintech, and custom app development. We help businesses turn ideas into reality with innovative, reliable, and scalable solutions.
+                Founded in 2024, Technioz is a founder-led, remote-first software agency. Founder Gaurav Bhatia brings 5+ years of backend engineering across logistics, fintech, e-commerce, and custom app development — and stays directly involved in every project, from architecture to launch, supported by senior engineers recruited and managed for each engagement. We help businesses turn ideas into reality with reliable, scalable solutions.
               </p>
               <p className="p4 text-black-300">
                 Serving clients in UAE, Oman, India, and worldwide. No physical office — we collaborate remotely and meet over video, WhatsApp, or email.
@@ -64,7 +64,7 @@ export default function About() {
           <p className="p2 text-black-300">A new journey of innovation and collaboration</p>
           <div className="max-w-[800px] flex flex-col gap-6">
             <p className="p3 text-black-400">
-              Technioz was founded in 2024 by a group of passionate technologists who wanted to make a difference. Our team brings together years of experience from various domains — logistics, e-learning, e-commerce, fintech, and custom app development — to create a company focused on delivering real value.
+              Technioz was founded in 2024 by Gaurav Bhatia, a backend engineer who spent years building production systems — transport booking platforms processing $1M+ in ticket sales, fintech APIs, real-time chat, and AI pipelines — and wanted to bring that depth directly to growing businesses. Technioz works as a founder-led agency: you talk to the person who architects your system, supported by senior engineers we recruit and manage per project.
             </p>
             <p className="p3 text-black-400">
               We operate as a remote-first company, collaborating closely with clients across the UAE, Oman, India, and beyond. Our model keeps overhead low and communication direct — daily standups, async updates, and video calls when it matters.
@@ -83,7 +83,7 @@ export default function About() {
           <p className="p2 text-black-300 max-w-[600px]">The principles that guide our work and shape our company culture</p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { title: "Passion", desc: "Our team is driven by a genuine passion for technology and problem-solving, always striving to deliver the best for our clients." },
+              { title: "Passion", desc: "Technioz is driven by a genuine passion for technology and problem-solving, always striving to deliver the best for our clients." },
               { title: "Expertise", desc: "We bring together experts from diverse backgrounds to craft tailored solutions." },
               { title: "Quality", desc: "We are committed to delivering high-quality, reliable, and scalable software that empowers our clients to grow." },
               { title: "Integrity", desc: "We believe in honest communication, transparency, and building lasting relationships with our clients and partners." },
@@ -106,7 +106,7 @@ export default function About() {
             {[
               { value: "5+", label: "Projects Shipped", sub: "Successfully completed projects in logistics, e-learning, fintech, and more" },
               { value: "98%", label: "On-Time Delivery", sub: "We keep our promises — clear timelines, daily updates, and no surprises" },
-              { value: "5+", label: "Experience", sub: "A passionate, experienced team ready to take on new challenges" },
+              { value: "5+", label: "Experience", sub: "Founder-led delivery, backed by senior engineers recruited and managed per project" },
             ].map((s) => (
               <div key={s.label} className="flex flex-col gap-[16px] p-[32px] border border-black-400 rounded-sm">
                 <span className="font-display text-[56px] leading-none tracking-[-2.8px] text-cobolt-300">{s.value}</span>
@@ -121,10 +121,10 @@ export default function About() {
       {/* CTA */}
       <section className="bg-cobolt-500">
         <div className="max-w-[1440px] mx-auto px-6 py-16 lg:px-[148px] lg:py-[100px] text-center flex flex-col items-center gap-[24px]">
-          <h2 className="h3 !text-white-100">Ready to partner with our team?</h2>
+          <h2 className="h3 !text-white-100">Ready to partner with us?</h2>
           <p className="p3 text-white-100/80 max-w-[600px]">Tell us what you are building and we will share how we have helped similar teams ship faster.</p>
           <div className="flex flex-wrap items-center justify-center gap-[8px]">
-            <Link href="/contact" className="cta-primary-dark !bg-white-100 !text-cobolt-500 hover:!opacity-90">Meet the team on a call</Link>
+            <Link href="/contact" className="cta-primary-dark !bg-white-100 !text-cobolt-500 hover:!opacity-90">Meet the founder on a call</Link>
             <Link href="/portfolio" className="cta-secondary-dark !border-white-100 !text-white-100 hover:!bg-white-100 hover:!text-cobolt-500">View Our Portfolio</Link>
             <Link href="/case-studies" className="cta-secondary-dark !border-white-100 !text-white-100 hover:!bg-white-100 hover:!text-cobolt-500">Read case studies</Link>
           </div>

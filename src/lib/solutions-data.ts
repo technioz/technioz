@@ -30,7 +30,7 @@ export const solutions: SolutionData[] = [
     solutions: [
       { title: "MVP packages from $15K", desc: "Fixed-scope MVP builds with clear deliverables and 8-12 week timelines. You know exactly what you're getting, when you're getting it, and what it costs — no surprises, no scope creep." },
       { title: "Scalable architecture from day one", desc: "We build with React, Next.js, Node.js, and PostgreSQL — stacks that handle your first 100 users and your first 100,000 without a rewrite. No throwaway MVP code. No technical debt accumulation." },
-      { title: "Dedicated team that scales with you", desc: "Start with 2 engineers at pre-seed. Scale to 10 at Series A. Scale to 30 at Series B. Same team, same codebase, same standards — just more capacity when you need it." },
+      { title: "Dedicated team that scales with you", desc: "We assemble and lead a dedicated team around your roadmap — starting lean at pre-seed and growing capacity as you raise, so you get senior throughput at every stage without carrying payroll you don't need yet." },
       { title: "Architecture reviews before every major feature", desc: "Before we build any feature, we review the architecture. This prevents the gradual decay that kills most startup codebases by month 12. You stay clean, fast, and maintainable." },
       { title: "Investor-ready demos every two weeks", desc: "At the end of every sprint, you get a working demo. Show it in your next pitch meeting. Show it to users. Show it to investors. Real software, not slide ware." },
       { title: "Stripe integration and payment infrastructure", desc: "Payment flows, subscription billing, one-time charges, webhook reconciliation, and refund automation — all built in from the start. Monetize from day one." },
@@ -69,9 +69,9 @@ export const solutions: SolutionData[] = [
     ],
     techTags: ["HIPAA", "FHIR", "HL7", "WebRTC", "AWS", "BAA", "SMART on FHIR", "PostgreSQL", "Redis"],
     results: [
-      { metric: "100%", label: "HIPAA compliant" },
       { metric: "<1s", label: "telemedicine latency" },
-      { metric: "0", label: "compliance breaches" },
+      { metric: "BAA-ready", label: "HIPAA-aware architecture" },
+      { metric: "100%", label: "audit logging coverage" },
     ],
     industries: ["Hospitals and health systems", "Telemedicine companies", "Digital health startups", "Medical practices", "Mental health platforms", "Pharmacy chains"],
   },
@@ -193,7 +193,7 @@ export const solutions: SolutionData[] = [
     ],
     techTags: ["React", "Next.js", "Node.js", "AWS", "WebSocket", "PostgreSQL", "Redis", "Docker", "Stripe"],
     results: [
-      { metric: "$1M+", label: "ticket sales processed" },
+      { metric: "$1M+", label: "ticket sales processed (Al Khanjry)" },
       { metric: "150K+", label: "bookings completed" },
       { metric: "80+", label: "routes covered" },
     ],
@@ -203,7 +203,7 @@ export const solutions: SolutionData[] = [
 
 export const enterpriseData = {
   title: "Enterprise Software Solutions",
-  subtitle: "Scalable, secure, and compliant software for organizations that can't afford downtime, data breaches, or missed deadlines. SOC 2, ISO 27001, and enterprise-grade reliability.",
+  subtitle: "Scalable, secure, and compliant software for organizations that can't afford downtime, data breaches, or missed deadlines. SOC 2/ISO 27001-ready development practices and enterprise-grade reliability.",
   label: "Enterprise",
   icon: "\u{1F3E2}",
   metaDescription: "Enterprise software development services. SOC 2/ISO 27001-ready, microservices migration, multi-cloud strategy and SLA-backed support.",
@@ -216,17 +216,17 @@ export const enterpriseData = {
   ],
   solutions: [
     { title: "Enterprise architecture review and modernization", desc: "We assess your current architecture, identify bottlenecks and risks, and create a phased modernization roadmap. No big-bang rewrites — we migrate incrementally with zero disruption to ongoing operations." },
-    { title: "SOC 2 Type 2 and ISO 27001 development practices", desc: "Security controls built into every stage of development. Code reviews, dependency scanning, secrets management, audit logging, and access controls. Ready for SOC 2 and ISO 27001 audits without emergency preparation." },
+    { title: "SOC 2 and ISO 27001-ready development practices", desc: "Security controls built into every stage of development. Code reviews, dependency scanning, secrets management, audit logging, and access controls. Ready for SOC 2 and ISO 27001 audits without emergency preparation." },
     { title: "Microservices migration from monolith", desc: "Strangler fig pattern: we extract services one at a time from your monolith, build replacement microservices, and route traffic gradually. The monolith shrinks safely while new services handle increasing load." },
     { title: "Multi-cloud strategy (AWS, Azure, GCP)", desc: "Avoid vendor lock-in with architecture that spans multiple cloud providers. Terraform-managed infrastructure. Portable containerized workloads. Cloud-agnostic data layers. Negotiate better pricing with leverage." },
-    { title: "SLA-backed enterprise support", desc: "Dedicated support team with guaranteed response times: critical issues under 4 hours, high priority under 8 hours. 24/7 on-call rotation for production systems. Quarterly business reviews and roadmap alignment." },
+    { title: "SLA-backed enterprise support", desc: "SLA-backed support with guaranteed response times: critical issues acknowledged under 4 hours, high priority under 8. On-call coverage coordinated by the founder, with vetted senior engineers engaged per project. Quarterly business reviews and roadmap alignment." },
     { title: "Security hardening and penetration testing", desc: "OWASP Top 10 protection, dependency vulnerability scanning, secrets rotation, penetration testing before every major release. We find and fix vulnerabilities before attackers do." },
   ],
   techTags: ["AWS", "Azure", "GCP", "Kubernetes", "Terraform", "OAuth 2.0", "SAML", "API Gateway", "PostgreSQL"],
   results: [
-    { metric: "99.99%", label: "uptime SLA" },
-    { metric: "SOC 2", label: "Type 2 compliant" },
-    { metric: "<4hr", label: "critical response time" },
+    { metric: "99.9%", label: "uptime target" },
+    { metric: "SOC 2-ready", label: "development practices" },
+    { metric: "<4hr", label: "critical response commitment" },
   ],
   industries: ["Financial services", "Healthcare systems", "Manufacturing", "Retail chains", "Telecommunications", "Government agencies"],
 };

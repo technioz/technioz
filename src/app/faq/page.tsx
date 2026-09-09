@@ -36,7 +36,7 @@ const faqs = [
   },
   {
     q: "Can I hire dedicated developers from Technioz?",
-    a: "Yes. Our team augmentation model lets you embed individual engineers or dedicated squads into your existing team. No recruiting, no onboarding lag, no contractor churn. Pricing starts at $3,000/month per engineer with no long-term contracts.",
+    a: "Yes. We recruit, vet, and manage engineers for you, then embed them into your existing team — individually or as a dedicated squad. You skip the recruiting and onboarding lag; we handle matching, management, and replacement if someone is not a fit. Pricing starts at $3,000/month per engineer with no long-term contracts.",
   },
   {
     q: "How do I start a project with Technioz?",
@@ -125,7 +125,7 @@ export default function FAQ() {
         <div className="max-w-[1440px] mx-auto px-6 py-16 lg:px-[148px] lg:py-[100px] flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
           <div className="max-w-[600px]">
             <h2 className="h3 text-white-100 mb-4">Still have questions?</h2>
-            <p className="p3 text-white-100/80">Book a free 30-minute call and get answers directly from our team.</p>
+            <p className="p3 text-white-100/80">Book a free 30-minute call and get answers directly from the founder.</p>
           </div>
           <div className="flex items-center gap-[8px]">
             <Link href="https://calendly.com/technioztech/30min" className="cta-primary-dark !bg-white-100 !text-cobolt-500 hover:!opacity-90">Book a call</Link>

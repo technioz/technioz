@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Software Development Services | Web, AI & Cloud",
-  description: "End-to-end software development — web apps, iOS/Android, AI and cloud. Fixed-price or dedicated teams. See services, process and typical costs.",
+  description: "End-to-end software development — web apps, iOS/Android, AI and cloud. Fixed-price projects or a dedicated team we assemble and lead. See process and costs.",
   openGraph: buildOpenGraph({
       title: "Software Development Services - Web, Mobile, AI & Cloud",
       description: "Technioz provides end-to-end software development services: custom web apps, mobile apps, AI solutions, cloud services, and IT consulting.",
@@ -151,7 +151,7 @@ const serviceList = [
 const processItems = [
   { title: "Discovery & Analysis", desc: "We start by understanding your business goals, requirements, and challenges through detailed consultation." },
   { title: "Strategy & Planning", desc: "We develop a comprehensive strategy and project plan with clear timelines and deliverables." },
-    { title: "Design & Development", desc: "Our team designs and develops your solution using best practices and proven modern technologies." },
+    { title: "Design & Development", desc: "We design and develop your solution using best practices and proven modern technologies." },
     { title: "Testing & QA", desc: "Rigorous testing ensures your solution meets the highest standards of quality and performance." },
   { title: "Deployment & Launch", desc: "We handle the deployment process and ensure a smooth launch of your solution." },
   { title: "Support & Maintenance", desc: "Ongoing support and maintenance to ensure your solution continues to perform optimally." },

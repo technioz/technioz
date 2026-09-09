@@ -202,7 +202,7 @@ function PricingSection() {
         <div className="max-w-[640px] flex flex-col gap-[16px]">
           <span className="e1 inline-flex items-center justify-center border px-[16px] py-[8px] border-black-400 text-black-400 w-fit">Pricing</span>
           <h2 className="h3 text-black-500">Three ways to work with us.<br />One fits your stage.</h2>
-          <p className="p3 text-black-400">Whether you need a fixed-scope build, a dedicated squad, or extra engineers by Monday — we have a model that matches where you are right now.</p>
+          <p className="p3 text-black-400">Whether you need a fixed-scope build, a dedicated squad we assemble and lead, or extra engineers on your team — we have a model that matches where you are right now.</p>
         </div>
         <PricingModelDiagram />
       </div>
@@ -337,7 +337,7 @@ const serviceCards = [
   { title:"AI & Machine Learning",desc:"Chatbots that don't sound like robots. Predictive models that spot patterns your team misses.",href:"/services/ai-solutions",tags:["Chatbots","Analytics","Vision","NLP"]},
   { title:"Cloud & DevOps",desc:"AWS, Azure, GCP — we handle infra so you don't wake up to outage alerts.",href:"/services/cloud-services",tags:["AWS","Docker","Kubernetes","CI/CD"]},
   { title:"IT Consulting",desc:"Not sure what to build first? We'll map your architecture, pick the stack, and write the roadmap.",href:"/services/it-consulting",tags:["Strategy","Architecture","Roadmap","Audit"]},
-  { title:"Team Augmentation",desc:"Need devs by Monday? Our bench is your bench. No recruiting, no onboarding lag.",href:"/contact",tags:["React","Node.js","DevOps","Python"]},
+  { title:"Team Augmentation",desc:"Need devs by Monday? We recruit, vet, and manage senior engineers for your project — matched, onboarded, and led by the founder.",href:"/contact",tags:["React","Node.js","DevOps","Python"]},
 ];
 
 const outcomeCards = [

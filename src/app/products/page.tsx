@@ -76,7 +76,7 @@ export default function ProductsIndex() {
               eventually pays us to solve. Bring us yours.
             </p>
             <Link href="/contact" className="cta-primary">
-              Talk to the team that builds products
+              Talk directly to the founder
             </Link>
           </div>
         </div>

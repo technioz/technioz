@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
   description:
     "Technioz builds custom web apps, mobile apps, AI solutions, and cloud software for startups and SMBs. Founded 2024. Book a free 30-minute consultation.",
-  authors: [{ name: "Technioz Team", url: "https://technioz.com" }],
+  authors: [{ name: "Gaurav Bhatia", url: "https://technioz.com" }],
   creator: "Technioz",
   publisher: "Technioz",
   robots: {

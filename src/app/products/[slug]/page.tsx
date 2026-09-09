@@ -166,7 +166,7 @@ export default async function ToolDetail({
                 {tool.moneyPage.blurb}
               </h2>
               <p className="p3 text-black-400 mb-6 leading-relaxed">
-                We built {tool.name} for ourselves — the same team builds
+                We built {tool.name} for ourselves — the same founder-led approach builds
                 production software for clients across the GCC and India.
               </p>
               <div className="flex flex-wrap items-center gap-4">
