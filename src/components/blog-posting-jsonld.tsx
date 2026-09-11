@@ -36,8 +36,10 @@ export function BlogPostingJsonLd({
     timeRequired: readTime,
     author: {
       "@type": "Person",
+      "@id": "https://technioz.com/#founder",
       name: authorName,
-      url: "https://technioz.com",
+      jobTitle: "Founder & Software Architect",
+      url: "https://technioz.com/about",
     },
     publisher: {
       "@type": "Organization",

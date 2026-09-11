@@ -9,10 +9,10 @@ export function JsonLd() {
         url: "https://technioz.com",
         logo: "https://technioz.com/logo.webp",
         description:
-          "Full-cycle software development company. One partner for web, mobile, AI, and cloud. 5+ projects shipped, 5+ experience, 98% on-time delivery.",
+          "Founder-led software agency. One partner for web, mobile, AI, and cloud. 5+ projects shipped, 98% on-time delivery.",
         foundingDate: "2024",
         founders: [
-          { "@type": "Person", name: "Gaurav Bhatia" }
+          { "@id": "https://technioz.com/#founder" }
         ],
         contactPoint: [
           {
@@ -45,6 +45,30 @@ export function JsonLd() {
           "https://www.instagram.com/technioz",
           "https://www.linkedin.com/company/technioz",
           "https://github.com/technioz",
+        ],
+      },
+      {
+        "@type": "Person",
+        "@id": "https://technioz.com/#founder",
+        name: "Gaurav Bhatia",
+        jobTitle: "Founder & Software Architect",
+        description:
+          "Backend engineer with 5+ years building production systems across transport booking, fintech, real-time chat, and AI pipelines. Founder of Technioz.",
+        url: "https://technioz.com/about",
+        worksFor: { "@id": "https://technioz.com/#organization" },
+        knowsAbout: [
+          "Custom software development",
+          "Backend engineering",
+          "AI agents and RAG systems",
+          "WebRTC and real-time systems",
+          "Laravel",
+          "Node.js",
+          "Cloud and DevOps",
+        ],
+        sameAs: [
+          "https://www.linkedin.com/in/heygauravbhatia",
+          "https://github.com/gauravbhatia4601",
+          "https://heygauravbhatia.com",
         ],
       },
       {
