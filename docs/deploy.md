@@ -19,6 +19,7 @@ The following env vars must be set on **whatever deployment is serving the live 
 | `INDEXNOW_KEY` | yes for sitemap discovery | postbuild IndexNow submitter | Vercel + Coolify + local | The 32-char hex value in the matching `public/{key}.txt` file |
 | `NTFY_TOPIC` | yes for contact-form push notifications | Contact form (`POST /api/contact`) | Vercel + Coolify + local | 16-char random hex. Subscribe to it in the ntfy app to receive alerts |
 | `NTFY_TOKEN` | optional | Contact form | Vercel + Coolify + local | Only needed for private ntfy.sh topics. Bearer token |
+| `NEXT_PUBLIC_META_PIXEL_ID` | yes for Meta Ads tracking | `ConsentManager` (`src/components/consent-manager.tsx`, mounted in the root layout → every page) | Vercel + Coolify + local | `1102274675780695`. Public ID, not a secret. Inlined at build time — redeploy after setting/changing. Loads only after the visitor accepts "Marketing" cookies; if unset, no Pixel loads. |
 
 ## Setting up ntfy push notifications
 

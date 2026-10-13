@@ -64,11 +64,24 @@ const includedDynamic = [
   ...productSlugs.map((s) => `/products/${s}`),
 ];
 
+// Paid-ad landing pages are noindex — keep them out of the sitemap.
+// Source of truth: DISTRACTION_FREE_PATHS in src/lib/landing-pages.ts.
+const landingPagesSrc = fs.readFileSync(
+  path.join(__dirname, '..', 'src', 'lib', 'landing-pages.ts'),
+  'utf-8'
+);
+const landingListMatch = landingPagesSrc.match(/DISTRACTION_FREE_PATHS\s*=\s*\[([^\]]*)\]/);
+if (!landingListMatch) {
+  throw new Error('generate-sitemap: could not find DISTRACTION_FREE_PATHS in src/lib/landing-pages.ts');
+}
+const noindexLandingPages = [...landingListMatch[1].matchAll(/"([^"]+)"/g)].map((m) => m[1]);
+
 const allPages = [
   ...staticPages,
   ...includedDynamic,
 ]
   .filter((p) => p !== '/not-found' && p !== '/sitemap-blog.xml')
+  .filter((p) => !noindexLandingPages.includes(p))
   .map((p) => p.replace(/\/+/g, '/').replace(/\/$/, '') || '/')
   .filter((p, i, arr) => arr.indexOf(p) === i)
   .sort();

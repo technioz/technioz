@@ -60,3 +60,36 @@ model ContactSubmission {
   @@index([email])
   @@map("contact_submissions")
 }
+
+// Leads from paid-ad landing pages (e.g. /ai-saas-development-uae).
+// Answer values are the option labels in src/lib/campaign-lead-options.ts.
+model CampaignLead {
+  id             String   @id @default(uuid())
+  fullName       String   @map("full_name")
+  email          String
+  company        String
+  whatsapp       String
+  ideaStage      String   @map("idea_stage")
+  funding        String
+  budget         String
+  timeline       String?
+  techBackground String?  @map("tech_background")
+  decisionRole   String   @map("decision_role")
+  idea           String?  @db.Text
+  qualified      Boolean
+  landingPath    String   @map("landing_path")
+  utmSource      String?  @map("utm_source")
+  utmMedium      String?  @map("utm_medium")
+  utmCampaign    String?  @map("utm_campaign")
+  utmContent     String?  @map("utm_content")
+  utmTerm        String?  @map("utm_term")
+  fbclid         String?
+  referrer       String?  @db.Text
+  ip             String?
+  userAgent      String?  @map("user_agent") @db.Text
+  createdAt      DateTime @default(now()) @map("created_at")
+
+  @@index([createdAt])
+  @@index([email])
+  @@map("campaign_leads")
+}

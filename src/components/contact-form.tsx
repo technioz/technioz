@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { PROJECT_TYPE_OPTIONS } from "@/lib/contact-types";
 
 type Status =
@@ -289,6 +290,14 @@ export function ContactForm() {
       <p className="p5 text-black-300">
         We reply within 24 hours. Your information is confidential and an NDA is
         available on request.
+      </p>
+      <p className="p5 text-black-300">
+        By sending this form, you agree that Technioz may use these details to reply to your
+        enquiry by email, phone or WhatsApp, as described in our{" "}
+        <Link href="/privacy" className="text-cobolt-500 underline hover:no-underline">
+          Privacy Policy
+        </Link>
+        .
       </p>
     </form>
   );

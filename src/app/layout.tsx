@@ -4,6 +4,8 @@ import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import { JsonLd } from "@/components/json-ld";
 import { ChatWidget } from "@/components/chat-widget";
+import { ConsentManager } from "@/components/consent-manager";
+import { SiteChrome } from "@/components/site-chrome";
 import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
 
 import { SpeedInsights } from "@vercel/speed-insights/next"
@@ -58,27 +60,22 @@ export default function RootLayout({
         <JsonLd />
       </head>
       <body>
-        <Nav />
+        {/* Landing pages in src/lib/landing-pages.ts render their own minimal chrome. */}
+        <SiteChrome>
+          <Nav />
+        </SiteChrome>
         <main>{children}</main>
-        <Footer />
-        <ChatWidget />
+        <SiteChrome>
+          <Footer />
+          <ChatWidget />
+        </SiteChrome>
         <Script
           src="https://umami.technioz.com/script.js"
           data-website-id="d53eda4e-035b-4d79-ad99-08f80ebb4727"
           strategy="afterInteractive"
         />
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-QYDE8LRP78"
-          strategy="afterInteractive"
-        />
-        <Script id="ga4" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-QYDE8LRP78');
-          `}
-        </Script>
+        {/* GA4 + Meta Pixel load only after consent — see ConsentManager. */}
+        <ConsentManager />
         <SpeedInsights />
       </body>
     </html>

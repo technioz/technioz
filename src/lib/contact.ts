@@ -1,6 +1,7 @@
 import "server-only";
 import { PrismaClient } from "@prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
+import { sendNtfy, type NtfyResult } from "@/lib/ntfy";
 
 export { PROJECT_TYPE_OPTIONS } from "@/lib/contact-types";
 
@@ -99,8 +100,6 @@ export async function saveContactSubmission(data: ContactFormInput) {
   }
 }
 
-const NTFY_DEFAULT_SERVER = "https://ntfy.sh";
-
 /**
  * Send a push notification via ntfy.sh. Topic is in NTFY_TOPIC env var.
  * We never block the user response on this — log + fire-and-forget.
@@ -113,15 +112,7 @@ export async function sendContactNtfy(input: {
   projectType?: string | null;
   message: string;
   source?: string | null;
-}): Promise<{ ok: boolean; status: number; error?: string }> {
-  const topic = process.env.NTFY_TOPIC;
-  const server = process.env.NTFY_SERVER || NTFY_DEFAULT_SERVER;
-  const accessToken = process.env.NTFY_TOKEN; // optional, for private topics
-
-  if (!topic) {
-    return { ok: false, status: 0, error: "NTFY_TOPIC not set" };
-  }
-
+}): Promise<NtfyResult> {
   const title = `New contact: ${input.fullName}${input.companyName ? ` (${input.companyName})` : ""}`;
   const body = [
     `Email: ${input.email}`,
@@ -141,29 +132,5 @@ export async function sendContactNtfy(input: {
     if (tag) tags.push(tag);
   }
 
-  const url = `${server.replace(/\/+$/, "")}/${encodeURIComponent(topic)}`;
-  const headers: Record<string, string> = {
-    Title: title,
-    Priority: "default",
-    Tags: tags.join(","),
-    "Content-Type": "text/plain; charset=utf-8",
-  };
-  if (accessToken) {
-    headers["Authorization"] = `Bearer ${accessToken}`;
-  }
-
-  try {
-    const res = await fetch(url, { method: "POST", headers, body });
-    if (!res.ok) {
-      const text = await res.text().catch(() => "");
-      return { ok: false, status: res.status, error: text.slice(0, 200) };
-    }
-    return { ok: true, status: res.status };
-  } catch (err) {
-    return {
-      ok: false,
-      status: 0,
-      error: err instanceof Error ? err.message : String(err),
-    };
-  }
+  return sendNtfy({ title, body, tags });
 }

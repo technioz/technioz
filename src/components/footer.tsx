@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { FooterBrand } from "@/components/footer-brand";
+import { CookieSettingsButton } from "@/components/consent-manager";
 
 const columns = [
   {
@@ -102,6 +103,7 @@ export function Footer() {
           </div>
           <div className="flex items-center gap-4">
             <Link href="/privacy" className="hover:text-cobolt-300 transition-colors">Privacy Policy</Link>
+            <CookieSettingsButton className="hover:text-cobolt-300 transition-colors cursor-pointer" />
             <Link href="/terms" className="hover:text-cobolt-300 transition-colors">Terms of Service</Link>
             <Link href="/sitemap.xml" className="hover:text-cobolt-300 transition-colors">Sitemap</Link>
           </div>
