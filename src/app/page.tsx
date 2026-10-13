@@ -271,7 +271,7 @@ function FeaturedIndustry() {
     <Link href="/solutions/logistics" className="group relative overflow-hidden rounded-sm border border-black-400 hover:border-cobolt-300 transition-colors duration-300">
       <div className="grid lg:grid-cols-[1fr_420px] min-h-[420px]">
         <div className="flex flex-col justify-between p-[40px] lg:p-[56px] gap-[32px]">
-          <div className="flex flex-col gap-[24px]"><span className="e1 text-cobolt-300">Featured</span><h3 className="h3 !text-white-200">Transportation &amp; Logistics</h3><p className="p3 text-black-200 max-w-[520px] leading-relaxed">We&apos;ve built booking platforms, fleet dashboards, route optimizers, and multi-vendor ticketing systems used by tens of thousands of passengers across the GCC. Al Khanjry Transport, Integrated Golden Lines, Al Khanjry Groups — they all ship on our infrastructure.</p></div>
+          <div className="flex flex-col gap-[24px]"><span className="e1 text-cobolt-300">Featured</span><h3 className="h3 !text-white-200">Transportation &amp; Logistics</h3><p className="p3 text-black-200 max-w-[520px] leading-relaxed">We&apos;ve built booking platforms, fleet dashboards, route optimizers, and multi-vendor ticketing systems used by 200K+ passengers across Oman and the UAE. Al Khanjry Transport and IGL Transport both run on platforms we built.</p></div>
           <div className="flex flex-wrap gap-3">{["Real-time tracking","Online ticketing","Fleet management","Multi-agent systems","AWS auto-scaling","Payment integration"].map((t) => <span key={t} className="inline-flex items-center rounded-full border border-cobolt-500/30 bg-cobolt-500/10 text-cobolt-200 px-[14px] py-[7px] text-[13px] font-body">{t}</span>)}</div>
           <div className="flex items-center gap-[8px]"><span className="e2 text-cobolt-300 group-hover:underline underline-offset-4">See transport case studies</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-cobolt-300"><path d="M6 18L18 6M18 6H10M18 6V14" strokeLinecap="round" strokeLinejoin="round" /></svg></div>
         </div>
@@ -326,9 +326,10 @@ const reliefCards = [
 ];
 
 const evidenceCards = [
-  { metric:"85%",label:"faster booking processing",story:"Al Khanjry Transport replaced manual ticketing with a full-stack platform we built — booking time dropped from 15 minutes to under 30 seconds.",client:"Al Khanjry Transport"},
-  { metric:"35%",label:"revenue increase",story:"Integrated Golden Lines went from paper tickets to a modern web + mobile booking system. Revenue grew 35% in the first quarter.",client:"Integrated Golden Lines"},
-  { metric:"60%",label:"lower ticketing costs",story:"Al Khanjry Groups needed a unified platform. We built it — 500K+ transactions/month, six integrations, 60% cost reduction.",client:"Al Khanjry Groups"},
+  // Numbers must match docs/proof-metrics.md.
+  { metric:"85%",label:"faster booking",story:"Al Khanjry Transport replaced phone and counter bookings with a booking and management system we built. Booking is now 85% faster.",client:"Al Khanjry Transport"},
+  { metric:"200K+",label:"tickets booked",story:"The same platform has booked 200K+ tickets for 200K+ customers across 150+ Oman–UAE routes, with 99.9% uptime.",client:"Al Khanjry Transport"},
+  { metric:"1,500",label:"orders every month",story:"Hatta Food Hub runs ordering, operations, and customer flow on software we shipped: AED 100k a month and 30K+ orders delivered.",client:"Hatta Food Hub"},
 ];
 
 const serviceCards = [

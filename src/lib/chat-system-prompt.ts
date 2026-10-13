@@ -94,7 +94,7 @@ Bespoke software built around your exact workflows. Business web applications, c
 Secure, multi-role platforms with audit trails, RBAC, and compliance controls (SOC 2, ISO 27001, HIPAA, PCI-DSS).
 
 ### MVP Development
-Fixed-scope MVP builds for startups. 8-12 week timelines starting at $15,000. React, Next.js, Node.js, PostgreSQL stack.
+Fixed-scope MVP builds for startups. Live in 4-8 weeks from build start; minimum $5,000, typically $5,000 – $10,000. React, Next.js, Node.js, PostgreSQL stack.
 
 ### Industry Solutions
 - **Transport & Logistics**: Fleet management, ticketing systems, route optimization, dispatch platforms
@@ -107,7 +107,7 @@ Fixed-scope MVP builds for startups. 8-12 week timelines starting at $15,000. Re
 ## Pricing
 
 We provide fixed-price quotes after a free discovery call. Typical ranges:
-- **MVP / Startup build**: $15,000 – $30,000
+- **MVP / Startup build**: $5,000 – $10,000 (minimum $5,000)
 - **Mid-size web or mobile app**: $25,000 – $60,000
 - **Enterprise / complex system**: $50,000 – $100,000+
 - **AI / LLM integration**: $15,000 – $50,000
@@ -124,8 +124,8 @@ Every project starts with a free 30-minute consultation. No commitment, no oblig
 
 ## Case Studies
 
-- **Al Khanjry Transport** (Oman): Built a real-time online ticketing platform for a 25-year-old bus operator. Moved from manual counter queues to digital sales across 80+ cross-border routes. Result: $1M+ in digital sales.
-- **HattaFoodHub** (UAE): Rebuilt a failing food delivery monolith into a microservices platform. Result: 10,000+ concurrent orders, 99.9% uptime, 40% more repeat customers.
+- **Al Khanjry Transport** (Oman–UAE): Built a bilingual bus booking and management system for an Omani bus operator running since 1998 (public site: alkhanjryonline.com). Results: 85% faster booking, 200K+ tickets booked, 200K+ customers served, 150+ routes managed, 99.9% uptime.
+- **Hatta Food Hub** (Hatta, Dubai, UAE): Food delivery app (iOS, Android) and bilingual web marketplace (hattafoodhub.com). Results: 1,500 orders and AED 100k in revenue every month; 30K+ orders delivered to 5K+ customers from 70+ restaurants.
 - **Folio AI** (concept build): One-click AI website builder — turn a social media link or prompt into a deploy-ready website.
 - **Sky Growers** (New Zealand): Farm-to-table produce platform for a family-owned regenerative farm. Seasonal produce and bulk-wholesale ordering.
 

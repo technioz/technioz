@@ -24,15 +24,15 @@ const faqs = [
   },
   {
     q: "How much does custom software development cost?",
-    a: "Project costs vary based on scope and complexity. Most projects range from $15,000 to $100,000+. We provide a detailed fixed quote after an initial discovery phase where we understand your requirements, goals, and constraints. MVP packages for startups start at $15,000.",
+    a: "Project costs vary based on scope and complexity. Projects start at $5,000: most MVPs cost $5,000 – $10,000, and larger platforms range up to $100,000+. We provide a detailed fixed quote after an initial discovery phase where we understand your requirements, goals, and constraints.",
   },
   {
     q: "How long does it take to develop a mobile app or web application?",
-    a: "Timelines vary based on complexity. A typical MVP takes 8-12 weeks. Full-featured applications range from 2-6 months. We work in two-week sprint cycles with demos at the end of each, so you see progress regularly and can adjust priorities as needed.",
+    a: "Timelines vary based on complexity. A typical MVP goes live in 4-8 weeks from build start, and we start within 30 days of signing. Full-featured applications range from 2-6 months. We work in two-week sprint cycles with demos at the end of each, so you see progress regularly and can adjust priorities as needed.",
   },
   {
     q: "Do you work with clients in the Middle East and GCC?",
-    a: "Yes. We have deep experience with clients across the GCC region including Oman, UAE, Saudi Arabia, Kuwait, Qatar, and Bahrain. We understand local payment gateways, regulatory requirements, and cultural expectations. Several of our flagship case studies — Integrated Golden Lines and Al Khanjry Groups — are GCC-based.",
+    a: "Yes. We have deep experience with clients across the GCC region including Oman, UAE, Saudi Arabia, Kuwait, Qatar, and Bahrain. We understand local payment gateways, regulatory requirements, and cultural expectations. Our flagship case studies, Al Khanjry Transport (Oman–UAE) and Hatta Food Hub (UAE), are GCC-based.",
   },
   {
     q: "Can I hire dedicated developers from Technioz?",

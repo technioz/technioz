@@ -7,7 +7,7 @@ import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
 
 export const metadata: Metadata = {
   title: "Case Studies & Portfolio",
-  description: "Real projects with real numbers: HattaFoodHub (10,000+ concurrent orders), Al Khanjry ticketing ($1M+ in sales), and more. See how we build.",
+  description: "Real projects with real numbers: Hatta Food Hub (1,500 orders a month), Al Khanjry ticketing (200K+ tickets booked), and more. See how we build.",
   openGraph: buildOpenGraph({
       title: "Portfolio | Technioz Software Projects",
       description: "Explore Technioz software projects: scalable web apps, mobile apps, AI platforms, and cloud solutions.",
@@ -32,9 +32,9 @@ interface Project {
 const projects: Project[] = [
   {
     slug: "food-delivery-app",
-    name: "HattaFoodHub",
+    name: "Hatta Food Hub",
     title: "Food Delivery App",
-    desc: "A scalable food delivery platform connecting restaurants, couriers, and customers with real-time order tracking and seamless payments.",
+    desc: "A food delivery app and marketplace for Hatta, Dubai: 1,500 orders and AED 100k in revenue every month, from 70+ restaurants.",
     techs: ["React Native", "Laravel", "MySQL", "Firebase"],
     featured: true,
     image: "/assets/hatta-food.webp",
@@ -51,7 +51,7 @@ const projects: Project[] = [
   },
   {
     slug: "alkhanjry-transport",
-    name: "Al Khanjry Groups",
+    name: "Al Khanjry Transport",
     title: "Transport Ticketing System",
     desc: "An online bus booking portal connecting the UAE and Oman with multi-role management, branch operations, and real-time ticket management.",
     techs: ["Laravel", "MySQL", "ReactJS"],

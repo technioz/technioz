@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "React Native Development Company",
-  description: "React Native development company building cross-platform iOS and Android apps. We shipped BusPass UAE and HattaFoodHub. Book a free React Native scoping call.",
+  description: "React Native development company building cross-platform iOS and Android apps. We shipped Hatta Food Hub. Book a free React Native scoping call.",
   openGraph: buildOpenGraph({
       title: "React Native Development Company",
       description: "React Native development company building cross-platform iOS and Android apps. Book a free scoping call.",
@@ -25,11 +25,11 @@ const faqs = [
   },
   {
     question: "How much does a React Native app cost?",
-    answer: "React Native apps typically cost 20-35% less than separate native iOS and Android apps. Most MVPs range from $15,000 to $45,000. Use our app cost calculator or book a free scoping call for a fixed-price quote.",
+    answer: "React Native apps typically cost 20-35% less than separate native iOS and Android apps. Most MVPs cost $5,000 – $10,000, with a $5,000 minimum. Use our app cost calculator or book a free scoping call for a fixed-price quote.",
   },
   {
     question: "How long does it take to build a React Native app?",
-    answer: "Most React Native MVPs ship in 8-12 weeks. Standard apps with integrations take 3-5 months. We run two-week sprints with demos every fourteen days.",
+    answer: "Most React Native MVPs go live in 4-8 weeks. Standard apps with integrations take 3-5 months. We run two-week sprints with demos every fourteen days.",
   },
   {
     question: "Can you publish the app to the App Store and Google Play?",
@@ -137,14 +137,14 @@ export default function ReactNativeAppDevelopment() {
               <span className="e1 text-cobolt-300 mb-4 inline-block">Proof</span>
               <h2 className="h3 !text-white-200 mb-4">Built and Shipped on React Native</h2>
               <p className="p3 text-black-200 mb-6">
-                We have used React Native for real products under real load. Our food delivery and transport apps serve thousands of daily users with shared code, native polish, and stores that stay approved.
+                We have used React Native for real products under real load. Our food delivery and transport apps run real businesses every day: 1,500 orders a month at Hatta Food Hub and 200K+ tickets booked at Al Khanjry.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
                 {[
-                  { metric: "10,000+", label: "concurrent orders handled" },
+                  { metric: "1,500", label: "orders every month" },
                   { metric: "iOS + Android", label: "from one codebase" },
-                  { metric: "99.9%", label: "platform uptime" },
-                  { metric: "40%", label: "more repeat customers" },
+                  { metric: "30K+", label: "orders delivered" },
+                  { metric: "5K+", label: "customers" },
                 ].map((s) => (
                   <div key={s.label} className="border border-black-400 rounded-sm p-[24px]">
                     <span className="font-display text-[32px] leading-none tracking-[-1.6px] text-cobolt-300">{s.metric}</span>
@@ -157,14 +157,14 @@ export default function ReactNativeAppDevelopment() {
             <div className="flex flex-col gap-6">
               <Link href="/portfolio/food-delivery-app" className="bg-white-100 rounded-sm p-[24px] flex flex-col gap-[12px] hover:shadow-[0_10px_24px_rgba(29,27,22,0.12)] transition-shadow group">
                 <span className="text-[12px] font-mono uppercase tracking-[1px] text-cobolt-500">React Native case study</span>
-                <span className="font-display text-[18px] leading-none tracking-[-0.9px] text-black-500 group-hover:text-cobolt-500 transition-colors">HattaFoodHub</span>
-                <p className="p5 text-black-400">On-demand food delivery platform rebuilt to handle 10,000+ concurrent orders.</p>
+                <span className="font-display text-[18px] leading-none tracking-[-0.9px] text-black-500 group-hover:text-cobolt-500 transition-colors">Hatta Food Hub</span>
+                <p className="p5 text-black-400">Food delivery app for Hatta: 1,500 orders and AED 100k a month, from 70+ restaurants.</p>
                 <span className="e2 text-cobolt-500">Read case study →</span>
               </Link>
               <Link href="/portfolio/alkhanjry-transport" className="bg-white-100 rounded-sm p-[24px] flex flex-col gap-[12px] hover:shadow-[0_10px_24px_rgba(29,27,22,0.12)] transition-shadow group">
                 <span className="text-[12px] font-mono uppercase tracking-[1px] text-cobolt-500">Cross-platform booking</span>
                 <span className="font-display text-[18px] leading-none tracking-[-0.9px] text-black-500 group-hover:text-cobolt-500 transition-colors">Al Khanjry Transport</span>
-                <p className="p5 text-black-400">Bilingual bus booking experience used by 200K+ passengers across GCC routes.</p>
+                <p className="p5 text-black-400">Bilingual bus booking used by 200K+ customers across 150+ Oman–UAE routes.</p>
                 <span className="e2 text-cobolt-500">Read case study →</span>
               </Link>
             </div>

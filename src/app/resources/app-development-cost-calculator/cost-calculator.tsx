@@ -23,6 +23,14 @@ const scopeMultiplier: Record<Scope, number> = {
   complex: 3,
 };
 
+// Pricing rules (docs/proof-metrics.md): minimum project $5,000; a typical MVP
+// (5-8 screens, simple UI, basic backend, no integrations) lands in $5k-$10k.
+// Only MVP-scope estimates are scaled; standard and complex are unchanged.
+const MIN_PROJECT = 5000;
+const MVP_SCALE = { min: 0.33, max: 0.18 };
+const scaleFor = (scope: Scope) => (scope === "mvp" ? MVP_SCALE : { min: 1, max: 1 });
+const round1k = (n: number) => Math.round(n / 1000) * 1000;
+
 const designConfig: Record<Design, { label: string; min: number; max: number }> = {
   simple: { label: "Simple UI", min: 2000, max: 5000 },
   custom: { label: "Custom Design", min: 5000, max: 12000 },
@@ -40,6 +48,11 @@ const integrationsConfig: Record<Integrations, { label: string; min: number; max
   "1-3": { label: "1-3 Integrations", min: 3000, max: 10000 },
   "4+": { label: "4+ Integrations", min: 10000, max: 25000 },
 };
+
+// Breakdown rows use exact dollars so the line items visibly sum to the estimate.
+function formatBreakdown(n: number) {
+  return `$${Math.round(n).toLocaleString("en-US")}`;
+}
 
 function formatCurrency(n: number) {
   if (n >= 1000) {
@@ -64,24 +77,39 @@ export function CostCalculator() {
     const b = backendConfig[backend];
     const i = integrationsConfig[integrations];
 
-    const min = Math.round((p.baseMin * s + d.min + b.min + i.min) / 1000) * 1000;
-    const max = Math.round((p.baseMax * s + d.max + b.max + i.max) / 1000) * 1000;
+    const k = scaleFor(scope);
+
+    const min = Math.max(MIN_PROJECT, round1k((p.baseMin * s + d.min + b.min + i.min) * k.min));
+    const max = Math.max(min, round1k((p.baseMax * s + d.max + b.max + i.max) * k.max));
 
     return { min, max };
   }, [platform, scope, design, backend, integrations]);
 
-  const breakdown = useMemo(
-    () => [
-      { label: platformConfig[platform].label, min: Math.round(platformConfig[platform].baseMin * scopeMultiplier[scope]), max: Math.round(platformConfig[platform].baseMax * scopeMultiplier[scope]) },
+  const breakdown = useMemo(() => {
+    const k = scaleFor(scope);
+    const scaled = [
+      { label: platformConfig[platform].label, min: platformConfig[platform].baseMin * scopeMultiplier[scope], max: platformConfig[platform].baseMax * scopeMultiplier[scope] },
       { label: designConfig[design].label, min: designConfig[design].min, max: designConfig[design].max },
       { label: backendConfig[backend].label, min: backendConfig[backend].min, max: backendConfig[backend].max },
       { label: integrationsConfig[integrations].label, min: integrationsConfig[integrations].min, max: integrationsConfig[integrations].max },
-    ],
-    [platform, scope, design, backend, integrations]
-  );
+    ].map((row) => ({ ...row, min: row.min * k.min, max: row.max * k.max }));
+
+    // Round the smaller line items to clean hundreds, then derive the first row as
+    // the remainder, so the itemised breakdown always sums exactly to the estimate
+    // (which may include the minimum-project floor). When the floor makes the whole
+    // estimate a single figure, the line items collapse to single figures too.
+    const flat = estimate.min === estimate.max;
+    const rest = scaled.slice(1).map((row) => {
+      const min = Math.round(row.min / 100) * 100;
+      return { label: row.label, min, max: flat ? min : Math.max(min, Math.round(row.max / 100) * 100) };
+    });
+    const restMin = rest.reduce((t, r) => t + r.min, 0);
+    const restMax = rest.reduce((t, r) => t + r.max, 0);
+    return [{ label: scaled[0].label, min: estimate.min - restMin, max: estimate.max - restMax }, ...rest];
+  }, [platform, scope, design, backend, integrations, estimate]);
 
   const timeline = useMemo(() => {
-    if (scope === "mvp") return "8–12 weeks";
+    if (scope === "mvp") return "4–8 weeks";
     if (scope === "standard") return "3–5 months";
     return "5–9 months";
   }, [scope]);
@@ -143,7 +171,7 @@ export function CostCalculator() {
         <div className="bg-cobolt-500 rounded-sm p-[32px] text-white-100">
           <span className="e1 text-white-100/70 block mb-3">Estimated cost range</span>
           <div className="font-display text-[48px] leading-none tracking-[-2.4px] mb-2">
-            {formatCurrency(estimate.min)} – {formatCurrency(estimate.max)}
+            {estimate.min === estimate.max ? formatCurrency(estimate.min) : `${formatCurrency(estimate.min)} – ${formatCurrency(estimate.max)}`}
           </div>
           <p className="p4 text-white-100/80 mb-6">
             Typical timeline: <span className="text-white-100 font-medium">{timeline}</span>
@@ -176,7 +204,7 @@ export function CostCalculator() {
                   <div key={item.label} className="flex items-center justify-between p4 text-white-100/90 border-b border-white/10 pb-2 last:border-0 last:pb-0">
                     <span>{item.label}</span>
                     <span className="font-mono">
-                      {formatCurrency(item.min)} – {formatCurrency(item.max)}
+                      {item.min === item.max ? formatBreakdown(item.min) : `${formatBreakdown(item.min)} – ${formatBreakdown(item.max)}`}
                     </span>
                   </div>
                 ))}

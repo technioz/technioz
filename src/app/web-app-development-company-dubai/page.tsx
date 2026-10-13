@@ -37,7 +37,7 @@ const faqs = [
   },
   {
     question: "How much does a custom web app cost in Dubai?",
-    answer: "Most custom web apps range from $20,000 to $120,000 depending on scope, design, backend complexity, and integrations. MVPs start around $15,000. Use our app cost calculator or book a free scoping call for a fixed-price quote.",
+    answer: "Most custom web apps range from $20,000 to $120,000 depending on scope, design, backend complexity, and integrations. MVPs start at $5,000 and typically cost $5,000 – $10,000. Use our app cost calculator or book a free scoping call for a fixed-price quote.",
   },
   {
     question: "Can you build Arabic/RTL web apps?",
@@ -157,7 +157,7 @@ export default function WebAppDevelopmentCompanyDubai() {
               <Link href="/portfolio/alkhanjry-transport" className="bg-white-200 rounded-sm p-[24px] flex flex-col gap-[12px] hover:shadow-[0_10px_24px_rgba(29,27,22,0.12)] transition-shadow group">
                 <span className="text-[12px] font-mono uppercase tracking-[1px] text-cobolt-500">Transport booking portal</span>
                 <span className="font-display text-[18px] leading-none tracking-[-0.9px] text-black-500 group-hover:text-cobolt-500 transition-colors">Al Khanjry Transport</span>
-                <p className="p5 text-black-400">Bilingual Next.js booking portal for UAE-Oman routes — 150K+ bookings completed.</p>
+                <p className="p5 text-black-400">Bilingual booking portal for Oman–UAE routes: 200K+ tickets booked across 150+ routes.</p>
                 <span className="e2 text-cobolt-500">Read case study →</span>
               </Link>
               <Link href="/portfolio/sky-growers" className="bg-white-200 rounded-sm p-[24px] flex flex-col gap-[12px] hover:shadow-[0_10px_24px_rgba(29,27,22,0.12)] transition-shadow group">

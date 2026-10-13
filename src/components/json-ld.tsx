@@ -114,7 +114,7 @@ export function JsonLd() {
             name: "How much does custom software development cost?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Project costs vary by scope. Most projects range from $15,000 to $100,000+. We provide detailed fixed quotes after the discovery phase.",
+              text: "Project costs vary by scope. Projects start at $5,000: most MVPs cost $5,000 – $10,000, and larger platforms range up to $100,000+. We provide detailed fixed quotes after the discovery phase.",
             },
           },
           {
@@ -122,7 +122,7 @@ export function JsonLd() {
             name: "Do you work with startups?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Yes, startups are our primary clients. We offer MVP packages starting at $15,000 with fast 8-12 week timelines.",
+              text: "Yes, startups are our primary clients. MVP builds start at $5,000 (typically $5,000 – $10,000) and go live in 4-8 weeks.",
             },
           },
           {

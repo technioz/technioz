@@ -134,16 +134,16 @@ export default function TransportLogisticsPage() {
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
                 <div className="border border-black-400 rounded-sm p-[20px]">
-                  <span className="font-display text-[24px] leading-none tracking-[-1.2px] text-cobolt-500">$1M+</span>
-                  <p className="p5 text-black-200 mt-1">Online ticket sales</p>
+                  <span className="font-display text-[24px] leading-none tracking-[-1.2px] text-cobolt-500">85%</span>
+                  <p className="p5 text-black-200 mt-1">Faster booking</p>
                 </div>
                 <div className="border border-black-400 rounded-sm p-[20px]">
-                  <span className="font-display text-[24px] leading-none tracking-[-1.2px] text-cobolt-500">150K+</span>
-                  <p className="p5 text-black-200 mt-1">Bookings completed</p>
+                  <span className="font-display text-[24px] leading-none tracking-[-1.2px] text-cobolt-500">200K+</span>
+                  <p className="p5 text-black-200 mt-1">Tickets booked</p>
                 </div>
                 <div className="border border-black-400 rounded-sm p-[20px]">
                   <span className="font-display text-[24px] leading-none tracking-[-1.2px] text-cobolt-500">99.9%</span>
-                  <p className="p5 text-black-200 mt-1">Uptime target</p>
+                  <p className="p5 text-black-200 mt-1">Platform uptime</p>
                 </div>
               </div>
               <Link href="/portfolio/alkhanjry-transport" className="cta-primary-dark !bg-white-100 !text-cobolt-500 hover:!opacity-90">Read the case study →</Link>

@@ -21,34 +21,31 @@ export const metadata: Metadata = {
 const caseStudies = [
   {
     slug: "/portfolio/food-delivery-app",
-    client: "hattaFoodHub",
-    title: "Food Delivery Platform Scaling to 10,000+ Concurrent Orders",
-    desc: "Replaced a crumbling monolith with microservices architecture. Real-time GPS tracking, automated dispatching, and a restaurant dashboard that handles peak loads without breaking a sweat.",
-    industry: "Food & Logistics",
-    timeline: "4 months",
-    techs: ["React Native", "Laravel", "MySQL", "Firebase"],
+    client: "Hatta Food Hub",
+    title: "A Food Delivery App Running 1,500 Orders a Month in Hatta",
+    desc: "Ordering, operations, and customer flow built end to end for Hatta Food Hub: an iOS and Android app plus a bilingual web storefront for restaurants, home cooks, grocers, and shops in Hatta, Dubai.",
+    industry: "Food Delivery",
+    techs: [] as string[],
     image: "/assets/hatta-food.webp",
     results: [
-      { metric: "10,000+", label: "concurrent orders handled" },
-      { metric: "99.9%", label: "platform uptime" },
-      { metric: "40%", label: "increase in repeat customers" },
+      { metric: "1,500", label: "orders every month" },
+      { metric: "AED 100k", label: "monthly revenue on the platform" },
+      { metric: "30K+", label: "orders delivered" },
     ],
   },
   {
     slug: "/portfolio/alkhanjry-transport",
-    client: "Al Khanjry Groups",
-    title: "From Manual Counters to $1M+ in Digital Ticket Sales",
-    desc: "Replaced phone bookings and counter queues with a modern online ticketing platform. Real-time seat selection, bilingual Arabic/English support, SMS confirmations, and AWS auto-scaling that handles peak demand without breaking.",
+    client: "Al Khanjry Transport",
+    title: "From Manual Counters to 200K+ Tickets Booked",
+    desc: "Replaced phone bookings and counter queues with a bilingual booking and management system for an Omani bus operator running Oman–UAE routes since 1998: online booking at alkhanjryonline.com plus counter booking, check-in, and finance reports for staff.",
     industry: "Transportation & Logistics",
-    timeline: "7 months",
     techs: ["React", "Next.js", "Node.js", "AWS", "PostgreSQL", "Redis"],
     image: "/assets/booking.webp",
     results: [
-      { metric: "$1M+", label: "ticket sales processed" },
-      { metric: "150K+", label: "bookings completed" },
-      { metric: "200K+", label: "passengers served" },
-      { metric: "80+", label: "routes covered" },
-      { metric: "40%", label: "faster booking time" },
+      { metric: "85%", label: "faster booking" },
+      { metric: "200K+", label: "tickets booked" },
+      { metric: "200K+", label: "customers served" },
+      { metric: "150+", label: "routes managed" },
       { metric: "99.9%", label: "platform uptime" },
     ],
   },
@@ -103,8 +100,6 @@ export default function CaseStudies() {
                   <div className="flex items-center gap-3">
                     <span className="e1 text-cobolt-500">Case Study</span>
                     <span className="p5 text-black-400">{study.industry}</span>
-                    <span className="text-black-200">&middot;</span>
-                    <span className="p5 text-black-400">{study.timeline}</span>
                   </div>
                   <h2 className="font-display text-[28px] leading-[1.1] tracking-[-1.4px] text-black-500 group-hover:text-cobolt-500 transition-colors">{study.title}</h2>
                   <p className="p3 text-black-400">{study.desc}</p>

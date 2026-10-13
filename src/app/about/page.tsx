@@ -64,7 +64,7 @@ export default function About() {
           <p className="p2 text-black-300">A new journey of innovation and collaboration</p>
           <div className="max-w-[800px] flex flex-col gap-6">
             <p className="p3 text-black-400">
-              Technioz was founded in 2024 by Gaurav Bhatia, a backend engineer who spent years building production systems — transport booking platforms processing $1M+ in ticket sales, fintech APIs, real-time chat, and AI pipelines — and wanted to bring that depth directly to growing businesses. Technioz works as a founder-led agency: you talk to the person who architects your system, supported by senior engineers we recruit and manage per project.
+              Technioz was founded in 2024 by Gaurav Bhatia, a backend engineer who spent years building production systems — transport booking platforms with 200K+ tickets booked, fintech APIs, real-time chat, and AI pipelines — and wanted to bring that depth directly to growing businesses. Technioz works as a founder-led agency: you talk to the person who architects your system, supported by senior engineers we recruit and manage per project.
             </p>
             <p className="p3 text-black-400">
               We operate as a remote-first company, collaborating closely with clients across the UAE, Oman, India, and beyond. Our model keeps overhead low and communication direct — daily standups, async updates, and video calls when it matters.

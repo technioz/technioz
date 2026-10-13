@@ -42,7 +42,7 @@ const faqs = [
   },
   {
     question: "How long does it take to develop a custom web app?",
-    answer: "Most MVPs ship in 8-12 weeks. Standard web apps with integrations take 3-5 months. Complex platforms with custom backend, multiple user roles, and third-party integrations can take 5-9 months.",
+    answer: "Most MVPs go live in 4-8 weeks. Standard web apps with integrations take 3-5 months. Complex platforms with custom backend, multiple user roles, and third-party integrations can take 5-9 months.",
   },
 ];
 
@@ -158,7 +158,7 @@ export default function WebAppDevelopmentCostCalculator() {
                 We estimate costs based on real project experience — then we build the actual product.
               </p>
               <ul className="flex flex-col gap-3 p4 text-black-400">
-                <li className="flex items-start gap-2"><span className="text-cobolt-500 mt-1">→</span><span>Shipped the Al Khanjry bilingual booking portal — 150K+ bookings completed</span></li>
+                <li className="flex items-start gap-2"><span className="text-cobolt-500 mt-1">→</span><span>Shipped the Al Khanjry bilingual booking portal: 200K+ tickets booked</span></li>
                 <li className="flex items-start gap-2"><span className="text-cobolt-500 mt-1">→</span><span>Fixed-price quotes with clear milestones, no surprise overages</span></li>
                 <li className="flex items-start gap-2"><span className="text-cobolt-500 mt-1">→</span><span>React, Next.js, Node.js, and cloud engineering under one team</span></li>
                 <li className="flex items-start gap-2"><span className="text-cobolt-500 mt-1">→</span><span>GCC-aligned delivery and Arabic/RTL support built in</span></li>
@@ -226,8 +226,8 @@ const costDrivers = [
 ];
 
 const typicalRanges = [
-  { label: "Landing / Marketing Site", range: "$3k – $12k", desc: "Brochure sites, campaign pages, and lead-capture funnels with CMS." },
-  { label: "MVP Web App", range: "$15k – $35k", desc: "5-8 screens, core workflow, basic backend, and simple auth." },
+  { label: "Landing / Marketing Site", range: "$5k – $12k", desc: "Brochure sites, campaign pages, and lead-capture funnels with CMS." },
+  { label: "MVP Web App", range: "$5k – $10k", desc: "5-8 screens, core workflow, basic backend, and simple auth." },
   { label: "SaaS / Dashboard", range: "$35k – $85k", desc: "15-25 screens, role-based access, billing, reporting, and 1-3 integrations." },
   { label: "Marketplace / B2B Platform", range: "$85k – $160k", desc: "Multi-sided platform, complex workflows, 4+ integrations, and compliance." },
 ];

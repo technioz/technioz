@@ -42,7 +42,7 @@ const faqs = [
   },
   {
     question: "How long does it take to develop an app?",
-    answer: "Most MVPs ship in 8-12 weeks. Standard apps with integrations take 3-5 months. Complex platforms with custom backend, multiple user roles, and third-party integrations can take 5-9 months. We run two-week sprints with demos so you see progress continuously.",
+    answer: "Most MVPs go live in 4-8 weeks. Standard apps with integrations take 3-5 months. Complex platforms with custom backend, multiple user roles, and third-party integrations can take 5-9 months. We run two-week sprints with demos so you see progress continuously.",
   },
 ];
 
@@ -136,7 +136,7 @@ export default function AppDevelopmentCostCalculator() {
                 We are not just estimating costs. We build the apps behind the numbers — from first prototype to App Store launch and ongoing support.
               </p>
               <ul className="flex flex-col gap-3 p4 text-black-400">
-                <li className="flex items-start gap-2"><span className="text-cobolt-500 mt-1">→</span><span>Shipped BusPass UAE and HattaFoodHub — apps used by thousands daily</span></li>
+                <li className="flex items-start gap-2"><span className="text-cobolt-500 mt-1">→</span><span>Shipped Hatta Food Hub: 1,500 orders a month on iOS and Android</span></li>
                 <li className="flex items-start gap-2"><span className="text-cobolt-500 mt-1">→</span><span>Fixed-price quotes with clear milestones, no surprise overages</span></li>
                 <li className="flex items-start gap-2"><span className="text-cobolt-500 mt-1">→</span><span>React Native, Flutter, Swift, Kotlin, and Next.js under one team</span></li>
                 <li className="flex items-start gap-2"><span className="text-cobolt-500 mt-1">→</span><span>GCC-aligned delivery and Arabic/RTL support built in</span></li>
@@ -224,7 +224,7 @@ const costDrivers = [
 ];
 
 const typicalRanges = [
-  { label: "MVP", range: "$15k – $35k", desc: "5-8 screens, core workflow, basic backend, no heavy integrations." },
+  { label: "MVP", range: "$5k – $10k", desc: "5-8 screens, core workflow, basic backend, no heavy integrations." },
   { label: "Standard App", range: "$35k – $85k", desc: "15-25 screens, custom UI, backend, 1-3 integrations, iOS + Android." },
   { label: "Complex Platform", range: "$85k – $160k", desc: "30+ screens, multi-role admin, 4+ integrations, analytics, compliance." },
   { label: "Enterprise", range: "$160k+", desc: "Custom architecture, multiple modules, SSO, audit trails, SLA support." },

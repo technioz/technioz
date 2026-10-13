@@ -22,7 +22,8 @@ interface CaseStudy {
   title: string;
   subtitle: string;
   industry: string;
-  timeline: string;
+  /** Omit when the real duration isn't confirmed. */
+  timeline?: string;
   featured: boolean;
   conceptBuild?: boolean;
   primaryStats: { metric: string; label: string }[];
@@ -34,16 +35,15 @@ interface CaseStudy {
 const caseStudies: CaseStudy[] = [
   {
     slug: "food-delivery-app",
-    client: "HattaFoodHub",
-    title: "From MVP Crashes to 10K+ Concurrent Orders",
-    subtitle: "How we rebuilt a failing food delivery monolith into a microservices platform that restaurants, couriers, and customers actually trust.",
-    industry: "Food & Logistics",
-    timeline: "4 months",
+    client: "Hatta Food Hub",
+    title: "A Food Delivery App Running 1,500 Orders a Month in Hatta",
+    subtitle: "How Hatta Food Hub runs ordering, operations, and customer flow on software we shipped: 30K+ orders delivered to 5K+ customers from 70+ restaurants, with about AED 100k in revenue every month.",
+    industry: "Food Delivery",
     featured: true,
     primaryStats: [
-      { metric: "10,000+", label: "concurrent orders" },
-      { metric: "99.9%", label: "platform uptime" },
-      { metric: "40%", label: "more repeat customers" },
+      { metric: "1,500", label: "orders every month" },
+      { metric: "AED 100k", label: "monthly revenue on the platform" },
+      { metric: "30K+", label: "orders delivered" },
     ],
     sections: [
       {
@@ -51,80 +51,53 @@ const caseStudies: CaseStudy[] = [
       },
       {
         type: "paragraph",
-        content: "HattaFoodHub is a food delivery startup connecting restaurants, couriers, and customers across multiple cities. They entered the market with a strong brand and loyal restaurant partners, but their technology stack could not keep up with growth.",
-      },
-      {
-        type: "heading", heading: "The Problem",
-      },
-      {
-        type: "paragraph",
-        content: "HattaFoodHub had a working MVP — but it was built on a monolithic Laravel backend tied to a single MySQL database. It worked fine for 50 orders an hour. At 200 orders, it slowed down. At 500, it crashed. Lunch and dinner peaks were a daily gamble: would the platform stay up today?",
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "Orders took 8–12 seconds to confirm during peak hours",
-          "Driver dispatching had no real-time component — couriers refreshed their screens manually",
-          "Restaurant dashboards showed stale inventory — menus would sell items that were out of stock",
-          "No automated retry logic for failed payments — customers were charged without orders being created",
-        ],
+        content: "Hatta Food Hub is a food delivery app and online marketplace for Hatta, Dubai, in the UAE. Customers order from local restaurants, home cooks, bakeries, cafés, grocers, pharmacies, and shops, including a \u201cMade in Hatta\u201d section for local products.",
       },
       {
         type: "heading", heading: "What We Built",
       },
       {
         type: "paragraph",
-        content: "We rebuilt the entire platform with a microservices architecture:",
+        content: "Ordering, operations, and customer flow, built end to end:",
       },
       {
         type: "bullet-list",
         items: [
-          "Order Management Service — handles the lifecycle from cart creation to delivery confirmation, with idempotency keys so double-charges are impossible",
-          "Dispatch Engine — a real-time WebSocket service that matches couriers to orders based on proximity, load, and vehicle type, with automatic reassignment if a courier rejects or times out",
-          "Payment Gateway — unified integration with Stripe, with retry logic, webhook reconciliation, and automatic refunds for cancelled orders",
-          "Restaurant Dashboard — a React frontend that shows live inventory sync, incoming orders with audio alerts, and analytics on peak hours and popular items",
-          "Customer App — React Native app with live GPS tracking of couriers and estimated delivery times recalculated every 30 seconds",
+          "Customer app for iOS and Android, available on the App Store and Google Play",
+          "Web storefront at hattafoodhub.com in English and Arabic, with prices in AED",
+          "Category browsing across food, home food, bakery, cafés, grocery, beauty, roastery, pharmacy, and shops",
+          "Restaurant listings with ratings, delivery times, and search",
+          "Vendor registration so local businesses can join the marketplace",
         ],
-      },
-      {
-        type: "heading", heading: "Technical Approach",
-      },
-      {
-        type: "paragraph",
-        content: "We containerized each service with Docker and orchestrated them on AWS ECS with auto-scaling. Redis handled session caching and rate limiting. PostgreSQL became the transactional database. The entire stack deployed through a GitHub Actions CI/CD pipeline with blue-green deployments — meaning updates went live with zero downtime.",
-      },
-      {
-        type: "quote",
-        quote: { text: "I can finally sleep during dinner rush. The platform just handles it.", author: "HattaFoodHub CTO", role: "" },
       },
       {
         type: "heading", heading: "The Results",
       },
       {
         type: "paragraph",
-        content: "The new platform launched without a single outage. Peak-hour order confirmation dropped from 8–12 seconds to under 800 milliseconds. Repeat customers increased by 40% in the first two months — users came back because the app was fast and reliable.",
+        content: "Hatta Food Hub is a real business running daily on the platform: about 1,500 orders and AED 100k in revenue every month. Since launch it has delivered 30K+ orders to 5K+ customers from 70+ restaurants.",
       },
     ],
     results: [
-      { metric: "10,000+", label: "concurrent orders handled" },
-      { metric: "99.9%", label: "platform uptime" },
-      { metric: "40%", label: "increase in repeat customers" },
-      { metric: "800ms", label: "order confirmation time" },
+      { metric: "1,500", label: "orders every month" },
+      { metric: "AED 100k", label: "monthly revenue on the platform" },
+      { metric: "30K+", label: "orders delivered" },
+      { metric: "5K+", label: "customers" },
+      { metric: "70+", label: "restaurants" },
     ],
-    techs: ["React Native", "Laravel", "Node.js", "MySQL", "PostgreSQL", "Redis", "AWS ECS", "Docker", "Stripe"],
+    techs: [],
   },
   {
     slug: "alkhanjry-transport",
-    client: "Al Khanjry Groups",
-    title: "From Manual Counters to $1M in Digital Sales",
-    subtitle: "How a 25-year-old Omani bus operator moved from counter queues to real-time online ticketing across 80+ cross-border routes.",
+    client: "Al Khanjry Transport",
+    title: "From Manual Counters to 200K+ Tickets Booked",
+    subtitle: "How an Omani bus operator running Oman–UAE routes since 1998 moved from counter queues and phone bookings to a booking and management system, with booking now 85% faster across 150+ routes.",
     industry: "Transportation & Logistics",
-    timeline: "7 months",
     featured: true,
     primaryStats: [
-      { metric: "$1M+", label: "in ticket sales" },
-      { metric: "150K+", label: "bookings completed" },
-      { metric: "200K+", label: "passengers served" },
+      { metric: "85%", label: "faster booking" },
+      { metric: "200K+", label: "tickets booked" },
+      { metric: "150+", label: "routes managed" },
     ],
     sections: [
       {
@@ -132,28 +105,23 @@ const caseStudies: CaseStudy[] = [
       },
       {
         type: "paragraph",
-        content: "Al Khanjry Transport is a 100% Omani-owned bus operator running since 1998. Headquartered in Muscat, they operate daily cross-border routes between Oman and the UAE — primarily Muscat to Dubai — plus charter coach services across the GCC. They run 5 physical branch locations in Dubai, Ruwi (Muscat), Sohar, Al Khoud, and Ajman, serving both local passengers and international travelers. Their reputation is strong: 25 years of reliability, fair pricing, and drivers who know every checkpoint on the border route.",
+        content: "Al Khanjry Transport is an Omani bus operator running since 1998. It runs daily coaches between Muscat and Dubai, plus other routes across Oman and the UAE, with branch counters serving both local passengers and international travelers.",
       },
       {
         type: "heading", heading: "The Problem",
       },
       {
         type: "paragraph",
-        content: "Despite their market position and loyal customer base, Al Khanjry had no digital presence. Every booking happened offline — customers called a phone number, walked into a branch counter, or messaged on WhatsApp. A staff member manually checked availability on a spreadsheet, assigned a seat, and collected cash or made a bank transfer request. Confirmation was verbal or sent as a WhatsApp message.",
-      },
-      {
-        type: "paragraph",
-        content: "This worked when they were moving 50 passengers a day. By 2024, they were handling 100x that volume — and the system was visibly failing:",
+        content: "Every booking happened offline: customers called a phone number, walked into a branch counter, or messaged on WhatsApp. A staff member manually checked availability, assigned a seat, and collected cash or requested a bank transfer. Confirmation was verbal or sent as a WhatsApp message. As passenger numbers grew, the process started to fail:",
       },
       {
         type: "bullet-list",
         items: [
-          "During peak seasons — Eid, winter tourism, national holidays — counters had 40-minute queues",
-          "Phone lines were jammed for hours. Passengers gave up and went to competitors with online booking",
-          "Staff had no visibility into real-time seat inventory across routes — double-bookings happened weekly",
-          "The website that existed before was static HTML with no booking capability. It could not be updated without taking the server offline",
-          "Arabic-speaking passengers had no way to book in their language. Support had to translate manually over WhatsApp",
-          "No payment gateway integration. All payments were offline, creating reconciliation nightmares for the finance team",
+          "Peak seasons such as Eid, winter tourism, and national holidays meant long queues at the counters",
+          "Phone lines were jammed for hours, and passengers gave up and went to competitors with online booking",
+          "Staff had no real-time view of seat inventory across routes, so double-bookings happened",
+          "Arabic-speaking passengers had no way to book in their own language",
+          "All payments were offline, which made reconciliation hard for the finance team",
         ],
       },
       {
@@ -161,44 +129,31 @@ const caseStudies: CaseStudy[] = [
       },
       {
         type: "paragraph",
-        content: "Technioz rebuilt the entire booking experience from the ground up — a bilingual online platform that handles the full passenger journey from search to payment to onboard.",
+        content: "Technioz built a bilingual booking and management system that handles the passenger journey from search to payment to boarding, and gives staff one place to run operations.",
       },
       {
-        type: "heading", heading: "1. Online Booking Portal",
+        type: "heading", heading: "1. Online Booking",
       },
       {
         type: "bullet-list",
         items: [
-          "Responsive web application built with React and Next.js — works on mobile, tablet, and desktop",
-          "Real-time seat selection with a visual seat map showing booked vs. available seats on every bus",
-          "Full bilingual support — passengers switch between Arabic and English with one tap. All content, including booking confirmations and error messages, is fully localized",
-          "One-way and round-trip booking with departure date selection and passenger count selector",
-          "Automated SMS and email confirmations after payment — passengers receive booking IDs, seat numbers, and branch pick-up instructions instantly",
-          "Guest checkout and account-based booking — returning passengers can manage bookings, rebook previous routes, and save payment methods",
+          "Public booking site at alkhanjryonline.com that works on mobile, tablet, and desktop",
+          "Arabic and English throughout",
+          "One-way and round-trip booking with travel date and passenger selection",
+          "Manage Booking for passengers who need to check or change a trip",
         ],
       },
       {
-        type: "heading", heading: "2. Cloud Infrastructure and DevOps",
+        type: "heading", heading: "2. Booking & Management System",
       },
       {
         type: "bullet-list",
         items: [
-          "Full migration to AWS with architecture designed for demand spikes: EC2 auto-scaling groups, RDS for PostgreSQL, ElastiCache (Redis) for session management, S3 for static assets, and CloudFront CDN for global delivery",
-          "Serverless Lambda functions for scheduled tasks — ticket expiry reminders, daily sales reports, and automated seat release for abandoned bookings",
-          "CI/CD pipeline using GitHub Actions with automated testing, staging environment, and zero-downtime blue-green deployments",
-          "Monitoring and alerting with CloudWatch — the team gets Slack notifications if error rates or latency exceed thresholds",
-        ],
-      },
-      {
-        type: "heading", heading: "3. Admin Dashboard",
-      },
-      {
-        type: "bullet-list",
-        items: [
-          "Central dashboard for operations team to manage routes, schedules, pricing, and seat inventory across all 80+ routes",
-          "Real-time sales dashboard showing revenue by route, time period, and booking channel",
-          "Passenger manifest generation — one-click export of passenger lists for border crossing documentation",
-          "Agent management system with role-based access — branch staff can process walk-in bookings through the same system, keeping all inventory in sync",
+          "Counter ticket booking by route, trip, and travel date, with passenger search by passport or phone number",
+          "Two-way and printed tickets",
+          "Update bookings, travel date changes, check-in lists, and discounted bookings",
+          "Sales, expense, deposit, and refund reports for the finance team",
+          "Consignment handling and bus schedule availability across all routes",
         ],
       },
       {
@@ -206,30 +161,21 @@ const caseStudies: CaseStudy[] = [
       },
       {
         type: "paragraph",
-        content: "We launched in phases. Phase 1 went live with the Muscat–Dubai route and a single payment gateway. We monitored for two weeks, fixed edge cases, then expanded to all routes in Phase 2. By Phase 3, branch staff were using the admin dashboard to process walk-in bookings, putting 100% of inventory online. Total rollout: 7 months from first commit to all routes live.",
-      },
-      {
-        type: "quote",
-        quote: {
-          text: "We went from manual counters and WhatsApp confirmations to a fully digital booking platform that handles thousands of passengers every day. Our customers now book in under two minutes, and my team finally has real-time visibility across every route.",
-          author: "Rashid Alkhanjry",
-          role: "Founder/CEO, Al Khanjry Transport",
-        },
+        content: "We launched in phases. Phase 1 went live with the Muscat–Dubai route. We monitored it, fixed edge cases, then expanded to all routes. In the final phase, branch staff moved walk-in bookings into the same system, so every seat is sold from one live inventory.",
       },
       {
         type: "heading", heading: "The Results",
       },
       {
         type: "paragraph",
-        content: "Since launch, alkhanjryonline.com has become the primary booking channel for the company. Over $1 million in ticket sales has been processed digitally. More than 150,000 bookings have been completed, serving over 200,000 passengers across 80+ cross-border routes. Booking time dropped from 15–20 minutes (phone/counter) to under 2 minutes (online). Platform uptime is 99.9% even during peak seasons when traffic spikes 5x normal levels. Customer complaints about booking errors are down approximately 70%. The operations team that once spent hours on manual reconciliation now has a live dashboard that updates in real time.",
+        content: "Booking is now 85% faster than the old phone-and-counter process. 200K+ tickets have been booked for 200K+ customers across 150+ routes, with 99.9% platform uptime. The operations team runs every route from a live dashboard instead of spreadsheets and phone calls.",
       },
     ],
     results: [
-      { metric: "$1M+", label: "in ticket sales processed" },
-      { metric: "150K+", label: "bookings completed" },
-      { metric: "200K+", label: "passengers served" },
-      { metric: "80+", label: "cross-border routes" },
-      { metric: "2 min", label: "booking time (was 15-20 min)" },
+      { metric: "85%", label: "faster booking" },
+      { metric: "200K+", label: "tickets booked" },
+      { metric: "200K+", label: "customers served" },
+      { metric: "150+", label: "routes managed" },
       { metric: "99.9%", label: "platform uptime" },
     ],
     techs: ["React", "Next.js", "Node.js", "Express.js", "PostgreSQL", "Redis", "AWS EC2", "AWS RDS", "AWS Lambda", "Docker", "GitHub Actions"],
@@ -401,8 +347,12 @@ export default async function CaseStudyDetail({ params }: { params: Promise<{ sl
               {study.featured && <span className="e1 text-cobolt-500">Case Study</span>}
               {study.conceptBuild && <span className="e1 text-cobolt-500">Concept build</span>}
               <span className="p5 text-black-400">{study.industry}</span>
-              <span className="text-black-200">&middot;</span>
-              <span className="p5 text-black-400">{study.timeline}</span>
+              {study.timeline && (
+                <>
+                  <span className="text-black-200">&middot;</span>
+                  <span className="p5 text-black-400">{study.timeline}</span>
+                </>
+              )}
             </div>
 
             <h1 className="h2 text-black-500 mb-4">{study.title}</h1>
@@ -488,6 +438,7 @@ export default async function CaseStudyDetail({ params }: { params: Promise<{ sl
       </section>
 
       {/* Tech stack */}
+      {study.techs.length > 0 && (
       <section className="bg-white-200">
         <div className="max-w-[1440px] mx-auto px-6 py-16 lg:px-[148px] lg:py-[100px] flex flex-col items-center text-center">
           <h2 className="h4 text-black-500 mb-6">Technology used</h2>
@@ -498,6 +449,7 @@ export default async function CaseStudyDetail({ params }: { params: Promise<{ sl
           </div>
         </div>
       </section>
+      )}
 
       {/* Related */}
       <section className="bg-white-300">
@@ -513,7 +465,7 @@ export default async function CaseStudyDetail({ params }: { params: Promise<{ sl
                   <div className="flex items-center gap-2 flex-wrap">
                     {p.conceptBuild && <span className="text-[11px] font-mono uppercase tracking-[1px] text-cobolt-500 bg-cobolt-500/5 px-2 py-0.5 rounded-sm">Concept build</span>}
                     <span className="text-[11px] font-mono uppercase tracking-[1px] text-black-300">{p.industry}</span>
-                    <span className="text-xs text-black-400">{p.timeline}</span>
+                    {p.timeline && <span className="text-xs text-black-400">{p.timeline}</span>}
                   </div>
                   <h3 className="font-display text-[18px] leading-[1.2] tracking-[-0.9px] text-black-500 group-hover:text-cobolt-500 transition-colors line-clamp-2">{p.title}</h3>
                   <span className="e2 text-cobolt-500">{p.conceptBuild ? "View concept build" : "Read case study"}</span>

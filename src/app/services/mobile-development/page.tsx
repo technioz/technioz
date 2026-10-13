@@ -176,8 +176,8 @@ function CaseStudyLink() {
           <p className="p3 text-black-400">A live mobile product used by thousands of customers every day.</p>
         </div>
         <Link href="/portfolio/food-delivery-app" className="bg-white-200 rounded-sm p-[32px] flex flex-col gap-[12px] hover:shadow-[0_10px_24px_rgba(29,27,22,0.12)] transition-shadow group max-w-[700px]">
-          <h3 className="font-display text-[20px] leading-none tracking-[-1px] text-black-500 group-hover:text-cobolt-500 transition-colors">HattaFoodHub</h3>
-          <p className="p4 text-black-400">Food delivery app used by thousands of customers — iOS, Android, and real-time dispatch.</p>
+          <h3 className="font-display text-[20px] leading-none tracking-[-1px] text-black-500 group-hover:text-cobolt-500 transition-colors">Hatta Food Hub</h3>
+          <p className="p4 text-black-400">Food delivery app for iOS and Android: 1,500 orders a month, 30K+ orders delivered to 5K+ customers.</p>
           <span className="e2 text-cobolt-500 mt-2">Read case study →</span>
         </Link>
       </div>

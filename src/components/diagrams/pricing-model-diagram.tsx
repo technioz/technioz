@@ -7,7 +7,7 @@ export function PricingModelDiagram() {
       unit: "per project",
       desc: "Best for well-defined projects with clear requirements and a known endpoint.",
       features: [
-        "MVP packages from $15K",
+        "MVP builds from $5K",
         "Milestone-based billing",
         "Fixed deliverables and timeline",
         "30-day post-launch support included",

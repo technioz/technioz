@@ -17,7 +17,7 @@ Technioz is a founder-led, remote-first software agency building custom web appl
 ## Long (~150 words)
 Technioz is a founder-led software agency for startups and small-to-mid-sized businesses that outgrow off-the-shelf tools. Founder Gaurav Bhatia — a backend engineer with 5+ years across transport booking, fintech, real-time chat, and AI pipelines — stays directly involved in every engagement, so clients talk to the person who architects their system instead of an account manager. Senior engineers are recruited, vetted, and managed per project, covering the full stack: web applications (React, Next.js, Node.js), mobile apps (Swift, Kotlin, React Native, Flutter), AI solutions (chatbots, AI agents, RAG systems, LLM integration), and cloud infrastructure (AWS, Azure, GCP, Docker, Kubernetes).
 
-Founded in 2024, Technioz has delivered production software across the Gulf region, including a digital booking and operations platform for Al Khanjry Transport in Oman, ticketing systems for IGL Transport, and agriculture-industry platforms for Hatta Sky / Sky Growers. Engagement models include fixed-scope projects ($10K–$100K+), dedicated teams assembled and led by Technioz, and staff augmentation. Clients get demos every two weeks and first deployments typically live in about four weeks.
+Founded in 2024, Technioz has delivered production software across the Gulf region, including a digital booking and operations platform for Al Khanjry Transport in Oman, ticketing systems for IGL Transport, and agriculture-industry platforms for Hatta Sky / Sky Growers. Engagement models include fixed-scope projects (from $5K; MVPs typically $5K–$10K and live in 4–8 weeks; larger platforms up to $100K+), dedicated teams assembled and led by Technioz, and staff augmentation. Clients get demos every two weeks and first deployments typically live in about four weeks.
 
 ## Facts box (for form fields)
 
@@ -34,7 +34,7 @@ Founded in 2024, Technioz has delivered production software across the Gulf regi
 | Services | Custom software, web apps, mobile apps, AI/ML solutions, cloud & DevOps, IT consulting |
 | Tech stack | React, Next.js, Node.js, Laravel/PHP, Python; AWS, Azure, GCP, Docker, Kubernetes |
 | Engagement models | Fixed-scope projects, dedicated team (assembled & managed), staff augmentation |
-| Pricing | Projects $10K–$100K+; dedicated team $8K–$30K/mo; augmentation $3K–$6K/engineer/mo |
+| Pricing | Projects from $5K (MVPs typically $5K–$10K, live in 4–8 weeks; larger platforms up to $100K+); dedicated team $8K–$30K/mo; augmentation $3K–$6K/engineer/mo |
 | Notable clients | Al Khanjry Transport (Oman), IGL Transport, Hatta Sky / Sky Growers |
 | Contact | info@technioz.com · https://technioz.com/contact |
 | Social | linkedin.com/company/technioz *(verify before submitting)* |

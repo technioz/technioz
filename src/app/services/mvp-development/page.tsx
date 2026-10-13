@@ -8,10 +8,10 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "MVP Development Company for Startups",
-  description: "MVP development company for startups. Validate your idea, scope the smallest useful version, and launch in 8-12 weeks with React Native, Next.js, or Node.js.",
+  description: "MVP development company for startups. Validate your idea, scope the smallest useful version, and launch in 4-8 weeks with React Native, Next.js, or Node.js.",
   openGraph: buildOpenGraph({
       title: "MVP Development Company for Startups",
-      description: "Validate your startup idea and launch an MVP in 8-12 weeks. Fixed-price scoping, lean scope, and a clear path to product-market fit.",
+      description: "Validate your startup idea and launch an MVP in 4-8 weeks. Fixed-price scoping, lean scope, and a clear path to product-market fit.",
       url: "https://technioz.com/services/mvp-development",
     }),
   alternates: {
@@ -26,11 +26,11 @@ const faqs = [
   },
   {
     question: "How long does it take to build an MVP?",
-    answer: "Most MVPs we build take 8-12 weeks from first workshop to launch. Complex MVPs with multiple user roles, payment flows, or third-party integrations can take 12-16 weeks. We run two-week sprints with demos so you see progress continuously.",
+    answer: "Most MVPs we build go live in 4-8 weeks from build start, and we start within 30 days of signing. Larger MVPs with multiple user roles, payment flows, or several integrations can take longer, and we tell you upfront. We run two-week sprints with demos so you see progress continuously.",
   },
   {
     question: "How much does an MVP cost?",
-    answer: "Startup MVPs typically range from $15,000 to $45,000 depending on platform, scope, and integrations. You can get a quick estimate with our app cost calculator or book a free scoping call for a fixed-price quote.",
+    answer: "Most startup MVPs cost $5,000 – $10,000, with a $5,000 minimum. Products with payments, AI, and multiple user types sit higher. You can get a quick estimate with our app cost calculator or book a free scoping call for a fixed-price quote.",
   },
   {
     question: "What happens after the MVP launches?",
@@ -60,7 +60,7 @@ export default function MvpDevelopment() {
             <span className="e1 text-black-300">MVP Development for Startups</span>
             <h1 className="h2 text-black-500">Validate Your Idea in Weeks, Not Years</h1>
             <p className="p3 text-black-400 max-w-[600px]">
-              Most startups fail because they build too much before they know what users want. We help founders scope, design, and ship a lean MVP in 8-12 weeks — so you can test the one assumption that matters and decide what to build next with real data.
+              Most startups fail because they build too much before they know what users want. We help founders scope, design, and ship a lean MVP in 4-8 weeks — so you can test the one assumption that matters and decide what to build next with real data.
             </p>
             <ul className="flex flex-col gap-2 p4 text-black-400 max-w-[600px]">
               <li className="flex items-start gap-2"><span className="text-cobolt-500 mt-1">→</span><span>Lean MVP scoping: define the smallest version that proves your riskiest assumption</span></li>
@@ -106,17 +106,17 @@ export default function MvpDevelopment() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="max-w-[600px]">
               <span className="e1 text-cobolt-300 mb-4 inline-block">Case Study</span>
-              <h2 className="h3 !text-white-200 mb-4">From Failing MVP to 10,000+ Concurrent Orders</h2>
+              <h2 className="h3 !text-white-200 mb-4">A Food Delivery App Running 1,500 Orders a Month</h2>
               <p className="p3 text-black-200 mb-6">
-                HattaFoodHub started with an MVP that could not handle growth. We rebuilt the platform with a lean, scalable architecture and helped them validate demand before investing in a full-featured product. The result: order confirmation under 800ms, 99.9% uptime, and 40% more repeat customers.
+                Hatta Food Hub runs ordering, operations, and customer flow on software we shipped: an iOS and Android app plus a bilingual web marketplace for Hatta, Dubai. Today it handles about 1,500 orders and AED 100k in revenue every month, with 30K+ orders delivered to 5K+ customers.
               </p>
-              <Link href="/portfolio/food-delivery-app" className="cta-secondary-dark !border-cobolt-300 !text-cobolt-300 hover:!bg-cobolt-300 hover:!text-black-500">Read the HattaFoodHub case study</Link>
+              <Link href="/portfolio/food-delivery-app" className="cta-secondary-dark !border-cobolt-300 !text-cobolt-300 hover:!bg-cobolt-300 hover:!text-black-500">Read the Hatta Food Hub case study</Link>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {[
-                { metric: "8-12", label: "weeks to MVP launch" },
+                { metric: "4-8", label: "weeks to MVP launch" },
                 { metric: "5+", label: "startup MVPs shipped" },
-                { metric: "$15k", label: "MVP starting range" },
+                { metric: "$5k", label: "MVP starting price" },
                 { metric: "98%", label: "on-time delivery" },
               ].map((s) => (
                 <div key={s.label} className="border border-black-400 rounded-sm p-[32px] text-center">

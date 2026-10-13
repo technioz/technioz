@@ -76,7 +76,7 @@ const sections = [
   },
   {
     title: "15. Contact Information",
-    content: "Technioz. Email: info@technioz.com. Website: https://technioz.com. Address: Punjab, India.",
+    content: "Technioz. Email: info@technioz.com. Website: https://technioz.com. Location: Dubai, United Arab Emirates (remote-first agency, no physical office).",
   },
 ];
 
