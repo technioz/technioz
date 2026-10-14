@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { HONEYPOT_FIELD } from "@/lib/honeypot";
+import { useEffect, useRef, useState } from "react";
+import { FORM_TIME_FIELD, HONEYPOT_FIELD } from "@/lib/honeypot";
 import Link from "next/link";
 import { PROJECT_TYPE_OPTIONS } from "@/lib/contact-types";
 
@@ -60,6 +60,11 @@ function validateLocally(payload: Record<string, string>): FieldErrors {
 export function ContactForm() {
   const [status, setStatus] = useState<Status>({ kind: "idle" });
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
+  // When the form became usable; submitting implausibly fast is a spam signal.
+  const mountedAtRef = useRef<number | null>(null);
+  useEffect(() => {
+    mountedAtRef.current = Date.now();
+  }, []);
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -75,8 +80,9 @@ export function ContactForm() {
       companyName: String(fd.get("companyName") ?? ""),
       projectType: String(fd.get("projectType") ?? ""),
       message: String(fd.get("message") ?? ""),
-      // Spam trap — a hidden checkbox that must stay unticked (see src/lib/honeypot.ts).
+      // Spam signals — flag only, never discard (see src/lib/honeypot.ts).
       [HONEYPOT_FIELD]: fd.get(HONEYPOT_FIELD) === "1" ? "1" : "",
+      [FORM_TIME_FIELD]: mountedAtRef.current ? String(Date.now() - mountedAtRef.current) : "",
     };
 
     // Client-side validation first — fail fast without a network round-trip
@@ -255,7 +261,7 @@ export function ContactForm() {
         )}
       </div>
 
-      {/* Spam trap: hidden checkbox. Autofill never ticks it; bots do. See src/lib/honeypot.ts. */}
+      {/* Spam signal: hidden checkbox. Ticked = flagged, never discarded. See src/lib/honeypot.ts. */}
       <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", height: 0, overflow: "hidden" }}>
         <label>
           <input name={HONEYPOT_FIELD} type="checkbox" value="1" tabIndex={-1} autoComplete="off" />

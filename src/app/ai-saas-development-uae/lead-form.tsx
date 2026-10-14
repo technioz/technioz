@@ -11,7 +11,7 @@ import {
   TIMELINE_OPTIONS,
   UTM_KEYS,
 } from "@/lib/campaign-lead-options";
-import { HONEYPOT_FIELD } from "@/lib/honeypot";
+import { FORM_TIME_FIELD, HONEYPOT_FIELD } from "@/lib/honeypot";
 import { trackPixelEvent } from "@/lib/meta-pixel";
 import { BTN_PRIMARY, BTN_SECONDARY, CALENDLY_URL, LANDING_PATH, whatsappUrl } from "./constants";
 
@@ -66,6 +66,7 @@ export function LeadForm() {
   const resultHeadingRef = useRef<HTMLHeadingElement>(null);
   const honeypotRef = useRef<HTMLInputElement>(null);
   const trackingRef = useRef<{ utm: Record<string, string>; referrer: string }>({ utm: {}, referrer: "" });
+  const mountedAtRef = useRef<number | null>(null);
 
   // Capture ad attribution (UTM + fbclid) and referrer from the landing URL.
   useEffect(() => {
@@ -76,6 +77,7 @@ export function LeadForm() {
       if (v) utm[key] = v;
     }
     trackingRef.current = { utm, referrer: document.referrer };
+    mountedAtRef.current = Date.now();
   }, []);
 
   // Detect a completed Calendly booking (inline embed posts a message).
@@ -147,6 +149,7 @@ export function LeadForm() {
           utm: trackingRef.current.utm,
           referrer: trackingRef.current.referrer,
           [HONEYPOT_FIELD]: Boolean(honeypotRef.current?.checked),
+          [FORM_TIME_FIELD]: mountedAtRef.current ? Date.now() - mountedAtRef.current : null,
         }),
       });
       const data = (await res.json().catch(() => ({}))) as { ok?: boolean; qualified?: boolean; emailSent?: boolean; error?: string };
@@ -227,7 +230,7 @@ export function LeadForm() {
         )
       ) : (
         <form onSubmit={submit} noValidate>
-          {/* Spam trap: hidden checkbox. Autofill never ticks it; bots do. See src/lib/honeypot.ts. */}
+          {/* Spam signal: hidden checkbox. Ticked = flagged, never discarded. See src/lib/honeypot.ts. */}
           <div aria-hidden="true" className="absolute -left-[9999px] h-0 overflow-hidden">
             <label>
               <input ref={honeypotRef} name={HONEYPOT_FIELD} type="checkbox" value="1" tabIndex={-1} autoComplete="off" />

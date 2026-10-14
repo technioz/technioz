@@ -132,7 +132,7 @@ export function validateCampaignLead(
 }
 
 export async function saveCampaignLead(
-  data: CampaignLeadInput & { ip: string | null; userAgent: string | null }
+  data: CampaignLeadInput & { ip: string | null; userAgent: string | null; spamReason: string | null }
 ): Promise<{ ok: true; id: string; qualified: boolean } | { ok: false }> {
   const qualified = isQualified(data.budget);
   try {
@@ -144,8 +144,13 @@ export async function saveCampaignLead(
   }
 }
 
-export function sendCampaignLeadNtfy(data: CampaignLeadInput, qualified: boolean): Promise<NtfyResult> {
-  const title = `${qualified ? "New lead" : "Lead (under $5k)"}: ${data.fullName} (${data.company})`;
+export function sendCampaignLeadNtfy(
+  data: CampaignLeadInput,
+  qualified: boolean,
+  spamReason: string | null = null
+): Promise<NtfyResult> {
+  const kind = qualified ? "New lead" : "Lead (under $5k)";
+  const title = `${spamReason ? "Possible spam - " : ""}${kind}: ${data.fullName} (${data.company})`;
   const utm = [data.utmSource, data.utmMedium, data.utmCampaign, data.utmContent].filter(Boolean).join(" / ");
   const body = [
     `Email: ${data.email}`,
@@ -160,6 +165,7 @@ export function sendCampaignLeadNtfy(data: CampaignLeadInput, qualified: boolean
     "",
     `Page: ${data.landingPath}`,
     utm ? `Campaign: ${utm}` : null,
+    spamReason ? `Flagged as possible spam (${spamReason}). Saved anyway; no confirmation email was sent.` : null,
   ]
     .filter((l) => l !== null)
     .join("\n");
@@ -167,7 +173,7 @@ export function sendCampaignLeadNtfy(data: CampaignLeadInput, qualified: boolean
   return sendNtfy({
     title,
     body,
-    tags: qualified ? ["moneybag", "lead"] : ["hourglass", "lead"],
-    priority: qualified ? "high" : "default",
+    tags: spamReason ? ["warning", "lead"] : qualified ? ["moneybag", "lead"] : ["hourglass", "lead"],
+    priority: spamReason ? "low" : qualified ? "high" : "default",
   });
 }

@@ -54,6 +54,8 @@ model ContactSubmission {
   source       String?  // e.g. "contact-page", utm_source, referrer host
   ip           String?
   userAgent    String?  @map("user_agent") @db.Text
+  // Comma-joined spam signals (src/lib/honeypot.ts), null when clean. Never used to discard.
+  spamReason   String?  @map("spam_reason")
   createdAt    DateTime @default(now()) @map("created_at")
 
   @@index([createdAt])
@@ -87,6 +89,8 @@ model CampaignLead {
   referrer       String?  @db.Text
   ip             String?
   userAgent      String?  @map("user_agent") @db.Text
+  // Comma-joined spam signals (src/lib/honeypot.ts), null when clean. Never used to discard.
+  spamReason     String?  @map("spam_reason")
   createdAt      DateTime @default(now()) @map("created_at")
 
   @@index([createdAt])

@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from "next/server";
-import { isHoneypotTripped } from "@/lib/honeypot";
+import { NextRequest, NextResponse, after } from "next/server";
+import { spamReasonFor } from "@/lib/honeypot";
 import {
   saveContactSubmission,
   sendContactNtfy,
@@ -49,14 +49,6 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
   }
 
-  // Spam trap (see src/lib/honeypot.ts): a ticked hidden checkbox means a bot.
-  // The old "company_url" text trap is ignored: autofill filled it for real people.
-  if (isHoneypotTripped(body)) {
-    // Silently accept (return 200) so the bot doesn't retry, but skip
-    // DB write + notification.
-    return NextResponse.json({ ok: true, status: "accepted" }, { status: 200 });
-  }
-
   const parsed = validateContactInput(body);
   if (!parsed.ok) {
     return NextResponse.json({ error: parsed.error }, { status: 400 });
@@ -67,6 +59,8 @@ export async function POST(request: NextRequest) {
     source: parsed.data.source ?? "contact-page",
     ip,
     userAgent,
+    // Never discard: suspected spam is saved and flagged (see src/lib/honeypot.ts).
+    spamReason: spamReasonFor(body),
   };
 
   // Save to DB (synchronous — return 500 to user if it fails).
@@ -78,9 +72,9 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  // Fire-and-forget ntfy notification. We don't block the user response on
-  // this — log the result for monitoring.
-  sendContactNtfy({
+  // Notify after responding. after() keeps the work alive on serverless hosts;
+  // a bare un-awaited promise can be cut off once the response is sent.
+  after(() => sendContactNtfy({
     fullName: data.fullName,
     email: data.email,
     phone: data.phone,
@@ -88,6 +82,7 @@ export async function POST(request: NextRequest) {
     projectType: data.projectType,
     message: data.message,
     source: data.source,
+    spamReason: data.spamReason,
   })
     .then((r) => {
       if (r.ok) {
@@ -100,7 +95,7 @@ export async function POST(request: NextRequest) {
     })
     .catch((err) => {
       console.error("[contact] ntfy threw:", err);
-    });
+    }));
 
   return NextResponse.json(
     {

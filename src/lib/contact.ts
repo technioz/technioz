@@ -25,6 +25,7 @@ export type ContactFormInput = {
   source?: string | null;
   ip?: string | null;
   userAgent?: string | null;
+  spamReason?: string | null;
 };
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -112,8 +113,9 @@ export async function sendContactNtfy(input: {
   projectType?: string | null;
   message: string;
   source?: string | null;
+  spamReason?: string | null;
 }): Promise<NtfyResult> {
-  const title = `New contact: ${input.fullName}${input.companyName ? ` (${input.companyName})` : ""}`;
+  const title = `${input.spamReason ? "Possible spam - " : ""}New contact: ${input.fullName}${input.companyName ? ` (${input.companyName})` : ""}`;
   const body = [
     `Email: ${input.email}`,
     input.phone ? `Phone: ${input.phone}` : null,
@@ -122,15 +124,16 @@ export async function sendContactNtfy(input: {
     "",
     "Message:",
     input.message,
+    input.spamReason ? `\nFlagged as possible spam (${input.spamReason}). Saved anyway.` : null,
   ]
     .filter((l) => l !== null)
     .join("\n");
 
-  const tags = ["inbox"];
+  const tags = input.spamReason ? ["warning"] : ["inbox"];
   if (input.projectType) {
     const tag = input.projectType.toLowerCase().replace(/[^a-z0-9-]/g, "").slice(0, 20);
     if (tag) tags.push(tag);
   }
 
-  return sendNtfy({ title, body, tags });
+  return sendNtfy({ title, body, tags, priority: input.spamReason ? "low" : undefined });
 }
