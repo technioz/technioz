@@ -2589,7 +2589,7 @@ export const blogPosts: BlogPost[] = [
       { type: "h2", value: "Results" },
       { type: "p", value: "The impact was immediate and measurable:" },
       { type: "ul", items: [
-        "85% faster booking than the old phone-and-counter process",
+        "97% faster booking than the old phone-and-counter process",
         "200K+ tickets booked",
         "200K+ customers served",
         "150+ routes managed",

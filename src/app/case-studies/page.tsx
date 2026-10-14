@@ -42,7 +42,7 @@ const caseStudies = [
     techs: ["React", "Next.js", "Node.js", "AWS", "PostgreSQL", "Redis"],
     image: "/assets/booking.webp",
     results: [
-      { metric: "85%", label: "faster booking" },
+      { metric: "97%", label: "faster booking" },
       { metric: "200K+", label: "tickets booked" },
       { metric: "200K+", label: "customers served" },
       { metric: "150+", label: "routes managed" },

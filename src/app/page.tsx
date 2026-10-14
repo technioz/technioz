@@ -327,7 +327,7 @@ const reliefCards = [
 
 const evidenceCards = [
   // Numbers must match docs/proof-metrics.md.
-  { metric:"85%",label:"faster booking",story:"Al Khanjry Transport replaced phone and counter bookings with a booking and management system we built. Booking is now 85% faster.",client:"Al Khanjry Transport"},
+  { metric:"97%",label:"faster booking",story:"Al Khanjry Transport replaced phone and counter bookings with a booking and management system we built. Booking is now 97% faster.",client:"Al Khanjry Transport"},
   { metric:"200K+",label:"tickets booked",story:"The same platform has booked 200K+ tickets for 200K+ customers across 150+ Oman–UAE routes, with 99.9% uptime.",client:"Al Khanjry Transport"},
   { metric:"1,500",label:"orders every month",story:"Hatta Food Hub runs ordering, operations, and customer flow on software we shipped: AED 100k a month and 30K+ orders delivered.",client:"Hatta Food Hub"},
 ];

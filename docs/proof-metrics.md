@@ -13,7 +13,7 @@ Oman–UAE routes. Public booking site: https://www.alkhanjryonline.com
 
 | Metric | Value |
 |---|---|
-| Booking speed | **85% faster** booking (vs. the old phone/counter process) |
+| Booking speed | **97% faster** booking (vs. the old phone/counter process) |
 | Tickets | **200K+ tickets booked** |
 | Customers | **200K+ customers served** |
 | Routes | **150+ routes managed** |
@@ -74,6 +74,16 @@ estimates are unscaled.
 
 5+ projects shipped · 98% on-time delivery · founded 2024 · founder-led.
 Retired: "200+ projects", "50+ engineers", "10+ years".
+
+## Sales promises (landing page, emails)
+
+- **Fixed quote within 48 hours of the call** (confirmed by Gaurav, October 14, 2026).
+- **Two builds at a time** — worded as capacity ("so every project gets the
+  founder's direct attention"), never as headcount.
+
+Al Khanjry booking speed is **97%** (corrected from 85% on October 14, 2026). The DB
+article `build-vs-buy` still says "85% faster booking processing" because it
+quotes Product School's example, not Technioz — leave it.
 
 ## Other confirmed / retired items
 

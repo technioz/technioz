@@ -124,7 +124,7 @@ Every project starts with a free 30-minute consultation. No commitment, no oblig
 
 ## Case Studies
 
-- **Al Khanjry Transport** (Oman–UAE): Built a bilingual bus booking and management system for an Omani bus operator running since 1998 (public site: alkhanjryonline.com). Results: 85% faster booking, 200K+ tickets booked, 200K+ customers served, 150+ routes managed, 99.9% uptime.
+- **Al Khanjry Transport** (Oman–UAE): Built a bilingual bus booking and management system for an Omani bus operator running since 1998 (public site: alkhanjryonline.com). Results: 97% faster booking, 200K+ tickets booked, 200K+ customers served, 150+ routes managed, 99.9% uptime.
 - **Hatta Food Hub** (Hatta, Dubai, UAE): Food delivery app (iOS, Android) and bilingual web marketplace (hattafoodhub.com). Results: 1,500 orders and AED 100k in revenue every month; 30K+ orders delivered to 5K+ customers from 70+ restaurants.
 - **Folio AI** (concept build): One-click AI website builder — turn a social media link or prompt into a deploy-ready website.
 - **Sky Growers** (New Zealand): Farm-to-table produce platform for a family-owned regenerative farm. Seasonal produce and bulk-wholesale ordering.

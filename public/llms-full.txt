@@ -28,7 +28,7 @@ One partner. Zero finger-pointing. Imagine briefing a single team, getting a sin
 
 ### Evidence (Case Stats)
 Teams like yours already ship with us. Three case stat cards:
-- 85% faster booking — Al Khanjry Transport
+- 97% faster booking — Al Khanjry Transport
 - 200K+ tickets booked across 150+ Oman–UAE routes, 99.9% uptime — Al Khanjry Transport
 - 1,500 orders every month (AED 100k a month, 30K+ orders delivered) — Hatta Food Hub
 
@@ -129,7 +129,7 @@ Technology strategy & roadmap (4-8 weeks), digital transformation (3-6 months), 
 
 1. **Hatta Food Hub — Food Delivery App**: Food delivery app (iOS, Android) and bilingual web marketplace for Hatta, Dubai, UAE. 1,500 orders and AED 100k in revenue every month; 30K+ orders delivered to 5K+ customers from 70+ restaurants. Food Delivery industry.
 
-2. **Al Khanjry Transport — Bus Booking & Management System**: React, Next.js, Node.js, PostgreSQL, Redis, AWS. Bilingual online booking (alkhanjryonline.com) plus counter booking, check-in, and finance reports for an Omani bus operator running Oman–UAE routes since 1998. 85% faster booking, 200K+ tickets booked, 200K+ customers served, 150+ routes managed, 99.9% uptime. Transportation & Logistics industry.
+2. **Al Khanjry Transport — Bus Booking & Management System**: React, Next.js, Node.js, PostgreSQL, Redis, AWS. Bilingual online booking (alkhanjryonline.com) plus counter booking, check-in, and finance reports for an Omani bus operator running Oman–UAE routes since 1998. 97% faster booking, 200K+ tickets booked, 200K+ customers served, 150+ routes managed, 99.9% uptime. Transportation & Logistics industry.
 
 3. **Folio — AI Website Builder**: Next.js, TypeScript, OpenAI, LangChain, Tailwind CSS. AI-powered builder that creates deploy-ready websites from a social-media link, document, or prompt in one click. AI SaaS product.
 
@@ -141,7 +141,7 @@ Technology strategy & roadmap (4-8 weeks), digital transformation (3-6 months), 
 
 1. **How Technioz Powered Al Khanjry Transport's Digital Transformation in Oman** (Case Study, Aug 9 2025, 6 min)
    - Replaced manual ticketing with online booking, AWS auto-scaling, real-time availability
-   - 85% faster booking, 200K+ tickets booked, 150+ routes managed, 99.9% uptime
+   - 97% faster booking, 200K+ tickets booked, 150+ routes managed, 99.9% uptime
    - Tech: React, Next.js, Node.js, PostgreSQL, Redis, AWS, Docker, GitHub Actions, DataDog
 
 2. **From Paper Tickets to Digital Success: How We Transformed Integrated Golden Lines** (Case Study, Nov 8 2025, 7 min)

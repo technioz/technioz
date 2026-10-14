@@ -91,11 +91,11 @@ const caseStudies: CaseStudy[] = [
     slug: "alkhanjry-transport",
     client: "Al Khanjry Transport",
     title: "From Manual Counters to 200K+ Tickets Booked",
-    subtitle: "How an Omani bus operator running Oman–UAE routes since 1998 moved from counter queues and phone bookings to a booking and management system, with booking now 85% faster across 150+ routes.",
+    subtitle: "How an Omani bus operator running Oman–UAE routes since 1998 moved from counter queues and phone bookings to a booking and management system, with booking now 97% faster across 150+ routes.",
     industry: "Transportation & Logistics",
     featured: true,
     primaryStats: [
-      { metric: "85%", label: "faster booking" },
+      { metric: "97%", label: "faster booking" },
       { metric: "200K+", label: "tickets booked" },
       { metric: "150+", label: "routes managed" },
     ],
@@ -168,11 +168,11 @@ const caseStudies: CaseStudy[] = [
       },
       {
         type: "paragraph",
-        content: "Booking is now 85% faster than the old phone-and-counter process. 200K+ tickets have been booked for 200K+ customers across 150+ routes, with 99.9% platform uptime. The operations team runs every route from a live dashboard instead of spreadsheets and phone calls.",
+        content: "Booking is now 97% faster than the old phone-and-counter process. 200K+ tickets have been booked for 200K+ customers across 150+ routes, with 99.9% platform uptime. The operations team runs every route from a live dashboard instead of spreadsheets and phone calls.",
       },
     ],
     results: [
-      { metric: "85%", label: "faster booking" },
+      { metric: "97%", label: "faster booking" },
       { metric: "200K+", label: "tickets booked" },
       { metric: "200K+", label: "customers served" },
       { metric: "150+", label: "routes managed" },
