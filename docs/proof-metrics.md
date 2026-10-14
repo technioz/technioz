@@ -18,6 +18,10 @@ Oman–UAE routes. Public booking site: https://www.alkhanjryonline.com
 | Customers | **200K+ customers served** |
 | Routes | **150+ routes managed** |
 | Uptime | **99.9% uptime** |
+| Agency API | **80+ agencies** sell tickets through the API we built (confirmed by Gaurav, October 14, 2026) |
+
+Note: "80+ agencies on the API" is a confirmed, current metric. It is NOT the
+retired "80+ routes" — routes are 150+.
 
 Retired — do not use: $1M+ ticket sales, 150K+/150,000 bookings, 80+ routes,
 "15 min → 30 sec", "15–20 min → 2 min", 40% faster, 500K+ transactions/month,
@@ -48,6 +52,25 @@ monolith-crash / microservices / AWS ECS story, the "4 months" timeline, and the
 "HattaFoodHub CTO" quote.
 
 Image: `public/assets/hatta-food.webp`.
+
+## Hatta Groups — HRMS (multi-company HR management system)
+
+Client: Hatta Groups, UAE. Live system (login): https://hattagroups.com/ →
+/app/login. Built and deployed by Technioz. Image:
+`public/assets/hrms-dashboard.webp`.
+
+| Metric | Value |
+|---|---|
+| Companies | **12 companies** on one HR system, each with its own data and permissions |
+| Employees | **93 employees** |
+| Fleet | **12 vehicles** |
+| Payroll | **AED 272,711** salary paid through it, September 2026 |
+
+Features: employee records and documents, attendance (calendar, shifts,
+rotations, overtime, regularization, device punches), leave, expenses and
+reimbursements, payroll and payslips, company-scoped roles (RBAC).
+Client approved publishing the payroll figure (October 14, 2026). These are dashboard
+numbers as of September 2026 — refresh them if quoted much later.
 
 ## Integrated Golden Lines (IGL Transport)
 

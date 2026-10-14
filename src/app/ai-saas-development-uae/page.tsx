@@ -12,11 +12,13 @@ import { BTN_OUTLINE, BTN_PRIMARY, LANDING_PATH, whatsappUrl } from "./constants
  * - noindex and excluded from the sitemap.
  * - Copy is approved campaign copy; every claim must stay true (docs/proof-metrics.md).
  *   Proof: Al Khanjry Transport (since 1998, 200,000+ tickets, 150+ routes,
- *   97% faster booking, 99.9% uptime) and Hatta Food Hub (1,500 orders /
- *   AED 100k per month).
+ *   80+ agencies on the API, 97% faster booking, 99.9% uptime), Hatta Food Hub
+ *   (1,500 orders / AED 100k per month, 30K+ delivered, 5K+ customers, 70+
+ *   restaurants) and the Hatta Groups HRMS (12 companies, 93 employees,
+ *   AED 272,711 payroll in Sept 2026; client approved publishing it).
  * - Promise: fixed quote within 48 hours of the call; two builds at a time.
- * - Proof images: public/assets/booking.webp and public/assets/hatta-food.webp (shared with
- *   /case-studies). Setting a proof `image` to null shows a placeholder card instead.
+ * - Proof images: public/assets/booking.webp, hatta-food.webp (shared with /case-studies)
+ *   and hrms-dashboard.webp. Setting a proof `image` to null shows a placeholder card instead.
  * - Story: promise → proof → problem → honest comparison → what you get → offer → process/fit → FAQ → quote form.
  */
 
@@ -67,7 +69,10 @@ type Proof = {
   tag: string;
   title: string;
   desc: string;
-  site: { href: string; label: string; domain: string };
+  /** Supporting numbers shown under the big figure. Must match docs/proof-metrics.md. */
+  stats?: { value: string; label: string }[];
+  /** Public live site. Omit for internal systems (e.g. an HR platform behind a login). */
+  site?: { href: string; label: string; domain: string };
   /** null = reserved slot; shows a placeholder card linking to the live site. */
   image: { src: string; alt: string; width: number; height: number; caption: string } | null;
 };
@@ -78,7 +83,13 @@ const proofs: Proof[] = [
     small: "Booking time cut",
     tag: "Transport platform · Al Khanjry, Oman–UAE",
     title: "An Omani bus operator, running since 1998.",
-    desc: "200,000+ tickets booked. 150+ routes across Oman and the UAE. Booking 97% faster than their old phone-and-counter process. 99.9% uptime. Every number comes from the live system.",
+    desc: "200,000+ tickets booked. 150+ routes across Oman and the UAE. 80+ agencies sell tickets through the API we built. Booking 97% faster than their old phone-and-counter process. 99.9% uptime. Every number comes from the live system.",
+    stats: [
+      { value: "200K+", label: "Tickets booked" },
+      { value: "150+", label: "Routes" },
+      { value: "80+", label: "Agencies on the API" },
+      { value: "99.9%", label: "Uptime" },
+    ],
     site: { href: "https://www.alkhanjryonline.com", label: "See the live booking site", domain: "alkhanjryonline.com" },
     image: {
       src: "/assets/booking.webp",
@@ -94,6 +105,11 @@ const proofs: Proof[] = [
     tag: "Food delivery · Hatta Food Hub",
     title: "AED 100k a month running on it",
     desc: "Ordering, operations, and customer flow built end to end. A real business, running daily on software we shipped.",
+    stats: [
+      { value: "30K+", label: "Orders delivered" },
+      { value: "5K+", label: "Customers" },
+      { value: "70+", label: "Restaurants" },
+    ],
     site: { href: "https://hattafoodhub.com", label: "Visit the live site", domain: "hattafoodhub.com" },
     image: {
       src: "/assets/hatta-food.webp",
@@ -103,7 +119,27 @@ const proofs: Proof[] = [
       caption: "Hatta Food Hub food delivery app",
     },
   },
-
+  {
+    figure: <>12</>,
+    small: "Companies on one HR system",
+    tag: "HR platform · Hatta Groups, UAE",
+    title: "One HR system for a 12-company group.",
+    desc: "Employee records, attendance and shifts, expenses, and payroll for every company in Hatta Groups, each with its own data and permissions. AED 272,711 in salaries paid through it in September 2026.",
+    stats: [
+      { value: "93", label: "Employees" },
+      { value: "AED 272K", label: "Payroll, Sept 2026" },
+      { value: "12", label: "Fleet vehicles" },
+    ],
+    // Opens the live system's sign-in page (hattagroups.com → /app/login).
+    site: { href: "https://hattagroups.com/", label: "See the live system's login", domain: "hattagroups.com" },
+    image: {
+      src: "/assets/hrms-dashboard.webp",
+      alt: "Hatta Groups HRMS dashboard: 12 companies, 93 employees, 12 vehicles, AED 272,711 salary paid for September 2026, and today's attendance",
+      width: 1536,
+      height: 1024,
+      caption: "Multi-company HR management system for Hatta Groups",
+    },
+  },
 ];
 
 function ExternalLink({ href, children, className = "" }: { href: string; children: React.ReactNode; className?: string }) {
@@ -125,23 +161,32 @@ function ExternalLink({ href, children, className = "" }: { href: string; childr
 
 function ProofMedia({ proof }: { proof: Proof }) {
   if (proof.image) {
+    const img = (
+      <Image
+        src={proof.image.src}
+        alt={proof.image.alt}
+        width={proof.image.width}
+        height={proof.image.height}
+        sizes="(min-width: 1024px) 640px, 100vw"
+        className="h-auto w-full"
+      />
+    );
     return (
       <figure className="mt-6">
-        <a href={proof.site.href} target="_blank" rel="noopener noreferrer" className="block overflow-hidden rounded-[6px] border border-neutral-300 bg-white-100 transition-colors hover:border-cobolt-300">
-          <Image
-            src={proof.image.src}
-            alt={proof.image.alt}
-            width={proof.image.width}
-            height={proof.image.height}
-            sizes="(min-width: 1024px) 640px, 100vw"
-            className="h-auto w-full"
-          />
-          <span className="sr-only">Opens {proof.site.domain} in a new tab</span>
-        </a>
+        {proof.site ? (
+          <a href={proof.site.href} target="_blank" rel="noopener noreferrer" className="block overflow-hidden rounded-[6px] border border-neutral-300 bg-white-100 transition-colors hover:border-cobolt-300">
+            {img}
+            <span className="sr-only">Opens {proof.site.domain} in a new tab</span>
+          </a>
+        ) : (
+          <div className="overflow-hidden rounded-[6px] border border-neutral-300 bg-white-100">{img}</div>
+        )}
         <figcaption className="mt-2 text-[12.5px] text-black-300">{proof.image.caption}</figcaption>
       </figure>
     );
   }
+
+  if (!proof.site) return null;
 
   // Reserved slot until the real screenshot is supplied — same 3:2 frame, so nothing shifts later.
   return (
@@ -299,19 +344,29 @@ export default function AiSaasDevelopmentUaeLanding() {
           <div className={WRAP}>
             <Eyebrow>01 / Proof, not promises</Eyebrow>
             <h2 className={H2}>We ship products people pay on.</h2>
-            <Sub>No slideware. Two live client results below, from systems handling bookings, orders, and revenue for businesses in Oman and the UAE.</Sub>
+            <Sub>No slideware. Three live client systems below, handling bookings, orders, payroll, and revenue for businesses in Oman and the UAE.</Sub>
             <div className="mt-10 border-t border-neutral-300">
               {proofs.map((p) => (
-                <article key={p.tag} className="grid items-start gap-x-9 gap-y-4 border-b border-neutral-300 py-[26px] md:grid-cols-[minmax(230px,0.85fr)_1.15fr] md:py-[34px]">
+                <article key={p.tag} className="grid items-start gap-x-9 gap-y-4 border-b border-neutral-300 py-[26px] md:grid-cols-[minmax(230px,0.85fr)_1.15fr] md:grid-rows-[auto_1fr] md:py-[34px]">
                   <p className="font-display text-[56px] leading-[0.95] tracking-[-2.5px] text-cobolt-500 sm:text-[86px] sm:tracking-[-3.5px]">
                     {p.figure}
                     <small className="mt-3 block font-mono text-[11px] uppercase tracking-[0.14em] text-black-400">{p.small}</small>
                   </p>
-                  <div>
+                  {p.stats && (
+                    <dl className="grid grid-cols-2 gap-x-6 gap-y-4 border-t border-neutral-300 pt-4 md:col-start-1 md:row-start-2 md:self-start">
+                      {p.stats.map((st) => (
+                        <div key={st.label}>
+                          <dt className="font-display text-[26px] leading-none tracking-[-0.8px] text-black-500">{st.value}</dt>
+                          <dd className="mt-1 font-mono text-[10.5px] uppercase tracking-[0.12em] text-black-400">{st.label}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                  )}
+                  <div className="md:col-start-2 md:row-span-2 md:row-start-1">
                     <span className="mb-[14px] inline-block rounded-sm border border-neutral-300 bg-white-100 px-[9px] py-[5px] font-mono text-[10.5px] uppercase tracking-[0.1em] text-cobolt-500">{p.tag}</span>
                     <h3 className="mb-2 text-[22px] leading-[1.15] tracking-[-0.6px]">{p.title}</h3>
                     <p className="max-w-[520px] text-[15.5px] leading-[1.6] text-black-400">{p.desc}</p>
-                    <ExternalLink href={p.site.href} className="mt-4">{p.site.label}</ExternalLink>
+                    {p.site && <ExternalLink href={p.site.href} className="mt-4">{p.site.label}</ExternalLink>}
                     <ProofMedia proof={p} />
                   </div>
                 </article>
@@ -342,7 +397,7 @@ export default function AiSaasDevelopmentUaeLanding() {
         <section className="py-12 lg:py-[80px]">
           <div className={WRAP}>
             <Eyebrow>03 / Straight answer</Eyebrow>
-            <h2 className={H2}>Why can&apos;t I just use Lovable, Replit, claude, or ChatGPT?</h2>
+            <h2 className={H2}>Why can&apos;t I just use Lovable, Replit, Claude, or ChatGPT?</h2>
             <Sub>Use them to test an idea. Do not bet your company on them. Here is the honest difference.</Sub>
             <div className="mt-8 grid items-stretch gap-[18px] md:grid-cols-2">
               <div className="rounded-[6px] border border-neutral-300 bg-white-100 p-[26px]">
