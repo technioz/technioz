@@ -17,9 +17,10 @@ import { buildOpenGraph, buildTwitterCard } from "@/lib/metadata-helpers";
  *   - src/components/chat-widget.tsx + src/app/api/chat/route.ts (Ollama, localStorage)
  *   - src/app/ai-saas-development-uae/lead-form.tsx + src/app/api/leads/route.ts
  *     + src/lib/campaign-leads.ts          (campaign form fields, UTM/fbclid, Calendly embed, Pixel events)
+ *     + src/lib/lead-confirmation-email.ts (confirmation email to the lead via Zoho SMTP)
  */
 
-const LAST_UPDATED = "October 13, 2026";
+const LAST_UPDATED = "October 14, 2026";
 const PRIVACY_EMAIL = "gaurav.bhatia@technioz.com";
 
 export const metadata: Metadata = {
@@ -151,6 +152,7 @@ export default function Privacy() {
                 items={[
                   "To reply to your enquiry, arrange and hold consultations, and prepare proposals.",
                   "To follow up on your enquiry by email, phone or WhatsApp.",
+                  "To email you a confirmation when you submit our campaign landing page form, including a copy of the details you entered.",
                   "To keep a record of enquiries and track their status.",
                   "To notify our team instantly when a new enquiry arrives.",
                   "To answer your questions through the chat assistant.",
@@ -236,7 +238,7 @@ export default function Privacy() {
                   <><B>ntfy.sh</B> — a push-notification service that alerts our team to new enquiries. Each notification contains the enquiry details (such as your name, email, phone or WhatsApp number, company, your message or form answers, and the page and campaign the enquiry came from).</>,
                   <><B>Ollama</B> — the AI model provider behind our chat assistant. Your chat messages are sent to Ollama to generate replies. We do not save chat conversations in our database.</>,
                   <><B>Calendly</B> — consultation scheduling, including the booking calendar shown on our campaign page.</>,
-                  <><B>Zoho</B> — our email provider.</>,
+                  <><B>Zoho</B> — our email provider. It sends the confirmation email you receive after submitting our campaign landing page form, which contains a copy of the details you entered.</>,
                   <><B>Marketing agency</B> — when we run advertising campaigns, an agency working on our behalf runs the ads and may access enquiry data from our campaign forms to run, screen and measure the campaign.</>,
                   <><B>Authorities</B> — if we are required to by law.</>,
                 ]}

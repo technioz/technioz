@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse, after } from "next/server";
 import { saveCampaignLead, sendCampaignLeadNtfy, validateCampaignLead } from "@/lib/campaign-leads";
+import { buildLeadConfirmationEmail } from "@/lib/lead-confirmation-email";
+import { isMailConfigured, sendMail } from "@/lib/mailer";
 
 export const dynamic = "force-dynamic";
 
@@ -64,15 +66,22 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  // after() keeps the notification alive past the response on serverless hosts.
+  // after() keeps the notification and the confirmation email alive past the
+  // response on serverless hosts. Neither can fail the request: the lead is saved.
   after(async () => {
-    try {
-      const r = await sendCampaignLeadNtfy(parsed.data, saved.qualified);
-      if (!r.ok) console.warn(`[leads] ntfy failed status=${r.status} id=${saved.id} err=${r.error ?? ""}`);
-    } catch (err) {
-      console.error("[leads] ntfy threw:", err);
-    }
+    const [push, mail] = await Promise.allSettled([
+      sendCampaignLeadNtfy(parsed.data, saved.qualified),
+      sendMail({ to: parsed.data.email, ...buildLeadConfirmationEmail(parsed.data, saved.qualified) }),
+    ]);
+    if (push.status === "rejected") console.error("[leads] ntfy threw:", push.reason);
+    else if (!push.value.ok) console.warn(`[leads] ntfy failed status=${push.value.status} id=${saved.id} err=${push.value.error ?? ""}`);
+    if (mail.status === "rejected") console.error("[leads] confirmation email threw:", mail.reason);
+    else if (!mail.value.ok) console.warn(`[leads] confirmation email ${mail.value.skipped ? "skipped" : "failed"} id=${saved.id} err=${mail.value.error}`);
   });
 
-  return NextResponse.json({ ok: true, id: saved.id, qualified: saved.qualified }, { status: 200 });
+  // emailSent lets the page only claim "we emailed you a copy" when SMTP is set up.
+  return NextResponse.json(
+    { ok: true, id: saved.id, qualified: saved.qualified, emailSent: isMailConfigured() },
+    { status: 200 }
+  );
 }

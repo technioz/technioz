@@ -25,7 +25,7 @@ type Step2 = {
   idea: string;
 };
 type Errors = Partial<Record<keyof Step1 | keyof Step2 | "form", string>>;
-type Result = { qualified: boolean; firstName: string; summary: string; calendlySrc: string };
+type Result = { qualified: boolean; emailSent: boolean; firstName: string; summary: string; calendlySrc: string; calendlyPageUrl: string };
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -148,7 +148,7 @@ export function LeadForm() {
           company_url: honeypotRef.current?.value ?? "",
         }),
       });
-      const data = (await res.json().catch(() => ({}))) as { ok?: boolean; qualified?: boolean; error?: string };
+      const data = (await res.json().catch(() => ({}))) as { ok?: boolean; qualified?: boolean; emailSent?: boolean; error?: string };
       if (!res.ok || !data.ok) {
         setErrors({ form: data.error ?? "Something went wrong. Please try again or message us on WhatsApp." });
         return;
@@ -171,15 +171,21 @@ export function LeadForm() {
       ].join("\n");
       setResult({
         qualified: Boolean(data.qualified),
+        emailSent: Boolean(data.emailSent),
         firstName: s1.fullName.trim().split(/\s+/)[0],
         summary,
         // embed_domain lets Calendly post the "event_scheduled" message back to us.
+        // hide_event_type_details puts the date grid first; hide_gdpr_banner stops
+        // Calendly's own cookie notice covering it (our consent banner covers the page).
         calendlySrc: `${CALENDLY_URL}?${new URLSearchParams({
           embed_domain: window.location.host,
           embed_type: "Inline",
+          hide_event_type_details: "1",
+          hide_gdpr_banner: "1",
           name: s1.fullName.trim(),
           email: s1.email.trim(),
         }).toString()}`,
+        calendlyPageUrl: `${CALENDLY_URL}?${new URLSearchParams({ name: s1.fullName.trim(), email: s1.email.trim() }).toString()}`,
       });
       requestAnimationFrame(() => {
         scrollIntoViewSoft(cardRef.current);
@@ -213,9 +219,10 @@ export function LeadForm() {
             }}
             headingRef={resultHeadingRef}
             calendlySrc={result.calendlySrc}
+            calendlyPageUrl={result.calendlyPageUrl}
           />
         ) : (
-          <NotYetResult firstName={result.firstName} headingRef={resultHeadingRef} />
+          <NotYetResult firstName={result.firstName} emailSent={result.emailSent} headingRef={resultHeadingRef} />
         )
       ) : (
         <form onSubmit={submit} noValidate>
@@ -289,7 +296,7 @@ export function LeadForm() {
                   Back
                 </button>
                 <button type="submit" disabled={submitting} className={`${BTN_PRIMARY} flex-[2] disabled:opacity-60`}>
-                  {submitting ? "Sending..." : "See my booking options"}
+                  {submitting ? "Sending..." : "Get your fixed quote"}
                 </button>
               </div>
             </div>
@@ -369,6 +376,7 @@ function QualifiedResult({
   onCopy,
   headingRef,
   calendlySrc,
+  calendlyPageUrl,
 }: {
   result: Result;
   booked: boolean;
@@ -376,29 +384,40 @@ function QualifiedResult({
   onCopy: () => void;
   headingRef: React.RefObject<HTMLHeadingElement | null>;
   calendlySrc: string;
+  calendlyPageUrl: string;
 }) {
   return (
     <div>
       <CheckBadge />
       <h3 ref={headingRef} tabIndex={-1} className="mt-[10px] font-display text-[25px] leading-[1.12] tracking-[-0.8px] text-black-500 outline-none">
-        {booked ? `You're booked, ${result.firstName}.` : `Thanks, ${result.firstName}. Now lock your slot.`}
+        {booked ? `You're booked, ${result.firstName}.` : `Thanks, ${result.firstName}. Now pick your call time.`}
       </h3>
       <p className="p5 mt-[8px] text-black-400" aria-live="polite">
         {booked
-          ? "Your call is in the calendar. Check your email for the confirmation. We will confirm on WhatsApp within 10 minutes in working hours, plus reminders 24 hours and 2 hours before your call."
-          : "Bookings jump when you pick a time right now. Choose one option below. We will confirm on WhatsApp within 10 minutes in working hours, plus reminders 24 hours and 2 hours before your call."}
+          ? "Your call is in the calendar. You get a fixed quote within 48 hours of the call. We will confirm on WhatsApp within 10 minutes in working hours."
+          : `Pick a 30 minute slot in the calendar below. You get a fixed quote within 48 hours of the call.${result.emailSent ? " We have also emailed you a copy of your details." : ""}`}
       </p>
 
+      {!booked && (
+        <p className="mt-[16px] flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.12em] text-cobolt-500" aria-hidden="true">
+          <span className="h-px w-[24px] bg-current" /> Choose a day, then a time
+        </p>
+      )}
       <iframe
-        title="Book your free 30 minute discovery call on Calendly"
+        title="Pick your 30 minute call time on Calendly"
         src={calendlySrc}
-        className="mt-[16px] h-[700px] w-full rounded-sm border border-neutral-300 bg-white-100"
-        loading="lazy"
+        className="mt-[10px] h-[640px] w-full rounded-sm border border-neutral-300 bg-white-100"
       />
-      <p className="mt-[8px] text-center text-[12.5px] text-black-300">Tip: book within 7 days. Slots further out show up far less.</p>
+      <p className="mt-[8px] text-center text-[12.5px] text-black-300">
+        Calendar not loading?{" "}
+        <a href={calendlyPageUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-cobolt-500">
+          Open it in a new tab
+        </a>
+        .
+      </p>
 
       <div className="mt-[16px] grid gap-[10px]">
-        <a className={`${BTN_SECONDARY} w-full`} href={whatsappUrl(`Hi Technioz, I just filled your SaaS build form.\n\n${result.summary}\n\nI want to book my free discovery call.`)} target="_blank" rel="noopener noreferrer">
+        <a className={`${BTN_SECONDARY} w-full`} href={whatsappUrl(`Hi Technioz, I just filled your SaaS build form.\n\n${result.summary}\n\nI want to book my quote call.`)} target="_blank" rel="noopener noreferrer">
           Send my details on WhatsApp
         </a>
         <button type="button" className={`${BTN_SECONDARY} w-full`} onClick={onCopy}>
@@ -414,7 +433,7 @@ function QualifiedResult({
   );
 }
 
-function NotYetResult({ firstName, headingRef }: { firstName: string; headingRef: React.RefObject<HTMLHeadingElement | null> }) {
+function NotYetResult({ firstName, emailSent, headingRef }: { firstName: string; emailSent: boolean; headingRef: React.RefObject<HTMLHeadingElement | null> }) {
   return (
     <div>
       <CheckBadge />
@@ -426,7 +445,7 @@ function NotYetResult({ firstName, headingRef }: { firstName: string; headingRef
         people want your idea.
       </p>
       <p className="p4 mt-[10px] text-black-400">
-        We&apos;ve saved your details. No hard feelings. Come back when the funding and idea are ready, we will be here.
+        We&apos;ve saved your details{emailSent ? " and emailed you a copy" : ""}. No hard feelings. Come back when the funding and idea are ready, we will be here.
       </p>
       <a className={`${BTN_SECONDARY} mt-[18px] w-full`} href={whatsappUrl("Hi Technioz, I filled your SaaS build form and have a question.")} target="_blank" rel="noopener noreferrer">
         Questions? Message us on WhatsApp

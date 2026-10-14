@@ -10,17 +10,18 @@ import { BTN_OUTLINE, BTN_PRIMARY, LANDING_PATH, whatsappUrl } from "./constants
  * Paid-ads landing page (Meta Ads, TGM October validation).
  * - Distraction-free: main nav/footer/chat are hidden via src/lib/landing-pages.ts.
  * - noindex and excluded from the sitemap.
- * - Copy is approved campaign copy; every claim must stay true. Proof numbers:
- *   97% faster booking (Al Khanjry, Oman–UAE transport operator) and
- *   1,500 orders / AED 100k per month (Hatta Food Hub).
- * - Proof images: public/assets/booking.webp and public/assets/hatta-food.webp (shared with
- *   /case-studies). Setting a proof `image` to null shows a placeholder card instead.
- * - Story: promise → proof → problem → honest comparison → offer → process/fit → FAQ → CTA form.
+ * - Copy is approved campaign copy; every claim must stay true (docs/proof-metrics.md).
+ *   Proof: one client in full, Al Khanjry Transport (since 1998, 200,000+ tickets,
+ *   150+ routes, 97% faster booking, 99.9% uptime).
+ * - Promise: fixed quote within 48 hours of the call; two builds at a time.
+ * - Proof image: public/assets/booking.webp (shared with /case-studies). Setting a proof
+ *   `image` to null shows a placeholder card instead.
+ * - Story: promise → proof → problem → what you get → offer → process/fit → FAQ → quote form.
  */
 
-const TITLE = "Technioz - Your SaaS Idea, Live in 4 to 8 Weeks";
+const TITLE = "Technioz - We Build the System Your Business Runs On. Live in 4 to 8 Weeks.";
 const DESCRIPTION =
-  "We build AI powered SaaS products for funded founders in Dubai and Abu Dhabi. Idea to live product in 4 to 8 weeks, $5k to $10k typical.";
+  "We build the system your business runs on: web and mobile products with AI, payments, and admin built in. Live in 4 to 8 weeks, $5k to $10k typical, fixed quote within 48 hours of your call.";
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
@@ -75,8 +76,8 @@ const proofs: Proof[] = [
     figure: <>97%<span className="text-black-500"> faster</span></>,
     small: "Booking time cut",
     tag: "Transport platform · Al Khanjry, Oman–UAE",
-    title: "A booking system that removed the chaos",
-    desc: "Built for Al Khanjry, an Oman–UAE transport operator. Processing time slashed, manual follow up chaos gone, bookings handled by the system instead of someone's phone.",
+    title: "An Omani bus operator, running since 1998.",
+    desc: "200,000+ tickets booked. 150+ routes across Oman and the UAE. Booking 97% faster than their old phone-and-counter process. 99.9% uptime. Every number comes from the live system.",
     site: { href: "https://www.alkhanjryonline.com", label: "See the live booking site", domain: "alkhanjryonline.com" },
     image: {
       src: "/assets/booking.webp",
@@ -84,21 +85,6 @@ const proofs: Proof[] = [
       width: 1600,
       height: 1066,
       caption: "Al Khanjry bus booking & management system",
-    },
-  },
-  {
-    figure: <>1,500</>,
-    small: "Orders every month",
-    tag: "Food delivery · Hatta Food Hub",
-    title: "AED 100k a month running on it",
-    desc: "Ordering, operations, and customer flow built end to end. A real business, running daily on software we shipped.",
-    site: { href: "https://hattafoodhub.com", label: "Visit the live site", domain: "hattafoodhub.com" },
-    image: {
-      src: "/assets/hatta-food.webp",
-      alt: "Hatta Food Hub food delivery app: home screen with food, grocery and pharmacy categories, and the restaurants list",
-      width: 1600,
-      height: 1066,
-      caption: "Hatta Food Hub food delivery app",
     },
   },
 ];
@@ -155,7 +141,7 @@ function ProofMedia({ proof }: { proof: Proof }) {
         <span className="ml-2 rounded-sm bg-white-100 px-2 py-[2px] font-mono text-[11px] text-black-400">{proof.site.domain}</span>
       </div>
       <div className="flex aspect-[3/2] flex-col items-center justify-center gap-3 px-6 text-center">
-        <span className="font-display text-[28px] tracking-[-0.8px] text-black-500">Hatta Food Hub</span>
+        <span className="font-display text-[28px] tracking-[-0.8px] text-black-500">{proof.site.domain}</span>
         <span className="font-mono text-[12px] uppercase tracking-[1.2px] text-cobolt-500 group-hover:underline">
           Open {proof.site.domain} ↗
         </span>
@@ -167,28 +153,20 @@ function ProofMedia({ proof }: { proof: Proof }) {
 
 const problems = [
   { n: "P.01", title: "Months lost hiring", desc: "Finding one good developer in Dubai takes months. Building a whole product team takes longer. Your launch window does not wait." },
-  { n: "P.02", title: "Freelancers go quiet", desc: "Cheap start, expensive finish. Missed deadlines, half built features, and no one to call when something breaks at midnight." },
-  { n: "P.03", title: "Investors want live proof", desc: "A pitch deck and a prototype do not close a round. A live product with paying users does. That gap is costing you time." },
+  { n: "P.02", title: "Investors want live proof", desc: "A pitch deck and a prototype do not close a round. A live product with paying users does. That gap is costing you time." },
 ];
 
-const prototypeCons = [
-  "Looks finished, breaks under real logins, payments, and load",
-  "No proper security, backups, or admin controls",
-  "WhatsApp, payment, and AI integrations held together by workarounds",
-  "You become the support team when it goes down",
-  "Investors spot a demo in the first five minutes",
-];
-
-const productionPros = [
-  "Proper backend, auth, payments, and database from day one",
-  "AI features wired in properly, not bolted on",
-  "Deployed, tested, and monitored. We fix issues before users report them",
-  "Full handover and training, you own the IP and the code",
-  "A product you can demo to investors without crossing your fingers",
+const whatYouGet = [
+  { title: "A production database", desc: "Real data, properly structured. Not a spreadsheet behind a demo." },
+  { title: "Login and user accounts", desc: "Secure sign up and sign in, with the right access for your customers and your team." },
+  { title: "Payments, wired and tested", desc: "Set up end to end and tested with real transactions before launch." },
+  { title: "Error monitoring", desc: "You know something broke before your customers tell you." },
+  { title: "Automatic backups", desc: "One bad day never costs you your data." },
+  { title: "A runbook", desc: "Written steps so someone other than us can run it and fix it." },
 ];
 
 const included = [
-  { title: "Scoping workshop", desc: "We map features, users, and revenue flow. You get a clear scope, timeline, and fixed quote before we write code." },
+  { title: "Scoping", desc: "We map features, users, and revenue flow. You get a clear scope, timeline, and fixed quote before we write code." },
   { title: "Product build", desc: "Web or mobile product, admin panel, user accounts, and payments. Built for real use, not a pitch." },
   { title: "AI integration", desc: "Chat, automation, or smart workflows where they actually save time or make money. No AI for show." },
   { title: "Deployment and launch", desc: "Hosted, secured, and live. We test with real scenarios before your first customer touches it." },
@@ -196,9 +174,9 @@ const included = [
 ];
 
 const steps = [
-  { n: "1", when: "This week", title: "Discovery call (30 min)", desc: "Tell us the idea, who pays, and where you are stuck. We tell you straight if we are the right fit and what it will take." },
-  { n: "2", when: "Week 1 to 2", title: "Scope and fixed quote", desc: "Features locked, designs shared, timeline confirmed. You approve the plan before any build money moves." },
-  { n: "3", when: "Week 3 to 8", title: "Build, demo, launch", desc: "Weekly demos, WhatsApp updates, and fixes as we go. Launch, handover, and training at the end." },
+  { n: "1", when: "This week", title: "30 minute call", desc: "Tell us the idea, who pays, and where you are stuck. We tell you straight if we are the right fit and what it will take." },
+  { n: "2", when: "Within 48 hours", title: "Your fixed quote", desc: "Scope, timeline, and price in writing. You approve the plan before any build money moves." },
+  { n: "3", when: "Next 4 to 8 weeks", title: "Build, demo, launch", desc: "Weekly demos, WhatsApp updates, and fixes as we go. Launch, handover, and training at the end." },
 ];
 
 const fitYes = [
@@ -217,7 +195,7 @@ const fitNo = [
 ];
 
 const faqs = [
-  { q: "How much does it really cost?", a: "Most builds land between $5,000 and $10,000. Simple MVPs sit at the lower end, products with payments, AI, and multiple user types go higher. You get a fixed quote after scoping, so the number does not creep mid build." },
+  { q: "How much does it really cost?", a: "Most builds land between $5,000 and $10,000. Simple MVPs sit at the lower end, products with payments, AI, and multiple user types go higher. You get a fixed quote within 48 hours of your call, so the number does not creep mid build." },
   { q: "How fast can we actually launch?", a: "4 to 8 weeks from build start for a focused MVP. We start within 30 days of signing. If your scope needs 4 months, we will tell you on the call instead of selling you a fantasy timeline." },
   { q: "Do I own the product and the code?", a: "Yes, 100%. Code, accounts, data, and IP transfer to you at handover. We document everything and train you or your team to run it." },
   { q: "I am not technical. Is that a problem?", a: "No, most of our founders are not technical. You bring the business and the customers. We translate it into a product and explain every decision in plain language." },
@@ -240,7 +218,7 @@ export default function AiSaasDevelopmentUaeLanding() {
           <nav aria-label="Page sections" className="flex items-center gap-1">
             <a href="#proof" className="hidden rounded-sm px-[14px] py-[10px] p5 font-bold text-black-400 hover:bg-white-300 hover:text-black-500 md:block">Proof</a>
             <a href="#process" className="hidden rounded-sm px-[14px] py-[10px] p5 font-bold text-black-400 hover:bg-white-300 hover:text-black-500 md:block">How it works</a>
-            <a href="#apply" className="cta-tertiary">Book a free call</a>
+            <a href="#apply" className="cta-tertiary">Get your fixed quote</a>
           </nav>
         </div>
       </header>
@@ -256,14 +234,14 @@ export default function AiSaasDevelopmentUaeLanding() {
           <div className={`${WRAP} relative py-10 lg:py-[88px]`}>
             <div className="max-w-[860px]">
               <h1 className="mt-[22px] mb-[18px] font-display text-[44px] font-normal leading-none tracking-[-2.2px] sm:text-[56px] sm:tracking-[-2.8px] lg:text-[72px] lg:tracking-[-3.6px]">
-                Your SaaS idea, live in <em className="italic text-cobolt-500">4 to 8 weeks.</em>
+                We build the system your business runs on. <em className="italic text-cobolt-500">Live in 4 to 8 weeks.</em>
               </h1>
               <p className="max-w-[600px] text-[18px] leading-[1.65] text-black-400">
                 You have the idea and the budget. We handle scoping, build, AI integration, and launch. One team, one
                 timeline, a real product your customers and investors can actually use.
               </p>
               <div className="mt-[28px] flex flex-wrap gap-3">
-                <a href="#apply" className={BTN_PRIMARY}>Book free discovery call</a>
+                <a href="#apply" className={BTN_PRIMARY}>Get your fixed quote</a>
                 <a href="#proof" className={BTN_OUTLINE}>See shipped proof</a>
               </div>
               <dl className="mt-[30px] grid max-w-[720px] grid-cols-1 gap-5 border-t border-neutral-300 pt-[22px] sm:grid-cols-3 sm:gap-7">
@@ -288,7 +266,7 @@ export default function AiSaasDevelopmentUaeLanding() {
           <div className={WRAP}>
             <Eyebrow>01 / Proof, not promises</Eyebrow>
             <h2 className={H2}>We ship products people pay on.</h2>
-            <Sub>No slideware. Two live client results below, from systems handling bookings, orders, and revenue for businesses in Oman and the UAE.</Sub>
+            <Sub>One client, in full detail. A live system you can visit today.</Sub>
             <div className="mt-10 border-t border-neutral-300">
               {proofs.map((p) => (
                 <article key={p.tag} className="grid items-start gap-x-9 gap-y-4 border-b border-neutral-300 py-[26px] md:grid-cols-[minmax(230px,0.85fr)_1.15fr] md:py-[34px]">
@@ -315,7 +293,7 @@ export default function AiSaasDevelopmentUaeLanding() {
             <Eyebrow dark>02 / The problem</Eyebrow>
             <h2 className={`${H2} !text-white-200`}>Your idea is stuck. It is not an idea problem.</h2>
             <Sub dark>Most founders we meet are not short on vision. They are short on a team that will just build it properly and finish.</Sub>
-            <div className="mt-9 grid border-t border-white-100/15 md:grid-cols-3">
+            <div className="mt-9 grid border-t border-white-100/15 md:grid-cols-2">
               {problems.map((p, i) => (
                 <div key={p.n} className={`border-b border-white-100/15 py-[26px] md:pr-[26px] ${i > 0 ? "md:border-l md:pl-[26px]" : ""}`}>
                   <p className="font-mono text-[12px] tracking-[0.1em] text-cobolt-200">{p.n}</p>
@@ -327,33 +305,24 @@ export default function AiSaasDevelopmentUaeLanding() {
           </div>
         </section>
 
-        {/* ── 03 Compare ── */}
+        {/* ── 03 What you get ── */}
         <section className="py-12 lg:py-[80px]">
           <div className={WRAP}>
-            <Eyebrow>03 / Straight answer</Eyebrow>
-            <h2 className={H2}>Why can't I just use Lovable, Replit, claude, or ChatGPT?</h2>
-            <Sub>Use them to test an idea. Do not bet your company on them. Here is the honest difference.</Sub>
-            <div className="mt-8 grid items-stretch gap-[18px] md:grid-cols-2">
-              <div className="rounded-[6px] border border-neutral-300 bg-white-100 p-[26px]">
-                <h3 className="font-display text-[22px] tracking-[-0.6px]">A prototype on your own</h3>
-                <p className="mt-1 mb-[18px] text-[14px] text-black-400">Great for a weekend demo. Painful with real customers.</p>
-                <ul className="grid gap-[11px]">
-                  {prototypeCons.map((t) => (
-                    <li key={t} className="flex gap-[10px] text-[14.5px] leading-[1.5]"><CheckIcon featured={false} /><span>{t}</span></li>
-                  ))}
-                </ul>
-              </div>
-              <div className="flex flex-col rounded-[6px] border border-black-500 bg-black-500 p-[26px] text-white-200">
-                <h3 className="font-display text-[22px] tracking-[-0.6px] !text-white-200">A production build with Technioz</h3>
-                <p className="mt-1 mb-[18px] text-[14px] text-black-200">Built to charge money and keep running.</p>
-                <ul className="grid gap-[11px]">
-                  {productionPros.map((t) => (
-                    <li key={t} className="flex gap-[10px] text-[14.5px] leading-[1.5]"><CheckIcon featured /><span>{t}</span></li>
-                  ))}
-                </ul>
-                <a href="#apply" className={`${BTN_PRIMARY} mt-[22px] w-full md:mt-auto md:translate-y-0`}>Talk through your build</a>
-              </div>
-            </div>
+            <Eyebrow>03 / What you actually get</Eyebrow>
+            <h2 className={H2}>What you actually get.</h2>
+            <Sub>Not a prototype that looks finished. A product built to take money and keep running.</Sub>
+            <ul className="mt-8 grid gap-[18px] sm:grid-cols-2 lg:grid-cols-3">
+              {whatYouGet.map((item) => (
+                <li key={item.title} className="flex gap-[12px] rounded-[6px] border border-neutral-300 bg-white-100 p-[22px]">
+                  <CheckIcon featured />
+                  <div>
+                    <h3 className="mb-1 text-[19px] leading-[1.2] tracking-[-0.4px]">{item.title}</h3>
+                    <p className="text-[14.5px] leading-[1.6] text-black-400">{item.desc}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <a href="#apply" className={`${BTN_PRIMARY} mt-[26px]`}>Get your fixed quote</a>
           </div>
         </section>
 
@@ -378,7 +347,7 @@ export default function AiSaasDevelopmentUaeLanding() {
               <aside className="rounded-[6px] border border-white-100/10 bg-black-500 p-[26px] text-white-300 lg:sticky lg:top-[84px]">
                 <h3 className="font-mono text-[11px] uppercase tracking-[0.14em] !text-black-200">Typical investment</h3>
                 <p className="mt-3 mb-[6px] font-display text-[46px] leading-none tracking-[-1.5px] text-white-200">$5k to $10k</p>
-                <p className="text-[14px] text-black-200">Minimum project $5,000. Final quote after scoping, no surprises later.</p>
+                <p className="text-[14px] text-black-200">Minimum project $5,000. Fixed quote, so the number does not creep later.</p>
                 <ul className="my-[18px] grid gap-[9px] text-[14.5px] text-white-300">
                   {["Live in 4 to 8 weeks", "Start within 30 days of signing", "Dubai based team, direct WhatsApp access", "You own 100% of the IP"].map((t) => (
                     <li key={t} className="flex gap-[9px]">
@@ -387,8 +356,8 @@ export default function AiSaasDevelopmentUaeLanding() {
                     </li>
                   ))}
                 </ul>
-                <a href="#apply" className={`${BTN_PRIMARY} w-full`}>Check if you qualify</a>
-                <p className="mt-3 text-center text-[12.5px] text-black-200">Free 30 min discovery call. No pitch pressure.</p>
+                <a href="#apply" className={`${BTN_PRIMARY} w-full`}>Get your fixed quote</a>
+                <p className="mt-3 text-center text-[12.5px] text-black-200">Fixed quote within 48 hours of your call.</p>
               </aside>
             </div>
           </div>
@@ -453,18 +422,20 @@ export default function AiSaasDevelopmentUaeLanding() {
             <div className="rounded-[6px] bg-black-500 p-[22px] text-white-200 sm:p-[34px]">
               <div className="grid gap-8 lg:grid-cols-2">
                 <div>
-                  <Eyebrow dark>07 / Free discovery call</Eyebrow>
-                  <h2 className={`${H2} !text-white-200`}>Tell us about your idea. Get a straight answer in 30 minutes.</h2>
+                  <Eyebrow dark>07 / Your fixed quote</Eyebrow>
+                  <h2 className={`${H2} !text-white-200`}>Tell us what you need. Get a fixed quote within 48 hours of your call.</h2>
                   <p className="text-[16px] leading-[1.6] text-black-100">
-                    Fill this in honestly. It takes 60 seconds and saves us both a wasted call. If you qualify, you book your
-                    slot right after and we confirm on WhatsApp within 10 minutes in working hours.
+                    Pick a 30 minute call right after. We confirm on WhatsApp within 10 minutes in working hours.
                   </p>
                   <ul className="mt-4 list-disc space-y-1 pl-[18px] text-[15px] text-black-100 marker:text-cobolt-200">
                     <li>No sales script, we scope your actual build</li>
-                    <li>Clear next step and ballpark quote direction</li>
+                    <li>A fixed quote within 48 hours of your call</li>
                     <li>If we are not the fit, we will say so on the call</li>
                   </ul>
-                  <p className="mt-5 text-[13.5px] text-black-200">
+                  <p className="mt-5 border-l-2 border-cobolt-200 pl-3 text-[15px] text-white-200">
+                    We take on two builds at a time, so every project gets the founder&apos;s direct attention.
+                  </p>
+                  <p className="mt-4 text-[13.5px] text-black-200">
                     Prefer chat first? Use the WhatsApp button below. Same team, same response time.
                   </p>
                 </div>

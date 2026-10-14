@@ -20,6 +20,14 @@ The following env vars must be set on **whatever deployment is serving the live 
 | `NTFY_TOPIC` | yes for contact-form push notifications | Contact form (`POST /api/contact`) | Vercel + Coolify + local | 16-char random hex. Subscribe to it in the ntfy app to receive alerts |
 | `NTFY_TOKEN` | optional | Contact form | Vercel + Coolify + local | Only needed for private ntfy.sh topics. Bearer token |
 | `NEXT_PUBLIC_META_PIXEL_ID` | yes for Meta Ads tracking | `ConsentManager` (`src/components/consent-manager.tsx`, mounted in the root layout → every page) | Vercel + Coolify + local | `1102274675780695`. Public ID, not a secret. Inlined at build time — redeploy after setting/changing. Loads only after the visitor accepts "Marketing" cookies; if unset, no Pixel loads. |
+| `SMTP_HOST` | yes for lead confirmation emails | `src/lib/mailer.ts` (campaign lead confirmation) | Vercel + Coolify + local | Zoho SMTP host: `smtp.zoho.com`, or `smtppro.zoho.com` / `smtp.zoho.in` / `smtp.zoho.eu` per account type and data centre |
+| `SMTP_PORT` | optional | mailer | Vercel + Coolify + local | `465` (SSL, default) or `587` (STARTTLS) |
+| `SMTP_USER` | yes for emails | mailer | Vercel + Coolify + local | Full Zoho mailbox address that signs in |
+| `SMTP_PASS` | yes for emails | mailer | Vercel + Coolify + local | Zoho **app-specific password** (Zoho → My Account → Security → App Passwords). Secret |
+| `MAIL_FROM` | recommended | mailer | Vercel + Coolify + local | e.g. `Technioz <hello@technioz.com>`. Must be the mailbox or one of its aliases. Defaults to `SMTP_USER` |
+| `MAIL_REPLY_TO` | optional | mailer | Vercel + Coolify + local | Where lead replies land. Defaults to `MAIL_FROM` |
+
+If the SMTP vars are missing, leads still save and ntfy still fires; the email is skipped with a `[leads] confirmation email skipped` log line. Server-only: no redeploy needed for the build itself, but Vercel applies new env vars only to new deployments, so redeploy after setting them.
 
 ## Setting up ntfy push notifications
 
