@@ -11,12 +11,13 @@ import { BTN_OUTLINE, BTN_PRIMARY, LANDING_PATH, whatsappUrl } from "./constants
  * - Distraction-free: main nav/footer/chat are hidden via src/lib/landing-pages.ts.
  * - noindex and excluded from the sitemap.
  * - Copy is approved campaign copy; every claim must stay true (docs/proof-metrics.md).
- *   Proof: one client in full, Al Khanjry Transport (since 1998, 200,000+ tickets,
- *   150+ routes, 97% faster booking, 99.9% uptime).
+ *   Proof: Al Khanjry Transport (since 1998, 200,000+ tickets, 150+ routes,
+ *   97% faster booking, 99.9% uptime) and Hatta Food Hub (1,500 orders /
+ *   AED 100k per month).
  * - Promise: fixed quote within 48 hours of the call; two builds at a time.
- * - Proof image: public/assets/booking.webp (shared with /case-studies). Setting a proof
- *   `image` to null shows a placeholder card instead.
- * - Story: promise → proof → problem → what you get → offer → process/fit → FAQ → quote form.
+ * - Proof images: public/assets/booking.webp and public/assets/hatta-food.webp (shared with
+ *   /case-studies). Setting a proof `image` to null shows a placeholder card instead.
+ * - Story: promise → proof → problem → honest comparison → what you get → offer → process/fit → FAQ → quote form.
  */
 
 const TITLE = "Technioz - We Build the System Your Business Runs On. Live in 4 to 8 Weeks.";
@@ -87,6 +88,22 @@ const proofs: Proof[] = [
       caption: "Al Khanjry bus booking & management system",
     },
   },
+  {
+    figure: <>1,500</>,
+    small: "Orders every month",
+    tag: "Food delivery · Hatta Food Hub",
+    title: "AED 100k a month running on it",
+    desc: "Ordering, operations, and customer flow built end to end. A real business, running daily on software we shipped.",
+    site: { href: "https://hattafoodhub.com", label: "Visit the live site", domain: "hattafoodhub.com" },
+    image: {
+      src: "/assets/hatta-food.webp",
+      alt: "Hatta Food Hub food delivery app: home screen with food, grocery and pharmacy categories, and the restaurants list",
+      width: 1600,
+      height: 1066,
+      caption: "Hatta Food Hub food delivery app",
+    },
+  },
+
 ];
 
 function ExternalLink({ href, children, className = "" }: { href: string; children: React.ReactNode; className?: string }) {
@@ -154,6 +171,22 @@ function ProofMedia({ proof }: { proof: Proof }) {
 const problems = [
   { n: "P.01", title: "Months lost hiring", desc: "Finding one good developer in Dubai takes months. Building a whole product team takes longer. Your launch window does not wait." },
   { n: "P.02", title: "Investors want live proof", desc: "A pitch deck and a prototype do not close a round. A live product with paying users does. That gap is costing you time." },
+];
+
+const prototypeCons = [
+  "Looks finished, breaks under real logins, payments, and load",
+  "No proper security, backups, or admin controls",
+  "WhatsApp, payment, and AI integrations held together by workarounds",
+  "You become the support team when it goes down",
+  "Investors spot a demo in the first five minutes",
+];
+
+const productionPros = [
+  "Proper backend, auth, payments, and database from day one",
+  "AI features wired in properly, not bolted on",
+  "Deployed, tested, and monitored. We fix issues before users report them",
+  "Full handover and training, you own the IP and the code",
+  "A product you can demo to investors without crossing your fingers",
 ];
 
 const whatYouGet = [
@@ -266,7 +299,7 @@ export default function AiSaasDevelopmentUaeLanding() {
           <div className={WRAP}>
             <Eyebrow>01 / Proof, not promises</Eyebrow>
             <h2 className={H2}>We ship products people pay on.</h2>
-            <Sub>One client, in full detail. A live system you can visit today.</Sub>
+            <Sub>No slideware. Two live client results below, from systems handling bookings, orders, and revenue for businesses in Oman and the UAE.</Sub>
             <div className="mt-10 border-t border-neutral-300">
               {proofs.map((p) => (
                 <article key={p.tag} className="grid items-start gap-x-9 gap-y-4 border-b border-neutral-300 py-[26px] md:grid-cols-[minmax(230px,0.85fr)_1.15fr] md:py-[34px]">
@@ -305,10 +338,42 @@ export default function AiSaasDevelopmentUaeLanding() {
           </div>
         </section>
 
-        {/* ── 03 What you get ── */}
+        {/* ── 03 Compare ── */}
         <section className="py-12 lg:py-[80px]">
           <div className={WRAP}>
-            <Eyebrow>03 / What you actually get</Eyebrow>
+            <Eyebrow>03 / Straight answer</Eyebrow>
+            <h2 className={H2}>Why can&apos;t I just use Lovable, Replit, claude, or ChatGPT?</h2>
+            <Sub>Use them to test an idea. Do not bet your company on them. Here is the honest difference.</Sub>
+            <div className="mt-8 grid items-stretch gap-[18px] md:grid-cols-2">
+              <div className="rounded-[6px] border border-neutral-300 bg-white-100 p-[26px]">
+                <h3 className="font-display text-[22px] tracking-[-0.6px]">A prototype on your own</h3>
+                <p className="mt-1 mb-[18px] text-[14px] text-black-400">Great for a weekend demo. Painful with real customers.</p>
+                <ul className="grid gap-[11px]">
+                  {prototypeCons.map((t) => (
+                    <li key={t} className="flex gap-[10px] text-[14.5px] leading-[1.5]"><CheckIcon featured={false} /><span>{t}</span></li>
+                  ))}
+                </ul>
+              </div>
+              <div className="flex flex-col rounded-[6px] border border-black-500 bg-black-500 p-[26px] text-white-200">
+                <h3 className="font-display text-[22px] tracking-[-0.6px] !text-white-200">A production build with Technioz</h3>
+                <p className="mt-1 mb-[18px] text-[14px] text-black-200">Built to charge money and keep running.</p>
+                <ul className="grid gap-[11px]">
+                  {productionPros.map((t) => (
+                    <li key={t} className="flex gap-[10px] text-[14.5px] leading-[1.5]"><CheckIcon featured /><span>{t}</span></li>
+                  ))}
+                </ul>
+                <div className="mt-auto pt-[22px]">
+                  <a href="#apply" className={`${BTN_PRIMARY} w-full`}>Get your fixed quote</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── 04 What you get ── */}
+        <section className="py-12 lg:py-[80px]">
+          <div className={WRAP}>
+            <Eyebrow>04 / What you actually get</Eyebrow>
             <h2 className={H2}>What you actually get.</h2>
             <Sub>Not a prototype that looks finished. A product built to take money and keep running.</Sub>
             <ul className="mt-8 grid gap-[18px] sm:grid-cols-2 lg:grid-cols-3">
@@ -326,10 +391,10 @@ export default function AiSaasDevelopmentUaeLanding() {
           </div>
         </section>
 
-        {/* ── 04 Offer ── */}
+        {/* ── 05 Offer ── */}
         <section className="pb-12 lg:pb-[80px]">
           <div className={WRAP}>
-            <Eyebrow>04 / The offer</Eyebrow>
+            <Eyebrow>05 / The offer</Eyebrow>
             <h2 className={H2}>Everything included. No hiring. No chasing.</h2>
             <Sub>AI Service and Solution by Technioz. One fixed scope, one team in Dubai, weekly progress you can see.</Sub>
             <div className="mt-8 grid items-start gap-9 lg:grid-cols-[1.15fr_0.85fr]">
@@ -366,7 +431,7 @@ export default function AiSaasDevelopmentUaeLanding() {
         {/* ── 05 Process + fit ── */}
         <section id="process" className="scroll-mt-20 pb-12 lg:pb-[80px]">
           <div className={WRAP}>
-            <Eyebrow>05 / How it works</Eyebrow>
+            <Eyebrow>06 / How it works</Eyebrow>
             <h2 className={H2}>Three steps. You always know what is next.</h2>
             <ol className="mt-9 grid gap-2 md:grid-cols-3 md:gap-7">
               {steps.map((s) => (
@@ -400,7 +465,7 @@ export default function AiSaasDevelopmentUaeLanding() {
         {/* ── 06 FAQ ── */}
         <section className="pb-12 lg:pb-[80px]">
           <div className={WRAP}>
-            <Eyebrow>06 / Questions founders ask</Eyebrow>
+            <Eyebrow>07 / Questions founders ask</Eyebrow>
             <h2 className={H2}>Before you book, read this.</h2>
             <div className="mt-[26px] border-b border-neutral-300">
               {faqs.map((f) => (
@@ -422,7 +487,7 @@ export default function AiSaasDevelopmentUaeLanding() {
             <div className="rounded-[6px] bg-black-500 p-[22px] text-white-200 sm:p-[34px]">
               <div className="grid gap-8 lg:grid-cols-2">
                 <div>
-                  <Eyebrow dark>07 / Your fixed quote</Eyebrow>
+                  <Eyebrow dark>08 / Your fixed quote</Eyebrow>
                   <h2 className={`${H2} !text-white-200`}>Tell us what you need. Get a fixed quote within 48 hours of your call.</h2>
                   <p className="text-[16px] leading-[1.6] text-black-100">
                     Pick a 30 minute call right after. We confirm on WhatsApp within 10 minutes in working hours.
