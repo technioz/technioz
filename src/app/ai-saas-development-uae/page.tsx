@@ -63,6 +63,19 @@ function CheckIcon({ featured }: { featured: boolean }) {
   );
 }
 
+/** ✕ / ✓ marks for the comparison. The shape carries the meaning, so it still reads without colour. */
+function MarkIcon({ good }: { good: boolean }) {
+  return (
+    <span className={`mt-[2px] grid h-[20px] w-[20px] shrink-0 place-items-center rounded-full ${good ? "bg-success" : "bg-error"}`} aria-hidden="true">
+      {good ? (
+        <svg width="12" height="12" viewBox="0 0 20 20" fill="none"><path d="M4 10.5 8 14 16 6" stroke="white" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
+      ) : (
+        <svg width="10" height="10" viewBox="0 0 20 20" fill="none"><path d="M5 5l10 10M15 5 5 15" stroke="white" strokeWidth="2.8" strokeLinecap="round" /></svg>
+      )}
+    </span>
+  );
+}
+
 type Proof = {
   figure: React.ReactNode;
   small: string;
@@ -400,21 +413,21 @@ export default function AiSaasDevelopmentUaeLanding() {
             <h2 className={H2}>Why can&apos;t I just use Lovable, Replit, Claude, or ChatGPT?</h2>
             <Sub>Use them to test an idea. Do not bet your company on them. Here is the honest difference.</Sub>
             <div className="mt-8 grid items-stretch gap-[18px] md:grid-cols-2">
-              <div className="rounded-[6px] border border-neutral-300 bg-white-100 p-[26px]">
+              <div className="rounded-[6px] border border-error/40 border-t-4 border-t-error bg-error/[0.05] p-[26px]">
                 <h3 className="font-display text-[22px] tracking-[-0.6px]">A prototype on your own</h3>
                 <p className="mt-1 mb-[18px] text-[14px] text-black-400">Great for a weekend demo. Painful with real customers.</p>
                 <ul className="grid gap-[11px]">
                   {prototypeCons.map((t) => (
-                    <li key={t} className="flex gap-[10px] text-[14.5px] leading-[1.5]"><CheckIcon featured={false} /><span>{t}</span></li>
+                    <li key={t} className="flex gap-[10px] text-[14.5px] leading-[1.5] text-black-500"><MarkIcon good={false} /><span>{t}</span></li>
                   ))}
                 </ul>
               </div>
-              <div className="flex flex-col rounded-[6px] border border-black-500 bg-black-500 p-[26px] text-white-200">
-                <h3 className="font-display text-[22px] tracking-[-0.6px] !text-white-200">A production build with Technioz</h3>
-                <p className="mt-1 mb-[18px] text-[14px] text-black-200">Built to charge money and keep running.</p>
+              <div className="flex flex-col rounded-[6px] border border-success/40 border-t-4 border-t-success bg-success/[0.06] p-[26px]">
+                <h3 className="font-display text-[22px] tracking-[-0.6px]">A production build with Technioz</h3>
+                <p className="mt-1 mb-[18px] text-[14px] text-black-400">Built to charge money and keep running.</p>
                 <ul className="grid gap-[11px]">
                   {productionPros.map((t) => (
-                    <li key={t} className="flex gap-[10px] text-[14.5px] leading-[1.5]"><CheckIcon featured /><span>{t}</span></li>
+                    <li key={t} className="flex gap-[10px] text-[14.5px] leading-[1.5] text-black-500"><MarkIcon good /><span>{t}</span></li>
                   ))}
                 </ul>
                 <div className="mt-auto pt-[22px]">

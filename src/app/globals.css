@@ -33,6 +33,7 @@
   --color-text-dark: #1d1b16;
   --color-text-faint: #a5a4a2;
   --color-error: #f04438;
+  --color-success: #079455; /* dark enough for white icons on it (WCAG 3:1) */
 
   --font-display: "Oceanic Text", Georgia, serif;
   --font-body: "UN 11ST", system-ui, sans-serif;
