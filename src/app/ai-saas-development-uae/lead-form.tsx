@@ -11,6 +11,7 @@ import {
   TIMELINE_OPTIONS,
   UTM_KEYS,
 } from "@/lib/campaign-lead-options";
+import { HONEYPOT_FIELD } from "@/lib/honeypot";
 import { trackPixelEvent } from "@/lib/meta-pixel";
 import { BTN_PRIMARY, BTN_SECONDARY, CALENDLY_URL, LANDING_PATH, whatsappUrl } from "./constants";
 
@@ -145,7 +146,7 @@ export function LeadForm() {
           landingPath: LANDING_PATH,
           utm: trackingRef.current.utm,
           referrer: trackingRef.current.referrer,
-          company_url: honeypotRef.current?.value ?? "",
+          [HONEYPOT_FIELD]: Boolean(honeypotRef.current?.checked),
         }),
       });
       const data = (await res.json().catch(() => ({}))) as { ok?: boolean; qualified?: boolean; emailSent?: boolean; error?: string };
@@ -226,10 +227,12 @@ export function LeadForm() {
         )
       ) : (
         <form onSubmit={submit} noValidate>
-          {/* Honeypot: hidden from people and assistive tech; bots fill it. */}
+          {/* Spam trap: hidden checkbox. Autofill never ticks it; bots do. See src/lib/honeypot.ts. */}
           <div aria-hidden="true" className="absolute -left-[9999px] h-0 overflow-hidden">
-            <label htmlFor="lead-company-url">Company website (do not fill)</label>
-            <input ref={honeypotRef} id="lead-company-url" name="company_url" type="text" tabIndex={-1} autoComplete="off" />
+            <label>
+              <input ref={honeypotRef} name={HONEYPOT_FIELD} type="checkbox" value="1" tabIndex={-1} autoComplete="off" />
+              Contact me by fax only
+            </label>
           </div>
 
           {step === 1 ? (

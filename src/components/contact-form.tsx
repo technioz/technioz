@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { HONEYPOT_FIELD } from "@/lib/honeypot";
 import Link from "next/link";
 import { PROJECT_TYPE_OPTIONS } from "@/lib/contact-types";
 
@@ -74,8 +75,8 @@ export function ContactForm() {
       companyName: String(fd.get("companyName") ?? ""),
       projectType: String(fd.get("projectType") ?? ""),
       message: String(fd.get("message") ?? ""),
-      // Honeypot — must be empty.
-      company_url: String(fd.get("company_url") ?? ""),
+      // Spam trap — a hidden checkbox that must stay unticked (see src/lib/honeypot.ts).
+      [HONEYPOT_FIELD]: fd.get(HONEYPOT_FIELD) === "1" ? "1" : "",
     };
 
     // Client-side validation first — fail fast without a network round-trip
@@ -254,16 +255,12 @@ export function ContactForm() {
         )}
       </div>
 
-      {/* Honeypot — hidden from humans, visible to bots. Must remain empty. */}
+      {/* Spam trap: hidden checkbox. Autofill never ticks it; bots do. See src/lib/honeypot.ts. */}
       <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", height: 0, overflow: "hidden" }}>
-        <label htmlFor="company_url">Company website (do not fill)</label>
-        <input
-          id="company_url"
-          name="company_url"
-          type="text"
-          tabIndex={-1}
-          autoComplete="off"
-        />
+        <label>
+          <input name={HONEYPOT_FIELD} type="checkbox" value="1" tabIndex={-1} autoComplete="off" />
+          Contact me by fax only
+        </label>
       </div>
 
       {showFieldErrorBanner && (

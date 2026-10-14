@@ -2,6 +2,7 @@ import { NextRequest, NextResponse, after } from "next/server";
 import { saveCampaignLead, sendCampaignLeadNtfy, validateCampaignLead } from "@/lib/campaign-leads";
 import { buildLeadConfirmationEmail } from "@/lib/lead-confirmation-email";
 import { isMailConfigured, sendMail } from "@/lib/mailer";
+import { isHoneypotTripped } from "@/lib/honeypot";
 
 export const dynamic = "force-dynamic";
 
@@ -43,9 +44,8 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
   }
 
-  // Honeypot: hidden "company_url" field. Bots fill it; humans never see it.
-  const b = (body ?? {}) as Record<string, unknown>;
-  if (typeof b.company_url === "string" && b.company_url.trim().length > 0) {
+  // Spam trap (see src/lib/honeypot.ts): a ticked hidden checkbox means a bot.
+  if (isHoneypotTripped(body)) {
     return NextResponse.json({ ok: true, qualified: false }, { status: 200 });
   }
 
