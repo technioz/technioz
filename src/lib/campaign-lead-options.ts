@@ -19,12 +19,21 @@ export const FUNDING_OPTIONS = [
 ] as const;
 
 export const BUDGET_OPTIONS = [
-  "Under $5k",
-  "$5k to $7.5k",
-  "$7.5k to $10k",
-  "$10k+",
+  "Under AED 18k",
+  "AED 18k to AED 27.5k",
+  "AED 27.5k to AED 37k",
+  "AED 37k+",
   "Not sure yet",
 ] as const;
+
+/**
+ * The USD ranges this form used before the switch to dirhams. A visitor with
+ * the old page still open during a deploy would otherwise fail validation and
+ * lose their lead, so these stay accepted and stored verbatim.
+ */
+export const LEGACY_BUDGET_OPTIONS = ["Under $5k", "$5k to $7.5k", "$7.5k to $10k", "$10k+"] as const;
+
+export const ALL_BUDGET_OPTIONS = [...BUDGET_OPTIONS, ...LEGACY_BUDGET_OPTIONS] as const;
 
 export const TIMELINE_OPTIONS = [
   "ASAP - next 30 days",
@@ -45,11 +54,12 @@ export const DECISION_OPTIONS = [
   { value: "Shared decision", label: "Shared decision" },
 ] as const;
 
-/** Minimum build is $5k: only this answer skips the booking step. */
-export const DISQUALIFYING_BUDGET = "Under $5k";
+/** Minimum build is AED 18,000 (~$5k): only this answer skips the booking step. */
+export const DISQUALIFYING_BUDGET = "Under AED 18k";
+const LEGACY_DISQUALIFYING_BUDGET = "Under $5k";
 
 export function isQualified(budget: string): boolean {
-  return budget !== DISQUALIFYING_BUDGET;
+  return budget !== DISQUALIFYING_BUDGET && budget !== LEGACY_DISQUALIFYING_BUDGET;
 }
 
 export const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "fbclid"] as const;

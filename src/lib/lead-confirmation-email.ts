@@ -6,7 +6,7 @@ import { CALENDLY_URL, WHATSAPP_NUMBER } from "@/app/ai-saas-development-uae/con
 /**
  * "We've got your details" email sent to every campaign lead right after the
  * form is saved. Shows back everything they submitted. Copy promises must stay
- * true: fixed quote within 48 hours of the call; $5,000 minimum project.
+ * true: fixed quote within 48 hours of the call; AED 18,000 minimum project.
  * Any change to what this email contains must be reflected in /privacy.
  */
 
@@ -53,7 +53,7 @@ export function buildLeadConfirmationEmail(data: CampaignLeadInput, qualified: b
     : [
         `Thanks for telling us about ${data.company}. We've got your details.`,
         "",
-        "Our minimum project is $5,000, so a full build isn't the right first step yet. We've saved your details. When your budget and idea are ready, just reply to this email.",
+        "Our minimum project is AED 18,000, so a full build isn't the right first step yet. We've saved your details. When your budget and idea are ready, just reply to this email.",
       ];
   const text = [
     `Hi ${firstName},`,
@@ -85,7 +85,7 @@ export function buildLeadConfirmationEmail(data: CampaignLeadInput, qualified: b
       ].join("")
     : [
         p(`Thanks for telling us about <strong>${esc(data.company)}</strong>. We've got your details.`),
-        p("Our minimum project is $5,000, so a full build isn't the right first step yet. We've saved your details. When your budget and idea are ready, just reply to this email."),
+        p("Our minimum project is AED 18,000, so a full build isn't the right first step yet. We've saved your details. When your budget and idea are ready, just reply to this email."),
       ].join("");
 
   const tableRows = rows

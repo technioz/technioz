@@ -22,9 +22,9 @@ import { BTN_OUTLINE, BTN_PRIMARY, LANDING_PATH, whatsappUrl } from "./constants
  * - Story: promise → proof → problem → honest comparison → what you get → offer → process/fit → FAQ → quote form.
  */
 
-const TITLE = "Technioz - We Build the System Your Business Runs On. Live in 4 to 8 Weeks.";
+const TITLE = "Technioz - We Build Your AI SaaS Product in Dubai. Live in 4 to 8 Weeks.";
 const DESCRIPTION =
-  "We build the system your business runs on: web and mobile products with AI, payments, and admin built in. Live in 4 to 8 weeks, $5k to $10k typical, fixed quote within 48 hours of your call.";
+  "We build AI SaaS products in Dubai: web and mobile apps with AI, payments, and admin built in. Live in 4 to 8 weeks, AED 18k to AED 37k typical, fixed quote within 48 hours of your call.";
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
@@ -273,20 +273,20 @@ const steps = [
 const fitYes = [
   "You are funded or your business has revenue backing the build",
   "Your idea is clear enough to explain in 2 minutes",
-  "You have $5k or more set aside for a proper build",
+  "You have AED 18,000 or more set aside for a proper build",
   "You are the decision maker",
   "You want to launch in the next 2 months",
 ];
 
 const fitNo = [
   "You are still testing if anyone wants this",
-  "Budget is under $5k, a prototype tool is a better start",
+  "Budget is under AED 18,000, a prototype tool is a better start",
   "You need approval from 3 other partners first",
   "You want a clone built in a week for cheap",
 ];
 
 const faqs = [
-  { q: "How much does it really cost?", a: "Most builds land between $5,000 and $10,000. Simple MVPs sit at the lower end, products with payments, AI, and multiple user types go higher. You get a fixed quote within 48 hours of your call, so the number does not creep mid build." },
+  { q: "How much does it really cost?", a: "Most builds land between AED 18,000 and AED 37,000. Simple MVPs sit at the lower end, products with payments, AI, and multiple user types go higher. You get a fixed quote within 48 hours of your call, so the number does not creep mid build." },
   { q: "How fast can we actually launch?", a: "4 to 8 weeks from build start for a focused MVP. We start within 30 days of signing. If your scope needs 4 months, we will tell you on the call instead of selling you a fantasy timeline." },
   { q: "Do I own the product and the code?", a: "Yes, 100%. Code, accounts, data, and IP transfer to you at handover. We document everything and train you or your team to run it." },
   { q: "I am not technical. Is that a problem?", a: "No, most of our founders are not technical. You bring the business and the customers. We translate it into a product and explain every decision in plain language." },
@@ -309,7 +309,7 @@ export default function AiSaasDevelopmentUaeLanding() {
           <nav aria-label="Page sections" className="flex items-center gap-1">
             <a href="#proof" className="hidden rounded-sm px-[14px] py-[10px] p5 font-bold text-black-400 hover:bg-white-300 hover:text-black-500 md:block">Proof</a>
             <a href="#process" className="hidden rounded-sm px-[14px] py-[10px] p5 font-bold text-black-400 hover:bg-white-300 hover:text-black-500 md:block">How it works</a>
-            <a href="#apply" className="cta-tertiary">Get your fixed quote</a>
+            <a href="#apply" className="cta-tertiary">Book your call</a>
           </nav>
         </div>
       </header>
@@ -325,19 +325,19 @@ export default function AiSaasDevelopmentUaeLanding() {
           <div className={`${WRAP} relative py-10 lg:py-[88px]`}>
             <div className="max-w-[860px]">
               <h1 className="mt-[22px] mb-[18px] font-display text-[44px] font-normal leading-none tracking-[-2.2px] sm:text-[56px] sm:tracking-[-2.8px] lg:text-[72px] lg:tracking-[-3.6px]">
-                We build the system your business runs on. <em className="italic text-cobolt-500">Live in 4 to 8 weeks.</em>
+                We build your AI SaaS product in Dubai. <em className="italic text-cobolt-500">Live in 4 to 8 weeks.</em>
               </h1>
               <p className="max-w-[600px] text-[18px] leading-[1.65] text-black-400">
                 You have the idea and the budget. We handle scoping, build, AI integration, and launch. One team, one
                 timeline, a real product your customers and investors can actually use.
               </p>
               <div className="mt-[28px] flex flex-wrap gap-3">
-                <a href="#apply" className={BTN_PRIMARY}>Get your fixed quote</a>
+                <a href="#apply" className={BTN_PRIMARY}>Book your free strategy call</a>
                 <a href="#proof" className={BTN_OUTLINE}>See shipped proof</a>
               </div>
               <dl className="mt-[30px] grid max-w-[720px] grid-cols-1 gap-5 border-t border-neutral-300 pt-[22px] sm:grid-cols-3 sm:gap-7">
                 {[
-                  ["$5k to $10k", "Typical build. $5k minimum."],
+                  ["AED 18k to AED 37k", "Typical build. AED 18,000 minimum."],
                   ["4 to 8 weeks", "Idea to live product"],
                   ["Start in 30 days", "Within 30 days of signing"],
                 ].map(([v, l]) => (
@@ -431,7 +431,7 @@ export default function AiSaasDevelopmentUaeLanding() {
                   ))}
                 </ul>
                 <div className="mt-auto pt-[22px]">
-                  <a href="#apply" className={`${BTN_PRIMARY} w-full`}>Get your fixed quote</a>
+                  <a href="#apply" className={`${BTN_PRIMARY} w-full`}>Book your free strategy call</a>
                 </div>
               </div>
             </div>
@@ -455,7 +455,7 @@ export default function AiSaasDevelopmentUaeLanding() {
                 </li>
               ))}
             </ul>
-            <a href="#apply" className={`${BTN_PRIMARY} mt-[26px]`}>Get your fixed quote</a>
+            <a href="#apply" className={`${BTN_PRIMARY} mt-[26px]`}>Book your free strategy call</a>
           </div>
         </section>
 
@@ -479,8 +479,8 @@ export default function AiSaasDevelopmentUaeLanding() {
               </ol>
               <aside className="rounded-[6px] border border-white-100/10 bg-black-500 p-[26px] text-white-300 lg:sticky lg:top-[84px]">
                 <h3 className="font-mono text-[11px] uppercase tracking-[0.14em] !text-black-200">Typical investment</h3>
-                <p className="mt-3 mb-[6px] font-display text-[46px] leading-none tracking-[-1.5px] text-white-200">$5k to $10k</p>
-                <p className="text-[14px] text-black-200">Minimum project $5,000. Fixed quote, so the number does not creep later.</p>
+                <p className="mt-3 mb-[6px] font-display text-[46px] leading-none tracking-[-1.5px] text-white-200">AED 18k to AED 37k</p>
+                <p className="text-[14px] text-black-200">Minimum project AED 18,000. Fixed quote, so the number does not creep later.</p>
                 <ul className="my-[18px] grid gap-[9px] text-[14.5px] text-white-300">
                   {["Live in 4 to 8 weeks", "Start within 30 days of signing", "Dubai based team, direct WhatsApp access", "You own 100% of the IP"].map((t) => (
                     <li key={t} className="flex gap-[9px]">
@@ -489,7 +489,7 @@ export default function AiSaasDevelopmentUaeLanding() {
                     </li>
                   ))}
                 </ul>
-                <a href="#apply" className={`${BTN_PRIMARY} w-full`}>Get your fixed quote</a>
+                <a href="#apply" className={`${BTN_PRIMARY} w-full`}>Book your free strategy call</a>
                 <p className="mt-3 text-center text-[12.5px] text-black-200">Fixed quote within 48 hours of your call.</p>
               </aside>
             </div>
@@ -556,9 +556,9 @@ export default function AiSaasDevelopmentUaeLanding() {
               <div className="grid gap-8 lg:grid-cols-2">
                 <div>
                   <Eyebrow dark>08 / Your fixed quote</Eyebrow>
-                  <h2 className={`${H2} !text-white-200`}>Tell us what you need. Get a fixed quote within 48 hours of your call.</h2>
+                  <h2 className={`${H2} !text-white-200`}>Tell us what you need. Pick your call time right after this.</h2>
                   <p className="text-[16px] leading-[1.6] text-black-100">
-                    Pick a 30 minute call right after. We confirm on WhatsApp within 10 minutes in working hours.
+                    It is a 30 minute call. We confirm on WhatsApp within 10 minutes in working hours.
                   </p>
                   <ul className="mt-4 list-disc space-y-1 pl-[18px] text-[15px] text-black-100 marker:text-cobolt-200">
                     <li>No sales script, we scope your actual build</li>
@@ -572,7 +572,15 @@ export default function AiSaasDevelopmentUaeLanding() {
                     Prefer chat first? Use the WhatsApp button below. Same team, same response time.
                   </p>
                 </div>
-                <LeadForm />
+                <div>
+                  <p className="mb-[10px] flex items-start gap-[8px] text-[13.5px] leading-[1.5] text-black-100">
+                    <span className="mt-[1px] grid h-[18px] w-[18px] shrink-0 place-items-center rounded-full bg-success" aria-hidden="true">
+                      <svg width="11" height="11" viewBox="0 0 20 20" fill="none"><path d="M4 10.5 8 14 16 6" stroke="white" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                    </span>
+                    Join 3 UAE businesses already running on software we built.
+                  </p>
+                  <LeadForm />
+                </div>
               </div>
             </div>
           </div>

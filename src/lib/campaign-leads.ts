@@ -3,7 +3,7 @@ import { PrismaClient } from "@prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
 import { sendNtfy, type NtfyResult } from "@/lib/ntfy";
 import {
-  BUDGET_OPTIONS,
+  ALL_BUDGET_OPTIONS,
   DECISION_OPTIONS,
   FUNDING_OPTIONS,
   IDEA_STAGE_OPTIONS,
@@ -84,7 +84,7 @@ export function validateCampaignLead(
 
   const ideaStage = pick("ideaStage", values(IDEA_STAGE_OPTIONS), true);
   const funding = pick("funding", values(FUNDING_OPTIONS), true);
-  const budget = pick("budget", values(BUDGET_OPTIONS), true);
+  const budget = pick("budget", values(ALL_BUDGET_OPTIONS), true);
   const decisionRole = pick("decisionRole", values(DECISION_OPTIONS), true);
   const timeline = pick("timeline", values(TIMELINE_OPTIONS), false);
   const techBackground = pick("techBackground", values(TECH_OPTIONS), false);
@@ -149,7 +149,7 @@ export function sendCampaignLeadNtfy(
   qualified: boolean,
   spamReason: string | null = null
 ): Promise<NtfyResult> {
-  const kind = qualified ? "New lead" : "Lead (under $5k)";
+  const kind = qualified ? "New lead" : "Lead (under AED 18k)";
   const title = `${spamReason ? "Possible spam - " : ""}${kind}: ${data.fullName} (${data.company})`;
   const utm = [data.utmSource, data.utmMedium, data.utmCampaign, data.utmContent].filter(Boolean).join(" / ");
   const body = [

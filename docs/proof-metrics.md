@@ -79,8 +79,9 @@ claim is retired.
 
 ## Pricing and timelines (custom builds / MVPs)
 
-- Minimum project: **$5,000**
-- Typical MVP / SaaS build: **$5,000–$10,000**
+- Minimum project: **$5,000** (**AED 18,000** on the UAE ads landing page)
+- Typical MVP / SaaS build: **$5,000–$10,000** (**AED 18k–AED 37k** on the UAE
+  ads landing page — the audience thinks in dirhams)
 - Timeline: **live in 4 to 8 weeks** from build start; start **within 30 days
   of signing**
 - Larger tiers (mid-size apps, enterprise, AI, cloud, dedicated teams,
@@ -103,6 +104,13 @@ Retired: "200+ projects", "50+ engineers", "10+ years".
 - **Fixed quote within 48 hours of the call** (confirmed by Gaurav, October 14, 2026).
 - **Two builds at a time** — worded as capacity ("so every project gets the
   founder's direct attention"), never as headcount.
+- Landing page CTAs say **"Book your free strategy call"** (October 15, 2026):
+  the form books a call, it does not hand out a quote, so the button must not
+  promise the quote. The 48-hour quote is still promised after the call.
+- Landing page trust line: "Join 3 UAE businesses already running on software we
+  built." The three systems shown are Al Khanjry (Oman), Hatta Food Hub (UAE) and
+  the Hatta Groups HRMS (UAE) — if the count is ever challenged, the honest
+  framing is "3 businesses", or swap in another UAE client (e.g. IGL).
 
 Al Khanjry booking speed is **97%** (corrected from 85% on October 14, 2026). The DB
 article `build-vs-buy` still says "85% faster booking processing" because it

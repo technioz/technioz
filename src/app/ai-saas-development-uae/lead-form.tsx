@@ -202,12 +202,12 @@ export function LeadForm() {
     }
   }
 
-  const progress = result ? 3 : step;
+  const progress = result ? 2 : step;
 
   return (
     <div ref={cardRef} className="scroll-mt-24 rounded-sm bg-white-100 p-[24px] text-black-500 sm:p-[28px]">
       <div className="mb-[20px] flex gap-[6px]" aria-hidden="true">
-        {[1, 2, 3].map((n) => (
+        {[1, 2].map((n) => (
           <span key={n} className={`h-[4px] flex-1 rounded-full ${n <= progress ? "bg-cobolt-500" : "bg-neutral-200"}`} />
         ))}
       </div>
@@ -246,7 +246,7 @@ export function LeadForm() {
               <Field id="fullName" label="Full name *" error={errors.fullName}>
                 <input id="lead-fullName" autoComplete="name" placeholder="e.g. Ahmed Al Mansoori" value={s1.fullName} onChange={set1("fullName")} aria-invalid={Boolean(errors.fullName)} aria-describedby={errors.fullName ? "lead-fullName-error" : undefined} className={inputClass(Boolean(errors.fullName))} />
               </Field>
-              <Field id="email" label="Work email *" error={errors.email}>
+              <Field id="email" label="Email *" error={errors.email}>
                 <input id="lead-email" type="email" inputMode="email" autoComplete="email" placeholder="you@company.com / you@gmail.com" value={s1.email} onChange={set1("email")} aria-invalid={Boolean(errors.email)} aria-describedby={errors.email ? "lead-email-error" : undefined} className={inputClass(Boolean(errors.email))} />
               </Field>
               <Field id="company" label="Company or startup name *" error={errors.company}>
@@ -302,7 +302,7 @@ export function LeadForm() {
                   Back
                 </button>
                 <button type="submit" disabled={submitting} className={`${BTN_PRIMARY} flex-[2] disabled:opacity-60`}>
-                  {submitting ? "Sending..." : "Get your fixed quote"}
+                  {submitting ? "Sending..." : "Book your call"}
                 </button>
               </div>
             </div>
@@ -447,7 +447,7 @@ function NotYetResult({ firstName, emailSent, headingRef }: { firstName: string;
         Thanks, {firstName}. A full build isn&apos;t the right first step yet.
       </h3>
       <p className="p4 mt-[10px] text-black-400">
-        Our minimum project is $5,000. With a budget under $5k, a prototype tool is a better start to test if
+        Our minimum project is AED 18,000. With a budget under AED 18k, a prototype tool is a better start to test if
         people want your idea.
       </p>
       <p className="p4 mt-[10px] text-black-400">
