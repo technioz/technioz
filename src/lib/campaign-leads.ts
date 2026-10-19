@@ -2,6 +2,7 @@ import "server-only";
 import { PrismaClient } from "@prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
 import { sendNtfy, type NtfyResult } from "@/lib/ntfy";
+import { withSaveTimeout } from "@/lib/save-timeout";
 import {
   ALL_BUDGET_OPTIONS,
   DECISION_OPTIONS,
@@ -136,7 +137,10 @@ export async function saveCampaignLead(
 ): Promise<{ ok: true; id: string; qualified: boolean } | { ok: false }> {
   const qualified = isQualified(data.budget);
   try {
-    const row = await getPrisma().campaignLead.create({ data: { ...data, qualified } });
+    const row = await withSaveTimeout(
+      getPrisma().campaignLead.create({ data: { ...data, qualified } }),
+      "campaign lead save"
+    );
     return { ok: true, id: row.id, qualified };
   } catch (err) {
     console.error("[leads] save failed:", err);
@@ -147,12 +151,18 @@ export async function saveCampaignLead(
 export function sendCampaignLeadNtfy(
   data: CampaignLeadInput,
   qualified: boolean,
-  spamReason: string | null = null
+  spamReason: string | null = null,
+  dbFailed = false
 ): Promise<NtfyResult> {
   const kind = qualified ? "New lead" : "Lead (under AED 18k)";
-  const title = `${spamReason ? "Possible spam - " : ""}${kind}: ${data.fullName} (${data.company})`;
+  // dbFailed: the row never reached Postgres, so this notification is now the
+  // only copy of the lead. It must be impossible to miss.
+  const title = dbFailed
+    ? `DATABASE DOWN - lead not saved: ${data.fullName} (${data.company})`
+    : `${spamReason ? "Possible spam - " : ""}${kind}: ${data.fullName} (${data.company})`;
   const utm = [data.utmSource, data.utmMedium, data.utmCampaign, data.utmContent].filter(Boolean).join(" / ");
   const body = [
+    dbFailed ? "The database is unreachable, so this lead was NOT stored. Copy these details into the CRM by hand.\n" : null,
     `Email: ${data.email}`,
     `WhatsApp: ${data.whatsapp}`,
     `Budget: ${data.budget}`,
@@ -173,7 +183,13 @@ export function sendCampaignLeadNtfy(
   return sendNtfy({
     title,
     body,
-    tags: spamReason ? ["warning", "lead"] : qualified ? ["moneybag", "lead"] : ["hourglass", "lead"],
-    priority: spamReason ? "low" : qualified ? "high" : "default",
+    tags: dbFailed
+      ? ["rotating_light", "lead"]
+      : spamReason
+        ? ["warning", "lead"]
+        : qualified
+          ? ["moneybag", "lead"]
+          : ["hourglass", "lead"],
+    priority: dbFailed ? "max" : spamReason ? "low" : qualified ? "high" : "default",
   });
 }

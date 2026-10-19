@@ -29,6 +29,36 @@ The following env vars must be set on **whatever deployment is serving the live 
 
 If the SMTP vars are missing, leads still save and ntfy still fires; the email is skipped with a `[leads] confirmation email skipped` log line. Server-only: no redeploy needed for the build itself, but Vercel applies new env vars only to new deployments, so redeploy after setting them.
 
+## If the database goes down (it has)
+
+The Postgres host is a Contabo VPS (`vmi2955525.contaboserver.net`, port 5433).
+On **October 19 2026** it was unreachable for a stretch of hours: no ICMP, every
+port filtered, and Vercel could not connect either. Every form submission failed
+with "Could not save your details" and the lead was dropped on the floor.
+
+What the app does now:
+
+- **A write that cannot connect gives up after 6s** (`src/lib/save-timeout.ts`)
+  instead of hanging for ~2 minutes, so the visitor still reaches the booking
+  calendar.
+- **The lead is never dropped.** If the row cannot be written, the API still
+  sends the ntfy push — titled `DATABASE DOWN - lead not saved: <name>` with
+  `max` priority and a `rotating_light` tag — and still emails the visitor their
+  confirmation. The response is `{ ok: true, saved: false }`, so the page shows
+  the Calendly screen as normal. That push is then the only copy of the lead:
+  **copy those details into the CRM by hand.**
+- The request only fails when neither channel is configured (`NTFY_TOPIC` unset
+  **and** SMTP unset).
+
+Checklist when the form stops saving:
+
+1. `nc -z <host> 5433`. All ports filtered and no ping means the VPS is down or
+   firewall-blocked, not a Postgres config problem.
+2. Contabo panel: is the VPS running, is billing in order, has the IP changed?
+3. On the box: `systemctl status postgresql`, `ufw status`, `fail2ban-client status`.
+4. If the IP changed, update `DATABASE_URL` in Vercel **and** `.env`, redeploy.
+5. Recover lost leads from the ntfy topic history — every failed save is there.
+
 ## Setting up ntfy push notifications
 
 The contact form writes submissions to the `contact_submissions` Postgres table

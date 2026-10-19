@@ -63,13 +63,18 @@ export async function POST(request: NextRequest) {
     spamReason: spamReasonFor(body),
   };
 
-  // Save to DB (synchronous — return 500 to user if it fails).
+  // Save to DB. If Postgres is unreachable the enquiry must still reach us, so
+  // fall back to the push notification instead of throwing the message away.
   const saved = await saveContactSubmission(data);
-  if (!saved.ok) {
-    return NextResponse.json(
-      { error: "Could not save your message. Please try again or email info@technioz.com." },
-      { status: 500 }
-    );
+  const dbFailed = !saved.ok;
+  if (dbFailed) {
+    if (!process.env.NTFY_TOPIC) {
+      return NextResponse.json(
+        { error: "Could not save your message. Please try again or email info@technioz.com." },
+        { status: 500 }
+      );
+    }
+    console.error("[contact] database save failed; keeping the message through ntfy only");
   }
 
   // Notify after responding. after() keeps the work alive on serverless hosts;
@@ -83,13 +88,14 @@ export async function POST(request: NextRequest) {
     message: data.message,
     source: data.source,
     spamReason: data.spamReason,
+    dbFailed,
   })
     .then((r) => {
       if (r.ok) {
-        console.log(`[contact] ntfy ok status=${r.status} for id=${saved.id}`);
+        console.log(`[contact] ntfy ok status=${r.status} for id=${saved.ok ? saved.id : "not-saved"}`);
       } else {
         console.warn(
-          `[contact] ntfy failed status=${r.status} id=${saved.id} err=${r.error ?? ""}`
+          `[contact] ntfy failed status=${r.status} id=${saved.ok ? saved.id : "not-saved"} err=${r.error ?? ""}`
         );
       }
     })
@@ -101,7 +107,8 @@ export async function POST(request: NextRequest) {
     {
       ok: true,
       status: "received",
-      id: saved.id,
+      id: saved.ok ? saved.id : null,
+      saved: saved.ok,
     },
     { status: 200 }
   );

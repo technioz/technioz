@@ -2,6 +2,7 @@ import "server-only";
 import { PrismaClient } from "@prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
 import { sendNtfy, type NtfyResult } from "@/lib/ntfy";
+import { withSaveTimeout } from "@/lib/save-timeout";
 
 export { PROJECT_TYPE_OPTIONS } from "@/lib/contact-types";
 
@@ -91,13 +92,15 @@ export function validateContactInput(body: unknown): {
 export async function saveContactSubmission(data: ContactFormInput) {
   const prisma = getPrisma();
   try {
-    const row = await prisma.contactSubmission.create({ data });
+    const row = await withSaveTimeout(prisma.contactSubmission.create({ data }), "contact save");
     return { ok: true as const, id: row.id };
   } catch (err) {
     console.error("[contact] save failed:", err);
     return { ok: false as const, error: "Failed to save submission" };
   } finally {
-    await prisma.$disconnect();
+    // Never await an unbounded disconnect: on a dead host it hangs forever and
+    // the caller never returns (Oct 19 2026 outage left the request hanging).
+    await withSaveTimeout(prisma.$disconnect(), "contact disconnect", 2_000).catch(() => {});
   }
 }
 
@@ -114,9 +117,14 @@ export async function sendContactNtfy(input: {
   message: string;
   source?: string | null;
   spamReason?: string | null;
+  /** The row never reached Postgres: this message is the only copy of the enquiry. */
+  dbFailed?: boolean;
 }): Promise<NtfyResult> {
-  const title = `${input.spamReason ? "Possible spam - " : ""}New contact: ${input.fullName}${input.companyName ? ` (${input.companyName})` : ""}`;
+  const title = input.dbFailed
+    ? `DATABASE DOWN - message not saved: ${input.fullName}${input.companyName ? ` (${input.companyName})` : ""}`
+    : `${input.spamReason ? "Possible spam - " : ""}New contact: ${input.fullName}${input.companyName ? ` (${input.companyName})` : ""}`;
   const body = [
+    input.dbFailed ? "The database is unreachable, so this message was NOT stored. Copy these details into the CRM by hand.\n" : null,
     `Email: ${input.email}`,
     input.phone ? `Phone: ${input.phone}` : null,
     input.projectType ? `Project: ${input.projectType}` : null,
@@ -129,11 +137,16 @@ export async function sendContactNtfy(input: {
     .filter((l) => l !== null)
     .join("\n");
 
-  const tags = input.spamReason ? ["warning"] : ["inbox"];
+  const tags = input.dbFailed ? ["rotating_light"] : input.spamReason ? ["warning"] : ["inbox"];
   if (input.projectType) {
     const tag = input.projectType.toLowerCase().replace(/[^a-z0-9-]/g, "").slice(0, 20);
     if (tag) tags.push(tag);
   }
 
-  return sendNtfy({ title, body, tags, priority: input.spamReason ? "low" : undefined });
+  return sendNtfy({
+    title,
+    body,
+    tags,
+    priority: input.dbFailed ? "max" : input.spamReason ? "low" : undefined,
+  });
 }

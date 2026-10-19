@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse, after } from "next/server";
 import { saveCampaignLead, sendCampaignLeadNtfy, validateCampaignLead } from "@/lib/campaign-leads";
+import { isQualified } from "@/lib/campaign-lead-options";
 import { buildLeadConfirmationEmail } from "@/lib/lead-confirmation-email";
 import { isMailConfigured, sendMail } from "@/lib/mailer";
 import { spamReasonFor } from "@/lib/honeypot";
@@ -58,33 +59,49 @@ export async function POST(request: NextRequest) {
     userAgent: request.headers.get("user-agent"),
     spamReason,
   });
-  if (!saved.ok) {
-    return NextResponse.json(
-      { error: "Could not save your details. Please try again or message us on WhatsApp." },
-      { status: 500 }
-    );
+
+  // A lead must never be lost because Postgres is down (it has been: see
+  // docs/deploy.md). If the row cannot be written we still alert the team and
+  // email the visitor, and we let them book. The request only fails when no
+  // channel is left that could carry the details anywhere.
+  const dbFailed = !saved.ok;
+  if (dbFailed) {
+    const canStillReach = Boolean(process.env.NTFY_TOPIC) || isMailConfigured();
+    if (!canStillReach) {
+      return NextResponse.json(
+        { error: "Could not save your details. Please try again or message us on WhatsApp." },
+        { status: 500 }
+      );
+    }
+    console.error("[leads] database save failed; keeping the lead through ntfy/email only");
   }
 
+  const qualified = saved.ok ? saved.qualified : isQualified(parsed.data.budget);
+  const leadId = saved.ok ? saved.id : "not-saved";
+  const emailSent = !spamReason && isMailConfigured();
+
   // after() keeps the notification and the confirmation email alive past the
-  // response on serverless hosts. Neither can fail the request: the lead is saved.
+  // response on serverless hosts. Neither can fail the request: nothing is left
+  // to recover the lead from if they throw.
   after(async () => {
       // Flagged submissions still alert us, but get no automatic email: bots must
     // not be able to make our mailbox email arbitrary addresses.
     const [push, mail] = await Promise.allSettled([
-      sendCampaignLeadNtfy(parsed.data, saved.qualified, spamReason),
+      sendCampaignLeadNtfy(parsed.data, qualified, spamReason, dbFailed),
       spamReason
         ? Promise.resolve({ ok: false as const, skipped: true, error: `flagged as possible spam (${spamReason})` })
-        : sendMail({ to: parsed.data.email, ...buildLeadConfirmationEmail(parsed.data, saved.qualified) }),
+        : sendMail({ to: parsed.data.email, ...buildLeadConfirmationEmail(parsed.data, qualified) }),
     ]);
     if (push.status === "rejected") console.error("[leads] ntfy threw:", push.reason);
-    else if (!push.value.ok) console.warn(`[leads] ntfy failed status=${push.value.status} id=${saved.id} err=${push.value.error ?? ""}`);
+    else if (!push.value.ok) console.warn(`[leads] ntfy failed status=${push.value.status} id=${leadId} err=${push.value.error ?? ""}`);
     if (mail.status === "rejected") console.error("[leads] confirmation email threw:", mail.reason);
-    else if (!mail.value.ok) console.warn(`[leads] confirmation email ${mail.value.skipped ? "skipped" : "failed"} id=${saved.id} err=${mail.value.error}`);
+    else if (!mail.value.ok) console.warn(`[leads] confirmation email ${mail.value.skipped ? "skipped" : "failed"} id=${leadId} err=${mail.value.error}`);
   });
 
   // emailSent lets the page only claim "we emailed you a copy" when SMTP is set up.
+  // `saved: false` means the row is not in Postgres; the visitor is unaffected.
   return NextResponse.json(
-    { ok: true, id: saved.id, qualified: saved.qualified, emailSent: !spamReason && isMailConfigured() },
+    { ok: true, id: leadId, qualified, emailSent, saved: saved.ok },
     { status: 200 }
   );
 }
