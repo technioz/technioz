@@ -24,7 +24,7 @@ import { BTN_OUTLINE, BTN_PRIMARY, LANDING_PATH, whatsappUrl } from "./constants
 
 const TITLE = "Technioz - We Build Your AI SaaS Product in Dubai. Live in 4 to 8 Weeks.";
 const DESCRIPTION =
-  "We build AI SaaS products in Dubai: web and mobile apps with AI, payments, and admin built in. Live in 4 to 8 weeks, AED 18k to AED 37k typical, fixed quote within 48 hours of your call.";
+  "We build AI SaaS products in Dubai. Web and mobile apps with AI, payments, and admin built in. Live in 4 to 8 weeks. AED 18k to AED 37k. Fixed quote 48 hours after your call.";
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
@@ -96,7 +96,7 @@ const proofs: Proof[] = [
     small: "Booking time cut",
     tag: "Transport platform · Al Khanjry, Oman–UAE",
     title: "An Omani bus operator, running since 1998.",
-    desc: "200,000+ tickets booked. 150+ routes across Oman and the UAE. 80+ agencies sell tickets through the API we built. Booking 97% faster than their old phone-and-counter process. 99.9% uptime. Every number comes from the live system.",
+    desc: "200,000+ tickets booked. 150+ routes in Oman and the UAE. 80+ agencies sell tickets through the API we built. Booking is 97% faster than the old phone-and-counter way. 99.9% uptime. Every number comes from the live system.",
     stats: [
       { value: "200K+", label: "Tickets booked" },
       { value: "150+", label: "Routes" },
@@ -117,7 +117,7 @@ const proofs: Proof[] = [
     small: "Orders every month",
     tag: "Food delivery · Hatta Food Hub",
     title: "AED 100k a month running on it",
-    desc: "Ordering, operations, and customer flow built end to end. A real business, running daily on software we shipped.",
+    desc: "Ordering, operations, and customers, all built. A real business, running every day on software we shipped.",
     stats: [
       { value: "30K+", label: "Orders delivered" },
       { value: "5K+", label: "Customers" },
@@ -137,7 +137,7 @@ const proofs: Proof[] = [
     small: "Companies on one HR system",
     tag: "HR platform · Hatta Groups, UAE",
     title: "One HR system for a 12-company group.",
-    desc: "Employee records, attendance and shifts, expenses, and payroll for every company in Hatta Groups, each with its own data and permissions. AED 272,711 in salaries paid through it in September 2026.",
+    desc: "Staff records, attendance, shifts, expenses, and payroll for every company in the group. Each company has its own data and its own logins. AED 272,711 in salaries paid through it in September 2026.",
     stats: [
       { value: "93", label: "Employees" },
       { value: "AED 272K", label: "Payroll, Sept 2026" },
@@ -227,71 +227,71 @@ function ProofMedia({ proof }: { proof: Proof }) {
 }
 
 const problems = [
-  { n: "P.01", title: "Months lost hiring", desc: "Finding one good developer in Dubai takes months. Building a whole product team takes longer. Your launch window does not wait." },
-  { n: "P.02", title: "Investors want live proof", desc: "A pitch deck and a prototype do not close a round. A live product with paying users does. That gap is costing you time." },
+  { n: "P.01", title: "Months lost hiring", desc: "One good developer in Dubai takes months to hire. A whole team takes longer. Your launch window will not wait." },
+  { n: "P.02", title: "Investors want live proof", desc: "A deck and a demo do not close a round. A live product with paying users does. That gap costs you months." },
 ];
 
 const prototypeCons = [
-  "Looks finished, breaks under real logins, payments, and load",
-  "No proper security, backups, or admin controls",
-  "WhatsApp, payment, and AI integrations held together by workarounds",
-  "You become the support team when it goes down",
-  "Investors spot a demo in the first five minutes",
+  "Looks done. Breaks with real logins, payments, and traffic",
+  "No real security, backups, or admin panel",
+  "WhatsApp, payments, and AI held together with workarounds",
+  "When it breaks, you are the support team",
+  "Investors spot a demo in five minutes",
 ];
 
 const productionPros = [
-  "Proper backend, auth, payments, and database from day one",
-  "AI features wired in properly, not bolted on",
-  "Deployed, tested, and monitored. We fix issues before users report them",
-  "Full handover and training, you own the IP and the code",
-  "A product you can demo to investors without crossing your fingers",
+  "Real backend, logins, payments, and database from day one",
+  "AI built in properly, not stuck on later",
+  "Live, tested, and watched. We fix problems before your users find them",
+  "We hand over everything. You own the code and the IP",
+  "A product you can demo to investors with no worries",
 ];
 
 const whatYouGet = [
-  { title: "A production database", desc: "Real data, properly structured. Not a spreadsheet behind a demo." },
-  { title: "Login and user accounts", desc: "Secure sign up and sign in, with the right access for your customers and your team." },
-  { title: "Payments, wired and tested", desc: "Set up end to end and tested with real transactions before launch." },
+  { title: "A production database", desc: "Real data, stored properly. Not a spreadsheet behind a demo." },
+  { title: "Login and user accounts", desc: "Secure sign up and sign in. Different access for customers and for your team." },
+  { title: "Payments, wired and tested", desc: "Set up fully. Tested with real payments before launch." },
   { title: "Error monitoring", desc: "You know something broke before your customers tell you." },
   { title: "Automatic backups", desc: "One bad day never costs you your data." },
-  { title: "A runbook", desc: "Written steps so someone other than us can run it and fix it." },
+  { title: "A runbook", desc: "Written steps, so someone else can run it and fix it." },
 ];
 
 const included = [
-  { title: "Scoping", desc: "We map features, users, and revenue flow. You get a clear scope, timeline, and fixed quote before we write code." },
-  { title: "Product build", desc: "Web or mobile product, admin panel, user accounts, and payments. Built for real use, not a pitch." },
-  { title: "AI integration", desc: "Chat, automation, or smart workflows where they actually save time or make money. No AI for show." },
-  { title: "Deployment and launch", desc: "Hosted, secured, and live. We test with real scenarios before your first customer touches it." },
-  { title: "Handover and training", desc: "You get the code, logins, docs, and a walkthrough. Your product, fully in your control." },
+  { title: "Scoping", desc: "We list the features, the users, and how money flows. You get the scope, the timeline, and a fixed quote before we write code." },
+  { title: "Product build", desc: "Web or mobile app, admin panel, user accounts, and payments. Built for real use, not for a pitch." },
+  { title: "AI integration", desc: "Chat, automation, or smart workflows, where they save time or make money. No AI for show." },
+  { title: "Deployment and launch", desc: "Hosted, secured, and live. We test real cases before your first customer sees it." },
+  { title: "Handover and training", desc: "You get the code, logins, docs, and a walkthrough. The product is yours." },
 ];
 
 const steps = [
-  { n: "1", when: "This week", title: "30 minute call", desc: "Tell us the idea, who pays, and where you are stuck. We tell you straight if we are the right fit and what it will take." },
-  { n: "2", when: "Within 48 hours", title: "Your fixed quote", desc: "Scope, timeline, and price in writing. You approve the plan before any build money moves." },
-  { n: "3", when: "Next 4 to 8 weeks", title: "Build, demo, launch", desc: "Weekly demos, WhatsApp updates, and fixes as we go. Launch, handover, and training at the end." },
+  { n: "1", when: "This week", title: "30 minute call", desc: "Tell us the idea, who pays, and where you are stuck. We tell you straight if we fit, and what it takes." },
+  { n: "2", when: "Within 48 hours", title: "Your fixed quote", desc: "Scope, timeline, and price, in writing. You say yes before any build money moves." },
+  { n: "3", when: "Next 4 to 8 weeks", title: "Build, demo, launch", desc: "Weekly demos and WhatsApp updates. Fixes as we go. Launch, handover, and training at the end." },
 ];
 
 const fitYes = [
-  "You are funded or your business has revenue backing the build",
-  "Your idea is clear enough to explain in 2 minutes",
-  "You have AED 18,000 or more set aside for a proper build",
-  "You are the decision maker",
-  "You want to launch in the next 2 months",
+  "You are funded, or your business earns enough to pay for the build",
+  "You can explain the idea in 2 minutes",
+  "You have AED 18,000 or more set aside",
+  "You make the call",
+  "You want to launch in 2 months",
 ];
 
 const fitNo = [
   "You are still testing if anyone wants this",
-  "Budget is under AED 18,000, a prototype tool is a better start",
-  "You need approval from 3 other partners first",
-  "You want a clone built in a week for cheap",
+  "Your budget is under AED 18,000. A prototype tool is a better start",
+  "You need 3 partners to agree first",
+  "You want a cheap clone in a week",
 ];
 
 const faqs = [
-  { q: "How much does it really cost?", a: "Most builds land between AED 18,000 and AED 37,000. Simple MVPs sit at the lower end, products with payments, AI, and multiple user types go higher. You get a fixed quote within 48 hours of your call, so the number does not creep mid build." },
-  { q: "How fast can we actually launch?", a: "4 to 8 weeks from build start for a focused MVP. We start within 30 days of signing. If your scope needs 4 months, we will tell you on the call instead of selling you a fantasy timeline." },
-  { q: "Do I own the product and the code?", a: "Yes, 100%. Code, accounts, data, and IP transfer to you at handover. We document everything and train you or your team to run it." },
-  { q: "I am not technical. Is that a problem?", a: "No, most of our founders are not technical. You bring the business and the customers. We translate it into a product and explain every decision in plain language." },
-  { q: "What happens after launch?", a: "You get handover, training, and a support window after go live. If you want ongoing improvements, we can discuss a monthly plan. No lock in, no hostage situation with your own product." },
-  { q: "Why not hire a freelancer for less?", a: "You can, and for a tiny tool it can work. For a product you plan to charge for, one freelancer is a single point of failure. With us you get a team, a process, weekly demos, and someone accountable for the launch date." },
+  { q: "How much does it really cost?", a: "Most builds land between AED 18,000 and AED 37,000. Simple apps sit at the low end. Payments, AI, and many user types push it up. You get a fixed quote 48 hours after your call, so the price does not move mid build." },
+  { q: "How fast can we actually launch?", a: "4 to 8 weeks from the day we start. We start within 30 days of signing. If your build needs 4 months, we say so on the call." },
+  { q: "Do I own the product and the code?", a: "Yes, all of it. The code, the accounts, the data, and the IP go to you at handover. We write the docs and train you or your team." },
+  { q: "I am not technical. Is that a problem?", a: "No. Most of our founders are not technical. You bring the business and the customers. We turn it into a product and explain each decision in plain words." },
+  { q: "What happens after launch?", a: "You get handover, training, and support after launch. If you want more work later, we can talk about a monthly plan. No lock in. Your product stays yours." },
+  { q: "Why not hire a freelancer for less?", a: "You can. For a tiny tool, it works. For a product you charge money for, one freelancer is one point of failure. With us you get a team, a plan, weekly demos, and someone who owns the launch date." },
 ];
 
 export default function AiSaasDevelopmentUaeLanding() {
@@ -328,8 +328,8 @@ export default function AiSaasDevelopmentUaeLanding() {
                 We build your AI SaaS product in Dubai. <em className="italic text-cobolt-500">Live in 4 to 8 weeks.</em>
               </h1>
               <p className="max-w-[600px] text-[18px] leading-[1.65] text-black-400">
-                You have the idea and the budget. We handle scoping, build, AI integration, and launch. One team, one
-                timeline, a real product your customers and investors can actually use.
+                You bring the idea. We build it. We plan it, build it, add the AI, and launch it. One team, one
+                timeline, a product your customers can really use.
               </p>
               <div className="mt-[28px] flex flex-wrap gap-3">
                 <a href="#apply" className={BTN_PRIMARY}>Book your free strategy call</a>
@@ -337,9 +337,9 @@ export default function AiSaasDevelopmentUaeLanding() {
               </div>
               <dl className="mt-[30px] grid max-w-[720px] grid-cols-1 gap-5 border-t border-neutral-300 pt-[22px] sm:grid-cols-3 sm:gap-7">
                 {[
-                  ["AED 18k to AED 37k", "Typical build. AED 18,000 minimum."],
-                  ["4 to 8 weeks", "Idea to live product"],
-                  ["Start in 30 days", "Within 30 days of signing"],
+                  ["AED 18k to AED 37k", "Typical build. Starts at AED 18,000."],
+                  ["4 to 8 weeks", "From idea to live"],
+                  ["Start in 30 days", "After you sign"],
                 ].map(([v, l]) => (
                   <div key={v}>
                     <dt className="font-display text-[23px] leading-[1.1] tracking-[-0.5px] text-cobolt-500">{v}</dt>
@@ -357,7 +357,7 @@ export default function AiSaasDevelopmentUaeLanding() {
           <div className={WRAP}>
             <Eyebrow>01 / Proof, not promises</Eyebrow>
             <h2 className={H2}>We ship products people pay on.</h2>
-            <Sub>No slideware. Three live client systems below, handling bookings, orders, payroll, and revenue for businesses in Oman and the UAE.</Sub>
+            <Sub>Real systems, live right now. They take bookings, orders, payroll, and money.</Sub>
             <div className="mt-10 border-t border-neutral-300">
               {proofs.map((p) => (
                 <article key={p.tag} className="grid items-start gap-x-9 gap-y-4 border-b border-neutral-300 py-[26px] md:grid-cols-[minmax(230px,0.85fr)_1.15fr] md:grid-rows-[auto_1fr] md:py-[34px]">
@@ -392,8 +392,8 @@ export default function AiSaasDevelopmentUaeLanding() {
         <section className="bg-black-500 py-12 text-white-300 lg:py-[80px]">
           <div className={WRAP}>
             <Eyebrow dark>02 / The problem</Eyebrow>
-            <h2 className={`${H2} !text-white-200`}>Your idea is stuck. It is not an idea problem.</h2>
-            <Sub dark>Most founders we meet are not short on vision. They are short on a team that will just build it properly and finish.</Sub>
+            <h2 className={`${H2} !text-white-200`}>Your idea is stuck. The idea is not the problem.</h2>
+            <Sub dark>Most founders we meet are not short on vision. They are short on a team that builds it properly and finishes.</Sub>
             <div className="mt-9 grid border-t border-white-100/15 md:grid-cols-2">
               {problems.map((p, i) => (
                 <div key={p.n} className={`border-b border-white-100/15 py-[26px] md:pr-[26px] ${i > 0 ? "md:border-l md:pl-[26px]" : ""}`}>
@@ -411,7 +411,7 @@ export default function AiSaasDevelopmentUaeLanding() {
           <div className={WRAP}>
             <Eyebrow>03 / Straight answer</Eyebrow>
             <h2 className={H2}>Why can&apos;t I just use Lovable, Replit, Claude, or ChatGPT?</h2>
-            <Sub>Use them to test an idea. Do not bet your company on them. Here is the honest difference.</Sub>
+            <Sub>Use them to test an idea. Do not run your business on them. Here is the real difference.</Sub>
             <div className="mt-8 grid items-stretch gap-[18px] md:grid-cols-2">
               <div className="rounded-[6px] border border-error/40 border-t-4 border-t-error bg-error/[0.05] p-[26px]">
                 <h3 className="font-display text-[22px] tracking-[-0.6px]">A prototype on your own</h3>
@@ -464,7 +464,7 @@ export default function AiSaasDevelopmentUaeLanding() {
           <div className={WRAP}>
             <Eyebrow>05 / The offer</Eyebrow>
             <h2 className={H2}>Everything included. No hiring. No chasing.</h2>
-            <Sub>AI Service and Solution by Technioz. One fixed scope, one team in Dubai, weekly progress you can see.</Sub>
+            <Sub>One fixed scope. One team in Dubai. Progress you can see every week.</Sub>
             <div className="mt-8 grid items-start gap-9 lg:grid-cols-[1.15fr_0.85fr]">
               <ol className="border-t border-neutral-300">
                 {included.map((item, i) => (
@@ -478,11 +478,11 @@ export default function AiSaasDevelopmentUaeLanding() {
                 ))}
               </ol>
               <aside className="rounded-[6px] border border-white-100/10 bg-black-500 p-[26px] text-white-300 lg:sticky lg:top-[84px]">
-                <h3 className="font-mono text-[11px] uppercase tracking-[0.14em] !text-black-200">Typical investment</h3>
+                <h3 className="font-mono text-[11px] uppercase tracking-[0.14em] !text-black-200">Typical cost</h3>
                 <p className="mt-3 mb-[6px] font-display text-[46px] leading-none tracking-[-1.5px] text-white-200">AED 18k to AED 37k</p>
-                <p className="text-[14px] text-black-200">Minimum project AED 18,000. Fixed quote, so the number does not creep later.</p>
+                <p className="text-[14px] text-black-200">Minimum AED 18,000. The quote is fixed, so the price does not creep up later.</p>
                 <ul className="my-[18px] grid gap-[9px] text-[14.5px] text-white-300">
-                  {["Live in 4 to 8 weeks", "Start within 30 days of signing", "Dubai based team, direct WhatsApp access", "You own 100% of the IP"].map((t) => (
+                  {["Live in 4 to 8 weeks", "Start within 30 days of signing", "Dubai team, direct WhatsApp access", "You own 100% of the IP"].map((t) => (
                     <li key={t} className="flex gap-[9px]">
                       <span className="mt-[8px] h-[6px] w-[6px] shrink-0 rounded-[2px] bg-cobolt-200" aria-hidden="true" />
                       {t}
@@ -524,7 +524,7 @@ export default function AiSaasDevelopmentUaeLanding() {
                 <ul className="list-disc space-y-[6px] pl-[18px] text-[14.5px] text-black-400 marker:text-black-300">
                   {fitNo.map((t) => <li key={t}>{t}</li>)}
                 </ul>
-                <p className="mt-3 text-[14px] text-black-400">No hard feelings. Come back when the funding and idea are ready, we will be here.</p>
+                <p className="mt-3 text-[14px] text-black-400">No hard feelings. Come back when the money and the idea are ready.</p>
               </div>
             </div>
           </div>
@@ -555,21 +555,21 @@ export default function AiSaasDevelopmentUaeLanding() {
             <div className="rounded-[6px] bg-black-500 p-[22px] text-white-200 sm:p-[34px]">
               <div className="grid gap-8 lg:grid-cols-2">
                 <div>
-                  <Eyebrow dark>08 / Your fixed quote</Eyebrow>
+                  <Eyebrow dark>08 / Book your call</Eyebrow>
                   <h2 className={`${H2} !text-white-200`}>Tell us what you need. Pick your call time right after this.</h2>
                   <p className="text-[16px] leading-[1.6] text-black-100">
                     It is a 30 minute call. We confirm on WhatsApp within 10 minutes in working hours.
                   </p>
                   <ul className="mt-4 list-disc space-y-1 pl-[18px] text-[15px] text-black-100 marker:text-cobolt-200">
-                    <li>No sales script, we scope your actual build</li>
-                    <li>A fixed quote within 48 hours of your call</li>
-                    <li>If we are not the fit, we will say so on the call</li>
+                    <li>No sales script. We plan your real build</li>
+                    <li>A fixed quote 48 hours after your call</li>
+                    <li>If we are not the right fit, we say so on the call</li>
                   </ul>
                   <p className="mt-5 border-l-2 border-cobolt-200 pl-3 text-[15px] text-white-200">
-                    We take on two builds at a time, so every project gets the founder&apos;s direct attention.
+                    We take two builds at a time, so each project gets the founder&apos;s own attention.
                   </p>
                   <p className="mt-4 text-[13.5px] text-black-200">
-                    Prefer chat first? Use the WhatsApp button below. Same team, same response time.
+                    Prefer to chat? Use the WhatsApp button below. Same team, same speed.
                   </p>
                 </div>
                 <div>

@@ -2,6 +2,7 @@ import "server-only";
 import { PrismaClient } from "@prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
 import { sendNtfy, type NtfyResult } from "@/lib/ntfy";
+import { ideaProblem } from "@/lib/idea-text";
 import { withSaveTimeout } from "@/lib/save-timeout";
 import {
   ALL_BUDGET_OPTIONS,
@@ -89,11 +90,15 @@ export function validateCampaignLead(
   const decisionRole = pick("decisionRole", values(DECISION_OPTIONS), true);
   const timeline = pick("timeline", values(TIMELINE_OPTIONS), false);
   const techBackground = pick("techBackground", values(TECH_OPTIONS), false);
+  // Required now: a phone number in this box is not an idea (18 Oct 2026).
+  const idea = str(b.idea, 1000);
+  const ideaIssue = ideaProblem(idea);
 
   if (!ideaStage) return { ok: false, error: "Please pick where your idea is right now." };
   if (!funding) return { ok: false, error: "Please pick your funding status." };
   if (!budget) return { ok: false, error: "Please select a budget range." };
   if (!decisionRole) return { ok: false, error: "Please tell us if you are the decision maker." };
+  if (ideaIssue) return { ok: false, error: ideaIssue };
   if (timeline === undefined || techBackground === undefined) {
     return { ok: false, error: "Invalid answer." };
   }
@@ -119,7 +124,7 @@ export function validateCampaignLead(
       timeline,
       techBackground,
       decisionRole,
-      idea: str(b.idea, 1000) || null,
+      idea,
       landingPath,
       utmSource: u("utm_source"),
       utmMedium: u("utm_medium"),
